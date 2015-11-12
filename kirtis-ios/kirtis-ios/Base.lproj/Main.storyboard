@@ -7,54 +7,98 @@
     </dependencies>
     <scenes>
         <!--Kirčiavimo programa-->
-        <scene sceneID="Kpk-Q2-Bsh">
+        <scene sceneID="BJa-Cp-Tjy">
             <objects>
-                <viewController id="R28-KQ-a99" customClass="KirtisViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Nn-PF-zHk"/>
-                        <viewControllerLayoutGuide type="bottom" id="RR6-pe-EP3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SFl-pA-L6X">
+                <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="131" sectionHeaderHeight="18" sectionFooterHeight="18" id="KML-pK-mYq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                <rect key="frame" x="20" y="72" width="560" height="30"/>
-                                <animations/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="xod-Ct-IA5" secondAttribute="leading" id="4ks-sR-JAb"/>
-                            <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="2Nn-PF-zHk" secondAttribute="bottom" constant="8" id="Wpt-0j-tVZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xod-Ct-IA5" secondAttribute="trailing" id="h7N-3B-QQm"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Kirčiavimo programa" id="Q7e-tl-7yr"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" id="xod-Ct-IA5">
+                            <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" rowHeight="131" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="600" height="131"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lx-Gy-dGi" id="wRa-c9-gVd">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-vp-i4J">
+                                            <rect key="frame" x="283" y="8" width="34" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="756-h9-DpN"/>
+                                                <constraint firstAttribute="width" constant="34" id="E6E-Aj-zU9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="756-h9-DpN"/>
+                                                    <exclude reference="E6E-Aj-zU9"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="States" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjU-7m-XiB">
+                                            <rect key="frame" x="276" y="54" width="49" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerX" secondItem="eao-vp-i4J" secondAttribute="centerX" id="0lf-nI-MGP"/>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerY" secondItem="wRa-c9-gVd" secondAttribute="centerY" id="Cor-Us-CLU"/>
+                                        <constraint firstItem="eao-vp-i4J" firstAttribute="centerX" secondItem="wRa-c9-gVd" secondAttribute="centerX" id="aAA-MU-s5F"/>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="top" secondItem="eao-vp-i4J" secondAttribute="bottom" constant="25" id="dyM-JG-FU1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AjU-7m-XiB" secondAttribute="bottom" constant="47.5" id="pct-W9-KKM"/>
+                                        <constraint firstItem="eao-vp-i4J" firstAttribute="top" secondItem="wRa-c9-gVd" secondAttribute="topMargin" id="yog-zH-GcL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="states" destination="AjU-7m-XiB" id="HPq-n6-5ST"/>
+                                    <outlet property="title" destination="eao-vp-i4J" id="HgG-ey-Mpy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="srG-RZ-iUR" id="WFS-ee-ETO"/>
+                            <outlet property="delegate" destination="srG-RZ-iUR" id="xCD-WX-76a"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kirčiavimo programa" id="mtM-BP-qai"/>
                     <connections>
-                        <outlet property="textFieldForWord" destination="xod-Ct-IA5" id="KiP-m3-5x6"/>
+                        <outlet property="textFieldForWord" destination="xod-Ct-IA5" id="bul-Pt-Z2u"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BVe-ZW-ssJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUO-uo-g0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008" y="117"/>
+            <point key="canvasLocation" x="2000" y="117"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Istorija-->
         <scene sceneID="kYi-xY-tk7">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9bB-VI-tCI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="9bB-VI-tCI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gVi-hi-pJs">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="history" id="gVi-hi-pJs">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVi-hi-pJs" id="vdu-LP-qCI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -69,7 +113,7 @@
                             <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ddm-t5-qEk"/>
+                    <navigationItem key="navigationItem" title="Istorija" id="Ddm-t5-qEk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekl-2m-0K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,7 +129,7 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="R28-KQ-a99" kind="relationship" relationship="rootViewController" id="1DL-F8-Udw"/>
+                        <segue destination="srG-RZ-iUR" kind="relationship" relationship="rootViewController" id="08n-HG-zee"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY6-lj-4qy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,11 +11,11 @@ import Foundation
 class Accentuation{
     var part:String
     var word:String
-    var state:[String]
+    var states:[String]
     
-    required init(part: String, word:String, state:[String]){
+    required init(part: String, word:String, states:[String]){
         self.part = part
         self.word = word
-        self.state = state
+        self.states = states
     }
 }
