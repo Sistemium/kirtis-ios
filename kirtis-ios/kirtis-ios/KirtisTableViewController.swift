@@ -10,20 +10,70 @@ import UIKit
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var history: UIBarButtonItem!
     @IBOutlet weak var textFieldForWord: UITextField!
+    var textToSearch:String?{
+        didSet{
+            textFieldForWord.text = textToSearch
+            search()
+        }
+    }
     private let url = "http://kirtis.info/api/krc/"
-    var accentuations: [Accentuation]?
+    private var accentuations: [Accentuation]?
+    var isWidthRegular = false{
+        didSet{
+            if isWidthRegular{
+                navigationItem.rightBarButtonItems = []
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
         textFieldForWord.delegate = self
+    }
+    
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var recentSearches : [String] {
+        get{
+            return defaults.objectForKey("RecentSearches") as? [String] ?? []
+        }
+        
+        set{
+            defaults.setObject(newValue, forKey: "RecentSearches")
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        accentuations = getAccentuations(textField.text!)  //what if it fails?
-        tableView.reloadData()
+        search()
         return true
+    }
+    
+    private func search(){
+        accentuations = getAccentuations(textFieldForWord.text!)  //what if it fails?
+        if accentuations?.count > 0 {
+            appendHistory(textFieldForWord.text!)
+        }
+        tableView.reloadData()
+    }
+    
+    private func appendHistory(text:String){
+        var recent = recentSearches
+        if let dublicate = recentSearches.indexOf(text){
+            recent.removeAtIndex(dublicate)
+        }
+        if recent.count == 100 {
+            recent.removeAtIndex(99)
+        }
+        recentSearches = [text] + recent
+        if isWidthRegular {
+            performSegueWithIdentifier("showHistory", sender: self)
+        }
     }
     
     private func getAccentuations(word:String) -> [Accentuation]{
@@ -80,6 +130,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             cell.states.text! += state + " "
         }
         return cell
+    }
+    
+    @IBAction func goBack(segue:UIStoryboardSegue){
     }
     
 }
