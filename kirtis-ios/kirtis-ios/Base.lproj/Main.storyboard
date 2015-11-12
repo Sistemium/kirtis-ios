@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pkY-sr-JgN">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kirčiavimo programa-->
+        <scene sceneID="Kpk-Q2-Bsh">
+            <objects>
+                <viewController id="R28-KQ-a99" customClass="KirtisViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Nn-PF-zHk"/>
+                        <viewControllerLayoutGuide type="bottom" id="RR6-pe-EP3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SFl-pA-L6X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <animations/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="xod-Ct-IA5" secondAttribute="leading" id="4ks-sR-JAb"/>
+                            <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="2Nn-PF-zHk" secondAttribute="bottom" constant="8" id="Wpt-0j-tVZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xod-Ct-IA5" secondAttribute="trailing" id="h7N-3B-QQm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Kirčiavimo programa" id="Q7e-tl-7yr"/>
+                    <connections>
+                        <outlet property="textFieldForWord" destination="xod-Ct-IA5" id="KiP-m3-5x6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVe-ZW-ssJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008" y="117"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="kYi-xY-tk7">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9bB-VI-tCI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gVi-hi-pJs">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVi-hi-pJs" id="vdu-LP-qCI">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ki2-wg-l3j" id="Bai-ot-kRf"/>
+                            <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ddm-t5-qEk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekl-2m-0K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000" y="778"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R7k-xe-LL4">
+            <objects>
+                <navigationController id="TMn-Hd-4p1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8A2-6i-hYW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="R28-KQ-a99" kind="relationship" relationship="rootViewController" id="1DL-F8-Udw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dY6-lj-4qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240" y="117"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="mcx-MK-oJt">
+            <objects>
+                <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="TMn-Hd-4p1" kind="relationship" relationship="masterViewController" id="YgX-qv-txS"/>
+                        <segue destination="NCA-dv-uBv" kind="relationship" relationship="detailViewController" id="znV-r6-kPU"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQw-60-5ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="445"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MY3-Rp-wmH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NCA-dv-uBv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dQV-gw-0KK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ki2-wg-l3j" kind="relationship" relationship="rootViewController" id="JVd-Mc-ckh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgu-e0-TMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240" y="778"/>
+        </scene>
+    </scenes>
+</document>
