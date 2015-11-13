@@ -20,6 +20,10 @@ class RecentSearchesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    @IBAction func close(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("search", sender: self)
+    }
+    
     private let defaults = NSUserDefaults.standardUserDefaults()
     
     var textToSearchDelegate:TextToSearchDelegate?
@@ -54,7 +58,7 @@ class RecentSearchesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         textToSearchDelegate?.textToSearch = recentSearches[indexPath.item]
-        performSegueWithIdentifier("goBack", sender: self)
+        performSegueWithIdentifier("search", sender: self)
         
     }
     
@@ -66,6 +70,9 @@ class RecentSearchesTableViewController: UITableViewController {
             recentSearches = recent
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+    
+    @IBAction func goToHistory(segue:UIStoryboardSegue){
     }
 
 }

@@ -39,6 +39,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Tex
         textFieldForWord.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //self.navigationItem.setHidesBackButton(true, animated:false);
+        navigationItem.leftBarButtonItems = []
+    }
+    
     private let defaults = NSUserDefaults.standardUserDefaults()
     
     var recentSearches : [String] {
@@ -136,10 +142,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Tex
         return cell
     }
     
-    @IBAction func goBack(segue:UIStoryboardSegue){
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        ((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
+        //((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
     }
 }
