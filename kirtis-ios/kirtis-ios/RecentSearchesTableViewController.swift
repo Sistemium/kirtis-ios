@@ -22,6 +22,8 @@ class RecentSearchesTableViewController: UITableViewController {
     
     private let defaults = NSUserDefaults.standardUserDefaults()
     
+    var textToSearchDelegate:TextToSearchDelegate?
+    
     var recentSearches : [String] {
         get{
             return defaults.objectForKey("RecentSearches") as? [String] ?? []
@@ -51,7 +53,7 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        ((splitViewController!.viewControllers[0] as! UINavigationController).viewControllers[0] as! KirtisTableViewController).textToSearch = recentSearches[indexPath.item]
+        textToSearchDelegate?.textToSearch = recentSearches[indexPath.item]
         performSegueWithIdentifier("goBack", sender: self)
         
     }

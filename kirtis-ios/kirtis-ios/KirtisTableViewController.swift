@@ -8,7 +8,11 @@
 
 import UIKit
 
-class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
+protocol TextToSearchDelegate{
+    var textToSearch:String?{get set}
+}
+
+class KirtisTableViewController: UITableViewController, UITextFieldDelegate, TextToSearchDelegate {
     
     @IBOutlet weak var history: UIBarButtonItem!
     @IBOutlet weak var textFieldForWord: UITextField!
@@ -27,7 +31,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +81,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-        if getJSON(url+word) != nil {
-            let data = parseJSON(getJSON(url+word)!)
+        let api:String = url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        if let json = getJSON(api)  {
+            let data = parseJSON(json)
             for value in data! {
                 let element = value as! NSDictionary
                 let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"]as! [String]) //what if any casting fails?
@@ -135,4 +139,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func goBack(segue:UIStoryboardSegue){
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        ((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
+    }
 }
