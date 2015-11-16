@@ -81,7 +81,7 @@
                     <navigationItem key="navigationItem" title="Kirčiavimo programa" id="mtM-BP-qai">
                         <barButtonItem key="rightBarButtonItem" title="Istorija" id="CFx-1t-MTx">
                             <connections>
-                                <segue destination="NCA-dv-uBv" kind="showDetail" identifier="showHistory" id="Jjc-R7-yHe"/>
+                                <segue destination="Y1g-SC-3ka" kind="unwind" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -91,8 +91,9 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUO-uo-g0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Y1g-SC-3ka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="117"/>
+            <point key="canvasLocation" x="2000" y="145"/>
         </scene>
         <!--Istorija-->
         <scene sceneID="kYi-xY-tk7">
@@ -114,7 +115,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="tji-6q-iTZ" kind="unwind" identifier="goBack" unwindAction="goBack:" id="YxP-LY-7YY"/>
+                                    <segue destination="TMn-Hd-4p1" kind="showDetail" identifier="search" id="LY2-Vc-U73"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -123,12 +124,20 @@
                             <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Istorija" id="Ddm-t5-qEk"/>
+                    <navigationItem key="navigationItem" title="Istorija" id="Ddm-t5-qEk">
+                        <barButtonItem key="rightBarButtonItem" title="Uždaryti" id="Pv9-hU-tWy">
+                            <connections>
+                                <action selector="close:" destination="ki2-wg-l3j" id="fY3-22-XEI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="close" destination="Pv9-hU-tWy" id="JrS-7i-kV8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekl-2m-0K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="tji-6q-iTZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="1220"/>
+            <point key="canvasLocation" x="2078" y="1220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R7k-xe-LL4">
@@ -145,15 +154,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY6-lj-4qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="117"/>
+            <point key="canvasLocation" x="1240" y="139"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="TMn-Hd-4p1" kind="relationship" relationship="masterViewController" id="YgX-qv-txS"/>
-                        <segue destination="NCA-dv-uBv" kind="relationship" relationship="detailViewController" id="znV-r6-kPU"/>
+                        <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
+                        <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQw-60-5ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,7 +172,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MY3-Rp-wmH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NCA-dv-uBv" sceneMemberID="viewController">
+                <navigationController id="NCA-dv-uBv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dQV-gw-0KK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -181,6 +190,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jjc-R7-yHe"/>
+        <segue reference="LY2-Vc-U73"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,35 +8,45 @@
 
 import UIKit
 
-protocol TextToSearchDelegate{
-    var textToSearch:String?{get set}
-}
-
-class KirtisTableViewController: UITableViewController, UITextFieldDelegate, TextToSearchDelegate {
+class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var history: UIBarButtonItem!
+    @IBOutlet var history: UIBarButtonItem!
     @IBOutlet weak var textFieldForWord: UITextField!
-    var textToSearch:String?{
-        didSet{
-            textFieldForWord.text = textToSearch
-            search()
-        }
-    }
+    var textToSearch:String?
     private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?
-    var isWidthRegular = false{
-        didSet{
-            if isWidthRegular{
-                navigationItem.rightBarButtonItems = []
-            }
-        }
-    }
+//    var isWidthRegular = false{
+//        didSet{
+//            if isWidthRegular{
+//                navigationItem.rightBarButtonItems = []
+//            }
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         textFieldForWord.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated:false);
+        if let text = textToSearch{
+            textFieldForWord.text = text
+            search()
+        }
+        shouldButtonAppear()
+    }
+    
+    func shouldButtonAppear(){
+        if !splitViewController!.collapsed{
+            navigationItem.rightBarButtonItems = []
+        }else{
+            navigationItem.rightBarButtonItems = [history]
+        }
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -45,9 +55,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Tex
         get{
             return defaults.objectForKey("RecentSearches") as? [String] ?? []
         }
-        
+        // I need update history immediately, best way to do it here, 
+        //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. Landscape mode)
         set{
             defaults.setObject(newValue, forKey: "RecentSearches")
+            ((self.splitViewController?.viewControllers[0] as! UINavigationController).visibleViewController as! UITableViewController).tableView.reloadData()
         }
     }
     
@@ -74,9 +86,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Tex
             recent.removeAtIndex(99)
         }
         recentSearches = [text] + recent
-        if isWidthRegular {
-            performSegueWithIdentifier("showHistory", sender: self)
-        }
+//        if isWidthRegular {
+//            performSegueWithIdentifier("showHistory", sender: self)
+//        }
     }
     
     private func getAccentuations(word:String) -> [Accentuation]{
@@ -136,10 +148,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Tex
         return cell
     }
     
-    @IBAction func goBack(segue:UIStoryboardSegue){
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        ((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
+        //((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
     }
 }
