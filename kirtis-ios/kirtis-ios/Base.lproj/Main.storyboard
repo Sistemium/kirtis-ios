@@ -10,7 +10,7 @@
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
                 <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="KML-pK-mYq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="KML-pK-mYq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -104,7 +104,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUO-uo-g0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Y1g-SC-3ka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="145"/>
+            <point key="canvasLocation" x="2043" y="139"/>
         </scene>
         <!--Istorija-->
         <scene sceneID="kYi-xY-tk7">

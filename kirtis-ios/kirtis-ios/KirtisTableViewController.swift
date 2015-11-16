@@ -71,6 +71,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         if accentuations?.count > 0 {
             appendHistory(text)
         }
+        else{
+            accentuations?.append(Accentuation(message: "Žodis nerastas"))
+        }
         tableView.reloadData()
     }
     
@@ -134,10 +137,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! KirtisTableViewCell
-        cell.title.text = accentuations![indexPath.item].word + " (" + accentuations![indexPath.item].part + ")"
-        cell.states.text = ""
-        for state in accentuations![indexPath.item].states{
-            cell.states.text! += state + " "
+        if let message = accentuations![indexPath.item].message{
+            cell.title.text = message
+            cell.states.text = ""
+        }else{
+            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
+            cell.states.text = ""
+            for state in accentuations![indexPath.item].states!{
+                cell.states.text! += state + " "
+            }
         }
         return cell
     }
