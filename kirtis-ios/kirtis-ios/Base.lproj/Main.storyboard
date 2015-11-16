@@ -137,7 +137,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekl-2m-0K0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="1220"/>
+            <point key="canvasLocation" x="2000" y="1220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R7k-xe-LL4">
@@ -186,7 +186,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgu-e0-TMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="1220"/>
+            <point key="canvasLocation" x="1240" y="1214"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
