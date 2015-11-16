@@ -67,7 +67,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         if text.characters.count > 0{
             text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
         }
-        print(text)
         accentuations = getAccentuations(text)  //what if it fails?
         if accentuations?.count > 0 {
             appendHistory(text)
