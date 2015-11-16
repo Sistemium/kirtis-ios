@@ -9,13 +9,17 @@
 import Foundation
 
 class Accentuation{
-    var part:String
-    var word:String
-    var states:[String]
+    var part:String?
+    var word:String?
+    var states:[String]?
+    var message:String? //for errors
     
     required init(part: String, word:String, states:[String]){
         self.part = part
         self.word = word
         self.states = states
+    }
+    required init(message: String){
+        self.message = message
     }
 }

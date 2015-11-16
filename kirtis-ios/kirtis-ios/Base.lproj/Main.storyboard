@@ -10,22 +10,35 @@
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
                 <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="KML-pK-mYq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="KML-pK-mYq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" id="xod-Ct-IA5">
-                            <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="y3n-wh-sHp">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                    <rect key="frame" x="10" y="7" width="580" height="30"/>
+                                    <animations/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
                             <animations/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="xod-Ct-IA5" secondAttribute="bottom" constant="7" id="E88-9N-JRX"/>
+                                <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="7" id="VWm-MK-tqD"/>
+                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="10" id="lrF-It-zi9"/>
+                                <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="10" id="ymZ-Pp-gDK"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" rowHeight="131" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="122" width="600" height="131"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lx-Gy-dGi" id="wRa-c9-gVd">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
@@ -39,7 +52,6 @@
                                                 <constraint firstAttribute="width" constant="34" id="E6E-Aj-zU9"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -52,7 +64,6 @@
                                             <rect key="frame" x="276" y="56" width="49" height="19"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -93,7 +104,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUO-uo-g0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Y1g-SC-3ka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="145"/>
+            <point key="canvasLocation" x="2043" y="139"/>
         </scene>
         <!--Istorija-->
         <scene sceneID="kYi-xY-tk7">

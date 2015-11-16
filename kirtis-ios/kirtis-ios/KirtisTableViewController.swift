@@ -11,7 +11,7 @@ import UIKit
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var history: UIBarButtonItem!
-    @IBOutlet weak var textFieldForWord: UITextField!
+    @IBOutlet var textFieldForWord: UITextField!
     var textToSearch:String?
     private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?
@@ -35,10 +35,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func shouldButtonAppear(){
-        if !splitViewController!.collapsed{
-            navigationItem.rightBarButtonItems = []
-        }else{
+        if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [history]
+        }else{
+            navigationItem.rightBarButtonItems = []
         }
     }
     
@@ -67,10 +67,16 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         if text.characters.count > 0{
             text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
         }
-        print(text)
         accentuations = getAccentuations(text)  //what if it fails?
         if accentuations?.count > 0 {
             appendHistory(text)
+        }
+        else{
+            if text == ""{
+                accentuations = [Accentuation(message: "Žodis neįvestas")]
+            }else{
+                accentuations = [Accentuation(message: "Žodis nerastas")]
+            }
         }
         tableView.reloadData()
     }
@@ -135,11 +141,20 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! KirtisTableViewCell
-        cell.title.text = accentuations![indexPath.item].word + " (" + accentuations![indexPath.item].part + ")"
-        cell.states.text = ""
-        for state in accentuations![indexPath.item].states{
-            cell.states.text! += state + " "
+        if let message = accentuations![indexPath.item].message{
+            cell.title.text = message
+            cell.states.text = ""
+        }else{
+            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
+            cell.states.text = ""
+            for state in accentuations![indexPath.item].states!{
+                cell.states.text! += state + " "
+            }
         }
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
     }
 }
