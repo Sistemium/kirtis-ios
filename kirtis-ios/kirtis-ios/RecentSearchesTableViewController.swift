@@ -10,10 +10,13 @@ import UIKit
 
 class RecentSearchesTableViewController: UITableViewController {
     
+    @IBOutlet var close: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -21,12 +24,10 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     @IBAction func close(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("search", sender: self)
+        performSegueWithIdentifier("search", sender: "")
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
-    
-    var textToSearchDelegate:TextToSearchDelegate?
     
     var recentSearches : [String] {
         get{
@@ -54,12 +55,25 @@ class RecentSearchesTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        shouldButtonAppear()
+    }
+    
+    func shouldButtonAppear(){
+        if !splitViewController!.collapsed{
+            navigationItem.rightBarButtonItems = []
+        }else{
+            navigationItem.rightBarButtonItems = [close]
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        textToSearchDelegate?.textToSearch = recentSearches[indexPath.item]
-        performSegueWithIdentifier("search", sender: self)
-        
+        performSegueWithIdentifier("search", sender: recentSearches[indexPath.item])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
+        destination.navigationItem.setHidesBackButton(true, animated: false)
+        destination.textToSearch = (sender as! String)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
