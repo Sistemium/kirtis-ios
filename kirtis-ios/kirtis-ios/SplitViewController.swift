@@ -14,16 +14,10 @@ class SplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         preferredDisplayMode = .AllVisible
+        //use this to config split size 
         //minimumPrimaryColumnWidth = CGFloat(0.7)
         //preferredPrimaryColumnWidthFraction = CGFloat(0.7)
         //maximumPrimaryColumnWidth = view.bounds.size.width
     }
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if (self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.Regular && self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.Regular) {
-//            ((self.viewControllers[1] as! UINavigationController).visibleViewController! as! KirtisTableViewController).isWidthRegular = true
-//        }
-//    }
     
 }

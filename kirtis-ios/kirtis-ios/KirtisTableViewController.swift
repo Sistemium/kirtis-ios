@@ -15,13 +15,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     var textToSearch:String?
     private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?
-//    var isWidthRegular = false{
-//        didSet{
-//            if isWidthRegular{
-//                navigationItem.rightBarButtonItems = []
-//            }
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +63,14 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     private func search(){
-        accentuations = getAccentuations(textFieldForWord.text!)  //what if it fails?
+        var text = textFieldForWord.text!.lowercaseString
+        if text.characters.count > 0{
+            text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
+        }
+        print(text)
+        accentuations = getAccentuations(text)  //what if it fails?
         if accentuations?.count > 0 {
-            appendHistory(textFieldForWord.text!)
+            appendHistory(text)
         }
         tableView.reloadData()
     }
@@ -86,9 +84,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             recent.removeAtIndex(99)
         }
         recentSearches = [text] + recent
-//        if isWidthRegular {
-//            performSegueWithIdentifier("showHistory", sender: self)
-//        }
     }
     
     private func getAccentuations(word:String) -> [Accentuation]{
@@ -146,9 +141,5 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             cell.states.text! += state + " "
         }
         return cell
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //((segue.destinationViewController as! UINavigationController).visibleViewController as! RecentSearchesTableViewController).textToSearchDelegate = self
     }
 }
