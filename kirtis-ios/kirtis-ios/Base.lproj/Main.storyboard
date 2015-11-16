@@ -24,7 +24,7 @@
                                     <animations/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                    <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                             <animations/>

@@ -11,7 +11,7 @@ import UIKit
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var history: UIBarButtonItem!
-    @IBOutlet weak var textFieldForWord: UITextField!
+    @IBOutlet var textFieldForWord: UITextField!
     var textToSearch:String?
     private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?
@@ -35,10 +35,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func shouldButtonAppear(){
-        if !splitViewController!.collapsed{
-            navigationItem.rightBarButtonItems = []
-        }else{
+        if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [history]
+        }else{
+            navigationItem.rightBarButtonItems = []
         }
     }
     
@@ -72,7 +72,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             appendHistory(text)
         }
         else{
-            accentuations?.append(Accentuation(message: "Žodis nerastas"))
+            if text == ""{
+                accentuations = [Accentuation(message: "Žodis neįvestas")]
+            }else{
+                accentuations = [Accentuation(message: "Žodis nerastas")]
+            }
         }
         tableView.reloadData()
     }
@@ -148,5 +152,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
     }
 }

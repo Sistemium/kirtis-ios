@@ -11,6 +11,7 @@ import UIKit
 class RecentSearchesTableViewController: UITableViewController {
     
     @IBOutlet var close: UIBarButtonItem!
+    var textToSearch:String? //i dont want to lose current search (opening history destroys KirtisTableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     @IBAction func close(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("search", sender: "")
+        performSegueWithIdentifier("search", sender: textToSearch ?? "")
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -59,10 +60,10 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     func shouldButtonAppear(){
-        if !splitViewController!.collapsed{
-            navigationItem.rightBarButtonItems = []
-        }else{
+        if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [close]
+        }else{
+            navigationItem.rightBarButtonItems = []
         }
     }
     
@@ -73,7 +74,9 @@ class RecentSearchesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
         destination.navigationItem.setHidesBackButton(true, animated: false)
-        destination.textToSearch = (sender as! String)
+        if (sender as! String) != "" {
+            destination.textToSearch = (sender as! String)
+        }
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
