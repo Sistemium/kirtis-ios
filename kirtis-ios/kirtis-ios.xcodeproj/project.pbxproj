@@ -16,6 +16,9 @@
 		6D065F981BF4CDF6005DB78D /* KirtisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */; };
 		6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */; };
 		6D065F9D1BF4E047005DB78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D065F9B1BF4E047005DB78D /* Main.storyboard */; };
+		6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
+		6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
+		6D1B3C421BFB2C7D00EE65A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,10 @@
 		6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewCell.swift; sourceTree = "<group>"; };
 		6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
 		6D065F9C1BF4E047005DB78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D1B3C351BFB21D500EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Main.strings; sourceTree = "<group>"; };
+		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D1B3C3E1BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D1B3C431BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +90,8 @@
 		6D065F6C1BF38C94005DB78D /* kirtis-ios */ = {
 			isa = PBXGroup;
 			children = (
+				6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */,
+				6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
 				6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */,
@@ -99,6 +108,7 @@
 		6D065F811BF38C94005DB78D /* kirtis-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F821BF38C94005DB78D /* kirtis_iosTests.swift */,
 				6D065F841BF38C94005DB78D /* Info.plist */,
 			);
@@ -187,6 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D065F9D1BF4E047005DB78D /* Main.storyboard in Resources */,
+				6D1B3C421BFB2C7D00EE65A5 /* Localizable.strings in Resources */,
+				6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */,
 				6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +250,33 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
+				6D1B3C351BFB21D500EE65A5 /* lt */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C391BFB2C7D00EE65A5 /* lt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C3E1BFB2C7D00EE65A5 /* lt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C431BFB2C7D00EE65A5 /* lt */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -331,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
@@ -342,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";

@@ -73,9 +73,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
         else{
             if text == ""{
-                accentuations = [Accentuation(message: "Žodis neįvestas")]
+                let message = NSLocalizedString("Word is not typed", comment: "Nothing was typed")
+                accentuations = [Accentuation(message: message)]
             }else{
-                accentuations = [Accentuation(message: "Žodis nerastas")]
+                let message = NSLocalizedString("Word is not found", comment: "search returned nothing")
+                accentuations = [Accentuation(message: message)]
             }
         }
         tableView.reloadData()

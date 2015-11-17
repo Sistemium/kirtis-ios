@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Kirčiavimo programa-->
+        <!--Accentuation program-->
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
                 <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Accentuate the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
                                     <rect key="frame" x="10" y="7" width="580" height="30"/>
                                     <animations/>
                                     <nil key="textColor"/>
@@ -89,8 +89,8 @@
                             <outlet property="delegate" destination="srG-RZ-iUR" id="xCD-WX-76a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Kirčiavimo programa" id="mtM-BP-qai">
-                        <barButtonItem key="rightBarButtonItem" title="Istorija" id="CFx-1t-MTx">
+                    <navigationItem key="navigationItem" title="Accentuation program" id="mtM-BP-qai">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="CFx-1t-MTx">
                             <connections>
                                 <segue destination="Y1g-SC-3ka" kind="unwind" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
                             </connections>
@@ -106,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="3299" y="-501"/>
         </scene>
-        <!--Istorija-->
+        <!--History-->
         <scene sceneID="kYi-xY-tk7">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" customClass="RecentSearchesTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,8 +135,8 @@
                             <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Istorija" id="Ddm-t5-qEk">
-                        <barButtonItem key="rightBarButtonItem" title="Uždaryti" id="Pv9-hU-tWy">
+                    <navigationItem key="navigationItem" title="History" id="Ddm-t5-qEk">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="Pv9-hU-tWy">
                             <connections>
                                 <action selector="close:" destination="ki2-wg-l3j" id="fY3-22-XEI"/>
                             </connections>
@@ -162,17 +162,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
-                                <rect key="frame" x="20" y="72" width="113.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text about the program" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
+                                <rect key="frame" x="20" y="72" width="178" height="20"/>
                                 <animations/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Some nice info">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -187,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bU2-Gh-lVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2488" y="1398"/>
+            <point key="canvasLocation" x="2496" y="1398"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8hv-Ke-uHj">
@@ -206,7 +200,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quh-iq-tZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="186"/>
+            <point key="canvasLocation" x="608" y="580"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R7k-xe-LL4">
@@ -225,11 +219,11 @@
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Kirčiavimo programa-->
+        <!--Accentuation program-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Kirčiavimo programa" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Accentuation program" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>
