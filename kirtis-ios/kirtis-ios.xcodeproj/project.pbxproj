@@ -19,6 +19,7 @@
 		6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
 		6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
 		6D1B3C421BFB2C7D00EE65A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */; };
+		6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C3E1BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C431BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */,
 				6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
+				6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
 				6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */,
 				6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */,
@@ -220,6 +223,7 @@
 			files = (
 				6D065F941BF4BA2E005DB78D /* SplitViewController.swift in Sources */,
 				6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */,
+				6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */,
 				6D065F901BF4AD22005DB78D /* Accentuation.swift in Sources */,
 				6D065F961BF4C3C3005DB78D /* KirtisTableViewController.swift in Sources */,
 				6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */,

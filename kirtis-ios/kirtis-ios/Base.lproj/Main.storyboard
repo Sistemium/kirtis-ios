@@ -37,7 +37,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" rowHeight="131" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="600" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lx-Gy-dGi" id="wRa-c9-gVd">
@@ -81,6 +81,29 @@
                                 <connections>
                                     <outlet property="states" destination="AjU-7m-XiB" id="HPq-n6-5ST"/>
                                     <outlet property="title" destination="eao-vp-i4J" id="HgG-ey-Mpy"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spinner" id="dg9-f9-FCn" customClass="SpinnerTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="267" width="600" height="131"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dg9-f9-FCn" id="ZfL-EL-J0U">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MTQ-4j-d1N">
+                                            <rect key="frame" x="290" y="56" width="20" height="20"/>
+                                            <animations/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="MTQ-4j-d1N" firstAttribute="centerY" secondItem="ZfL-EL-J0U" secondAttribute="centerY" id="LuH-ix-cy9"/>
+                                        <constraint firstItem="MTQ-4j-d1N" firstAttribute="centerX" secondItem="ZfL-EL-J0U" secondAttribute="centerX" id="Zuc-MB-hhp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="spinner" destination="MTQ-4j-d1N" id="aJb-Ix-Uru"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -250,7 +273,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgu-e0-TMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="574"/>
+            <point key="canvasLocation" x="2496" y="580"/>
         </scene>
         <!--About-->
         <scene sceneID="Fwu-i0-ugg">
@@ -274,6 +297,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="30C-Zg-Qtl"/>
+        <segue reference="LY2-Vc-U73"/>
     </inferredMetricsTieBreakers>
 </document>

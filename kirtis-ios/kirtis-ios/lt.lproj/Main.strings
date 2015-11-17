@@ -10,7 +10,10 @@
 /* Class = "UINavigationItem"; title = "History"; ObjectID = "Ddm-t5-qEk"; */
 "Ddm-t5-qEk.title" = "Istorija";
 
-/* Class = "UITabBarItem"; title = "Kirčiavimo programa"; ObjectID = "Mwo-Mv-2b9"; */
+/* Class = "UILabel"; text = "Text about the program"; ObjectID = "Hsj-Cb-xbW"; */
+"Hsj-Cb-xbW.text" = "Tekstas apie programą";
+
+/* Class = "UITabBarItem"; title = "Accentuation program"; ObjectID = "Mwo-Mv-2b9"; */
 "Mwo-Mv-2b9.title" = "Kirčiavimo programa";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "Pv9-hU-tWy"; */
