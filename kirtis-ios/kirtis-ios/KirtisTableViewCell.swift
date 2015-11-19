@@ -10,7 +10,7 @@ import UIKit
 
 class KirtisTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var title: UIButton!
     @IBOutlet weak var states: UILabel!
     
 }

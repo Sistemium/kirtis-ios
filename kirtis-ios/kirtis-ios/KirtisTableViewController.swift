@@ -168,11 +168,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                 case "loading":
                     return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
-                    cell.title.text = message
+                    cell.title.setTitle(message, forState: .Normal)
                     cell.states.text = ""
             }
         }else{
-            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
+            cell.title.setTitle(accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")", forState: .Normal)
             cell.states.text = ""
             for state in accentuations![indexPath.item].states!{
                 cell.states.text! += state + " "

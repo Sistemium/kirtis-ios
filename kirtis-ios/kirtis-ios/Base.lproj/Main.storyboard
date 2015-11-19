@@ -44,43 +44,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-vp-i4J">
-                                            <rect key="frame" x="283.5" y="8" width="33.5" height="23"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="756-h9-DpN"/>
-                                                <constraint firstAttribute="width" constant="34" id="E6E-Aj-zU9"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="756-h9-DpN"/>
-                                                    <exclude reference="E6E-Aj-zU9"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="States" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjU-7m-XiB">
                                             <rect key="frame" x="276" y="56" width="49" height="19"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKU-4m-ZWD">
+                                            <rect key="frame" x="285" y="8" width="30" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="Title"/>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerX" secondItem="eao-vp-i4J" secondAttribute="centerX" id="0lf-nI-MGP"/>
+                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="centerX" secondItem="AjU-7m-XiB" secondAttribute="centerX" id="2RB-ug-tGu"/>
                                         <constraint firstItem="AjU-7m-XiB" firstAttribute="centerY" secondItem="wRa-c9-gVd" secondAttribute="centerY" id="Cor-Us-CLU"/>
-                                        <constraint firstItem="eao-vp-i4J" firstAttribute="centerX" secondItem="wRa-c9-gVd" secondAttribute="centerX" id="aAA-MU-s5F"/>
-                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="top" secondItem="eao-vp-i4J" secondAttribute="bottom" constant="25" id="dyM-JG-FU1"/>
+                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="centerX" secondItem="wRa-c9-gVd" secondAttribute="centerX" id="DW9-BD-ooV"/>
+                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="top" secondItem="wRa-c9-gVd" secondAttribute="topMargin" id="PCP-Ox-atl"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="AjU-7m-XiB" secondAttribute="bottom" constant="47.5" id="pct-W9-KKM"/>
-                                        <constraint firstItem="eao-vp-i4J" firstAttribute="top" secondItem="wRa-c9-gVd" secondAttribute="topMargin" id="yog-zH-GcL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
                                     <outlet property="states" destination="AjU-7m-XiB" id="HPq-n6-5ST"/>
-                                    <outlet property="title" destination="eao-vp-i4J" id="HgG-ey-Mpy"/>
+                                    <outlet property="title" destination="EKU-4m-ZWD" id="vKp-bV-CGD"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spinner" id="dg9-f9-FCn" customClass="SpinnerTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
