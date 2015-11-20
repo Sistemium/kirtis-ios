@@ -44,31 +44,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="States" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjU-7m-XiB">
-                                            <rect key="frame" x="276" y="56" width="49" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAf-sp-VV0">
+                                            <rect key="frame" x="283.5" y="8" width="33.5" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="States" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjU-7m-XiB">
+                                            <rect key="frame" x="275" y="56" width="49" height="19"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKU-4m-ZWD">
-                                            <rect key="frame" x="285" y="8" width="30" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Title"/>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="centerX" secondItem="AjU-7m-XiB" secondAttribute="centerX" id="2RB-ug-tGu"/>
-                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerY" secondItem="wRa-c9-gVd" secondAttribute="centerY" id="Cor-Us-CLU"/>
-                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="centerX" secondItem="wRa-c9-gVd" secondAttribute="centerX" id="DW9-BD-ooV"/>
-                                        <constraint firstItem="EKU-4m-ZWD" firstAttribute="top" secondItem="wRa-c9-gVd" secondAttribute="topMargin" id="PCP-Ox-atl"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="AjU-7m-XiB" secondAttribute="bottom" constant="47.5" id="pct-W9-KKM"/>
+                                        <constraint firstItem="ZAf-sp-VV0" firstAttribute="top" secondItem="wRa-c9-gVd" secondAttribute="topMargin" id="4jG-td-BjI"/>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerY" secondItem="wRa-c9-gVd" secondAttribute="centerY" id="F53-go-OiN"/>
+                                        <constraint firstItem="ZAf-sp-VV0" firstAttribute="centerX" secondItem="AjU-7m-XiB" secondAttribute="centerX" id="Mey-ws-hDF"/>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="centerX" secondItem="wRa-c9-gVd" secondAttribute="centerX" id="Opf-HA-Dt1"/>
+                                        <constraint firstItem="AjU-7m-XiB" firstAttribute="top" secondItem="ZAf-sp-VV0" secondAttribute="bottom" constant="27" id="ave-8m-92B"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AjU-7m-XiB" secondAttribute="bottom" constant="48" id="mYv-qr-evE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
                                     <outlet property="states" destination="AjU-7m-XiB" id="HPq-n6-5ST"/>
-                                    <outlet property="title" destination="EKU-4m-ZWD" id="vKp-bV-CGD"/>
+                                    <outlet property="title" destination="ZAf-sp-VV0" id="1he-jO-0MN"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spinner" id="dg9-f9-FCn" customClass="SpinnerTableViewCell" customModule="kirtis_ios" customModuleProvider="target">

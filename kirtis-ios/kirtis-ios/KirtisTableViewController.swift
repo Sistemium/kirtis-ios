@@ -9,7 +9,7 @@
 import UIKit
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
-    
+
     @IBOutlet var history: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
     var textToSearch:String?{
@@ -21,7 +21,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             textToSearch = text
         }
     }
-    private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?{
         didSet{
             tableView.reloadData()
@@ -115,7 +114,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-        let api:String = url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         if let json = getJSON(api)  {
             let data = parseJSON(json)
             for value in data! {
@@ -155,9 +154,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    struct Constants {
+    private struct Constants {
         static let AccentationCellReuseIdentifier = "accentuation"
         static let SpinnerCellReuseIdentifier = "spinner"
+        static let url = "http://kirtis.info/api/krc/"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -168,11 +168,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                 case "loading":
                     return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
-                    cell.title.setTitle(message, forState: .Normal)
+                    cell.title.text = message
                     cell.states.text = ""
             }
         }else{
-            cell.title.setTitle(accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")", forState: .Normal)
+            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
             cell.states.text = ""
             for state in accentuations![indexPath.item].states!{
                 cell.states.text! += state + " "
