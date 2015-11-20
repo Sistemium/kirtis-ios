@@ -52,6 +52,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        accentuations = nil
+        return true
+    }
+    
     private let defaults = NSUserDefaults.standardUserDefaults()
     
     var recentSearches : [String] {
