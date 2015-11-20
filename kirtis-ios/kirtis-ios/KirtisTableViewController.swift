@@ -12,14 +12,25 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var history: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
-    var textToSearch:String?
+    var textToSearch:String?{
+        didSet{
+            var text = self.textToSearch!.lowercaseString
+            if text.characters.count > 0{
+                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
+            }
+            textToSearch = text
+        }
+    }
     private let url = "http://kirtis.info/api/krc/"
-    private var accentuations: [Accentuation]?
+    private var accentuations: [Accentuation]?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
         textFieldForWord.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
@@ -58,27 +69,37 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        textToSearch = textField.text
         search()
         return true
     }
     
     private func search(){
-        var text = textFieldForWord.text!.lowercaseString
+        self.accentuations = [Accentuation(message: "loading")]
+        var text = textToSearch!.lowercaseString
         if text.characters.count > 0{
             text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
         }
-        accentuations = getAccentuations(text)  //what if it fails?
-        if accentuations?.count > 0 {
-            appendHistory(text)
-        }
-        else{
-            if text == ""{
-                accentuations = [Accentuation(message: "Žodis neįvestas")]
-            }else{
-                accentuations = [Accentuation(message: "Žodis nerastas")]
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
+            if (text == self.textToSearch){
+                let accent = self.getAccentuations(text) //what if it fails?
+                dispatch_async(dispatch_get_main_queue()){
+                    self.accentuations = accent
+                    if self.accentuations?.count > 0 {
+                        self.appendHistory(text)
+                    }
+                    else{
+                        if text == ""{
+                            let message = NSLocalizedString("Word is not typed", comment: "Nothing was typed")
+                            self.accentuations = [Accentuation(message: message)]
+                        }else{
+                            let message = NSLocalizedString("Word is not found", comment: "search returned nothing")
+                            self.accentuations = [Accentuation(message: message)]
+                        }
+                    }
+                }
             }
         }
-        tableView.reloadData()
     }
     
     private func appendHistory(text:String){
@@ -134,18 +155,24 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    struct Storyboard {
-        static let CellReuseIdentifier = "accentuation"
+    struct Constants {
+        static let AccentationCellReuseIdentifier = "accentuation"
+        static let SpinnerCellReuseIdentifier = "spinner"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! KirtisTableViewCell
-        if let message = accentuations![indexPath.item].message{
-            cell.title.text = message
-            cell.states.text = ""
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.AccentationCellReuseIdentifier, forIndexPath: indexPath) as! KirtisTableViewCell
+        if let message = accentuations?[indexPath.item].message{
+            switch message{
+                case "loading":
+                    return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
+                default:
+                    cell.title.setTitle(message, forState: .Normal)
+                    cell.states.text = ""
+            }
         }else{
-            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
+            cell.title.setTitle(accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")", forState: .Normal)
             cell.states.text = ""
             for state in accentuations![indexPath.item].states!{
                 cell.states.text! += state + " "

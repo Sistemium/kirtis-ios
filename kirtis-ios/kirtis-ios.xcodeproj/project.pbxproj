@@ -16,6 +16,12 @@
 		6D065F981BF4CDF6005DB78D /* KirtisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */; };
 		6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */; };
 		6D065F9D1BF4E047005DB78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D065F9B1BF4E047005DB78D /* Main.storyboard */; };
+		6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
+		6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
+		6D1B3C421BFB2C7D00EE65A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */; };
+		6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */; };
+		6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */; };
+		6D1B3C521BFDC44500EE65A5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,13 @@
 		6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewCell.swift; sourceTree = "<group>"; };
 		6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
 		6D065F9C1BF4E047005DB78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D1B3C351BFB21D500EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Main.strings; sourceTree = "<group>"; };
+		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D1B3C3E1BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D1B3C431BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
+		6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1B3C521BFDC44500EE65A5 /* Crashlytics.framework in Frameworks */,
+				6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +83,8 @@
 				6D065F6C1BF38C94005DB78D /* kirtis-ios */,
 				6D065F811BF38C94005DB78D /* kirtis-iosTests */,
 				6D065F6B1BF38C94005DB78D /* Products */,
+				6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */,
+				6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +100,10 @@
 		6D065F6C1BF38C94005DB78D /* kirtis-ios */ = {
 			isa = PBXGroup;
 			children = (
+				6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */,
+				6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
+				6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
 				6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */,
 				6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */,
@@ -99,6 +119,7 @@
 		6D065F811BF38C94005DB78D /* kirtis-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F821BF38C94005DB78D /* kirtis_iosTests.swift */,
 				6D065F841BF38C94005DB78D /* Info.plist */,
 			);
@@ -115,6 +136,7 @@
 				6D065F661BF38C94005DB78D /* Sources */,
 				6D065F671BF38C94005DB78D /* Frameworks */,
 				6D065F681BF38C94005DB78D /* Resources */,
+				6D1B3C4E1BFDC41500EE65A5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -187,6 +209,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D065F9D1BF4E047005DB78D /* Main.storyboard in Resources */,
+				6D1B3C421BFB2C7D00EE65A5 /* Localizable.strings in Resources */,
+				6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */,
 				6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,10 +219,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D1B3C4E1BFDC41500EE65A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 035bda92bd5b13402aaf2c6cb5f66b8ff23f2166 2f4e5b60c0ad0f13a7f33d51e0639f4cef9c806cf7147b97c015dc085d89d1c3";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6D065F661BF38C94005DB78D /* Sources */ = {
@@ -207,6 +248,7 @@
 			files = (
 				6D065F941BF4BA2E005DB78D /* SplitViewController.swift in Sources */,
 				6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */,
+				6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */,
 				6D065F901BF4AD22005DB78D /* Accentuation.swift in Sources */,
 				6D065F961BF4C3C3005DB78D /* KirtisTableViewController.swift in Sources */,
 				6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */,
@@ -237,8 +279,33 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
+				6D1B3C351BFB21D500EE65A5 /* lt */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C391BFB2C7D00EE65A5 /* lt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C3E1BFB2C7D00EE65A5 /* lt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D1B3C431BFB2C7D00EE65A5 /* lt */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -331,6 +398,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
@@ -342,6 +415,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";

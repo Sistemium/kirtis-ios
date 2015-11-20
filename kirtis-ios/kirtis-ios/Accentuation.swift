@@ -12,7 +12,7 @@ class Accentuation{
     var part:String?
     var word:String?
     var states:[String]?
-    var message:String? //for errors
+    var message:String? //for errors or warnings
     
     required init(part: String, word:String, states:[String]){
         self.part = part

@@ -1,0 +1,33 @@
+/* Class = "UITabBarItem"; title = "About"; ObjectID = "1wc-kZ-4aO"; */
+"1wc-kZ-4aO.title" = "Apie";
+
+/* Class = "UILabel"; text = "States"; ObjectID = "AjU-7m-XiB"; */
+"AjU-7m-XiB.text" = "States";
+
+/* Class = "UIBarButtonItem"; title = "History"; ObjectID = "CFx-1t-MTx"; */
+"CFx-1t-MTx.title" = "Istorija";
+
+/* Class = "UINavigationItem"; title = "History"; ObjectID = "Ddm-t5-qEk"; */
+"Ddm-t5-qEk.title" = "Istorija";
+
+/* Class = "UILabel"; text = "Text about the program"; ObjectID = "Hsj-Cb-xbW"; */
+"Hsj-Cb-xbW.text" = "Tekstas apie programą";
+
+/* Class = "UITabBarItem"; title = "Accentuation program"; ObjectID = "Mwo-Mv-2b9"; */
+"Mwo-Mv-2b9.title" = "Kirčiavimo programa";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "Pv9-hU-tWy"; */
+"Pv9-hU-tWy.title" = "Uždaryti";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "aRy-L1-CFq"; */
+"aRy-L1-CFq.title" = "Apie";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "eao-vp-i4J"; */
+"eao-vp-i4J.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Accentuation program"; ObjectID = "mtM-BP-qai"; */
+"mtM-BP-qai.title" = "Kirčiavimo programa";
+
+/* Class = "UITextField"; placeholder = "Accentuate the word"; ObjectID = "xod-Ct-IA5"; */
+"xod-Ct-IA5.placeholder" = "Sukirčiuoti žodį";
+

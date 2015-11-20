@@ -31,3 +31,5 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+Crashlytics.framework
+Fabric.framework
