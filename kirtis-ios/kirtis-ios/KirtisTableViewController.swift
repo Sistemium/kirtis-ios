@@ -75,10 +75,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func search(){
         self.accentuations = [Accentuation(message: "loading")]
-        var text = textToSearch!.lowercaseString
+        var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
         if text.characters.count > 0{
-            text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
+            text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1)) //uppercase first letter
         }
+        textToSearch = text
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
                 let accent = self.getAccentuations(text) //what if it fails?

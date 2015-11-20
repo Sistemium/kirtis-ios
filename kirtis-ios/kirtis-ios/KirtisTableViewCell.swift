@@ -46,8 +46,6 @@ class KirtisTableViewCell: UITableViewCell {
     }
     
     override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
-        // You need to only return true for the actions you want, otherwise you get the whole range of
-        //  iOS actions. You can see this by just removing the if statement here.
         if action == Selector("copyText") {
             return true
         }
