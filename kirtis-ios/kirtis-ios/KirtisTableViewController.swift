@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -14,11 +15,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var textFieldForWord: UITextField!
     var textToSearch:String?{
         didSet{
-            var text = self.textToSearch!.lowercaseString
+            var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
             if text.characters.count > 0{
-                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
+                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1)) //uppercase
             }
             textToSearch = text
+            Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
         }
     }
     private var accentuations: [Accentuation]?{
@@ -80,11 +82,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func search(){
         self.accentuations = [Accentuation(message: "loading")]
-        var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
-        if text.characters.count > 0{
-            text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1)) //uppercase first letter
-        }
-        textToSearch = text
+        let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
                 let accent = self.getAccentuations(text) //what if it fails?
