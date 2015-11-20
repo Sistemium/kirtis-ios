@@ -55,6 +55,10 @@
 		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
 		6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		6D20E1671BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		6D20E1681BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6D20E1691BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D20E16A1BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 6D065F611BF38C94005DB78D;
 			productRefGroup = 6D065F6B1BF38C94005DB78D /* Products */;
@@ -280,6 +285,7 @@
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
 				6D1B3C351BFB21D500EE65A5 /* lt */,
+				6D20E1671BFF3C7F007163A0 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D1B3C391BFB2C7D00EE65A5 /* lt */,
+				6D20E16A1BFF3C7F007163A0 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -296,6 +303,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D1B3C3E1BFB2C7D00EE65A5 /* lt */,
+				6D20E1691BFF3C7F007163A0 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D1B3C431BFB2C7D00EE65A5 /* lt */,
+				6D20E1681BFF3C7F007163A0 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
