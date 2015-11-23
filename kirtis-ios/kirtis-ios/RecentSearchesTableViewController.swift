@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RecentSearchesTableViewController: UITableViewController {
     
@@ -28,15 +29,76 @@ class RecentSearchesTableViewController: UITableViewController {
         performSegueWithIdentifier("search", sender: textToSearch ?? "")
     }
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    private var words: [NSManagedObject]{
+        get{
+            var w = [NSManagedObject]()
+            let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let managedContext = appDelegate.managedObjectContext
+            
+            let fetchRequest = NSFetchRequest(entityName: "RecentSearches")
+            
+            do {
+                let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+                w = results as! [NSManagedObject]
+                return w
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
+            }
+            return w
+        }
+    }
     
     var recentSearches : [String] {
         get{
-            return defaults.objectForKey("RecentSearches") as? [String] ?? []
+            var rezult = [String]()
+            for word in words{
+                rezult.append(word.valueForKey("word") as! String)
+            }
+            return rezult
         }
-        
         set{
-            defaults.setObject(newValue, forKey: "RecentSearches")
+            let managedContext =
+            (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            
+            let fetchRequest = NSFetchRequest()
+            fetchRequest.entity = NSEntityDescription.entityForName("RecentSearches", inManagedObjectContext: managedContext)
+            fetchRequest.includesPropertyValues = false
+            do {
+                if let results = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+                    for result in results {
+                        managedContext.deleteObject(result)
+                    }
+                    
+                    try managedContext.save()
+                }
+            } catch {
+                print("failed to clear core data")
+            }
+            
+            for searchedWord in newValue{
+                let managedContext =
+                (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+                
+                //2
+                let entity =  NSEntityDescription.entityForName("RecentSearches",
+                    inManagedObjectContext:managedContext)
+                
+                let word = NSManagedObject(entity: entity!,
+                    insertIntoManagedObjectContext: managedContext)
+                
+                //3
+                word.setValue(searchedWord, forKey: "word")
+                
+                //4
+            }
+            do {
+                try managedContext.save()
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
         }
     }
     

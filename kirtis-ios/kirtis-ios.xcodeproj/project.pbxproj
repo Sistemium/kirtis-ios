@@ -23,6 +23,7 @@
 		6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */; };
 		6D1B3C521BFDC44500EE65A5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */; };
 		6D20E18A1C023FAA007163A0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D20E1891C023FAA007163A0 /* SettingsTableViewController.swift */; };
+		6D20E18D1C0313D1007163A0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D20E18B1C0313D1007163A0 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		6D20E1691BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D20E16A1BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D20E1891C023FAA007163A0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		6D20E18C1C0313D1007163A0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		6D065F6C1BF38C94005DB78D /* kirtis-ios */ = {
 			isa = PBXGroup;
 			children = (
+				6D20E18B1C0313D1007163A0 /* Model.xcdatamodeld */,
 				6D1B3C441BFB2C7D00EE65A5 /* Localizable.strings */,
 				6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
@@ -259,6 +262,7 @@
 				6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */,
 				6D065F901BF4AD22005DB78D /* Accentuation.swift in Sources */,
 				6D20E18A1C023FAA007163A0 /* SettingsTableViewController.swift in Sources */,
+				6D20E18D1C0313D1007163A0 /* Model.xcdatamodeld in Sources */,
 				6D065F961BF4C3C3005DB78D /* KirtisTableViewController.swift in Sources */,
 				6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */,
 				6D065F981BF4CDF6005DB78D /* KirtisTableViewCell.swift in Sources */,
@@ -496,6 +500,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D20E18B1C0313D1007163A0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D20E18C1C0313D1007163A0 /* Model.xcdatamodel */,
+			);
+			currentVersion = 6D20E18C1C0313D1007163A0 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D065F621BF38C94005DB78D /* Project object */;
 }
