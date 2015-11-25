@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import Crashlytics
+import CoreData
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
-    
+
     @IBOutlet var history: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
+    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
         didSet{
-            var text = self.textToSearch!.lowercaseString
+            var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
             if text.characters.count > 0{
-                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
+                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1)) //uppercase
             }
             textToSearch = text
+            Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
         }
     }
-    private let url = "http://kirtis.info/api/krc/"
     private var accentuations: [Accentuation]?{
         didSet{
             tableView.reloadData()
@@ -53,19 +56,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
-    
-    var recentSearches : [String] {
-        get{
-            return defaults.objectForKey("RecentSearches") as? [String] ?? []
-        }
-        // I need update history immediately, best way to do it here, 
-        //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. Landscape mode)
-        set{
-            defaults.setObject(newValue, forKey: "RecentSearches")
-            ((self.splitViewController?.viewControllers[0] as! UINavigationController).visibleViewController as! UITableViewController).tableView.reloadData()
-        }
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        accentuations = nil
+        return true
     }
+    
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -76,10 +72,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func search(){
         self.accentuations = [Accentuation(message: "loading")]
-        var text = textToSearch!.lowercaseString
-        if text.characters.count > 0{
-            text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1))
-        }
+        let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
                 let accent = self.getAccentuations(text) //what if it fails?
@@ -89,16 +82,32 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                         self.appendHistory(text)
                     }
                     else{
+                        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+                        print(self.appDelegate.userLanguage)
                         if text == ""{
-                            let message = NSLocalizedString("Word is not typed", comment: "Nothing was typed")
+                            let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
                             self.accentuations = [Accentuation(message: message)]
                         }else{
-                            let message = NSLocalizedString("Word is not found", comment: "search returned nothing")
+                            let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
                             self.accentuations = [Accentuation(message: message)]
                         }
                     }
                 }
             }
+        }
+    }
+    
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var recentSearches : [String] {
+        get{
+            return defaults.objectForKey("RecentSearches") as? [String] ?? []
+        }
+        // I need update history immediately, best way to do it here,
+        //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. Landscape mode)
+        set{
+            defaults.setObject(newValue, forKey: "RecentSearches")
+            ((self.splitViewController?.viewControllers[0] as! UINavigationController).visibleViewController as! UITableViewController).tableView.reloadData()
         }
     }
     
@@ -115,7 +124,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-        let api:String = url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         if let json = getJSON(api)  {
             let data = parseJSON(json)
             for value in data! {
@@ -155,9 +164,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    struct Constants {
+    private struct Constants {
         static let AccentationCellReuseIdentifier = "accentuation"
         static let SpinnerCellReuseIdentifier = "spinner"
+        static let url = "http://kirtis.info/api/krc/"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -168,11 +178,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                 case "loading":
                     return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
-                    cell.title.setTitle(message, forState: .Normal)
+                    cell.title.text = message
                     cell.states.text = ""
             }
         }else{
-            cell.title.setTitle(accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")", forState: .Normal)
+            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
             cell.states.text = ""
             for state in accentuations![indexPath.item].states!{
                 cell.states.text! += state + " "

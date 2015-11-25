@@ -1,0 +1,10 @@
+/* Nothing was typed */
+"Nothing was typed" = "Не введено слово для поиска";
+
+/* Search returned nothing
+   Word is not found */
+"Word is not found" = "Слово не найдено";
+
+/* Nothing was typed */
+"Word is not typed" = "Не введено слово для поиска";
+

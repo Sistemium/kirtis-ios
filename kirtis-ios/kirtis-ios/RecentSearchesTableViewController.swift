@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RecentSearchesTableViewController: UITableViewController {
     
@@ -34,7 +35,6 @@ class RecentSearchesTableViewController: UITableViewController {
         get{
             return defaults.objectForKey("RecentSearches") as? [String] ?? []
         }
-        
         set{
             defaults.setObject(newValue, forKey: "RecentSearches")
         }

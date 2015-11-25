@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Accentuation program-->
+        <!--Расстановка ударений-->
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
                 <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Accentuate the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расставить ударения" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
                                     <rect key="frame" x="10" y="7" width="580" height="30"/>
                                     <animations/>
                                     <nil key="textColor"/>
@@ -103,8 +103,8 @@
                             <outlet property="delegate" destination="srG-RZ-iUR" id="xCD-WX-76a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Accentuation program" id="mtM-BP-qai">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="CFx-1t-MTx">
+                    <navigationItem key="navigationItem" title="Расстановка ударений" id="mtM-BP-qai">
+                        <barButtonItem key="rightBarButtonItem" title="История" id="CFx-1t-MTx">
                             <connections>
                                 <segue destination="Y1g-SC-3ka" kind="unwind" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
                             </connections>
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="3299" y="-501"/>
         </scene>
-        <!--History-->
+        <!--История-->
         <scene sceneID="kYi-xY-tk7">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" customClass="RecentSearchesTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,8 +149,8 @@
                             <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="Ddm-t5-qEk">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="Pv9-hU-tWy">
+                    <navigationItem key="navigationItem" title="История" id="Ddm-t5-qEk">
+                        <barButtonItem key="rightBarButtonItem" title="Закрыть" id="Pv9-hU-tWy">
                             <connections>
                                 <action selector="close:" destination="ki2-wg-l3j" id="fY3-22-XEI"/>
                             </connections>
@@ -164,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="3256" y="580"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="NbO-0b-vS1">
             <objects>
                 <viewController id="Hut-56-fbd" sceneMemberID="viewController">
@@ -176,8 +176,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text about the program" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
-                                <rect key="frame" x="20" y="72" width="177.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст о програме" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
+                                <rect key="frame" x="20" y="72" width="140.5" height="20"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -191,7 +191,7 @@
                             <constraint firstItem="Hsj-Cb-xbW" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="8" id="aPg-bq-cVo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="aRy-L1-CFq"/>
+                    <navigationItem key="navigationItem" title="О программе" id="aRy-L1-CFq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bU2-Gh-lVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,11 +234,11 @@
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Accentuation program-->
+        <!--Расстановка ударений-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accentuation program" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Расстановка ударений" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>
@@ -267,11 +267,11 @@
             </objects>
             <point key="canvasLocation" x="2496" y="580"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="Fwu-i0-ugg">
             <objects>
                 <navigationController storyboardIdentifier="about" automaticallyAdjustsScrollViewInsets="NO" id="h9s-jf-QP0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" id="1wc-kZ-4aO"/>
+                    <tabBarItem key="tabBarItem" title="О программе" id="1wc-kZ-4aO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="38J-5l-LgT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -287,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="1700" y="2474"/>
         </scene>
-        <!--Settings-->
+        <!--Настройки-->
         <scene sceneID="yNN-uL-S1b">
             <objects>
                 <tableViewController id="qgJ-Pb-P99" sceneMemberID="viewController">
@@ -306,16 +306,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rix-fb-EEE">
-                                                    <rect key="frame" x="15" y="12" width="72" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Язык" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rix-fb-EEE">
+                                                    <rect key="frame" x="15" y="12" width="38" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDd-3A-DkL">
-                                                    <rect key="frame" x="512.5" y="12" width="52.5" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Русский" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDd-3A-DkL">
+                                                    <rect key="frame" x="502" y="12" width="63" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -338,13 +338,13 @@
                             <outlet property="delegate" destination="qgJ-Pb-P99" id="dkR-gi-YcL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="ajf-LR-Lk9"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="ajf-LR-Lk9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE8-cR-hw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2496" y="1356"/>
         </scene>
-        <!--Language-->
+        <!--Язык-->
         <scene sceneID="uNx-NV-owA">
             <objects>
                 <tableViewController id="IeZ-ld-Q2m" customClass="SettingsTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,8 +371,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y3-LC-BIJ">
-                                                    <rect key="frame" x="15" y="25.5" width="38" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Английский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y3-LC-BIJ">
+                                                    <rect key="frame" x="15" y="25.5" width="65" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -399,8 +399,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Russian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyq-GG-CmD">
-                                                    <rect key="frame" x="15" y="25.5" width="41" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Русский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyq-GG-CmD">
+                                                    <rect key="frame" x="15" y="25.5" width="45.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -427,8 +427,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="249" text="Lithuanian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CvW-QU-sDz">
-                                                    <rect key="frame" x="15" y="25.5" width="54.5" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="249" text="Литовский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CvW-QU-sDz">
+                                                    <rect key="frame" x="15" y="25.5" width="58.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -447,13 +447,13 @@
                             <outlet property="delegate" destination="IeZ-ld-Q2m" id="W4J-8R-3Ny"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Language" id="dhY-g9-zng">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fEM-1e-7A1">
+                    <navigationItem key="navigationItem" title="Язык" id="dhY-g9-zng">
+                        <barButtonItem key="leftBarButtonItem" title="Отменить" id="fEM-1e-7A1">
                             <connections>
                                 <action selector="cancel:" destination="IeZ-ld-Q2m" id="clG-GR-G4n"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="SJN-lw-WE2">
+                        <barButtonItem key="rightBarButtonItem" title="Готово" style="done" id="SJN-lw-WE2">
                             <connections>
                                 <action selector="done:" destination="IeZ-ld-Q2m" id="YCh-5d-IMW"/>
                             </connections>
@@ -470,11 +470,11 @@
             </objects>
             <point key="canvasLocation" x="4100" y="1356"/>
         </scene>
-        <!--Settings-->
+        <!--Настройки-->
         <scene sceneID="rL7-UC-IN0">
             <objects>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="d6V-Og-aCZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="mnB-Cy-hno"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" id="mnB-Cy-hno"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2h-Pl-6kU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
