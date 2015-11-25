@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="kirtis-ios/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="lt">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
+    </header>
+    <body>
+      <trans-unit id="1wc-kZ-4aO.title">
+        <source>About</source>
+        <target>About</target>
+        <note>Class = "UITabBarItem"; title = "About"; ObjectID = "1wc-kZ-4aO";</note>
+      </trans-unit>
+      <trans-unit id="2Y3-LC-BIJ.text">
+        <source>English</source>
+        <target>English</target>
+        <note>Class = "UILabel"; text = "English"; ObjectID = "2Y3-LC-BIJ";</note>
+      </trans-unit>
+      <trans-unit id="32g-NV-1JJ.text">
+        <source>Lietuvių</source>
+        <target>Lietuvių</target>
+        <note>Class = "UILabel"; text = "Lietuvių"; ObjectID = "32g-NV-1JJ";</note>
+      </trans-unit>
+      <trans-unit id="AjU-7m-XiB.text">
+        <source>States</source>
+        <target>States</target>
+        <note>Class = "UILabel"; text = "States"; ObjectID = "AjU-7m-XiB";</note>
+      </trans-unit>
+      <trans-unit id="CFx-1t-MTx.title">
+        <source>History</source>
+        <target>History</target>
+        <note>Class = "UIBarButtonItem"; title = "History"; ObjectID = "CFx-1t-MTx";</note>
+      </trans-unit>
+      <trans-unit id="CvW-QU-sDz.text">
+        <source>Lithuanian</source>
+        <target>Lithuanian</target>
+        <note>Class = "UILabel"; text = "Lithuanian"; ObjectID = "CvW-QU-sDz";</note>
+      </trans-unit>
+      <trans-unit id="Ddm-t5-qEk.title">
+        <source>History</source>
+        <target>History</target>
+        <note>Class = "UINavigationItem"; title = "History"; ObjectID = "Ddm-t5-qEk";</note>
+      </trans-unit>
+      <trans-unit id="Hsj-Cb-xbW.text">
+        <source>Text about the program</source>
+        <target>Text about the program</target>
+        <note>Class = "UILabel"; text = "Text about the program"; ObjectID = "Hsj-Cb-xbW";</note>
+      </trans-unit>
+      <trans-unit id="Jyq-GG-CmD.text">
+        <source>Russian</source>
+        <target>Russian</target>
+        <note>Class = "UILabel"; text = "Russian"; ObjectID = "Jyq-GG-CmD";</note>
+      </trans-unit>
+      <trans-unit id="Mwo-Mv-2b9.title">
+        <source>Accentuation program</source>
+        <target>Accentuation program</target>
+        <note>Class = "UITabBarItem"; title = "Accentuation program"; ObjectID = "Mwo-Mv-2b9";</note>
+      </trans-unit>
+      <trans-unit id="Pv9-hU-tWy.title">
+        <source>Close</source>
+        <target>Close</target>
+        <note>Class = "UIBarButtonItem"; title = "Close"; ObjectID = "Pv9-hU-tWy";</note>
+      </trans-unit>
+      <trans-unit id="Rix-fb-EEE.text">
+        <source>Language</source>
+        <target>Language</target>
+        <note>Class = "UILabel"; text = "Language"; ObjectID = "Rix-fb-EEE";</note>
+      </trans-unit>
+      <trans-unit id="RoM-9h-ivd.text">
+        <source>English</source>
+        <target>English</target>
+        <note>Class = "UILabel"; text = "English"; ObjectID = "RoM-9h-ivd";</note>
+      </trans-unit>
+      <trans-unit id="TDd-3A-DkL.text">
+        <source>English</source>
+        <target>English</target>
+        <note>Class = "UILabel"; text = "English"; ObjectID = "TDd-3A-DkL";</note>
+      </trans-unit>
+      <trans-unit id="ZAf-sp-VV0.text">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "ZAf-sp-VV0";</note>
+      </trans-unit>
+      <trans-unit id="aRy-L1-CFq.title">
+        <source>About</source>
+        <target>About</target>
+        <note>Class = "UINavigationItem"; title = "About"; ObjectID = "aRy-L1-CFq";</note>
+      </trans-unit>
+      <trans-unit id="ajf-LR-Lk9.title">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "ajf-LR-Lk9";</note>
+      </trans-unit>
+      <trans-unit id="bac-bE-Wsp.text">
+        <source>Русский</source>
+        <target>Русский</target>
+        <note>Class = "UILabel"; text = "Русский"; ObjectID = "bac-bE-Wsp";</note>
+      </trans-unit>
+      <trans-unit id="dhY-g9-zng.title">
+        <source>Language</source>
+        <target>Language</target>
+        <note>Class = "UINavigationItem"; title = "Language"; ObjectID = "dhY-g9-zng";</note>
+      </trans-unit>
+      <trans-unit id="mnB-Cy-hno.title">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>Class = "UITabBarItem"; title = "Settings"; ObjectID = "mnB-Cy-hno";</note>
+      </trans-unit>
+      <trans-unit id="mtM-BP-qai.title">
+        <source>Accentuation program</source>
+        <target>Accentuation program</target>
+        <note>Class = "UINavigationItem"; title = "Accentuation program"; ObjectID = "mtM-BP-qai";</note>
+      </trans-unit>
+      <trans-unit id="xod-Ct-IA5.placeholder">
+        <source>Accentuate the word</source>
+        <target>Accentuate the word</target>
+        <note>Class = "UITextField"; placeholder = "Accentuate the word"; ObjectID = "xod-Ct-IA5";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="kirtis-ios/Info.plist" source-language="en" datatype="plaintext" target-language="lt">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>0.1.1</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="kirtis-ios/Localizable.strings" source-language="en" datatype="plaintext" target-language="lt">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
+    </header>
+    <body>
+      <trans-unit id="Word is not found">
+        <source>Word is not found</source>
+        <target>Žodis nerastas</target>
+        <note>search returned nothing</note>
+      </trans-unit>
+      <trans-unit id="Word is not typed">
+        <source>Word is not typed</source>
+        <target>Žodis neįvestas</target>
+        <note>Nothing was typed</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="kirtis-iosTests/Info.plist" source-language="en" datatype="plaintext" target-language="lt">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

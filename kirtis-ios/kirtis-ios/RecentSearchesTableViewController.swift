@@ -79,20 +79,12 @@ class RecentSearchesTableViewController: UITableViewController {
             }
             
             for searchedWord in newValue{
-                let managedContext =
-                (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-                
-                //2
                 let entity =  NSEntityDescription.entityForName("RecentSearches",
                     inManagedObjectContext:managedContext)
                 
                 let word = NSManagedObject(entity: entity!,
                     insertIntoManagedObjectContext: managedContext)
-                
-                //3
                 word.setValue(searchedWord, forKey: "word")
-                
-                //4
             }
             do {
                 try managedContext.save()

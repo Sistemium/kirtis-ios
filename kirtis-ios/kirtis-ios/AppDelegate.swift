@@ -112,5 +112,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    var userLanguage: String{
+        set{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(newValue, forKey: "Language")
+        defaults.synchronize()
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        }
+        
+        get{
+            let defaults = NSUserDefaults.standardUserDefaults();
+            if let lng = defaults.stringForKey("Language"){
+                return lng
+            }
+            for lng in NSLocale.preferredLanguages(){
+                if lng.hasPrefix("lt"){
+                    return "lt"
+                }
+                if lng.hasPrefix("ru"){
+                    return "ru"
+                }
+                if lng.hasPrefix("en"){
+                    return "Base"
+                }
+            }
+            return "Base"
+        }
+    }
+    
 }
 

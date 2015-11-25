@@ -14,6 +14,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet var history: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
+    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
         didSet{
             var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
@@ -110,20 +111,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             }
             
             for searchedWord in newValue{
-                let managedContext =
-                (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-                
-                //2
                 let entity =  NSEntityDescription.entityForName("RecentSearches",
                     inManagedObjectContext:managedContext)
                 
                 let word = NSManagedObject(entity: entity!,
                     insertIntoManagedObjectContext: managedContext)
-                
-                //3
                 word.setValue(searchedWord, forKey: "word")
-                
-                //4
             }
             do {
                 try managedContext.save()
@@ -155,11 +148,13 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                         self.appendHistory(text)
                     }
                     else{
+                        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+                        print(self.appDelegate.userLanguage)
                         if text == ""{
-                            let message = NSLocalizedString("Word is not typed", comment: "Nothing was typed")
+                            let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
                             self.accentuations = [Accentuation(message: message)]
                         }else{
-                            let message = NSLocalizedString("Word is not found", comment: "search returned nothing")
+                            let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
                             self.accentuations = [Accentuation(message: message)]
                         }
                     }
