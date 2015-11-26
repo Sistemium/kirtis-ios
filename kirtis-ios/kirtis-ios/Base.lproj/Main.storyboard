@@ -238,7 +238,7 @@
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accentuation program" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Accentuation program" image="Home" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>
@@ -271,7 +271,7 @@
         <scene sceneID="Fwu-i0-ugg">
             <objects>
                 <navigationController storyboardIdentifier="about" automaticallyAdjustsScrollViewInsets="NO" id="h9s-jf-QP0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" id="1wc-kZ-4aO"/>
+                    <tabBarItem key="tabBarItem" title="About" image="About" id="1wc-kZ-4aO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="38J-5l-LgT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -474,7 +474,7 @@
         <scene sceneID="rL7-UC-IN0">
             <objects>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="d6V-Og-aCZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="mnB-Cy-hno"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="mnB-Cy-hno"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2h-Pl-6kU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -510,7 +510,12 @@
             <point key="canvasLocation" x="3252" y="1356"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="About" width="25" height="25"/>
+        <image name="Home" width="25" height="25"/>
+        <image name="Settings" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LY2-Vc-U73"/>
+        <segue reference="30C-Zg-Qtl"/>
     </inferredMetricsTieBreakers>
 </document>
