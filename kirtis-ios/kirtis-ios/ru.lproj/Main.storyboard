@@ -176,19 +176,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст о програме" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
-                                <rect key="frame" x="20" y="72" width="140.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Текст о програме" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsj-Cb-xbW">
+                                <rect key="frame" x="211" y="290" width="178" height="20"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kirtis-512.png" translatesAutoresizingMaskIntoConstraints="NO" id="3KQ-oi-dLq">
+                                <rect key="frame" x="256" y="136" width="87" height="84"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="akn-6o-HdM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="Hsj-Cb-xbW" secondAttribute="leading" id="Jia-sk-pwX"/>
-                            <constraint firstItem="Hsj-Cb-xbW" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="8" id="aPg-bq-cVo"/>
+                            <constraint firstItem="3KQ-oi-dLq" firstAttribute="centerX" secondItem="JJx-Bt-hPz" secondAttribute="centerX" id="PHG-SZ-blL"/>
+                            <constraint firstItem="Hsj-Cb-xbW" firstAttribute="centerX" secondItem="3KQ-oi-dLq" secondAttribute="centerX" id="Y4D-qr-1Gy"/>
+                            <constraint firstItem="Hsj-Cb-xbW" firstAttribute="centerY" secondItem="JJx-Bt-hPz" secondAttribute="centerY" id="brW-9v-fOb"/>
+                            <constraint firstItem="Hsj-Cb-xbW" firstAttribute="top" secondItem="3KQ-oi-dLq" secondAttribute="bottom" constant="70" id="jQh-81-9ac"/>
+                            <constraint firstItem="3KQ-oi-dLq" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="72" id="ltt-nv-mox"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="О программе" id="aRy-L1-CFq"/>
@@ -200,7 +210,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="8hv-Ke-uHj">
             <objects>
-                <tabBarController storyboardIdentifier="root" id="fBA-sg-RDe" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="root" id="fBA-sg-RDe" customClass="TabBarController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Au1-Ne-PnT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -510,7 +520,10 @@
             <point key="canvasLocation" x="3252" y="1356"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kirtis-512.png" width="256" height="256"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LY2-Vc-U73"/>
+        <segue reference="30C-Zg-Qtl"/>
     </inferredMetricsTieBreakers>
 </document>
