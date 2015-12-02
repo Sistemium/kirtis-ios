@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,6 @@
 		6D20E18D1C0313D1007163A0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D20E18B1C0313D1007163A0 /* Model.xcdatamodeld */; };
 		6D4617C31C04C3B70072C6DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D4617C51C04C3B70072C6DE /* Localizable.strings */; };
 		6D5BD34E1C0735BC00D70B60 /* kirtis-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5BD3501C0735BC00D70B60 /* kirtis-512.png */; };
-		6D5BD3611C07388B00D70B60 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */; };
 		6D5BD3961C074E3400D70B60 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5BD3951C074E3400D70B60 /* TabBarController.swift */; };
 		6DF50B541C0C762D002DF27E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF50B531C0C762D002DF27E /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,11 +67,10 @@
 		6D5BD34F1C0735BC00D70B60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = "ru.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD3511C0735C000D70B60 /* lt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lt; path = "lt.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD35F1C07375500D70B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/kirtis-512.png"; sourceTree = "<group>"; };
-		6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6D5BD3951C074E3400D70B60 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6DF50B531C0C762D002DF27E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		6DF50B5D1C0EDE5D002DF27E /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6DF50B5E1C0EDE78002DF27E /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DF50B611C0EE56D002DF27E /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DF50B621C0EE580002DF27E /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 				6D20E18B1C0313D1007163A0 /* Model.xcdatamodeld */,
 				6D1B3C3F1BFB2C7D00EE65A5 /* InfoPlist.strings */,
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
-				6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */,
 				6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */,
 				6DF50B531C0C762D002DF27E /* AboutViewController.swift */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
@@ -209,6 +206,7 @@
 				TargetAttributes = {
 					6D065F691BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = HZMMGDCLPA;
 					};
 					6D065F7D1BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -217,7 +215,7 @@
 				};
 			};
 			buildConfigurationList = 6D065F651BF38C94005DB78D /* Build configuration list for PBXProject "kirtis-ios" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -242,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D5BD3611C07388B00D70B60 /* Launch Screen.storyboard in Resources */,
 				6D065F9D1BF4E047005DB78D /* Main.storyboard in Resources */,
 				6D4617C31C04C3B70072C6DE /* Localizable.strings in Resources */,
 				6D1B3C3D1BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */,
@@ -319,8 +316,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6DF50B5D1C0EDE5D002DF27E /* ru */,
-				6DF50B5E1C0EDE78002DF27E /* lt */,
+				6DF50B611C0EE56D002DF27E /* ru */,
+				6DF50B621C0EE580002DF27E /* lt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -452,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -463,6 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -470,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -481,6 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

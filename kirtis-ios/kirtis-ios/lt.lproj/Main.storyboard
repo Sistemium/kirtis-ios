@@ -246,7 +246,7 @@
                                 <rect key="frame" x="20" y="318" width="560" height="33.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Centre of Computational Linguistics"/>
+                                <state key="normal" title="Kompiuterinės lingvistikos centras"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
                                 <connections>
                                     <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
