@@ -169,7 +169,7 @@
         <!--About-->
         <scene sceneID="NbO-0b-vS1">
             <objects>
-                <viewController id="Hut-56-fbd" sceneMemberID="viewController">
+                <viewController id="Hut-56-fbd" customClass="AboutViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I8P-V3-B0k"/>
                         <viewControllerLayoutGuide type="bottom" id="tw7-wc-aKz"/>
@@ -184,6 +184,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Kirčiavimas internetu"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="ge8-IR-lny"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
                                 <rect key="frame" x="20" y="380" width="560" height="33"/>
@@ -191,6 +194,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Icons8"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToIcons8" destination="Hut-56-fbd" eventType="touchUpInside" id="3oM-Pr-QWx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-FD-1DK">
                                 <rect key="frame" x="20" y="421" width="560" height="33.5"/>
@@ -198,6 +204,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Source code"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToSource" destination="Hut-56-fbd" eventType="touchUpInside" id="WFx-OW-pHz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" verticalCompressionResistancePriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="qB4-Eh-uxS">
                                 <rect key="frame" x="20" y="146" width="560" height="101.5"/>
@@ -223,20 +232,15 @@
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
-                                <rect key="frame" x="20" y="462" width="560" height="33.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwp-h7-Gen">
                                 <rect key="frame" x="20" y="256" width="560" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToSistemium" destination="Hut-56-fbd" eventType="touchUpInside" id="NnK-xP-Vow"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
                                 <rect key="frame" x="20" y="338" width="560" height="33.5"/>
@@ -244,7 +248,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Centre of Computational Linguistics"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
+                                <rect key="frame" x="20" y="462" width="560" height="33.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -335,10 +350,6 @@
                                 <exclude reference="lWk-u8-fS1"/>
                                 <exclude reference="mNH-MB-Q22"/>
                                 <exclude reference="wGz-T4-ke7"/>
-                                <exclude reference="Jf2-Jk-QST"/>
-                                <exclude reference="Vf2-D5-C3U"/>
-                                <exclude reference="fla-Yq-6si"/>
-                                <exclude reference="swH-EX-ray"/>
                                 <exclude reference="8o7-Ud-Izd"/>
                                 <exclude reference="Csh-Ou-RgR"/>
                                 <exclude reference="Dve-XK-otQ"/>
@@ -349,12 +360,16 @@
                                 <exclude reference="dDE-CC-pGp"/>
                                 <exclude reference="epg-jM-wqi"/>
                                 <exclude reference="ghf-hU-cjS"/>
-                                <exclude reference="u6H-1K-1S0"/>
                                 <exclude reference="1pk-ga-Zpr"/>
                                 <exclude reference="3Ux-oA-r0l"/>
                                 <exclude reference="Exo-Tz-fyT"/>
                                 <exclude reference="aA4-Mg-AkN"/>
                                 <exclude reference="qm8-OW-Yme"/>
+                                <exclude reference="Jf2-Jk-QST"/>
+                                <exclude reference="Vf2-D5-C3U"/>
+                                <exclude reference="fla-Yq-6si"/>
+                                <exclude reference="swH-EX-ray"/>
+                                <exclude reference="u6H-1K-1S0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -364,9 +379,9 @@
                                 <include reference="em6-FD-1DK"/>
                                 <include reference="qB4-Eh-uxS"/>
                                 <include reference="3KQ-oi-dLq"/>
-                                <include reference="WUk-cM-nVB"/>
                                 <include reference="Mwp-h7-Gen"/>
                                 <include reference="F60-QC-5Cg"/>
+                                <include reference="WUk-cM-nVB"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Mad-s7-kzy"/>
@@ -395,14 +410,6 @@
                                 <exclude reference="mNH-MB-Q22"/>
                                 <include reference="w5Y-SB-tUV"/>
                                 <exclude reference="wGz-T4-ke7"/>
-                                <include reference="66M-2H-1Xh"/>
-                                <include reference="Fyp-DW-GgZ"/>
-                                <exclude reference="Jf2-Jk-QST"/>
-                                <exclude reference="Vf2-D5-C3U"/>
-                                <exclude reference="fla-Yq-6si"/>
-                                <include reference="h8q-jA-hT4"/>
-                                <include reference="jgW-EB-asa"/>
-                                <exclude reference="swH-EX-ray"/>
                                 <exclude reference="8o7-Ud-Izd"/>
                                 <exclude reference="Csh-Ou-RgR"/>
                                 <exclude reference="Dve-XK-otQ"/>
@@ -421,8 +428,6 @@
                                 <exclude reference="ghf-hU-cjS"/>
                                 <include reference="lSe-ux-4R3"/>
                                 <include reference="t7h-8t-njk"/>
-                                <include reference="cUI-g7-Cu2"/>
-                                <exclude reference="u6H-1K-1S0"/>
                                 <include reference="17I-Jp-tFP"/>
                                 <exclude reference="1pk-ga-Zpr"/>
                                 <exclude reference="3Ux-oA-r0l"/>
@@ -432,6 +437,16 @@
                                 <include reference="nh4-ew-ms5"/>
                                 <exclude reference="qm8-OW-Yme"/>
                                 <include reference="wiS-Ps-aM9"/>
+                                <include reference="66M-2H-1Xh"/>
+                                <include reference="Fyp-DW-GgZ"/>
+                                <exclude reference="Jf2-Jk-QST"/>
+                                <exclude reference="Vf2-D5-C3U"/>
+                                <exclude reference="fla-Yq-6si"/>
+                                <include reference="h8q-jA-hT4"/>
+                                <include reference="jgW-EB-asa"/>
+                                <exclude reference="swH-EX-ray"/>
+                                <include reference="cUI-g7-Cu2"/>
+                                <exclude reference="u6H-1K-1S0"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -441,9 +456,9 @@
                                 <include reference="em6-FD-1DK"/>
                                 <include reference="qB4-Eh-uxS"/>
                                 <include reference="3KQ-oi-dLq"/>
-                                <include reference="WUk-cM-nVB"/>
                                 <include reference="Mwp-h7-Gen"/>
                                 <include reference="F60-QC-5Cg"/>
+                                <include reference="WUk-cM-nVB"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Mad-s7-kzy"/>
@@ -471,14 +486,6 @@
                                 <include reference="mNH-MB-Q22"/>
                                 <exclude reference="w5Y-SB-tUV"/>
                                 <include reference="wGz-T4-ke7"/>
-                                <exclude reference="66M-2H-1Xh"/>
-                                <exclude reference="Fyp-DW-GgZ"/>
-                                <include reference="Jf2-Jk-QST"/>
-                                <include reference="Vf2-D5-C3U"/>
-                                <include reference="fla-Yq-6si"/>
-                                <exclude reference="h8q-jA-hT4"/>
-                                <exclude reference="jgW-EB-asa"/>
-                                <include reference="swH-EX-ray"/>
                                 <include reference="8o7-Ud-Izd"/>
                                 <include reference="Csh-Ou-RgR"/>
                                 <include reference="Dve-XK-otQ"/>
@@ -497,8 +504,6 @@
                                 <include reference="ghf-hU-cjS"/>
                                 <exclude reference="lSe-ux-4R3"/>
                                 <exclude reference="t7h-8t-njk"/>
-                                <exclude reference="cUI-g7-Cu2"/>
-                                <include reference="u6H-1K-1S0"/>
                                 <exclude reference="17I-Jp-tFP"/>
                                 <include reference="1pk-ga-Zpr"/>
                                 <include reference="3Ux-oA-r0l"/>
@@ -508,6 +513,16 @@
                                 <exclude reference="nh4-ew-ms5"/>
                                 <include reference="qm8-OW-Yme"/>
                                 <exclude reference="wiS-Ps-aM9"/>
+                                <exclude reference="66M-2H-1Xh"/>
+                                <exclude reference="Fyp-DW-GgZ"/>
+                                <include reference="Jf2-Jk-QST"/>
+                                <include reference="Vf2-D5-C3U"/>
+                                <include reference="fla-Yq-6si"/>
+                                <exclude reference="h8q-jA-hT4"/>
+                                <exclude reference="jgW-EB-asa"/>
+                                <include reference="swH-EX-ray"/>
+                                <exclude reference="cUI-g7-Cu2"/>
+                                <include reference="u6H-1K-1S0"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -517,9 +532,9 @@
                                 <include reference="em6-FD-1DK"/>
                                 <include reference="qB4-Eh-uxS"/>
                                 <include reference="3KQ-oi-dLq"/>
-                                <include reference="WUk-cM-nVB"/>
                                 <include reference="Mwp-h7-Gen"/>
                                 <include reference="F60-QC-5Cg"/>
+                                <include reference="WUk-cM-nVB"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Mad-s7-kzy"/>
@@ -547,14 +562,6 @@
                                 <include reference="mNH-MB-Q22"/>
                                 <exclude reference="w5Y-SB-tUV"/>
                                 <include reference="wGz-T4-ke7"/>
-                                <exclude reference="66M-2H-1Xh"/>
-                                <exclude reference="Fyp-DW-GgZ"/>
-                                <include reference="Jf2-Jk-QST"/>
-                                <include reference="Vf2-D5-C3U"/>
-                                <include reference="fla-Yq-6si"/>
-                                <exclude reference="h8q-jA-hT4"/>
-                                <exclude reference="jgW-EB-asa"/>
-                                <include reference="swH-EX-ray"/>
                                 <include reference="8o7-Ud-Izd"/>
                                 <include reference="Csh-Ou-RgR"/>
                                 <include reference="Dve-XK-otQ"/>
@@ -573,8 +580,6 @@
                                 <include reference="ghf-hU-cjS"/>
                                 <exclude reference="lSe-ux-4R3"/>
                                 <exclude reference="t7h-8t-njk"/>
-                                <exclude reference="cUI-g7-Cu2"/>
-                                <include reference="u6H-1K-1S0"/>
                                 <exclude reference="17I-Jp-tFP"/>
                                 <include reference="1pk-ga-Zpr"/>
                                 <include reference="3Ux-oA-r0l"/>
@@ -584,10 +589,23 @@
                                 <exclude reference="nh4-ew-ms5"/>
                                 <include reference="qm8-OW-Yme"/>
                                 <exclude reference="wiS-Ps-aM9"/>
+                                <exclude reference="66M-2H-1Xh"/>
+                                <exclude reference="Fyp-DW-GgZ"/>
+                                <include reference="Jf2-Jk-QST"/>
+                                <include reference="Vf2-D5-C3U"/>
+                                <include reference="fla-Yq-6si"/>
+                                <exclude reference="h8q-jA-hT4"/>
+                                <exclude reference="jgW-EB-asa"/>
+                                <include reference="swH-EX-ray"/>
+                                <exclude reference="cUI-g7-Cu2"/>
+                                <include reference="u6H-1K-1S0"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="aRy-L1-CFq"/>
+                    <connections>
+                        <outlet property="Version" destination="WUk-cM-nVB" id="sz2-Lq-EhC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bU2-Gh-lVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

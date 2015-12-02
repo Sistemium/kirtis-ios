@@ -27,6 +27,7 @@
 		6D5BD34E1C0735BC00D70B60 /* kirtis-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5BD3501C0735BC00D70B60 /* kirtis-512.png */; };
 		6D5BD3611C07388B00D70B60 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */; };
 		6D5BD3961C074E3400D70B60 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5BD3951C074E3400D70B60 /* TabBarController.swift */; };
+		6DF50B541C0C762D002DF27E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF50B531C0C762D002DF27E /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +70,9 @@
 		6D5BD35F1C07375500D70B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6D5BD3951C074E3400D70B60 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		6D5BD3991C07527C00D70B60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D5BD39A1C07528700D70B60 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DF50B531C0C762D002DF27E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		6DF50B5D1C0EDE5D002DF27E /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DF50B5E1C0EDE78002DF27E /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				6D065F9B1BF4E047005DB78D /* Main.storyboard */,
 				6D5BD3601C07388B00D70B60 /* Launch Screen.storyboard */,
 				6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */,
+				6DF50B531C0C762D002DF27E /* AboutViewController.swift */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
 				6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */,
 				6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				6D065F941BF4BA2E005DB78D /* SplitViewController.swift in Sources */,
 				6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */,
+				6DF50B541C0C762D002DF27E /* AboutViewController.swift in Sources */,
 				6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */,
 				6D5BD3961C074E3400D70B60 /* TabBarController.swift in Sources */,
 				6D065F901BF4AD22005DB78D /* Accentuation.swift in Sources */,
@@ -315,8 +319,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6D5BD3991C07527C00D70B60 /* ru */,
-				6D5BD39A1C07528700D70B60 /* lt */,
+				6DF50B5D1C0EDE5D002DF27E /* ru */,
+				6DF50B5E1C0EDE78002DF27E /* lt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
