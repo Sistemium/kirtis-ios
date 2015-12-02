@@ -1,10 +1,6 @@
 /* Nothing was typed */
 "Nothing was typed" = "Žodis neįvestas";
 
-/* Search returned nothing
-   Word is not found */
+/* Word is not found */
 "Word is not found" = "Žodis nerastas";
-
-/* Nothing was typed */
-"Word is not typed" = "Žodis neįvestas";
 
