@@ -11,8 +11,10 @@ import Crashlytics
 
 class KirtisTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var states: UILabel!
+    @IBOutlet weak var word: UILabel!
+    @IBOutlet weak var part: UILabel!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var states: UIView!
     
     override func layoutSubviews() {
         let longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
@@ -23,7 +25,7 @@ class KirtisTableViewCell: UITableViewCell {
     }
     
     func handleLongPress(gestureReconizer: UILongPressGestureRecognizer){
-        if title.frame.contains(gestureReconizer.locationInView(self)){
+        if word.frame.contains(gestureReconizer.locationInView(self)){
             switch gestureReconizer.state{
             case .Began:
                 becomeFirstResponder()
@@ -39,7 +41,7 @@ class KirtisTableViewCell: UITableViewCell {
     }
     
     func copyText() {
-        UIPasteboard.generalPasteboard().string = title.text
+        UIPasteboard.generalPasteboard().string = word.text
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -51,5 +53,19 @@ class KirtisTableViewCell: UITableViewCell {
             return true
         }
         return false
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        if states.subviews.count > 1{
+            for sub in states.subviews[1...states.subviews.count-1]{
+                sub.removeFromSuperview()
+            }
+        }
+        if states.constraints.count > 3{
+            for cons in states.constraints[3...states.subviews.count-1]{
+                states.removeConstraint(cons)
+            }
+        }
     }
 }

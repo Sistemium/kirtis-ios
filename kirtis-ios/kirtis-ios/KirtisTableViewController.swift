@@ -31,6 +31,14 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    
+    @IBOutlet weak var accentuate: UIButton!{
+        didSet{
+            accentuate.layer.cornerRadius = 3
+            accentuate.clipsToBounds = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -61,17 +69,22 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-
+    @IBAction func buttonClick() {
+        textFieldForWord.resignFirstResponder()
+        textToSearch = textFieldForWord.text
+        search()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textToSearch = textField.text
-        search()
         return true
     }
     
     private func search(){
         self.accentuations = [Accentuation(message: "loading")]
+        if textToSearch == nil {
+            textToSearch = ""
+        }
         let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
@@ -83,7 +96,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                     else{
                         let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-                        print(self.appDelegate.userLanguage)
                         if text == ""{
                             let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
                             self.accentuations = [Accentuation(message: message)]
@@ -150,7 +162,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
             let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray //what if it fails?
             return jsonDict
         }catch let parseError {
-            print(parseError) //returns invalid capability error but still works, why?
+            print(parseError)
         }
         return nil
     }
@@ -178,15 +190,30 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                 case "loading":
                     return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
-                    cell.title.text = message
-                    cell.states.text = ""
+                    cell.word.text = ""
+                    cell.part.text = ""
+                    cell.message.text = message
             }
         }else{
-            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
-            cell.states.text = ""
+            cell.word.text = accentuations![indexPath.item].word!
+            cell.part.text = " (" + accentuations![indexPath.item].part! + ")"
+            var width = 0
             for state in accentuations![indexPath.item].states!{
-                cell.states.text! += state + " "
+                let label = UILabel()
+                let previousElement = cell.states.subviews.last
+                label.text = state
+                label.font = UIFont.systemFontOfSize(17.0)
+                label.numberOfLines = 0;
+                let text = label.text! as NSString
+                let size = text.sizeWithAttributes([NSFontAttributeName:label.font])
+                label.frame = CGRectMake(0, 0, size.width, size.height)
+                width += Int(size.width)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                cell.states.addSubview(label)
+                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: previousElement, attribute: .Trailing, multiplier: 1, constant: 0))
+                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY , relatedBy: .Equal, toItem: previousElement, attribute: .CenterY, multiplier: 1, constant: 0))
             }
+            cell.states.constraints[0].constant = CGFloat(width)
         }
         return cell
     }

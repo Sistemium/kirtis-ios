@@ -68,9 +68,9 @@
 		6D5BD3511C0735C000D70B60 /* lt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lt; path = "lt.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD35F1C07375500D70B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD3951C074E3400D70B60 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6DD05C771C109E8E0022A1F5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DD05C781C109E980022A1F5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DF50B531C0C762D002DF27E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		6DF50B611C0EE56D002DF27E /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6DF50B621C0EE580002DF27E /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,8 +316,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6DF50B611C0EE56D002DF27E /* ru */,
-				6DF50B621C0EE580002DF27E /* lt */,
+				6DD05C771C109E8E0022A1F5 /* ru */,
+				6DD05C781C109E980022A1F5 /* lt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
