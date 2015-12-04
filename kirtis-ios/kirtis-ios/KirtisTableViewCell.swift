@@ -62,10 +62,5 @@ class KirtisTableViewCell: UITableViewCell {
                 sub.removeFromSuperview()
             }
         }
-        if states.constraints.count > 3{
-            for cons in states.constraints[3...states.subviews.count-1]{
-                states.removeConstraint(cons)
-            }
-        }
     }
 }
