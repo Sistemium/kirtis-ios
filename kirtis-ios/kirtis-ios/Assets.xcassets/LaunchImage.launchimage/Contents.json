@@ -55,6 +55,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 1024 x 768-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -70,6 +71,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 2048 x 1536-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -99,6 +101,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
+      "filename" : "logo 768 x 1004.png",
       "extent" : "to-status-bar",
       "scale" : "1x"
     },
@@ -112,18 +115,21 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 1024 x 748.png",
       "extent" : "to-status-bar",
       "scale" : "1x"
     },
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 1024 x 768.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
+      "filename" : "logo 1536 x 2008.png",
       "extent" : "to-status-bar",
       "scale" : "2x"
     },
@@ -137,12 +143,14 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 2048 x 1496.png",
       "extent" : "to-status-bar",
       "scale" : "2x"
     },
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "logo 2048 x 1536.png",
       "extent" : "full-screen",
       "scale" : "2x"
     }
