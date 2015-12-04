@@ -14,10 +14,10 @@ class SplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         preferredDisplayMode = .AllVisible
-        //use this to config split size 
-        //minimumPrimaryColumnWidth = CGFloat(0.7)
-        //preferredPrimaryColumnWidthFraction = CGFloat(0.7)
-        //maximumPrimaryColumnWidth = view.bounds.size.width
+        //use this to config split size
+        minimumPrimaryColumnWidth = CGFloat(0.25)
+        preferredPrimaryColumnWidthFraction = CGFloat(0.25)
+        maximumPrimaryColumnWidth = view.bounds.size.width
     }
     
 }

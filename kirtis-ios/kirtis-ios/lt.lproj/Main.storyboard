@@ -92,6 +92,7 @@
                                             <rect key="frame" x="276" y="50" width="50" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bba-lt-K2d">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="34"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -102,6 +103,7 @@
                                             <constraints>
                                                 <constraint firstItem="bba-lt-K2d" firstAttribute="top" secondItem="02z-AV-mcs" secondAttribute="top" id="G9n-fU-F6I"/>
                                                 <constraint firstItem="bba-lt-K2d" firstAttribute="leading" secondItem="02z-AV-mcs" secondAttribute="leading" id="anv-qn-oqh"/>
+                                                <constraint firstItem="bba-lt-K2d" firstAttribute="height" secondItem="02z-AV-mcs" secondAttribute="height" id="pue-CR-rfV"/>
                                                 <constraint firstAttribute="width" constant="50" id="z8Q-M5-nrL"/>
                                             </constraints>
                                         </view>
@@ -913,7 +915,7 @@
             </objects>
             <point key="canvasLocation" x="3252" y="1356"/>
         </scene>
-        <!--About-->
+        <!--Apie-->
         <scene sceneID="fi8-gv-srx">
             <objects>
                 <viewController id="KWd-oY-lr5" sceneMemberID="viewController">
@@ -927,13 +929,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="Ji3-KW-f9F"/>
+                    <navigationItem key="navigationItem" title="Apie" id="Ji3-KW-f9F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnT-uL-Miz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2496" y="2468"/>
         </scene>
-        <!--About-->
+        <!--Apie-->
         <scene sceneID="Zy7-Ez-Zk4">
             <objects>
                 <viewController id="ERi-2p-OHw" customClass="AboutViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -1355,20 +1357,20 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="LdN-WS-DwI"/>
+                    <navigationItem key="navigationItem" title="Apie" id="LdN-WS-DwI"/>
                     <connections>
                         <outlet property="Version" destination="JAX-5O-FlU" id="49u-NA-wZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCM-3Z-AoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3256" y="2468"/>
+            <point key="canvasLocation" x="3288" y="2468"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Apie-->
         <scene sceneID="RR8-tj-WEP">
             <objects>
                 <navigationController storyboardIdentifier="about" automaticallyAdjustsScrollViewInsets="NO" id="Z7L-OO-QB9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="bas-Xd-gK3"/>
+                    <tabBarItem key="tabBarItem" title="Apie" id="bas-Xd-gK3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OTq-vm-Xlm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

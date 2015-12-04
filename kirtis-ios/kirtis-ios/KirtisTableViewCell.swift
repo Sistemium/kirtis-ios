@@ -17,6 +17,7 @@ class KirtisTableViewCell: UITableViewCell {
     @IBOutlet weak var states: UIView!
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         let longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         longPress.minimumPressDuration = 0.5
         longPress.delaysTouchesBegan = true
