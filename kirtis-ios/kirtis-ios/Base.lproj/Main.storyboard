@@ -74,7 +74,7 @@
                                                 <constraint firstAttribute="height" constant="34" id="yb7-Wr-8ym"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02z-AV-mcs">
@@ -84,7 +84,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="34"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -110,7 +110,7 @@
                                             <rect key="frame" x="301.5" y="16" width="0.0" height="0.0"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -261,9 +261,11 @@
                                 <rect key="frame" x="20" y="522" width="560" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="20" y="322" width="760" height="20.5"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwp-h7-Gen">
                                 <rect key="frame" x="20" y="305" width="560" height="33"/>
@@ -273,7 +275,9 @@
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="72" width="376" height="42"/>
+                                </variation>
                                 <connections>
                                     <action selector="linkToSistemium" destination="Hut-56-fbd" eventType="touchUpInside" id="NnK-xP-Vow"/>
                                 </connections>
@@ -286,7 +290,9 @@
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="122" width="376" height="42"/>
+                                </variation>
                                 <connections>
                                     <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="ge8-IR-lny"/>
                                 </connections>
@@ -309,6 +315,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                         <exclude reference="Gsd-hC-2fG"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="72" width="376" height="242"/>
+                                </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
                                 <rect key="frame" x="20" y="387" width="560" height="33"/>
@@ -318,7 +327,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="172" width="376" height="41.5"/>
+                                </variation>
                                 <connections>
                                     <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
                                 </connections>
@@ -331,7 +342,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="272" width="376" height="42"/>
+                                </variation>
                                 <connections>
                                     <action selector="linkToIcons8" destination="Hut-56-fbd" eventType="touchUpInside" id="3oM-Pr-QWx"/>
                                 </connections>
@@ -344,7 +357,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="222" width="376" height="42"/>
+                                </variation>
                                 <connections>
                                     <action selector="linkToSource" destination="Hut-56-fbd" eventType="touchUpInside" id="WFx-OW-pHz"/>
                                 </connections>
@@ -514,6 +529,56 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                 <include reference="xop-65-zas"/>
                                 <include reference="em6-FD-1DK"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="AzB-cP-KQo"/>
+                                <include reference="OJi-Ag-pYg"/>
+                                <include reference="OWB-o0-zrG"/>
+                                <exclude reference="TgL-Go-wHp"/>
+                                <exclude reference="wMC-pp-TdQ"/>
+                                <include reference="EjZ-t4-oe6"/>
+                                <exclude reference="KZV-X3-t3x"/>
+                                <include reference="V8a-3u-cq1"/>
+                                <include reference="WU9-VL-OvB"/>
+                                <exclude reference="bSM-p7-Jyi"/>
+                                <exclude reference="kW8-GE-iT4"/>
+                                <include reference="6xq-aZ-lXb"/>
+                                <exclude reference="D7m-FE-SOm"/>
+                                <exclude reference="aa8-lM-ydC"/>
+                                <include reference="d3i-D6-Vfk"/>
+                                <exclude reference="ddV-2u-JQw"/>
+                                <include reference="o76-na-MbU"/>
+                                <include reference="yji-zZ-zFd"/>
+                                <exclude reference="O0k-ns-t2p"/>
+                                <exclude reference="apL-YX-xJu"/>
+                                <include reference="cwx-ki-q2p"/>
+                                <include reference="hWk-te-Os9"/>
+                                <include reference="rLe-fg-KU5"/>
+                                <exclude reference="rNS-oZ-3lO"/>
+                                <include reference="sRo-Og-FXC"/>
+                                <include reference="uvL-Jg-QR2"/>
+                                <exclude reference="39T-e9-hyb"/>
+                                <exclude reference="BqY-Mq-NK1"/>
+                                <exclude reference="G6T-fK-RMH"/>
+                                <include reference="bPp-AL-4mV"/>
+                                <include reference="eGs-09-xPP"/>
+                                <include reference="ej0-Ro-PkC"/>
+                                <include reference="qnN-zb-gQ7"/>
+                                <include reference="3x4-dZ-pWE"/>
+                                <include reference="Bam-4y-uNb"/>
+                                <exclude reference="FnA-Cx-QeQ"/>
+                                <include reference="Gts-pZ-BEn"/>
+                                <exclude reference="LgC-4g-Sx2"/>
+                                <include reference="dQZ-Hc-gL3"/>
+                                <include reference="q7b-KY-QS2"/>
+                                <exclude reference="ycQ-aQ-VDv"/>
+                                <include reference="5AF-pC-8z4"/>
+                                <exclude reference="EIj-0n-qFv"/>
+                                <exclude reference="TyK-at-AYl"/>
+                                <include reference="VCZ-D4-4Xr"/>
+                                <include reference="h7J-ly-oKB"/>
+                                <include reference="TmB-Oa-gCj"/>
+                                <exclude reference="psx-r4-TJM"/>
+                            </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="aRy-L1-CFq"/>
@@ -619,7 +684,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDd-3A-DkL">
@@ -676,7 +741,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y3-LC-BIJ">
@@ -684,7 +749,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -704,7 +769,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Russian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyq-GG-CmD">
@@ -712,7 +777,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -732,7 +797,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="249" text="Lithuanian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CvW-QU-sDz">
