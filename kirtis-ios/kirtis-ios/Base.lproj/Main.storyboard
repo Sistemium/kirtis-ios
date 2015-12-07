@@ -257,38 +257,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
-                                <rect key="frame" x="20" y="486.5" width="560" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
+                                <rect key="frame" x="20" y="522" width="560" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Icons8"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
-                                <connections>
-                                    <action selector="linkToIcons8" destination="Hut-56-fbd" eventType="touchUpInside" id="3oM-Pr-QWx"/>
-                                </connections>
-                            </button>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwp-h7-Gen">
-                                <rect key="frame" x="20" y="322" width="560" height="33"/>
+                                <rect key="frame" x="20" y="305" width="560" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
                                 <connections>
                                     <action selector="linkToSistemium" destination="Hut-56-fbd" eventType="touchUpInside" id="NnK-xP-Vow"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
-                                <rect key="frame" x="20" y="404.5" width="560" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-4Y-gg2">
+                                <rect key="frame" x="20" y="346" width="560" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Centre of Computational Linguistics"/>
+                                <state key="normal" title="Kirčiavimas internetu"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
                                 <connections>
-                                    <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
+                                    <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="ge8-IR-lny"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w7-RF-fcw">
-                                <rect key="frame" x="20" y="89" width="560" height="220"/>
+                                <rect key="frame" x="20" y="72" width="560" height="220"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -299,33 +303,50 @@
 We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <mask key="constraints">
+                                        <exclude reference="Gsd-hC-2fG"/>
+                                    </mask>
+                                </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
+                                <rect key="frame" x="20" y="387" width="560" height="33"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Centre of Computational Linguistics"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
+                                <rect key="frame" x="20" y="469.5" width="560" height="33"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Icons8"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
+                                <connections>
+                                    <action selector="linkToIcons8" destination="Hut-56-fbd" eventType="touchUpInside" id="3oM-Pr-QWx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-FD-1DK">
-                                <rect key="frame" x="20" y="445.5" width="560" height="33"/>
+                                <rect key="frame" x="20" y="428.5" width="560" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Source code"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
                                 <connections>
                                     <action selector="linkToSource" destination="Hut-56-fbd" eventType="touchUpInside" id="WFx-OW-pHz"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
-                                <rect key="frame" x="20" y="522.5" width="560" height="20.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-4Y-gg2">
-                                <rect key="frame" x="20" y="363" width="560" height="33"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Kirčiavimas internetu"/>
-                                <variation key="heightClass=compact-widthClass=regular" preservesSuperviewLayoutMargins="NO"/>
-                                <connections>
-                                    <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="ge8-IR-lny"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,55 +354,165 @@ We express appreciation to the Centre of Computational Linguistics, the material
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="em6-FD-1DK" secondAttribute="leading" id="39T-e9-hyb"/>
+                            <constraint firstItem="xop-65-zas" firstAttribute="bottom" secondItem="5w7-RF-fcw" secondAttribute="bottom" id="3x4-dZ-pWE"/>
+                            <constraint firstItem="WUk-cM-nVB" firstAttribute="top" secondItem="5w7-RF-fcw" secondAttribute="bottom" constant="8" symbolic="YES" id="5AF-pC-8z4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ne2-4Y-gg2" secondAttribute="trailing" id="6xq-aZ-lXb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5w7-RF-fcw" secondAttribute="leading" id="AzB-cP-KQo"/>
+                            <constraint firstItem="xop-65-zas" firstAttribute="height" secondItem="em6-FD-1DK" secondAttribute="height" id="Bam-4y-uNb"/>
                             <constraint firstItem="em6-FD-1DK" firstAttribute="top" secondItem="F60-QC-5Cg" secondAttribute="bottom" constant="8" id="BqY-Mq-NK1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ne2-4Y-gg2" secondAttribute="trailing" id="D7m-FE-SOm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WUk-cM-nVB" secondAttribute="trailing" id="EIj-0n-qFv"/>
+                            <constraint firstItem="Mwp-h7-Gen" firstAttribute="top" secondItem="5w7-RF-fcw" secondAttribute="top" id="EjZ-t4-oe6"/>
                             <constraint firstItem="xop-65-zas" firstAttribute="top" secondItem="em6-FD-1DK" secondAttribute="bottom" constant="8" id="FnA-Cx-QeQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="em6-FD-1DK" secondAttribute="trailing" id="G6T-fK-RMH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xop-65-zas" secondAttribute="trailing" id="Gts-pZ-BEn"/>
                             <constraint firstItem="Mwp-h7-Gen" firstAttribute="top" secondItem="5w7-RF-fcw" secondAttribute="bottom" constant="13" id="KZV-X3-t3x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xop-65-zas" secondAttribute="trailing" id="LgC-4g-Sx2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="F60-QC-5Cg" secondAttribute="leading" id="O0k-ns-t2p"/>
-                            <constraint firstItem="5w7-RF-fcw" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="25" id="TgL-Go-wHp"/>
+                            <constraint firstItem="5w7-RF-fcw" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="8" symbolic="YES" id="OJi-Ag-pYg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5w7-RF-fcw" secondAttribute="leading" id="OWB-o0-zrG"/>
+                            <constraint firstItem="5w7-RF-fcw" firstAttribute="top" secondItem="I8P-V3-B0k" secondAttribute="bottom" constant="8" symbolic="YES" id="TgL-Go-wHp"/>
+                            <constraint firstItem="tw7-wc-aKz" firstAttribute="top" secondItem="WUk-cM-nVB" secondAttribute="bottom" constant="8" symbolic="YES" id="TmB-Oa-gCj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="WUk-cM-nVB" secondAttribute="leading" id="TyK-at-AYl"/>
+                            <constraint firstItem="Mwp-h7-Gen" firstAttribute="leading" secondItem="5w7-RF-fcw" secondAttribute="trailing" constant="8" id="V8a-3u-cq1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WUk-cM-nVB" secondAttribute="trailing" id="VCZ-D4-4Xr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mwp-h7-Gen" secondAttribute="trailing" id="WU9-VL-OvB"/>
                             <constraint firstItem="Ne2-4Y-gg2" firstAttribute="top" secondItem="Mwp-h7-Gen" secondAttribute="bottom" constant="8" id="aa8-lM-ydC"/>
                             <constraint firstItem="F60-QC-5Cg" firstAttribute="top" secondItem="Ne2-4Y-gg2" secondAttribute="bottom" constant="8" id="apL-YX-xJu"/>
+                            <constraint firstItem="em6-FD-1DK" firstAttribute="leading" secondItem="5w7-RF-fcw" secondAttribute="trailing" constant="8" id="bPp-AL-4mV"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Mwp-h7-Gen" secondAttribute="leading" id="bSM-p7-Jyi"/>
+                            <constraint firstItem="F60-QC-5Cg" firstAttribute="width" secondItem="5w7-RF-fcw" secondAttribute="width" id="cwx-ki-q2p"/>
+                            <constraint firstItem="Ne2-4Y-gg2" firstAttribute="height" secondItem="Mwp-h7-Gen" secondAttribute="height" id="d3i-D6-Vfk"/>
+                            <constraint firstItem="xop-65-zas" firstAttribute="top" secondItem="em6-FD-1DK" secondAttribute="bottom" constant="8" id="dQZ-Hc-gL3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ne2-4Y-gg2" secondAttribute="leading" id="ddV-2u-JQw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="em6-FD-1DK" secondAttribute="trailing" id="eGs-09-xPP"/>
+                            <constraint firstItem="em6-FD-1DK" firstAttribute="height" secondItem="F60-QC-5Cg" secondAttribute="height" id="ej0-Ro-PkC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="WUk-cM-nVB" secondAttribute="leading" id="h7J-ly-oKB"/>
+                            <constraint firstItem="F60-QC-5Cg" firstAttribute="height" secondItem="Ne2-4Y-gg2" secondAttribute="height" id="hWk-te-Os9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mwp-h7-Gen" secondAttribute="trailing" id="kW8-GE-iT4"/>
+                            <constraint firstItem="Ne2-4Y-gg2" firstAttribute="top" secondItem="Mwp-h7-Gen" secondAttribute="bottom" constant="8" id="o76-na-MbU"/>
                             <constraint firstItem="tw7-wc-aKz" firstAttribute="top" secondItem="WUk-cM-nVB" secondAttribute="bottom" constant="8" id="psx-r4-TJM"/>
+                            <constraint firstItem="xop-65-zas" firstAttribute="leading" secondItem="5w7-RF-fcw" secondAttribute="trailing" constant="8" id="q7b-KY-QS2"/>
+                            <constraint firstItem="em6-FD-1DK" firstAttribute="top" secondItem="F60-QC-5Cg" secondAttribute="bottom" constant="8" id="qnN-zb-gQ7"/>
+                            <constraint firstItem="F60-QC-5Cg" firstAttribute="leading" secondItem="5w7-RF-fcw" secondAttribute="trailing" constant="8" id="rLe-fg-KU5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F60-QC-5Cg" secondAttribute="trailing" id="rNS-oZ-3lO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F60-QC-5Cg" secondAttribute="trailing" id="sRo-Og-FXC"/>
+                            <constraint firstItem="F60-QC-5Cg" firstAttribute="top" secondItem="Ne2-4Y-gg2" secondAttribute="bottom" constant="8" id="uvL-Jg-QR2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5w7-RF-fcw" secondAttribute="trailing" id="wMC-pp-TdQ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xop-65-zas" secondAttribute="leading" id="ycQ-aQ-VDv"/>
+                            <constraint firstItem="Ne2-4Y-gg2" firstAttribute="leading" secondItem="5w7-RF-fcw" secondAttribute="trailing" constant="8" id="yji-zZ-zFd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OJi-Ag-pYg"/>
+                                <exclude reference="OWB-o0-zrG"/>
+                                <exclude reference="EjZ-t4-oe6"/>
+                                <exclude reference="V8a-3u-cq1"/>
+                                <exclude reference="WU9-VL-OvB"/>
+                                <exclude reference="6xq-aZ-lXb"/>
+                                <exclude reference="d3i-D6-Vfk"/>
+                                <exclude reference="o76-na-MbU"/>
+                                <exclude reference="yji-zZ-zFd"/>
+                                <exclude reference="cwx-ki-q2p"/>
+                                <exclude reference="hWk-te-Os9"/>
+                                <exclude reference="rLe-fg-KU5"/>
+                                <exclude reference="sRo-Og-FXC"/>
+                                <exclude reference="uvL-Jg-QR2"/>
+                                <exclude reference="bPp-AL-4mV"/>
+                                <exclude reference="eGs-09-xPP"/>
+                                <exclude reference="ej0-Ro-PkC"/>
+                                <exclude reference="qnN-zb-gQ7"/>
+                                <exclude reference="3x4-dZ-pWE"/>
+                                <exclude reference="Bam-4y-uNb"/>
+                                <exclude reference="Gts-pZ-BEn"/>
+                                <exclude reference="dQZ-Hc-gL3"/>
+                                <exclude reference="q7b-KY-QS2"/>
+                                <exclude reference="5AF-pC-8z4"/>
+                                <exclude reference="VCZ-D4-4Xr"/>
+                                <exclude reference="h7J-ly-oKB"/>
+                                <exclude reference="TmB-Oa-gCj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="AzB-cP-KQo"/>
+                                <include reference="OJi-Ag-pYg"/>
+                                <include reference="OWB-o0-zrG"/>
+                                <exclude reference="TgL-Go-wHp"/>
+                                <exclude reference="wMC-pp-TdQ"/>
+                                <include reference="EjZ-t4-oe6"/>
+                                <exclude reference="KZV-X3-t3x"/>
+                                <include reference="V8a-3u-cq1"/>
+                                <include reference="WU9-VL-OvB"/>
+                                <exclude reference="bSM-p7-Jyi"/>
+                                <exclude reference="kW8-GE-iT4"/>
+                                <include reference="6xq-aZ-lXb"/>
+                                <exclude reference="D7m-FE-SOm"/>
+                                <exclude reference="aa8-lM-ydC"/>
+                                <include reference="d3i-D6-Vfk"/>
+                                <exclude reference="ddV-2u-JQw"/>
+                                <include reference="o76-na-MbU"/>
+                                <include reference="yji-zZ-zFd"/>
+                                <exclude reference="O0k-ns-t2p"/>
+                                <exclude reference="apL-YX-xJu"/>
+                                <include reference="cwx-ki-q2p"/>
+                                <include reference="hWk-te-Os9"/>
+                                <include reference="rLe-fg-KU5"/>
+                                <exclude reference="rNS-oZ-3lO"/>
+                                <include reference="sRo-Og-FXC"/>
+                                <include reference="uvL-Jg-QR2"/>
+                                <exclude reference="39T-e9-hyb"/>
+                                <exclude reference="BqY-Mq-NK1"/>
+                                <exclude reference="G6T-fK-RMH"/>
+                                <include reference="bPp-AL-4mV"/>
+                                <include reference="eGs-09-xPP"/>
+                                <include reference="ej0-Ro-PkC"/>
+                                <include reference="qnN-zb-gQ7"/>
+                                <include reference="3x4-dZ-pWE"/>
+                                <include reference="Bam-4y-uNb"/>
+                                <exclude reference="FnA-Cx-QeQ"/>
+                                <include reference="Gts-pZ-BEn"/>
+                                <exclude reference="LgC-4g-Sx2"/>
+                                <include reference="dQZ-Hc-gL3"/>
+                                <include reference="q7b-KY-QS2"/>
+                                <exclude reference="ycQ-aQ-VDv"/>
+                                <include reference="5AF-pC-8z4"/>
+                                <exclude reference="EIj-0n-qFv"/>
+                                <exclude reference="TyK-at-AYl"/>
+                                <include reference="VCZ-D4-4Xr"/>
+                                <include reference="h7J-ly-oKB"/>
+                                <include reference="TmB-Oa-gCj"/>
+                                <exclude reference="psx-r4-TJM"/>
+                            </mask>
+                        </variation>
                         <variation key="widthClass=regular">
                             <mask key="subviews">
-                                <include reference="xop-65-zas"/>
-                                <include reference="Mwp-h7-Gen"/>
-                                <include reference="F60-QC-5Cg"/>
-                                <include reference="em6-FD-1DK"/>
                                 <include reference="WUk-cM-nVB"/>
+                                <include reference="Mwp-h7-Gen"/>
                                 <include reference="Ne2-4Y-gg2"/>
+                                <include reference="F60-QC-5Cg"/>
+                                <include reference="xop-65-zas"/>
+                                <include reference="em6-FD-1DK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="xop-65-zas"/>
-                                <include reference="Mwp-h7-Gen"/>
-                                <include reference="F60-QC-5Cg"/>
-                                <include reference="em6-FD-1DK"/>
                                 <include reference="WUk-cM-nVB"/>
+                                <include reference="Mwp-h7-Gen"/>
                                 <include reference="Ne2-4Y-gg2"/>
+                                <include reference="F60-QC-5Cg"/>
+                                <include reference="xop-65-zas"/>
+                                <include reference="em6-FD-1DK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="subviews">
-                                <include reference="xop-65-zas"/>
-                                <include reference="Mwp-h7-Gen"/>
-                                <include reference="F60-QC-5Cg"/>
-                                <include reference="em6-FD-1DK"/>
                                 <include reference="WUk-cM-nVB"/>
+                                <include reference="Mwp-h7-Gen"/>
                                 <include reference="Ne2-4Y-gg2"/>
+                                <include reference="F60-QC-5Cg"/>
+                                <include reference="xop-65-zas"/>
+                                <include reference="em6-FD-1DK"/>
                             </mask>
                         </variation>
                     </view>
