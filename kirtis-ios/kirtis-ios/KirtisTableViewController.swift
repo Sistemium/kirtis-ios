@@ -77,6 +77,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        textToSearch = textFieldForWord.text
+        search()
         return true
     }
     
@@ -137,34 +139,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
         let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        if let json = getJSON(api)  {
-            let data = parseJSON(json)
+        if let json = appDelegate.getJSON(api)  {
+            let data = appDelegate.parseJSON(json)
             for value in data! {
                 let element = value as! NSDictionary
-                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"]as! [String]) //what if any casting fails?
+                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"] as! [String]) //what if any casting fails?
                 rez.append(accentuation)
             }
         }
         return rez
-    }
-    
-    private func getJSON(urlToRequest: String) -> NSData?{
-        if let url = NSURL(string: urlToRequest){
-            return NSData(contentsOfURL: url)
-        }
-        else{
-            return nil
-        }
-    }
-    
-    private func parseJSON(inputData: NSData) -> NSArray?{
-        do{
-            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray //what if it fails?
-            return jsonDict
-        }catch let parseError {
-            print(parseError)
-        }
-        return nil
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -197,33 +180,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }else{
             cell.word.text = accentuations![indexPath.item].word!
             cell.part.text = " (" + accentuations![indexPath.item].part! + ")"
-            var width = 0
-            for state in accentuations![indexPath.item].states!{
-                let label = UILabel()
-                let previousElement = cell.states.subviews.last
-                let space = 10
-                let padding = 20
-                label.text = state
-                label.font = UIFont.systemFontOfSize(17.0)
-                label.numberOfLines = 0;
-                label.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1)
-                label.layer.cornerRadius = 17
-                label.clipsToBounds = true
-                label.textAlignment = NSTextAlignment.Center
-                label.translatesAutoresizingMaskIntoConstraints = false
-                let text = label.text! as NSString
-                let size = text.sizeWithAttributes([NSFontAttributeName:label.font])
-                cell.states.addSubview(label)
-                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: previousElement, attribute: .Trailing, multiplier: 1, constant: CGFloat(space)))
-                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY , relatedBy: .Equal, toItem:
-                    previousElement, attribute: .CenterY, multiplier: 1, constant: 0))
-                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .Height , relatedBy: .Equal, toItem:
-                    previousElement, attribute: .Height, multiplier: 1, constant: 0 ))
-                cell.states.addConstraint(NSLayoutConstraint(item: label, attribute: .Width , relatedBy: .Equal, toItem:
-                    nil , attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
-                width += Int(size.width) + space + padding
-            }
-            cell.states.constraints[0].constant = CGFloat(width)
+            cell.statesData = accentuations![indexPath.item].states!
         }
         return cell
     }

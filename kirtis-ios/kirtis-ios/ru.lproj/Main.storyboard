@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Accentuation program-->
+        <!--Расстановка ударений-->
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
                 <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Accentuate the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расставить ударения" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
                                     <rect key="frame" x="64" y="71" width="473" height="36"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -30,7 +30,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                    <state key="normal" title="Accentuate">
+                                    <state key="normal" title="Расставить ударения">
                                         <color key="titleShadowColor" red="0.19215686269999999" green="0.31764705879999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -97,7 +97,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12q-G1-Mzw">
-                                            <rect key="frame" x="301.5" y="16" width="0.0" height="0.0"/>
+                                            <rect key="frame" x="301" y="16" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -167,8 +167,8 @@
                             <outlet property="delegate" destination="srG-RZ-iUR" id="xCD-WX-76a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Accentuation program" id="mtM-BP-qai">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="CFx-1t-MTx">
+                    <navigationItem key="navigationItem" title="Расстановка ударений" id="mtM-BP-qai">
+                        <barButtonItem key="rightBarButtonItem" title="История" id="CFx-1t-MTx">
                             <connections>
                                 <segue destination="Y1g-SC-3ka" kind="unwind" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
                             </connections>
@@ -185,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="3298" y="-501"/>
         </scene>
-        <!--History-->
+        <!--История-->
         <scene sceneID="kYi-xY-tk7">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" customClass="RecentSearchesTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,8 +211,8 @@
                             <outlet property="delegate" destination="ki2-wg-l3j" id="b2A-fN-Wha"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="Ddm-t5-qEk">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="Pv9-hU-tWy">
+                    <navigationItem key="navigationItem" title="История" id="Ddm-t5-qEk">
+                        <barButtonItem key="rightBarButtonItem" title="Закрыть" id="Pv9-hU-tWy">
                             <connections>
                                 <action selector="close:" destination="ki2-wg-l3j" id="fY3-22-XEI"/>
                             </connections>
@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="3256" y="580"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="NbO-0b-vS1">
             <objects>
                 <viewController id="Hut-56-fbd" customClass="AboutViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,8 +238,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
-                                <rect key="frame" x="20" y="509.5" width="560" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Версия: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
+                                <rect key="frame" x="20" y="509" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -281,9 +281,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="Gsd-hC-2fG"/>
                                 </constraints>
-                                <string key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
-
-We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</string>
+                                <string key="text">Данное iOS приложение разрабатывается и поддерживается компанией "UAB Sistemium" в образовательных целях. Приложение представляет собой мобильную версию программы "Kirčiavimas internetu" и распространяется с открытым исходным кодом. Выражается признательность компьютерному лингвистическому центру (KLC), разработки которого были использованы в данном проекте, а также команде "icons8" за предоставление красивых иконок.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="heightClass=compact">
@@ -299,7 +297,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
                                 <rect key="frame" x="20" y="387" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Centre of Computational Linguistics"/>
+                                <state key="normal" title="Компьютерный лингвистический центр"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 </variation>
@@ -313,7 +311,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-FD-1DK">
                                 <rect key="frame" x="20" y="428" width="560" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Source code"/>
+                                <state key="normal" title="Исходный код"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 </variation>
@@ -325,7 +323,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
-                                <rect key="frame" x="20" y="468.5" width="560" height="33"/>
+                                <rect key="frame" x="20" y="468" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Icons8"/>
                                 <variation key="heightClass=compact">
@@ -562,7 +560,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="aRy-L1-CFq"/>
+                    <navigationItem key="navigationItem" title="О программе" id="aRy-L1-CFq"/>
                     <connections>
                         <outlet property="Version" destination="WUk-cM-nVB" id="sz2-Lq-EhC"/>
                     </connections>
@@ -607,11 +605,11 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Accentuation program-->
+        <!--Расстановка ударений-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accentuation program" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Расстановка ударений" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>
@@ -639,7 +637,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="2496" y="580"/>
         </scene>
-        <!--Settings-->
+        <!--Настройки-->
         <scene sceneID="yNN-uL-S1b">
             <objects>
                 <tableViewController id="qgJ-Pb-P99" sceneMemberID="viewController">
@@ -657,15 +655,15 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rix-fb-EEE">
-                                                    <rect key="frame" x="15" y="12" width="72" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Язык" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rix-fb-EEE">
+                                                    <rect key="frame" x="15" y="12" width="38" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDd-3A-DkL">
-                                                    <rect key="frame" x="512.5" y="12" width="52.5" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Русский" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDd-3A-DkL">
+                                                    <rect key="frame" x="502" y="12" width="63" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -685,13 +683,13 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             <outlet property="delegate" destination="qgJ-Pb-P99" id="dkR-gi-YcL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="ajf-LR-Lk9"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="ajf-LR-Lk9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE8-cR-hw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2496" y="1356"/>
         </scene>
-        <!--Language-->
+        <!--Язык-->
         <scene sceneID="uNx-NV-owA">
             <objects>
                 <tableViewController id="IeZ-ld-Q2m" customClass="SettingsTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -716,8 +714,8 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y3-LC-BIJ">
-                                                    <rect key="frame" x="15" y="25.5" width="38" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Английский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Y3-LC-BIJ">
+                                                    <rect key="frame" x="15" y="25.5" width="65" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -740,8 +738,8 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Russian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyq-GG-CmD">
-                                                    <rect key="frame" x="15" y="25.5" width="41" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Русский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyq-GG-CmD">
+                                                    <rect key="frame" x="15" y="25.5" width="45.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -764,8 +762,8 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="249" text="Lithuanian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CvW-QU-sDz">
-                                                    <rect key="frame" x="15" y="25.5" width="54.5" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="249" text="Литовский" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CvW-QU-sDz">
+                                                    <rect key="frame" x="15" y="25.5" width="58.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="highlightedColor"/>
@@ -781,13 +779,13 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             <outlet property="delegate" destination="IeZ-ld-Q2m" id="W4J-8R-3Ny"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Language" id="dhY-g9-zng">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="fEM-1e-7A1">
+                    <navigationItem key="navigationItem" title="Язык" id="dhY-g9-zng">
+                        <barButtonItem key="leftBarButtonItem" title="Отменить" id="fEM-1e-7A1">
                             <connections>
                                 <action selector="cancel:" destination="IeZ-ld-Q2m" id="clG-GR-G4n"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="SJN-lw-WE2">
+                        <barButtonItem key="rightBarButtonItem" title="Готово" style="done" id="SJN-lw-WE2">
                             <connections>
                                 <action selector="done:" destination="IeZ-ld-Q2m" id="YCh-5d-IMW"/>
                             </connections>
@@ -804,11 +802,11 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="4100" y="1356"/>
         </scene>
-        <!--Settings-->
+        <!--Настройки-->
         <scene sceneID="rL7-UC-IN0">
             <objects>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="d6V-Og-aCZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="mnB-Cy-hno"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" id="mnB-Cy-hno"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2h-Pl-6kU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -841,11 +839,11 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="3252" y="1356"/>
         </scene>
-        <!--About-->
+        <!--О программе-->
         <scene sceneID="2BI-xl-ewg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fq-gf-rk6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" id="sph-B8-MVC"/>
+                    <tabBarItem key="tabBarItem" title="О программе" id="sph-B8-MVC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MQf-3t-3RQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -860,7 +858,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="1676" y="3272"/>
         </scene>
-        <!--Dictionary-->
+        <!--Словарь терминов-->
         <scene sceneID="l6S-5r-wuE">
             <objects>
                 <tableViewController id="Scz-gY-Mlv" sceneMemberID="viewController">
@@ -883,17 +881,17 @@ We express appreciation to the Centre of Computational Linguistics, the material
                             <outlet property="delegate" destination="Scz-gY-Mlv" id="dXU-dw-YAJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dictionary" id="dfo-yZ-Rno"/>
+                    <navigationItem key="navigationItem" title="Словарь терминов" id="dfo-yZ-Rno"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHN-pI-M9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2496" y="2330"/>
         </scene>
-        <!--Dictionary-->
+        <!--Словарь терминов-->
         <scene sceneID="OCc-0W-Sav">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MSH-b1-Jkr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dictionary" id="VxZ-tF-M7j"/>
+                    <tabBarItem key="tabBarItem" title="Словарь терминов" id="VxZ-tF-M7j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOj-G4-ZRo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

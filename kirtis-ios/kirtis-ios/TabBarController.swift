@@ -17,7 +17,8 @@ class TabBarController: UITabBarController {
         let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
         self.viewControllers?[0].tabBarItem.image = UIImage(named: NSLocalizedString("Home", bundle: currentLanguageBundle!, value: "Home", comment: "Home"))
         self.viewControllers?[1].tabBarItem.image = UIImage(named: NSLocalizedString("Settings", bundle: currentLanguageBundle!, value: "Settings", comment: "Settings"))
-        self.viewControllers?[2].tabBarItem.image = UIImage(named: NSLocalizedString("About", bundle: currentLanguageBundle!, value: "About", comment: "About"))
+        self.viewControllers?[2].tabBarItem.image = UIImage(named: NSLocalizedString("Dictionary", bundle: currentLanguageBundle!, value: "Dictionary", comment: "Dictionary"))
+        self.viewControllers?[3].tabBarItem.image = UIImage(named: NSLocalizedString("About", bundle: currentLanguageBundle!, value: "About", comment: "About"))
     }
 
 }
