@@ -86,7 +86,7 @@ class KirtisTableViewCell: UITableViewCell {
 //                    popoverController!.permittedArrowDirections = .Any
                     becomeFirstResponder()
                     let menu = UIMenuController.sharedMenuController()
-                    var title = "UNKNOWN"
+                    var title = "Unknown"
                     for t in appDelegate.dictionary!{
                         if (state as! UILabel).text == t.key{
                             title = t.value!
