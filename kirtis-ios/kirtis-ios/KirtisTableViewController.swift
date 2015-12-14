@@ -186,6 +186,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
+        if textFieldForWord.text != "" || accentuations?.count>0{
+            (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
+        }
     }
 }

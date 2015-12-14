@@ -71,19 +71,6 @@ class KirtisTableViewCell: UITableViewCell {
                 menu.setMenuVisible(true, animated: true)            }
             for state in states.subviews{
                 if state.frame.contains(gestureReconizer.locationInView(state.superview)){
-//                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                    let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(appDelegate.userLanguage , ofType:"lproj")!)
-//                    let storyboard = UIStoryboard(name: "Main", bundle: currentLanguageBundle)
-//        
-//                    let fromRect:CGRect = state.frame
-//        
-//                    let popoverVC = storyboard.instantiateViewControllerWithIdentifier("popover")
-//                    popoverVC.modalPresentationStyle = .Popover
-//                    controller!.presentViewController(popoverVC, animated: true, completion: nil)
-//                    let popoverController = popoverVC.popoverPresentationController
-//                    popoverController!.sourceView = self
-//                    popoverController!.sourceRect = fromRect
-//                    popoverController!.permittedArrowDirections = .Any
                     becomeFirstResponder()
                     let menu = UIMenuController.sharedMenuController()
                     var title = "Unknown"
