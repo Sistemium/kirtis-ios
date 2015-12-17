@@ -13,6 +13,7 @@ class RecentSearchesTableViewController: UITableViewController {
     
     @IBOutlet var close: UIBarButtonItem!
     var textToSearch:String? //i dont want to lose current search (opening history destroys KirtisTableView)
+    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     @IBAction func close(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("search", sender: textToSearch ?? "")
+        performSegueWithIdentifier("search", sender: textToSearch)
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -49,7 +50,6 @@ class RecentSearchesTableViewController: UITableViewController {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = recentSearches[indexPath.row]
-        
         return cell
     }
 
@@ -74,7 +74,7 @@ class RecentSearchesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
         destination.navigationItem.setHidesBackButton(true, animated: false)
-        if (sender as! String) != "" {
+        if sender != nil{
             destination.textToSearch = (sender as! String)
         }
     }
@@ -82,11 +82,35 @@ class RecentSearchesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            if textToSearch == recentSearches[indexPath.row]{
+                textToSearch = nil
+            }
             var recent = recentSearches
             recent.removeAtIndex(indexPath.row)
             recentSearches = recent
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadData()
         }
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let  cell = UITableViewCell()
+        
+        if recentSearches.count == 0 {
+            cell.textLabel?.textAlignment = .Center
+            let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+            let message = NSLocalizedString("History is empty", bundle: currentLanguageBundle!, value: "History is empty", comment: "History is empty")
+            cell.textLabel?.text = message
+            
+        }
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if recentSearches.count>0 {
+            return 0
+        }
+        return 20
     }
     
     @IBAction func goToHistory(segue:UIStoryboardSegue){

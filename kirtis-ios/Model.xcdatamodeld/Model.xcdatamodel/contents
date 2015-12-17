@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Dictionary" representedClassName=".Dictionary" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="dictionary" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <entity name="Group" representedClassName=".Group" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dictionary" inverseName="group" inverseEntity="Dictionary" syncable="YES"/>
+        <relationship name="subgroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="subgroup" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dictionary" positionX="106" positionY="-279" width="128" height="90"/>
+        <element name="Group" positionX="-72" positionY="2" width="128" height="90"/>
+    </elements>
 </model>

@@ -5,64 +5,81 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
     </header>
     <body>
-      <trans-unit id="1wc-kZ-4aO.title">
-        <source>About</source>
-        <target>About</target>
-        <note>Class = "UITabBarItem"; title = "About"; ObjectID = "1wc-kZ-4aO";</note>
-      </trans-unit>
       <trans-unit id="2Y3-LC-BIJ.text">
         <source>English</source>
-        <target>English</target>
+        <target>Anglų</target>
         <note>Class = "UILabel"; text = "English"; ObjectID = "2Y3-LC-BIJ";</note>
+      </trans-unit>
+      <trans-unit id="5w7-RF-fcw.text">
+        <source>This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
+
+We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</source>
+        <target>Šia atviro kodo iOS programėle yra mobili versija puslapio "Kirčiavimas internetu". Sukurta ir palaikoma "UAB Sistemium" įmonėje. Išreiškiame padėką kompiuterinės lingvistikos centrui (KLC), kurio medžiaga buvo panaudota projekte ir komandai "icons8" už suteiktas piktogramas.</target>
+        <note>Class = "UITextView"; text = "This open source iOS application is a mobile version of program \"Kirčiavimas internetu\", developed and maintained by \"UAB Sistemium\" for educational purposes. \n\nWe express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team \"icons8\" for providing the beautiful icons."; ObjectID = "5w7-RF-fcw";</note>
       </trans-unit>
       <trans-unit id="32g-NV-1JJ.text">
         <source>Lietuvių</source>
         <target>Lietuvių</target>
         <note>Class = "UILabel"; text = "Lietuvių"; ObjectID = "32g-NV-1JJ";</note>
       </trans-unit>
-      <trans-unit id="AjU-7m-XiB.text">
-        <source>States</source>
-        <target>States</target>
-        <note>Class = "UILabel"; text = "States"; ObjectID = "AjU-7m-XiB";</note>
-      </trans-unit>
       <trans-unit id="CFx-1t-MTx.title">
         <source>History</source>
-        <target>History</target>
+        <target>Istorija</target>
         <note>Class = "UIBarButtonItem"; title = "History"; ObjectID = "CFx-1t-MTx";</note>
       </trans-unit>
       <trans-unit id="CvW-QU-sDz.text">
         <source>Lithuanian</source>
-        <target>Lithuanian</target>
+        <target>Lietuvių</target>
         <note>Class = "UILabel"; text = "Lithuanian"; ObjectID = "CvW-QU-sDz";</note>
       </trans-unit>
       <trans-unit id="Ddm-t5-qEk.title">
         <source>History</source>
-        <target>History</target>
+        <target>Istorija</target>
         <note>Class = "UINavigationItem"; title = "History"; ObjectID = "Ddm-t5-qEk";</note>
       </trans-unit>
-      <trans-unit id="Hsj-Cb-xbW.text">
-        <source>Text about the program</source>
-        <target>Text about the program</target>
-        <note>Class = "UILabel"; text = "Text about the program"; ObjectID = "Hsj-Cb-xbW";</note>
+      <trans-unit id="F60-QC-5Cg.normalTitle">
+        <source>Centre of Computational Linguistics</source>
+        <target>Kompiuterinės lingvistikos centras</target>
+        <note>Class = "UIButton"; normalTitle = "Centre of Computational Linguistics"; ObjectID = "F60-QC-5Cg";</note>
       </trans-unit>
       <trans-unit id="Jyq-GG-CmD.text">
         <source>Russian</source>
-        <target>Russian</target>
+        <target>Rusų</target>
         <note>Class = "UILabel"; text = "Russian"; ObjectID = "Jyq-GG-CmD";</note>
+      </trans-unit>
+      <trans-unit id="K76-hx-cEg.text">
+        <source>(Part)</source>
+        <target>(Part)</target>
+        <note>Class = "UILabel"; text = "(Part)"; ObjectID = "K76-hx-cEg";</note>
       </trans-unit>
       <trans-unit id="Mwo-Mv-2b9.title">
         <source>Accentuation program</source>
-        <target>Accentuation program</target>
+        <target>Kirčiavimo programa</target>
         <note>Class = "UITabBarItem"; title = "Accentuation program"; ObjectID = "Mwo-Mv-2b9";</note>
+      </trans-unit>
+      <trans-unit id="Mwp-h7-Gen.normalTitle">
+        <source>UAB "Sistemium"</source>
+        <target>UAB "Sistemium"</target>
+        <note>Class = "UIButton"; normalTitle = "UAB \"Sistemium\""; ObjectID = "Mwp-h7-Gen";</note>
+      </trans-unit>
+      <trans-unit id="Myt-Tr-hlN.text">
+        <source>Word </source>
+        <target>Word </target>
+        <note>Class = "UILabel"; text = "Word "; ObjectID = "Myt-Tr-hlN";</note>
+      </trans-unit>
+      <trans-unit id="Ne2-4Y-gg2.normalTitle">
+        <source>Kirčiavimas internetu</source>
+        <target>Kirčiavimas internetu</target>
+        <note>Class = "UIButton"; normalTitle = "Kirčiavimas internetu"; ObjectID = "Ne2-4Y-gg2";</note>
       </trans-unit>
       <trans-unit id="Pv9-hU-tWy.title">
         <source>Close</source>
-        <target>Close</target>
+        <target>Uždaryti</target>
         <note>Class = "UIBarButtonItem"; title = "Close"; ObjectID = "Pv9-hU-tWy";</note>
       </trans-unit>
       <trans-unit id="Rix-fb-EEE.text">
         <source>Language</source>
-        <target>Language</target>
+        <target>Kalba</target>
         <note>Class = "UILabel"; text = "Language"; ObjectID = "Rix-fb-EEE";</note>
       </trans-unit>
       <trans-unit id="RoM-9h-ivd.text">
@@ -70,24 +87,34 @@
         <target>English</target>
         <note>Class = "UILabel"; text = "English"; ObjectID = "RoM-9h-ivd";</note>
       </trans-unit>
+      <trans-unit id="SJN-lw-WE2.title">
+        <source>Done</source>
+        <target>Padaryta</target>
+        <note>Class = "UIBarButtonItem"; title = "Done"; ObjectID = "SJN-lw-WE2";</note>
+      </trans-unit>
       <trans-unit id="TDd-3A-DkL.text">
         <source>English</source>
-        <target>English</target>
+        <target>Lietuvių</target>
         <note>Class = "UILabel"; text = "English"; ObjectID = "TDd-3A-DkL";</note>
       </trans-unit>
-      <trans-unit id="ZAf-sp-VV0.text">
-        <source>Title</source>
-        <target>Title</target>
-        <note>Class = "UILabel"; text = "Title"; ObjectID = "ZAf-sp-VV0";</note>
+      <trans-unit id="WUk-cM-nVB.text">
+        <source>Version: </source>
+        <target>Versija: </target>
+        <note>Class = "UILabel"; text = "Version: "; ObjectID = "WUk-cM-nVB";</note>
+      </trans-unit>
+      <trans-unit id="Yem-KE-wAR.normalTitle">
+        <source>Accentuate</source>
+        <target>Kirčiuoti</target>
+        <note>Class = "UIButton"; normalTitle = "Accentuate"; ObjectID = "Yem-KE-wAR";</note>
       </trans-unit>
       <trans-unit id="aRy-L1-CFq.title">
         <source>About</source>
-        <target>About</target>
+        <target>Apie</target>
         <note>Class = "UINavigationItem"; title = "About"; ObjectID = "aRy-L1-CFq";</note>
       </trans-unit>
       <trans-unit id="ajf-LR-Lk9.title">
         <source>Settings</source>
-        <target>Settings</target>
+        <target>Nustatymai</target>
         <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "ajf-LR-Lk9";</note>
       </trans-unit>
       <trans-unit id="bac-bE-Wsp.text">
@@ -97,23 +124,42 @@
       </trans-unit>
       <trans-unit id="dhY-g9-zng.title">
         <source>Language</source>
-        <target>Language</target>
+        <target>Kalba</target>
         <note>Class = "UINavigationItem"; title = "Language"; ObjectID = "dhY-g9-zng";</note>
+      </trans-unit>
+      <trans-unit id="em6-FD-1DK.normalTitle">
+        <source>Source code</source>
+        <target>Kodas</target>
+        <note>Class = "UIButton"; normalTitle = "Source code"; ObjectID = "em6-FD-1DK";</note>
+      </trans-unit>
+      <trans-unit id="fEM-1e-7A1.title">
+        <source>Cancel</source>
+        <target>Atšaukti</target>
+        <note>Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "fEM-1e-7A1";</note>
       </trans-unit>
       <trans-unit id="mnB-Cy-hno.title">
         <source>Settings</source>
-        <target>Settings</target>
+        <target>Nustatymai</target>
         <note>Class = "UITabBarItem"; title = "Settings"; ObjectID = "mnB-Cy-hno";</note>
       </trans-unit>
       <trans-unit id="mtM-BP-qai.title">
         <source>Accentuation program</source>
-        <target>Accentuation program</target>
+        <target>Kirčiavimo programa</target>
         <note>Class = "UINavigationItem"; title = "Accentuation program"; ObjectID = "mtM-BP-qai";</note>
+      </trans-unit>
+      <trans-unit id="sph-B8-MVC.title">
+        <source>About</source>
+        <note>Class = "UITabBarItem"; title = "About"; ObjectID = "sph-B8-MVC";</note>
       </trans-unit>
       <trans-unit id="xod-Ct-IA5.placeholder">
         <source>Accentuate the word</source>
-        <target>Accentuate the word</target>
+        <target>Sukirčiuoti žodį</target>
         <note>Class = "UITextField"; placeholder = "Accentuate the word"; ObjectID = "xod-Ct-IA5";</note>
+      </trans-unit>
+      <trans-unit id="xop-65-zas.normalTitle">
+        <source>Icons8</source>
+        <target>Icons8</target>
+        <note>Class = "UIButton"; normalTitle = "Icons8"; ObjectID = "xop-65-zas";</note>
       </trans-unit>
     </body>
   </file>
@@ -126,7 +172,7 @@
         <source>$(PRODUCT_NAME)</source>
       </trans-unit>
       <trans-unit id="CFBundleShortVersionString">
-        <source>0.1.1</source>
+        <source>0.2</source>
       </trans-unit>
     </body>
   </file>
@@ -135,15 +181,27 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1.1" build-num="7B1005"/>
     </header>
     <body>
+      <trans-unit id="About">
+        <source>About</source>
+        <note>About</note>
+      </trans-unit>
+      <trans-unit id="Home">
+        <source>Home</source>
+        <note>Home</note>
+      </trans-unit>
+      <trans-unit id="Nothing was typed">
+        <source>Nothing was typed</source>
+        <target>Žodis neįvestas</target>
+        <note>Nothing was typed</note>
+      </trans-unit>
+      <trans-unit id="Settings">
+        <source>Settings</source>
+        <note>Settings</note>
+      </trans-unit>
       <trans-unit id="Word is not found">
         <source>Word is not found</source>
         <target>Žodis nerastas</target>
-        <note>search returned nothing</note>
-      </trans-unit>
-      <trans-unit id="Word is not typed">
-        <source>Word is not typed</source>
-        <target>Žodis neįvestas</target>
-        <note>Nothing was typed</note>
+        <note>Word is not found</note>
       </trans-unit>
     </body>
   </file>

@@ -31,6 +31,14 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    
+    @IBOutlet weak var accentuate: UIButton!{
+        didSet{
+            accentuate.layer.cornerRadius = 3
+            accentuate.clipsToBounds = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -61,17 +69,24 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-
+    @IBAction func buttonClick() {
+        textFieldForWord.resignFirstResponder()
+        textToSearch = textFieldForWord.text
+        search()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textToSearch = textField.text
+        textToSearch = textFieldForWord.text
         search()
         return true
     }
     
     private func search(){
         self.accentuations = [Accentuation(message: "loading")]
+        if textToSearch == nil {
+            textToSearch = ""
+        }
         let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
@@ -83,7 +98,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                     else{
                         let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-                        print(self.appDelegate.userLanguage)
                         if text == ""{
                             let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
                             self.accentuations = [Accentuation(message: message)]
@@ -125,34 +139,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
         let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        if let json = getJSON(api)  {
-            let data = parseJSON(json)
+        if let json = appDelegate.getJSON(api)  {
+            let data = appDelegate.parseJSON(json)
             for value in data! {
                 let element = value as! NSDictionary
-                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"]as! [String]) //what if any casting fails?
+                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"] as! [String]) //what if any casting fails?
                 rez.append(accentuation)
             }
         }
         return rez
-    }
-    
-    private func getJSON(urlToRequest: String) -> NSData?{
-        if let url = NSURL(string: urlToRequest){
-            return NSData(contentsOfURL: url)
-        }
-        else{
-            return nil
-        }
-    }
-    
-    private func parseJSON(inputData: NSData) -> NSArray?{
-        do{
-            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray //what if it fails?
-            return jsonDict
-        }catch let parseError {
-            print(parseError) //returns invalid capability error but still works, why?
-        }
-        return nil
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,20 +173,21 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                 case "loading":
                     return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
-                    cell.title.text = message
-                    cell.states.text = ""
+                    cell.word.text = ""
+                    cell.part.text = ""
+                    cell.message.text = message
             }
         }else{
-            cell.title.text = accentuations![indexPath.item].word! + " (" + accentuations![indexPath.item].part! + ")"
-            cell.states.text = ""
-            for state in accentuations![indexPath.item].states!{
-                cell.states.text! += state + " "
-            }
+            cell.word.text = accentuations![indexPath.item].word!
+            cell.part.text = " (" + accentuations![indexPath.item].part! + ")"
+            cell.statesData = accentuations![indexPath.item].states!
         }
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
+        if textFieldForWord.text != "" || accentuations?.count>0{
+            (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
+        }
     }
 }

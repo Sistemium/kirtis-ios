@@ -15,12 +15,72 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var groups : [Group]?
+    var dictionary : [Dictionary]?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         Fabric.with([Crashlytics.self()])
+        do {
+            if try fetch(){
+                return true
+            }
+            let api:String = "http://kirtis.info/api/strp"
+            if let json = getJSON(api)  {
+                let data = parseJSONDictionary(json)
+                let entity =  NSEntityDescription.entityForName("Group",
+                    inManagedObjectContext:managedObjectContext)
+                let mainGroup = Group(entity: entity!,
+                    insertIntoManagedObjectContext: managedObjectContext)
+                mainGroup.name = "Dictionary"
+                pushData(data!,parentGroup: mainGroup)
+                try managedObjectContext.save()
+            }
+            
+            try fetch()
+        } catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+        }
         return true
+    }
+    
+    private func fetch() throws -> Bool{
+        let groupFetchRequest = NSFetchRequest(entityName: "Group")
+        let dictionaryFetchRequest = NSFetchRequest(entityName: "Dictionary")
+        let results1 =
+        try managedObjectContext.executeFetchRequest(groupFetchRequest)
+        let results2 =
+        try managedObjectContext.executeFetchRequest(dictionaryFetchRequest)
+        let groups = results1 as! [Group]
+        let dictionary = results2 as! [Dictionary]
+        if groups.count > 0 {
+            self.groups = groups
+            self.dictionary = dictionary
+            return true
+        }
+        return false
+    }
+    
+    private func pushData(data:NSDictionary,parentGroup:Group){
+        for d in data {
+            if let value = d.value as? NSDictionary {
+                let entity =  NSEntityDescription.entityForName("Group",
+                    inManagedObjectContext:managedObjectContext)
+                let group = Group(entity: entity!,
+                    insertIntoManagedObjectContext: managedObjectContext)
+                group.setValue(d.key, forKey: "name")
+                parentGroup.subgroup.setValue(group, forKey: group.name!)
+                pushData(value,parentGroup: group)
+            }else{
+                let entity =  NSEntityDescription.entityForName("Dictionary",
+                    inManagedObjectContext:managedObjectContext)
+                let dictionary = NSManagedObject(entity: entity!,
+                    insertIntoManagedObjectContext: managedObjectContext)
+                dictionary.setValue(d.key, forKey: "key")
+                dictionary.setValue(d.value, forKey: "value")
+                dictionary.setValue(parentGroup, forKey: "group")
+            }
+        }
     }
     
     func logUser() {
@@ -139,6 +199,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             return "Base"
         }
+    }
+    
+    func getJSON(urlToRequest: String) -> NSData?{
+        if let url = NSURL(string: urlToRequest){
+            return NSData(contentsOfURL: url)
+        }
+        else{
+            return nil
+        }
+    }
+    
+    func parseJSON(inputData: NSData) -> NSArray?{
+        do{
+            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray //what if it fails?
+            return jsonDict
+        }catch let parseError {
+            print(parseError)
+        }
+        return nil
+    }
+    
+    func parseJSONDictionary(inputData: NSData) -> NSDictionary?{
+        do{
+            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSDictionary //what if it fails?
+            return jsonDict
+        }catch let parseError {
+            print(parseError)
+        }
+        return nil
     }
     
 }

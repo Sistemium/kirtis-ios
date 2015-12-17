@@ -16,7 +16,6 @@ class AboutViewController: UIViewController {
         let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
         let version = nsObject as! String
         Version.text! += version
-        
     }
 
     @IBAction func linkToSistemium() {
