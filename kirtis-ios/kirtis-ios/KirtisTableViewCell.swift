@@ -20,11 +20,11 @@ class KirtisTableViewCell: UITableViewCell {
     
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
+
     var statesData : [String] = [] {
         didSet{
             var primaryStates = statesData
-            var secondaryStates = []
+            var secondaryStates: Array<String> = []
             if primaryStates.count>maxFirstLineStates{
                 primaryStates = Array(statesData[0...maxFirstLineStates-1])
                 secondaryStates = Array(statesData.suffixFrom(maxFirstLineStates))
@@ -32,7 +32,7 @@ class KirtisTableViewCell: UITableViewCell {
             
             setStates(primaryStates, view: states)
             if secondaryStates.count>0{
-                setStates(secondaryStates as! Array<String>,view: additionalSizeForStates)
+                setStates(secondaryStates,view: additionalSizeForStates)
             }
         }
     }
@@ -86,7 +86,7 @@ class KirtisTableViewCell: UITableViewCell {
                 menu.menuItems = [copyItem]
                 menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
                 menu.setMenuVisible(true, animated: true)            }
-            for state in states.subviews + additionalSizeForStates.subviews{
+            for state in states.subviews + additionalSizeForStates.subviews {
                 if state.frame.contains(gestureReconizer.locationInView(state.superview)){
                     becomeFirstResponder()
                     let menu = UIMenuController.sharedMenuController()
@@ -103,6 +103,21 @@ class KirtisTableViewCell: UITableViewCell {
                     menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
                     menu.setMenuVisible(true, animated: true)
                 }
+            }
+            if part.frame.contains(gestureReconizer.locationInView(self)){
+                becomeFirstResponder()
+                let menu = UIMenuController.sharedMenuController()
+                var title = "Unknown"
+                for t in appDelegate.dictionary!{
+                    if part.text!.substringWithRange(part.text!.startIndex.advancedBy(2)...part.text!.endIndex.advancedBy(-2)) == t.key{
+                        title = t.value!
+                        break
+                    }
+                }
+                let item = UIMenuItem(title: title, action: Selector("copyText"))
+                menu.menuItems = [item]
+                menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
+                menu.setMenuVisible(true, animated: true)
             }
             
         default:
