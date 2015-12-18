@@ -45,8 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6D0305091C244BE8002FF762 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D03050F1C244CAF002FF762 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D0305141C246C33002FF762 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D0305151C246C44002FF762 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D065F6A1BF38C94005DB78D /* kirtis-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kirtis-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6D1BF38C94005DB78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D065F741BF38C94005DB78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6D0305091C244BE8002FF762 /* lt */,
-				6D03050F1C244CAF002FF762 /* ru */,
+				6D0305141C246C33002FF762 /* lt */,
+				6D0305151C246C44002FF762 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
