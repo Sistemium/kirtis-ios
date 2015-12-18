@@ -19,13 +19,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Accentuate the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                    <rect key="frame" x="64" y="71" width="473" height="36"/>
+                                    <rect key="frame" x="50" y="71" width="487" height="36"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
-                                    <rect key="frame" x="64" y="123" width="473" height="36"/>
+                                    <rect key="frame" x="50" y="123" width="487" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="top" secondItem="xod-Ct-IA5" secondAttribute="bottom" constant="16" id="P1v-LT-2na"/>
                                 <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" id="QOo-xI-7Iu"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="height" secondItem="xod-Ct-IA5" secondAttribute="height" id="c04-jD-f6Z"/>
-                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="64" id="db2-0Z-Jtq"/>
+                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="50" id="db2-0Z-Jtq"/>
                                 <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="63" id="jIW-XK-CSL"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="xod-Ct-IA5" secondAttribute="leading" id="q1v-sQ-oto"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="width" secondItem="xod-Ct-IA5" secondAttribute="width" id="xTA-iz-UNk"/>
@@ -102,6 +102,23 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUn-tg-gMU">
+                                            <rect key="frame" x="276" y="90" width="50" height="34"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lba-EN-cPS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Hvr-M4-ZPv"/>
+                                                <constraint firstItem="lba-EN-cPS" firstAttribute="leading" secondItem="GUn-tg-gMU" secondAttribute="leading" id="Ymd-93-vdB"/>
+                                                <constraint firstItem="lba-EN-cPS" firstAttribute="top" secondItem="GUn-tg-gMU" secondAttribute="top" id="q9z-t5-lgp"/>
+                                                <constraint firstItem="lba-EN-cPS" firstAttribute="height" secondItem="GUn-tg-gMU" secondAttribute="height" id="z9h-uK-xZX"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="02z-AV-mcs" firstAttribute="centerY" secondItem="wRa-c9-gVd" secondAttribute="centerY" id="CsR-We-TbP"/>
@@ -110,6 +127,7 @@
                                         <constraint firstItem="m6n-7r-cs8" firstAttribute="centerY" secondItem="Myt-Tr-hlN" secondAttribute="centerY" id="FjX-G3-rdL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="7lo-y2-8L9" secondAttribute="trailing" id="H4I-UK-zxv"/>
                                         <constraint firstItem="Myt-Tr-hlN" firstAttribute="leading" secondItem="m6n-7r-cs8" secondAttribute="trailing" constant="8" id="ISC-Tu-Q3y"/>
+                                        <constraint firstItem="GUn-tg-gMU" firstAttribute="top" secondItem="02z-AV-mcs" secondAttribute="bottom" constant="8" id="J6S-my-kD0"/>
                                         <constraint firstItem="Myt-Tr-hlN" firstAttribute="centerY" secondItem="K76-hx-cEg" secondAttribute="centerY" id="M5r-Wa-udI"/>
                                         <constraint firstItem="Myt-Tr-hlN" firstAttribute="height" secondItem="02z-AV-mcs" secondAttribute="height" id="Mwb-GV-4FY"/>
                                         <constraint firstItem="7lo-y2-8L9" firstAttribute="leading" secondItem="K76-hx-cEg" secondAttribute="trailing" constant="8" id="RGS-Os-xzQ"/>
@@ -122,7 +140,9 @@
                                         <constraint firstItem="02z-AV-mcs" firstAttribute="height" secondItem="Myt-Tr-hlN" secondAttribute="height" id="cHZ-co-knu"/>
                                         <constraint firstItem="m6n-7r-cs8" firstAttribute="width" secondItem="7lo-y2-8L9" secondAttribute="width" id="cHz-xc-l7a"/>
                                         <constraint firstItem="02z-AV-mcs" firstAttribute="top" secondItem="Myt-Tr-hlN" secondAttribute="bottom" constant="8" id="fxO-FW-ySV"/>
+                                        <constraint firstItem="GUn-tg-gMU" firstAttribute="height" secondItem="02z-AV-mcs" secondAttribute="height" id="gwx-V8-jsc"/>
                                         <constraint firstItem="Myt-Tr-hlN" firstAttribute="height" secondItem="m6n-7r-cs8" secondAttribute="height" id="k1g-9n-kHA"/>
+                                        <constraint firstItem="GUn-tg-gMU" firstAttribute="centerX" secondItem="02z-AV-mcs" secondAttribute="centerX" id="oh0-pI-NID"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="02z-AV-mcs" secondAttribute="leading" id="vdd-CA-4a0"/>
                                         <constraint firstItem="12q-G1-Mzw" firstAttribute="centerX" secondItem="02z-AV-mcs" secondAttribute="centerX" id="vhs-10-FWc"/>
                                     </constraints>
@@ -135,6 +155,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="additionalSizeForStates" destination="GUn-tg-gMU" id="3dq-Sg-mBf"/>
                                     <outlet property="message" destination="12q-G1-Mzw" id="Adb-K2-iiO"/>
                                     <outlet property="part" destination="K76-hx-cEg" id="rhr-e0-gax"/>
                                     <outlet property="states" destination="02z-AV-mcs" id="Xjq-tp-6KI"/>
@@ -926,6 +947,6 @@ We express appreciation to the Centre of Computational Linguistics, the material
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LY2-Vc-U73"/>
+        <segue reference="30C-Zg-Qtl"/>
     </inferredMetricsTieBreakers>
 </document>

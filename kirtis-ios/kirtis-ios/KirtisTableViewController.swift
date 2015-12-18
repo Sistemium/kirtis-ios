@@ -66,6 +66,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
         accentuations = nil
+        textToSearch = ""
         return true
     }
     

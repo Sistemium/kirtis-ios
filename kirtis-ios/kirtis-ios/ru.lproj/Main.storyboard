@@ -19,13 +19,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расставить ударения" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                    <rect key="frame" x="64" y="71" width="473" height="36"/>
+                                    <rect key="frame" x="50" y="71" width="487" height="36"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
-                                    <rect key="frame" x="64" y="123" width="473" height="36"/>
+                                    <rect key="frame" x="50" y="123" width="487" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="top" secondItem="xod-Ct-IA5" secondAttribute="bottom" constant="16" id="P1v-LT-2na"/>
                                 <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" id="QOo-xI-7Iu"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="height" secondItem="xod-Ct-IA5" secondAttribute="height" id="c04-jD-f6Z"/>
-                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="64" id="db2-0Z-Jtq"/>
+                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="50" id="db2-0Z-Jtq"/>
                                 <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="63" id="jIW-XK-CSL"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="xod-Ct-IA5" secondAttribute="leading" id="q1v-sQ-oto"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="width" secondItem="xod-Ct-IA5" secondAttribute="width" id="xTA-iz-UNk"/>
@@ -924,6 +924,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LY2-Vc-U73"/>
+        <segue reference="30C-Zg-Qtl"/>
     </inferredMetricsTieBreakers>
 </document>

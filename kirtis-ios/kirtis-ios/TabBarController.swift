@@ -11,6 +11,13 @@ import UIKit
 class TabBarController: UITabBarController {
     
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    override func awakeFromNib(){
+        UITabBarItem.appearance().setTitleTextAttributes(
+            [NSFontAttributeName: UIFont.systemFontOfSize(9),
+                NSForegroundColorAttributeName: UIColor.blackColor()],
+            forState: .Normal)
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

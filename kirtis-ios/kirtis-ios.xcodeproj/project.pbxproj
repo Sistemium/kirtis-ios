@@ -58,8 +58,6 @@
 		6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewCell.swift; sourceTree = "<group>"; };
 		6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
 		6D065F9C1BF4E047005DB78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D1088081C1EF1C5005606A3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D10880B1C1EF2DA005606A3 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C3E1BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +73,8 @@
 		6D5BD3511C0735C000D70B60 /* lt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lt; path = "lt.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD35F1C07375500D70B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/kirtis-512.png"; sourceTree = "<group>"; };
 		6D5BD3951C074E3400D70B60 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6D6C27A01C24218500A1D793 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D6C27A21C242DAD00A1D793 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DCCC7C81C187D8E004F7EC7 /* DictionaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewController.swift; sourceTree = "<group>"; };
 		6DCCC7CA1C188138004F7EC7 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6DCCC7CB1C188138004F7EC7 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6D1088081C1EF1C5005606A3 /* ru */,
-				6D10880B1C1EF2DA005606A3 /* lt */,
+				6D6C27A01C24218500A1D793 /* ru */,
+				6D6C27A21C242DAD00A1D793 /* lt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
