@@ -17,9 +17,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
         didSet{
-            var text = textToSearch!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
-            if text.characters.count > 0{
-                text = text.substringToIndex(text.startIndex.advancedBy(1)).uppercaseString + text.substringFromIndex(text.startIndex.advancedBy(1)) //uppercase
+            var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
+            if text?.characters.count > 0{
+                text = text!.substringToIndex(text!.startIndex.advancedBy(1)).uppercaseString + text!.substringFromIndex(text!.startIndex.advancedBy(1)) //uppercase
             }
             textToSearch = text
             Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
@@ -66,6 +66,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
         accentuations = nil
+        textToSearch = nil
         return true
     }
     
@@ -90,7 +91,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
-                let accent = self.getAccentuations(text) //what if it fails?
+                let accent = self.getAccentuations(text) 
                 dispatch_async(dispatch_get_main_queue()){
                     self.accentuations = accent
                     if self.accentuations?.count > 0 {
@@ -186,8 +187,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if textFieldForWord.text != "" || accentuations?.count>0{
-            (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textFieldForWord.text
+        if textToSearch != nil || accentuations?.count>0{
+            (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textToSearch
         }
     }
 }

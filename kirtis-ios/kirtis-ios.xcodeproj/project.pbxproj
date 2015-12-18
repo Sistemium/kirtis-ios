@@ -45,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D0305141C246C33002FF762 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D0305151C246C44002FF762 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D065F6A1BF38C94005DB78D /* kirtis-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kirtis-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6D1BF38C94005DB78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D065F741BF38C94005DB78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewCell.swift; sourceTree = "<group>"; };
 		6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
 		6D065F9C1BF4E047005DB78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D1088081C1EF1C5005606A3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D10880B1C1EF2DA005606A3 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C3E1BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6D1088081C1EF1C5005606A3 /* ru */,
-				6D10880B1C1EF2DA005606A3 /* lt */,
+				6D0305141C246C33002FF762 /* lt */,
+				6D0305151C246C44002FF762 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -12,7 +12,7 @@ import CoreData
 class RecentSearchesTableViewController: UITableViewController {
     
     @IBOutlet var close: UIBarButtonItem!
-    var textToSearch:String? //i dont want to lose current search (opening history destroys KirtisTableView)
+    var textToSearch:String? //I dont want to lose current search (opening history destroys KirtisTableView)
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
