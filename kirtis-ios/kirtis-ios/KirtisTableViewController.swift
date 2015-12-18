@@ -91,7 +91,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         let text = textToSearch!
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             if (text == self.textToSearch){
-                let accent = self.getAccentuations(text) //what if it fails?
+                let accent = self.getAccentuations(text) 
                 dispatch_async(dispatch_get_main_queue()){
                     self.accentuations = accent
                     if self.accentuations?.count > 0 {

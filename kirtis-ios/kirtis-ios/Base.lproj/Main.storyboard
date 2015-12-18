@@ -19,13 +19,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Accentuate the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                    <rect key="frame" x="50" y="71" width="487" height="36"/>
+                                    <rect key="frame" x="50" y="71" width="500" height="36"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
-                                    <rect key="frame" x="50" y="123" width="487" height="36"/>
+                                    <rect key="frame" x="50" y="123" width="500" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +44,7 @@
                                 <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" id="QOo-xI-7Iu"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="height" secondItem="xod-Ct-IA5" secondAttribute="height" id="c04-jD-f6Z"/>
                                 <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="50" id="db2-0Z-Jtq"/>
-                                <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="63" id="jIW-XK-CSL"/>
+                                <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="50" id="jIW-XK-CSL"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="xod-Ct-IA5" secondAttribute="leading" id="q1v-sQ-oto"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="width" secondItem="xod-Ct-IA5" secondAttribute="width" id="xTA-iz-UNk"/>
                             </constraints>
@@ -259,7 +259,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-cM-nVB">
                                 <rect key="frame" x="20" y="509.5" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,7 +268,7 @@
                                     <rect key="frame" x="20" y="322" width="760" height="20.5"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwp-h7-Gen">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwp-h7-Gen">
                                 <rect key="frame" x="20" y="305" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
@@ -282,7 +282,7 @@
                                     <action selector="linkToSistemium" destination="Hut-56-fbd" eventType="touchUpInside" id="NnK-xP-Vow"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-4Y-gg2">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne2-4Y-gg2">
                                 <rect key="frame" x="20" y="346" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Kirčiavimas internetu"/>
@@ -296,15 +296,15 @@
                                     <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="ge8-IR-lny"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w7-RF-fcw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w7-RF-fcw">
                                 <rect key="frame" x="20" y="72" width="560" height="220"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="Gsd-hC-2fG"/>
                                 </constraints>
-                                <string key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
+                                <mutableString key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
 
-We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</string>
+We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="heightClass=compact">
@@ -317,12 +317,15 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                     <rect key="frame" x="20" y="72" width="376" height="242"/>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F60-QC-5Cg">
                                 <rect key="frame" x="20" y="387" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Centre of Computational Linguistics"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="152" width="176" height="54.5"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
                                     <rect key="frame" x="404" y="172" width="376" height="41.5"/>
@@ -331,12 +334,15 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                     <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="8ob-8J-wRR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-FD-1DK">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em6-FD-1DK">
                                 <rect key="frame" x="20" y="428" width="560" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Source code"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="214.5" width="176" height="53.5"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
                                     <rect key="frame" x="404" y="222" width="376" height="42"/>
@@ -345,12 +351,15 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                     <action selector="linkToSource" destination="Hut-56-fbd" eventType="touchUpInside" id="WFx-OW-pHz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xop-65-zas">
                                 <rect key="frame" x="20" y="468.5" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Icons8"/>
                                 <variation key="heightClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="276" width="176" height="54"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
                                     <rect key="frame" x="404" y="272" width="376" height="42"/>
@@ -590,7 +599,141 @@ We express appreciation to the Centre of Computational Linguistics, the material
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bU2-Gh-lVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="3272"/>
+            <point key="canvasLocation" x="3308" y="3272"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="yRw-lD-3xo">
+            <objects>
+                <viewController id="iGO-rx-m4v" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EBc-Rk-lNJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="aFS-cz-oDz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IiF-i5-ecb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa8-cH-iZl">
+                                <rect key="frame" x="267" y="513" width="66.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="20" y="322" width="760" height="20.5"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcN-Va-07S">
+                                <rect key="frame" x="233" y="306" width="133" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="UAB &quot;Sistemium&quot;"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="72" width="376" height="42"/>
+                                </variation>
+                                <connections>
+                                    <action selector="linkToSistemium" destination="Hut-56-fbd" eventType="touchUpInside" id="SPF-xl-OWn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZI-mS-kSY">
+                                <rect key="frame" x="220" y="348" width="160" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Kirčiavimas internetu"/>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="122" width="376" height="42"/>
+                                </variation>
+                                <connections>
+                                    <action selector="linkToKirstis" destination="Hut-56-fbd" eventType="touchUpInside" id="nhl-7X-y3R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMs-4z-H1g">
+                                <rect key="frame" x="163" y="389" width="274" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Centre of Computational Linguistics"/>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="152" width="176" height="54.5"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="172" width="376" height="41.5"/>
+                                </variation>
+                                <connections>
+                                    <action selector="linkToCCL" destination="Hut-56-fbd" eventType="touchUpInside" id="Sfj-pa-ojp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVN-EN-zAi">
+                                <rect key="frame" x="251" y="430" width="97" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Source code"/>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="214.5" width="176" height="53.5"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="222" width="376" height="42"/>
+                                </variation>
+                                <connections>
+                                    <action selector="linkToSource" destination="Hut-56-fbd" eventType="touchUpInside" id="Q6K-6g-hbM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ2-rJ-ksc">
+                                <rect key="frame" x="274" y="471" width="52" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Icons8"/>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="276" width="176" height="54"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
+                                    <rect key="frame" x="404" y="272" width="376" height="42"/>
+                                </variation>
+                                <connections>
+                                    <action selector="linkToIcons8" destination="Hut-56-fbd" eventType="touchUpInside" id="SuV-IZ-GGw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JI-It-GdV">
+                                <rect key="frame" x="20" y="114" width="560" height="142.5"/>
+                                <mutableString key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
+
+We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aN-ve-5zK">
+                                <rect key="frame" x="0.0" y="72" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="RaU-AW-8o8"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EVN-EN-zAi" firstAttribute="centerX" secondItem="NMs-4z-H1g" secondAttribute="centerX" id="0hd-un-oCV"/>
+                            <constraint firstItem="KQ2-rJ-ksc" firstAttribute="centerX" secondItem="EVN-EN-zAi" secondAttribute="centerX" id="2AY-dR-oJZ"/>
+                            <constraint firstItem="xa8-cH-iZl" firstAttribute="top" secondItem="KQ2-rJ-ksc" secondAttribute="bottom" constant="8" id="2kX-DW-Q8g"/>
+                            <constraint firstItem="1aN-ve-5zK" firstAttribute="leading" secondItem="IiF-i5-ecb" secondAttribute="leadingMargin" constant="-20" id="4CD-RD-mHr"/>
+                            <constraint firstItem="LZI-mS-kSY" firstAttribute="top" secondItem="bcN-Va-07S" secondAttribute="bottom" constant="8" id="4zJ-As-IJV"/>
+                            <constraint firstItem="NMs-4z-H1g" firstAttribute="centerX" secondItem="LZI-mS-kSY" secondAttribute="centerX" id="7Oj-5f-ryT"/>
+                            <constraint firstItem="NMs-4z-H1g" firstAttribute="top" secondItem="LZI-mS-kSY" secondAttribute="bottom" constant="8" id="A5J-Vb-wqV"/>
+                            <constraint firstItem="1aN-ve-5zK" firstAttribute="top" secondItem="EBc-Rk-lNJ" secondAttribute="bottom" constant="8" id="FKd-0D-j3Y"/>
+                            <constraint firstItem="8JI-It-GdV" firstAttribute="trailing" secondItem="IiF-i5-ecb" secondAttribute="trailingMargin" id="GlR-Db-wAt"/>
+                            <constraint firstItem="8JI-It-GdV" firstAttribute="top" secondItem="EBc-Rk-lNJ" secondAttribute="bottom" constant="50" id="HxS-am-xVl"/>
+                            <constraint firstItem="NMs-4z-H1g" firstAttribute="height" secondItem="LZI-mS-kSY" secondAttribute="height" id="JUw-Gd-12M"/>
+                            <constraint firstItem="1aN-ve-5zK" firstAttribute="width" secondItem="IiF-i5-ecb" secondAttribute="width" id="LDM-SQ-pRt"/>
+                            <constraint firstItem="8JI-It-GdV" firstAttribute="leading" secondItem="IiF-i5-ecb" secondAttribute="leadingMargin" id="Mgt-fR-PcX"/>
+                            <constraint firstItem="xa8-cH-iZl" firstAttribute="height" secondItem="KQ2-rJ-ksc" secondAttribute="height" id="VAm-lp-YhP"/>
+                            <constraint firstItem="KQ2-rJ-ksc" firstAttribute="top" secondItem="EVN-EN-zAi" secondAttribute="bottom" constant="8" id="WZ2-nu-0Qo"/>
+                            <constraint firstItem="KQ2-rJ-ksc" firstAttribute="height" secondItem="EVN-EN-zAi" secondAttribute="height" id="b0Z-ng-kw9"/>
+                            <constraint firstItem="bcN-Va-07S" firstAttribute="top" secondItem="8JI-It-GdV" secondAttribute="bottom" constant="50" id="dF5-3h-lSf"/>
+                            <constraint firstItem="bcN-Va-07S" firstAttribute="centerX" secondItem="8JI-It-GdV" secondAttribute="centerX" id="geg-EP-fIK"/>
+                            <constraint firstItem="xa8-cH-iZl" firstAttribute="centerX" secondItem="KQ2-rJ-ksc" secondAttribute="centerX" id="l2U-Xi-fRs"/>
+                            <constraint firstItem="LZI-mS-kSY" firstAttribute="height" secondItem="bcN-Va-07S" secondAttribute="height" id="ooK-Id-OOD"/>
+                            <constraint firstItem="EVN-EN-zAi" firstAttribute="top" secondItem="NMs-4z-H1g" secondAttribute="bottom" constant="7.5" id="tm2-JE-yDV"/>
+                            <constraint firstItem="EVN-EN-zAi" firstAttribute="height" secondItem="NMs-4z-H1g" secondAttribute="height" id="xQ7-dd-KtZ"/>
+                            <constraint firstItem="LZI-mS-kSY" firstAttribute="centerX" secondItem="bcN-Va-07S" secondAttribute="centerX" id="ygS-cq-SBw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="jzo-Kp-KeY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHQ-xg-RVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488" y="3272"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8hv-Ke-uHj">
@@ -605,7 +748,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                         <segue destination="pkY-sr-JgN" kind="relationship" relationship="viewControllers" id="84U-jk-0tv"/>
                         <segue destination="d6V-Og-aCZ" kind="relationship" relationship="viewControllers" id="C1L-6m-8l7"/>
                         <segue destination="MSH-b1-Jkr" kind="relationship" relationship="viewControllers" id="O5d-bB-7mX"/>
-                        <segue destination="1fq-gf-rk6" kind="relationship" relationship="viewControllers" id="w3J-b2-gOw"/>
+                        <segue destination="i0m-1Q-t5X" kind="relationship" relationship="viewControllers" id="zZd-BJ-C1e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quh-iq-tZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -862,25 +1005,6 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="3252" y="1356"/>
         </scene>
-        <!--About-->
-        <scene sceneID="2BI-xl-ewg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fq-gf-rk6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" id="sph-B8-MVC"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MQf-3t-3RQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Hut-56-fbd" kind="relationship" relationship="rootViewController" id="gKI-Dx-JmI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LRE-YG-5vv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1676" y="3272"/>
-        </scene>
         <!--Dictionary-->
         <scene sceneID="l6S-5r-wuE">
             <objects>
@@ -944,6 +1068,25 @@ We express appreciation to the Centre of Computational Linguistics, the material
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyv-8G-cbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1676" y="2330"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="Pbs-gs-giD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i0m-1Q-t5X" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" id="dZh-DI-z3B"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="so5-bm-ggN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iGO-rx-m4v" kind="relationship" relationship="rootViewController" id="VNZ-cb-5Gd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6m-QR-x47" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="3272"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
