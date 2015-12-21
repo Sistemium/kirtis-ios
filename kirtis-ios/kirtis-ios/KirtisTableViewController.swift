@@ -9,10 +9,13 @@
 import UIKit
 import Crashlytics
 import CoreData
+import ReachabilitySwift
 
-class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
-
+class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
+    
+    var reachability :Reachability?
     @IBOutlet var history: UIBarButtonItem!
+    @IBOutlet var internetAccessIcon: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
@@ -44,10 +47,18 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.estimatedRowHeight = tableView.rowHeight
         textFieldForWord.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        do{
+        reachability = try Reachability.reachabilityForInternetConnection()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reachability)
+        try reachability?.startNotifier();
+        }catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        reachabilityChanged(NSNotification(name: "", object: nil))
         self.navigationItem.setHidesBackButton(true, animated:false);
         if let text = textToSearch{
             textFieldForWord.text = text
@@ -64,6 +75,16 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func reachabilityChanged(note: NSNotification){
+        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+        if hasConnectivity(){
+            internetAccessIcon.image = UIImage(named: NSLocalizedString("Internet", bundle: currentLanguageBundle!, value: "Internet", comment: "Internet"))
+        }
+        else{
+            internetAccessIcon.image = UIImage(named: NSLocalizedString("NoInternet", bundle: currentLanguageBundle!, value: "NoInternet", comment: "NoInternet"))
+        }
+    }
+    
     func textFieldShouldClear(textField: UITextField) -> Bool {
         accentuations = nil
         textToSearch = nil
@@ -74,6 +95,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
         textFieldForWord.resignFirstResponder()
         textToSearch = textFieldForWord.text
         search()
+    }
+    
+    private func hasConnectivity() -> Bool {
+        let networkStatus: Int = reachability!.currentReachabilityStatus.hashValue
+        return networkStatus != 0
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -102,8 +128,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
                         if text == ""{
                             let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
                             self.accentuations = [Accentuation(message: message)]
-                        }else{
+                        }else if self.hasConnectivity(){
                             let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
+                            self.accentuations = [Accentuation(message: message)]
+                        }
+                        else{
+                            let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
                             self.accentuations = [Accentuation(message: message)]
                         }
                     }
@@ -187,8 +217,18 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if textToSearch != nil || accentuations?.count>0{
-            (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textToSearch
+        switch segue.identifier!{
+            case "goToHistory":
+                if textToSearch != nil || accentuations?.count>0{
+                    (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textToSearch
+                }
+                else{
+                    (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = nil
+                }
+
+        default:
+            break
         }
     }
+    
 }

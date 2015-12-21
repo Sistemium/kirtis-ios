@@ -18,12 +18,6 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                    <rect key="frame" x="50" y="71" width="500" height="36"/>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
                                     <rect key="frame" x="50" y="123" width="500" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,6 +31,12 @@
                                         <action selector="buttonClick" destination="srG-RZ-iUR" eventType="touchUpInside" id="hmF-Ic-NA8"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                    <rect key="frame" x="50" y="71" width="500" height="36"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -189,15 +189,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kirčiavimo programa" id="mtM-BP-qai">
+                        <barButtonItem key="leftBarButtonItem" image="Internet" id="pX2-aG-o4y"/>
                         <barButtonItem key="rightBarButtonItem" title="Istorija" id="CFx-1t-MTx">
                             <connections>
-                                <segue destination="Y1g-SC-3ka" kind="unwind" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
+                                <segue destination="Y1g-SC-3ka" kind="unwind" identifier="goToHistory" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accentuate" destination="Yem-KE-wAR" id="xNi-pz-6lM"/>
                         <outlet property="history" destination="CFx-1t-MTx" id="rUR-Jg-gDW"/>
+                        <outlet property="internetAccessIcon" destination="pX2-aG-o4y" id="0ei-jE-8A4"/>
                         <outlet property="textFieldForWord" destination="xod-Ct-IA5" id="bul-Pt-Z2u"/>
                     </connections>
                 </tableViewController>
@@ -266,7 +268,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Versija: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-Oo-rX2">
-                                                <rect key="frame" x="270.5" y="337.5" width="60" height="33.5"/>
+                                                <rect key="frame" x="269" y="337.5" width="60" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -275,7 +277,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-gy-Fm7">
-                                                <rect key="frame" x="233" y="131.5" width="133" height="33.5"/>
+                                                <rect key="frame" x="233" y="131" width="133" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
                                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
@@ -297,7 +299,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-xC-xf3">
-                                                <rect key="frame" x="169.5" y="214.5" width="261" height="33.5"/>
+                                                <rect key="frame" x="169" y="214" width="261" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Kompiuterinės lingvistikos centras"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -311,7 +313,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycv-fM-ecT">
-                                                <rect key="frame" x="275.5" y="255" width="48" height="33"/>
+                                                <rect key="frame" x="275" y="255" width="48" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Kodas"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -325,7 +327,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-pl-SWW">
-                                                <rect key="frame" x="274" y="296" width="52" height="33.5"/>
+                                                <rect key="frame" x="273" y="296" width="52" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Icons8"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -345,7 +347,7 @@
                                                 </constraints>
                                                 <string key="text">Šia atviro kodo iOS programėle yra mobili versija puslapio "Kirčiavimas internetu". Sukurta ir palaikoma "UAB Sistemium" įmonėje. Išreiškiame padėką kompiuterinės lingvistikos centrui (KLC), kurio medžiaga buvo panaudota projekte ir komandai "icons8" už suteiktas piktogramas.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -766,6 +768,9 @@
             <point key="canvasLocation" x="1676" y="3272"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Internet" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="30C-Zg-Qtl"/>
     </inferredMetricsTieBreakers>
