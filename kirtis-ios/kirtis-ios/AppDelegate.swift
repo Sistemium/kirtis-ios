@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var groups : [Group]?
     var dictionary : [Dictionary]?
+    var lastUrlRequestTimeouted = false
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self()])
@@ -202,12 +203,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func getJSON(urlToRequest: String) -> NSData?{
-        if let url = NSURL(string: urlToRequest){
-            return NSData(contentsOfURL: url)
+        lastUrlRequestTimeouted = false
+        do{
+            if let url = NSURL(string: urlToRequest){
+                return try NSURLConnection.sendSynchronousRequest(NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0), returningResponse: nil)
+            }
         }
-        else{
-            return nil
+        catch{
+            lastUrlRequestTimeouted = true
         }
+        return nil
     }
     
     func parseJSON(inputData: NSData) -> NSArray?{
