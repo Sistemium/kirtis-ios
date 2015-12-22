@@ -450,11 +450,11 @@
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Расстановка ударений-->
+        <!--Ударения-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Расстановка ударений" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Ударения" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>

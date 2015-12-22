@@ -78,10 +78,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     func reachabilityChanged(note: NSNotification){
         let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
         if hasConnectivity(){
+            internetAccessIcon.tintColor = nil
             internetAccessIcon.image = UIImage(named: NSLocalizedString("Internet", bundle: currentLanguageBundle!, value: "Internet", comment: "Internet"))
         }
         else{
             internetAccessIcon.image = UIImage(named: NSLocalizedString("NoInternet", bundle: currentLanguageBundle!, value: "NoInternet", comment: "NoInternet"))
+            internetAccessIcon.tintColor = UIColor.redColor()
         }
     }
     

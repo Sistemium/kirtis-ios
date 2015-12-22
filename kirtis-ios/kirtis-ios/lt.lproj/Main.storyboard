@@ -268,7 +268,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Versija: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-Oo-rX2">
-                                                <rect key="frame" x="269" y="337.5" width="60" height="33.5"/>
+                                                <rect key="frame" x="270" y="337.5" width="60" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -277,7 +277,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-gy-Fm7">
-                                                <rect key="frame" x="233" y="131" width="133" height="33.5"/>
+                                                <rect key="frame" x="233" y="131.5" width="133" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
                                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
@@ -299,7 +299,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-xC-xf3">
-                                                <rect key="frame" x="169" y="214" width="261" height="33.5"/>
+                                                <rect key="frame" x="169.5" y="214.5" width="261" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Kompiuterinės lingvistikos centras"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -313,7 +313,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycv-fM-ecT">
-                                                <rect key="frame" x="275" y="255" width="48" height="33"/>
+                                                <rect key="frame" x="275.5" y="255" width="48" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Kodas"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -327,7 +327,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-pl-SWW">
-                                                <rect key="frame" x="273" y="296" width="52" height="33.5"/>
+                                                <rect key="frame" x="274" y="296" width="52" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Icons8"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -450,11 +450,11 @@
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Kirčiavimo programa-->
+        <!--Kirčiavimas-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Kirčiavimo programa" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Kirčiavimas" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>

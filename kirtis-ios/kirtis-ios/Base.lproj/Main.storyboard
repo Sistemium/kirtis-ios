@@ -452,11 +452,11 @@ We express appreciation to the Centre of Computational Linguistics, the material
             </objects>
             <point key="canvasLocation" x="2496" y="-501"/>
         </scene>
-        <!--Accentuation program-->
+        <!--Accentuation-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
                 <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accentuation program" id="Mwo-Mv-2b9"/>
+                    <tabBarItem key="tabBarItem" title="Accentuation" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
                         <segue destination="TMn-Hd-4p1" kind="relationship" relationship="detailViewController" id="30C-Zg-Qtl"/>

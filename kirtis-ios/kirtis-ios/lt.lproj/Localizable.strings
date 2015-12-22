@@ -1,6 +1,9 @@
 /* History is empty */
 "History is empty" = "Istorija tuščia";
 
+/* No internet access */
+"No internet access" = "Interneto ryšio problemos";
+
 /* Nothing was typed */
 "Nothing was typed" = "Žodis neįvestas";
 
