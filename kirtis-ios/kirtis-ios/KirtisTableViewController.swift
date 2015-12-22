@@ -74,6 +74,20 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             navigationItem.rightBarButtonItems = []
         }
     }
+    @IBAction func reachabilityClick(sender: AnyObject) {
+        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+        let alert = UIAlertController(title: NSLocalizedString("Internet connection is required", bundle: currentLanguageBundle!, value: "Internet connection is required", comment: "Internet connection is required"), message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let message = NSMutableAttributedString(string: NSLocalizedString("Status: ", bundle: currentLanguageBundle!, value: "Status: ", comment: "Status: "))
+        if hasConnectivity(){
+            message.appendAttributedString(NSMutableAttributedString(string: NSLocalizedString("Connected", bundle: currentLanguageBundle!, value: "Connected", comment: "Connected"), attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
+        }
+        else{
+            message.appendAttributedString(NSMutableAttributedString(string: NSLocalizedString("Disconnected", bundle: currentLanguageBundle!, value: "Disconnected", comment: "Disconnected"), attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
+        }
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", bundle: currentLanguageBundle!, value: "Ok", comment: "Ok"), style: UIAlertActionStyle.Default, handler: nil))
+        alert.setValue(message, forKey: "attributedMessage")
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     func reachabilityChanged(note: NSNotification){
         let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)

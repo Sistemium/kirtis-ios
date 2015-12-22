@@ -1,11 +1,26 @@
+/* Connected */
+"Connected" = "Prisijungęs";
+
+/* Disconnected */
+"Disconnected" = "Atsijungęs";
+
 /* History is empty */
 "History is empty" = "Istorija tuščia";
+
+/* Internet connection is required */
+"Internet connection is required" = "Reikalingas prisijungimui prie interneto";
 
 /* No internet access */
 "No internet access" = "Interneto ryšio problemos";
 
 /* Nothing was typed */
 "Nothing was typed" = "Žodis neįvestas";
+
+/* Ok */
+"Ok" = "Gerai";
+
+/* Status: */
+"Status: " = "Statusas: ";
 
 /* Word is not found */
 "Word is not found" = "Žodis nerastas";

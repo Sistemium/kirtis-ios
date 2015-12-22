@@ -23,9 +23,7 @@ class AboutViewController: UIViewController {
         UIApplication.sharedApplication().openURL(NSURL(string : Url.sistemium)!)
     }
     
-    @IBAction func linkToKirstis() {
-        UIApplication.sharedApplication().openURL(NSURL(string : Url.kirtis)!)
-    }
+
     
     @IBAction func linkToCCL() {
         UIApplication.sharedApplication().openURL(NSURL(string : Url.CCl)!)
@@ -38,6 +36,10 @@ class AboutViewController: UIViewController {
     
     @IBAction func linkToSource() {
         UIApplication.sharedApplication().openURL(NSURL(string : Url.source)!)
+    }
+    
+    @IBAction func linkToKirtis() {
+        UIApplication.sharedApplication().openURL(NSURL(string : Url.kirtis)!)
     }
     
     

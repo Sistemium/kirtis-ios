@@ -1,11 +1,26 @@
+/* Connected */
+"Connected" = "Подключен";
+
+/* Disconnected */
+"Disconnected" = "Отключен";
+
 /* History is empty */
 "History is empty" = "История пуста";
+
+/* Internet connection is required */
+"Internet connection is required" = "Требуется подключение к интернету";
 
 /* No internet access */
 "No internet access" = "Нет доступа к интернету";
 
 /* Nothing was typed */
 "Nothing was typed" = "Не введено слово для поиска";
+
+/* Ok */
+"Ok" = "ОК";
+
+/* Status: */
+"Status: " = "Статус: ";
 
 /* Word is not found */
 "Word is not found" = "Слово не найдено";

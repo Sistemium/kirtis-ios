@@ -189,7 +189,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Accentuation program" id="mtM-BP-qai">
-                        <barButtonItem key="leftBarButtonItem" image="Internet" id="pX2-aG-o4y"/>
+                        <barButtonItem key="leftBarButtonItem" image="Internet" id="pX2-aG-o4y">
+                            <connections>
+                                <action selector="reachabilityClick:" destination="srG-RZ-iUR" id="Pp0-ls-Ug0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="History" id="CFx-1t-MTx">
                             <connections>
                                 <segue destination="Y1g-SC-3ka" kind="unwind" identifier="goToHistory" unwindAction="goToHistory:" id="OMX-Yz-OQA"/>
@@ -295,7 +299,7 @@
                                                     <rect key="frame" x="404" y="122" width="376" height="42"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="linkToKirtis" destination="iGO-rx-m4v" eventType="touchUpInside" id="0QF-4n-1Tw"/>
+                                                    <action selector="linkToKirtis" destination="iGO-rx-m4v" eventType="touchUpInside" id="Xqm-9a-H9q"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-xC-xf3">
