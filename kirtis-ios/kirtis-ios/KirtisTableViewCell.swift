@@ -18,7 +18,6 @@ class KirtisTableViewCell: UITableViewCell {
     @IBOutlet weak var additionalSizeForStates: UIView!
     private let maxFirstLineStates = 3
     
-    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     var statesData : [String] = [] {
@@ -69,16 +68,14 @@ class KirtisTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
-        longPress.minimumPressDuration = 0.3
-        longPress.delaysTouchesBegan = true
-        longPress.delegate = self
-        self.addGestureRecognizer(longPress)
+        let press = UITapGestureRecognizer(target: self, action: "handlePress:")
+        press.delegate = self
+        self.addGestureRecognizer(press)
     }
     
-    func handleLongPress(gestureReconizer: UILongPressGestureRecognizer){
+    func handlePress(gestureReconizer: UITapGestureRecognizer){
         switch gestureReconizer.state{
-        case .Began:
+        case .Ended:
             if word.frame.contains(gestureReconizer.locationInView(self)){
                 becomeFirstResponder()
                 let menu = UIMenuController.sharedMenuController()
@@ -94,7 +91,7 @@ class KirtisTableViewCell: UITableViewCell {
                     for t in appDelegate.dictionary!{
                         //print("\((state as! UILabel).text) \((state as! UILabel).text == t.key ? "" : "" ) \(t.key)");
                         if (state as! UILabel).text == t.key{
-                            title = t.value!
+                            title = t.group!.name! + ": " + t.value!
                             break
                         }
                     }

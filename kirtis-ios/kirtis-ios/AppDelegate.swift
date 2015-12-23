@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var groups : [Group]?
     var dictionary : [Dictionary]?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self()])
         do {
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return true
             }
             let api:String = "http://kirtis.info/api/strp"
-            if let json = getJSON(api)  {
+            if let json = getJSON(api).json  {
                 let data = parseJSONDictionary(json)
                 let entity =  NSEntityDescription.entityForName("Group",
                     inManagedObjectContext:managedObjectContext)
@@ -201,13 +201,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getJSON(urlToRequest: String) -> NSData?{
-        if let url = NSURL(string: urlToRequest){
-            return NSData(contentsOfURL: url)
+    func getJSON(urlToRequest: String) -> (json : NSData?,statusCode : Int!){
+        var response: NSURLResponse?
+        do{
+            if let url = NSURL(string: urlToRequest){
+                let rez = try NSURLConnection.sendSynchronousRequest(NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0), returningResponse: &response)
+                return (rez,(response as! NSHTTPURLResponse).statusCode)
+            }
         }
-        else{
-            return nil
+        catch{
+            
         }
+        return (nil , -1)
     }
     
     func parseJSON(inputData: NSData) -> NSArray?{
