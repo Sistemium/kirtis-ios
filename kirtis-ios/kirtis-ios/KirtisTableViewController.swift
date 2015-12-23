@@ -17,6 +17,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     @IBOutlet var history: UIBarButtonItem!
     @IBOutlet var internetAccessIcon: UIBarButtonItem!
     @IBOutlet var textFieldForWord: UITextField!
+    private var statusCode = 0
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
         didSet{
@@ -130,30 +131,37 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         if textToSearch == nil {
             textToSearch = ""
         }
-        let text = textToSearch!
+        self.statusCode = 0
+        if !self.hasConnectivity(){
+            self.statusCode = -1
+        }
+        if textToSearch! == ""{
+            statusCode = 400
+        }
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
-            let accent = self.getAccentuations(text)
+            var accent : [Accentuation] = []
+            if self.statusCode == 0{
+                accent = self.getAccentuations(self.textToSearch!)
+            }
             dispatch_async(dispatch_get_main_queue()){
-                self.accentuations = accent
-                if self.accentuations?.count > 0 {
-                    self.appendHistory(text)
-                }
-                else{
-                    let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-                    if text == ""{
-                        let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
-                        self.accentuations = [Accentuation(message: message)]
-                    }else if !self.hasConnectivity() || self.appDelegate.lastUrlRequestTimeouted{
-                        let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
-                        self.accentuations = [Accentuation(message: message)]
-                    }
-                    else{
-                        let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
-                        self.accentuations = [Accentuation(message: message)]
-                    }
+                let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+                switch(self.statusCode){
+                case 200:
+                    self.accentuations = accent
+                    self.appendHistory(self.textToSearch!)
+                case 400:
+                    let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
+                    self.accentuations = [Accentuation(message: message)]
+                case 404:
+                    let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
+                    self.accentuations = [Accentuation(message: message)]
+                default:
+                    let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
+                    self.accentuations = [Accentuation(message: message)]
+                    break
                 }
             }
-            }
+        }
     }
     
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -183,19 +191,20 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-
-            let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-            if let json = appDelegate.getJSON(api)  {
-                let data = appDelegate.parseJSON(json)
+        let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let answer =  appDelegate.getJSON(api)
+        statusCode = answer.statusCode
+        if let json = answer.json  {
+            let data = appDelegate.parseJSON(json)
                 if data == nil {
                     return rez
                 }
-                    for value in data! {
-                    let element = value as! NSDictionary
-                    let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"] as! [String]) //what if any casting fails?
-                    rez.append(accentuation)
-                }
+                for value in data! {
+                let element = value as! NSDictionary
+                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"] as! [String]) //what if any casting fails?
+                rez.append(accentuation)
             }
+        }
 
         return rez
     }

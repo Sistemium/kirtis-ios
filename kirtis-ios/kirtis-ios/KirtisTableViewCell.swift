@@ -91,7 +91,7 @@ class KirtisTableViewCell: UITableViewCell {
                     for t in appDelegate.dictionary!{
                         //print("\((state as! UILabel).text) \((state as! UILabel).text == t.key ? "" : "" ) \(t.key)");
                         if (state as! UILabel).text == t.key{
-                            title = t.value!
+                            title = t.group!.name! + ": " + t.value!
                             break
                         }
                     }

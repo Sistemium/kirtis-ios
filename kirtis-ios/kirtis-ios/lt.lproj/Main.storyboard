@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Kirčiavimo programa-->
@@ -19,7 +20,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
-                                    <rect key="frame" x="50" y="123" width="500" height="36"/>
+                                    <rect key="frame" x="64" y="123" width="472" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,22 +32,38 @@
                                         <action selector="buttonClick" destination="srG-RZ-iUR" eventType="touchUpInside" id="hmF-Ic-NA8"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sukirčiuoti žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
-                                    <rect key="frame" x="50" y="71" width="500" height="36"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Įveskite žodį" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                    <rect key="frame" x="64" y="71" width="472" height="36"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm9-Ha-sfn">
+                                    <rect key="frame" x="8" y="123" width="47" height="36"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eD-n1-JPb">
+                                    <rect key="frame" x="545" y="123" width="47" height="36"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="qm9-Ha-sfn" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="8" id="4Jg-wX-brS"/>
+                                <constraint firstItem="9eD-n1-JPb" firstAttribute="width" secondItem="qm9-Ha-sfn" secondAttribute="width" id="61a-tN-V3e"/>
+                                <constraint firstItem="9eD-n1-JPb" firstAttribute="height" secondItem="Yem-KE-wAR" secondAttribute="height" id="Jpe-od-Q0C"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="top" secondItem="xod-Ct-IA5" secondAttribute="bottom" constant="16" id="P1v-LT-2na"/>
+                                <constraint firstItem="qm9-Ha-sfn" firstAttribute="centerY" secondItem="Yem-KE-wAR" secondAttribute="centerY" id="PDA-TK-ZVC"/>
                                 <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" id="QOo-xI-7Iu"/>
+                                <constraint firstItem="9eD-n1-JPb" firstAttribute="height" secondItem="qm9-Ha-sfn" secondAttribute="height" id="Qxt-lG-urg"/>
+                                <constraint firstItem="qm9-Ha-sfn" firstAttribute="width" secondItem="Yem-KE-wAR" secondAttribute="width" multiplier="0.1" id="Uqv-3O-YGX"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="height" secondItem="xod-Ct-IA5" secondAttribute="height" id="c04-jD-f6Z"/>
-                                <constraint firstItem="xod-Ct-IA5" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="50" id="db2-0Z-Jtq"/>
-                                <constraint firstAttribute="trailing" secondItem="xod-Ct-IA5" secondAttribute="trailing" constant="50" id="jIW-XK-CSL"/>
+                                <constraint firstItem="9eD-n1-JPb" firstAttribute="leading" secondItem="Yem-KE-wAR" secondAttribute="trailing" constant="9" id="cG8-8b-rGi"/>
+                                <constraint firstAttribute="trailing" secondItem="9eD-n1-JPb" secondAttribute="trailing" constant="8" id="edC-ar-BpB"/>
+                                <constraint firstItem="9eD-n1-JPb" firstAttribute="centerY" secondItem="qm9-Ha-sfn" secondAttribute="centerY" id="kup-yZ-aHC"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="xod-Ct-IA5" secondAttribute="leading" id="q1v-sQ-oto"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="width" secondItem="xod-Ct-IA5" secondAttribute="width" id="xTA-iz-UNk"/>
+                                <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="qm9-Ha-sfn" secondAttribute="trailing" constant="9" id="yt5-zi-tBu"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -271,8 +288,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-RP-8RN">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Versija: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-Oo-rX2">
-                                                <rect key="frame" x="270" y="337" width="60" height="33.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Versija: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-Oo-rX2">
+                                                <rect key="frame" x="269" y="337.5" width="60" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -330,8 +347,8 @@
                                                     <action selector="linkToSource" destination="iGO-rx-m4v" eventType="touchUpInside" id="UPl-T4-b1Y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-pl-SWW">
-                                                <rect key="frame" x="274" y="296" width="52" height="33.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-pl-SWW">
+                                                <rect key="frame" x="273" y="296" width="52" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Icons8"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
