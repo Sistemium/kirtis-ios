@@ -14,9 +14,9 @@ import ReachabilitySwift
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     var reachability :Reachability?
-    @IBOutlet var history: UIBarButtonItem!
-    @IBOutlet var internetAccessIcon: UIBarButtonItem!
-    @IBOutlet var textFieldForWord: UITextField!
+    @IBOutlet weak var history: UIBarButtonItem!
+    @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
+    @IBOutlet weak var textFieldForWord: UITextField!
     private var statusCode = 0
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
@@ -59,13 +59,17 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        reachabilityChanged(NSNotification(name: "", object: nil))
         self.navigationItem.setHidesBackButton(true, animated:false);
         if let text = textToSearch{
             textFieldForWord.text = text
             search()
         }
         shouldButtonAppear()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        reachabilityChanged(nil)
     }
     
     func shouldButtonAppear(){
@@ -90,14 +94,13 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func reachabilityChanged(note: NSNotification){
-        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+    func reachabilityChanged(note: NSNotification?){
         if hasConnectivity(){
             internetAccessIcon.tintColor = nil
-            internetAccessIcon.image = UIImage(named: NSLocalizedString("Internet", bundle: currentLanguageBundle!, value: "Internet", comment: "Internet"))
+            internetAccessIcon.image = UIImage(named: "Internet")
         }
         else{
-            internetAccessIcon.image = UIImage(named: NSLocalizedString("NoInternet", bundle: currentLanguageBundle!, value: "NoInternet", comment: "NoInternet"))
+            internetAccessIcon.image = UIImage(named: "NoInternet")
             internetAccessIcon.tintColor = UIColor.redColor()
         }
     }

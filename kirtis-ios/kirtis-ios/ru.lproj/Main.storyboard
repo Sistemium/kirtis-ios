@@ -10,7 +10,7 @@
         <!--Расстановка ударений-->
         <scene sceneID="BJa-Cp-Tjy">
             <objects>
-                <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="srG-RZ-iUR" customClass="KirtisTableViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="KML-pK-mYq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accentuation" id="6lx-Gy-dGi" customClass="KirtisTableViewCell" customModule="Kirtis" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="292" width="600" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lx-Gy-dGi" id="wRa-c9-gVd">
@@ -179,7 +179,7 @@
                                     <outlet property="word" destination="Myt-Tr-hlN" id="elB-2N-WpC"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spinner" id="dg9-f9-FCn" customClass="SpinnerTableViewCell" customModule="kirtis_ios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spinner" id="dg9-f9-FCn" customClass="SpinnerTableViewCell" customModule="Kirtis" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="423" width="600" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dg9-f9-FCn" id="ZfL-EL-J0U">
@@ -232,7 +232,7 @@
         <!--История-->
         <scene sceneID="kYi-xY-tk7">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" customClass="RecentSearchesTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ki2-wg-l3j" customClass="RecentSearchesTableViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9bB-VI-tCI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +273,7 @@
         <!--О программе-->
         <scene sceneID="yRw-lD-3xo">
             <objects>
-                <viewController id="iGO-rx-m4v" customClass="AboutViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iGO-rx-m4v" customClass="AboutViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EBc-Rk-lNJ"/>
                         <viewControllerLayoutGuide type="bottom" id="aFS-cz-oDz"/>
@@ -438,7 +438,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="8hv-Ke-uHj">
             <objects>
-                <tabBarController storyboardIdentifier="root" id="fBA-sg-RDe" customClass="TabBarController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="root" id="fBA-sg-RDe" customClass="TabBarController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Au1-Ne-PnT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -474,7 +474,7 @@
         <!--Ударения-->
         <scene sceneID="mcx-MK-oJt">
             <objects>
-                <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="pkY-sr-JgN" customClass="SplitViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ударения" id="Mwo-Mv-2b9"/>
                     <connections>
                         <segue destination="NCA-dv-uBv" kind="relationship" relationship="masterViewController" id="Tsd-Hi-MWl"/>
@@ -558,7 +558,7 @@
         <!--Язык-->
         <scene sceneID="uNx-NV-owA">
             <objects>
-                <tableViewController id="IeZ-ld-Q2m" customClass="SettingsTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="IeZ-ld-Q2m" customClass="SettingsTableViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rPG-qD-7xk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -708,7 +708,7 @@
         <!--Словарь терминов-->
         <scene sceneID="l6S-5r-wuE">
             <objects>
-                <tableViewController id="Scz-gY-Mlv" customClass="DictionaryTableViewController" customModule="kirtis_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Scz-gY-Mlv" customClass="DictionaryTableViewController" customModule="Kirtis" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="weS-rV-imb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
