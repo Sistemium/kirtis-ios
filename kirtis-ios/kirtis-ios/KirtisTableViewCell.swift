@@ -107,7 +107,7 @@ class KirtisTableViewCell: UITableViewCell {
                 var title = "Unknown"
                 for t in appDelegate.dictionary!{
                     if part.text!.substringWithRange(part.text!.startIndex.advancedBy(2)...part.text!.endIndex.advancedBy(-2)) == t.key{
-                        title = t.value!
+                        title = t.group!.name! + ": " + t.value!
                         break
                     }
                 }
