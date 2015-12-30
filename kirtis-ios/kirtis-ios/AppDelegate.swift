@@ -15,18 +15,41 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var groups : [Group] = []
+    var dictionary : [Dictionary] = []
+    var dictionaryInitiated = false
     
-    var groups : [Group]?
-    var dictionary : [Dictionary]?
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    private var eTag:String?{
+        get{
+            return defaults.objectForKey("eTag") as? String ?? nil
+        }
+        set{
+            defaults.setObject(newValue, forKey: "eTag")
+        }
+    }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self()])
+        loadDictionary()
+        return true
+    }
+    
+    func loadDictionary(){
         do {
-            if try fetch(){
-                return true
-            }
+            try fetch()
             let api:String = "http://kirtis.info/api/strp"
-            if let json = getJSON(api).json  {
+            let rez = getJSON(api, cashed: true)
+            if rez.statusCode == -1{
+                return
+            }
+            
+            dictionaryInitiated = true
+            if rez.statusCode == 304{
+                return
+            }
+            if let json = rez.json  {
                 let data = parseJSONDictionary(json)
                 let entity =  NSEntityDescription.entityForName("Group",
                     inManagedObjectContext:managedObjectContext)
@@ -36,15 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 pushData(data!,parentGroup: mainGroup)
                 try managedObjectContext.save()
             }
-            
             try fetch()
         } catch let error as NSError {
             print("\(error), \(error.userInfo)")
         }
-        return true
     }
     
-    private func fetch() throws -> Bool{
+    private func fetch() throws{
         let groupFetchRequest = NSFetchRequest(entityName: "Group")
         let dictionaryFetchRequest = NSFetchRequest(entityName: "Dictionary")
         let results1 =
@@ -53,12 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         try managedObjectContext.executeFetchRequest(dictionaryFetchRequest)
         let groups = results1 as! [Group]
         let dictionary = results2 as! [Dictionary]
-        if groups.count > 0 {
-            self.groups = groups
-            self.dictionary = dictionary
-            return true
-        }
-        return false
+        self.groups = groups
+        self.dictionary = dictionary
     }
     
     private func pushData(data:NSDictionary,parentGroup:Group){
@@ -201,11 +218,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getJSON(urlToRequest: String) -> (json : NSData?,statusCode : Int!){
+    func getJSON(urlToRequest: String, cashed : Bool = false) -> (json : NSData?,statusCode : Int!){
         var response: NSURLResponse?
         do{
             if let url = NSURL(string: urlToRequest){
-                let rez = try NSURLConnection.sendSynchronousRequest(NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0), returningResponse: &response)
+                let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0)
+                if cashed{
+                    request.addValue(eTag ?? "", forHTTPHeaderField: "If-None-Match")
+                }
+                let rez = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+                eTag = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
                 return (rez,(response as! NSHTTPURLResponse).statusCode)
             }
         }

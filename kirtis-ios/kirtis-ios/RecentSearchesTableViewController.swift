@@ -110,7 +110,7 @@ class RecentSearchesTableViewController: UITableViewController {
         if recentSearches.count>0 {
             return 0
         }
-        return 20
+        return 50
     }
     
     @IBAction func goToHistory(segue:UIStoryboardSegue){

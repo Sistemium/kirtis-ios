@@ -96,6 +96,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     func reachabilityChanged(note: NSNotification?){
         if hasConnectivity(){
+            if !appDelegate.dictionaryInitiated{
+                appDelegate.loadDictionary()
+            }
             internetAccessIcon.tintColor = nil
             internetAccessIcon.image = UIImage(named: "Internet")
         }

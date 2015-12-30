@@ -366,7 +366,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="143" id="8J6-NF-kvm"/>
                                                 </constraints>
-                                                <string key="text">Šia atviro kodo iOS programėle yra mobili versija puslapio "Kirčiavimas internetu". Sukurta ir palaikoma "UAB Sistemium" įmonėje. Išreiškiame padėką kompiuterinės lingvistikos centrui (KLC), kurio medžiaga buvo panaudota projekte ir komandai "icons8" už suteiktas piktogramas.</string>
+                                                <string key="text">Ši atviro kodo iOS programėle yra mobili versija puslapio "Kirčiavimas internetu". Sukurta ir palaikoma "UAB Sistemium" įmonėje. Išreiškiame padėką kompiuterinės lingvistikos centrui (KLC), kurio medžiaga buvo panaudota projekte ir komandai "icons8" už suteiktas piktogramas.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
