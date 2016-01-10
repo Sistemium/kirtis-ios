@@ -24,9 +24,16 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
             if text?.characters.count > 0{
                 text = text!.substringToIndex(text!.startIndex.advancedBy(1)).uppercaseString + text!.substringFromIndex(text!.startIndex.advancedBy(1)) //uppercase
+                Answers.logContentViewWithName("Accentuation",
+                    contentType: "Events",
+                    contentId: "acc-search",
+                    customAttributes: [
+                        "Text": text!
+                    ]
+                )
             }
             textToSearch = text
-            Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
+            //Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
         }
     }
     private var accentuations: [Accentuation]?{
