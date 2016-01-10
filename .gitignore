@@ -33,3 +33,5 @@ Pods/
 Carthage/Build
 Crashlytics.framework
 Fabric.framework
+
+fabric.sh
