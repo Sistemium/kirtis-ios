@@ -10,10 +10,12 @@ import UIKit
 import Fabric
 import Crashlytics
 import CoreData
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var reachability :Reachability?
     var window: UIWindow?
     var groups : [Group] = []
     var dictionary : [Dictionary] = []
@@ -32,6 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self()])
+        do{
+            reachability = try Reachability.reachabilityForInternetConnection()
+            try reachability?.startNotifier();
+        }catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+        }
         loadDictionary()
         return true
     }

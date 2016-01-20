@@ -13,12 +13,11 @@ import ReachabilitySwift
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
-    var reachability :Reachability?
     @IBOutlet weak var history: UIBarButtonItem!
     @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
     @IBOutlet weak var textFieldForWord: UITextField!
     private var statusCode = 0
-    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    private unowned var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
         didSet{
             var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
@@ -55,13 +54,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         tableView.estimatedRowHeight = tableView.rowHeight
         textFieldForWord.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        do{
-        reachability = try Reachability.reachabilityForInternetConnection()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reachability)
-        try reachability?.startNotifier();
-        }catch let error as NSError {
-            print("\(error), \(error.userInfo)")
-        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: appDelegate.reachability)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,15 +64,18 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             textFieldForWord.text = text
             search()
         }
-        shouldButtonAppear()
+        if (!hasConnectivity()){
+            internetAccessIcon.image = UIImage(named: "NoInternet")
+            internetAccessIcon.tintColor = UIColor.redColor()
+        }
+        shouldButtonAppear(nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        reachabilityChanged(nil)
     }
     
-    func shouldButtonAppear(){
+    func shouldButtonAppear(note: NSNotification?){
         if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [history]
         }else{
@@ -102,6 +98,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     }
     
     func reachabilityChanged(note: NSNotification?){
+        print("!!!!!!!!!")
         if hasConnectivity(){
             if !appDelegate.dictionaryInitiated{
                 appDelegate.loadDictionary()
@@ -128,7 +125,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     }
     
     private func hasConnectivity() -> Bool {
-        let networkStatus: Int = reachability!.currentReachabilityStatus.hashValue
+        let networkStatus: Int = appDelegate.reachability!.currentReachabilityStatus.hashValue
         return networkStatus != 0
     }
     
@@ -270,6 +267,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         default:
             break
         }
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
 }

@@ -59,6 +59,10 @@ class RecentSearchesTableViewController: UITableViewController {
         shouldButtonAppear()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func shouldButtonAppear(){
         if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [close]
@@ -114,6 +118,10 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     
     @IBAction func goToHistory(segue:UIStoryboardSegue){
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
 }
