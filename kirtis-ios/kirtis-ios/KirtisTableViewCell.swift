@@ -95,6 +95,15 @@ class KirtisTableViewCell: UITableViewCell {
                             break
                         }
                     }
+                    if title == "Unknown"{
+                        Answers.logContentViewWithName("Unknown word atribute",
+                            contentType: "Events",
+                            contentId: "unk-atrib",
+                            customAttributes: [
+                                "Text": title
+                            ]
+                        )
+                    }
                     let item = UIMenuItem(title: title, action: Selector("copyText"))
                     menu.menuItems = [item]
                     menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
