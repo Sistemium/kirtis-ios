@@ -14,13 +14,14 @@ class DictionaryTableViewController: UITableViewController {
 
     private var groups : [Group] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        for group in appDelegate.groups!{
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        for group in appDelegate.groups{
             if group.dictionary?.count > 0 {
                 groups.append(group)
             }
         }
+        tableView.reloadData()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

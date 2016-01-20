@@ -71,8 +71,6 @@
 		6D20E16A1BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D20E1891C023FAA007163A0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		6D20E18C1C0313D1007163A0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		6D43AE961C2AD88B00FB8292 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D43AE971C2AD89F00FB8292 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D4617C41C04C3B70072C6DE /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D4617C61C04C3C40072C6DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D5BD34F1C0735BC00D70B60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = "ru.lproj/kirtis-512.png"; sourceTree = "<group>"; };
@@ -85,6 +83,8 @@
 		6DCCC7CC1C188138004F7EC7 /* Dictionary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6DCCC7CD1C188138004F7EC7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		6DF50B531C0C762D002DF27E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		6DFDA38D1C340F9B00409C4A /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DFDA38E1C340FA800409C4A /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = lt; path = lt.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +205,7 @@
 				6D065F661BF38C94005DB78D /* Sources */,
 				6D065F671BF38C94005DB78D /* Frameworks */,
 				6D065F681BF38C94005DB78D /* Resources */,
-				6D1B3C4E1BFDC41500EE65A5 /* ShellScript */,
+				6D1B3C4E1BFDC41500EE65A5 /* Run Script */,
 				1A3D3ED27A6CD53B4E2E0EFE /* Embed Pods Frameworks */,
 				E3D16D942825BFC8C821CC68 /* Copy Pods Resources */,
 			);
@@ -248,7 +248,7 @@
 				TargetAttributes = {
 					6D065F691BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = HZMMGDCLPA;
+						DevelopmentTeam = DP58H3X45C;
 					};
 					6D065F7D1BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -316,18 +316,19 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6D1B3C4E1BFDC41500EE65A5 /* ShellScript */ = {
+		6D1B3C4E1BFDC41500EE65A5 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 035bda92bd5b13402aaf2c6cb5f66b8ff23f2166 2f4e5b60c0ad0f13a7f33d51e0639f4cef9c806cf7147b97c015dc085d89d1c3";
+			shellScript = "source ./fabric.sh";
 		};
 		C7080AFF0122DE147B33BBE5 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -408,8 +409,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D065F9C1BF4E047005DB78D /* Base */,
-				6D43AE961C2AD88B00FB8292 /* ru */,
-				6D43AE971C2AD89F00FB8292 /* lt */,
+				6DFDA38D1C340F9B00409C4A /* ru */,
+				6DFDA38E1C340FA800409C4A /* lt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -553,7 +554,7 @@
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sistemium.kirtis;
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -577,7 +578,7 @@
 				INFOPLIST_FILE = "kirtis-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sistemium.kirtis;
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

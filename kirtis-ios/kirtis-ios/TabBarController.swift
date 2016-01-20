@@ -27,6 +27,7 @@ class TabBarController: UITabBarController {
         self.viewControllers?[1].tabBarItem.image = UIImage(named: NSLocalizedString("Settings", bundle: currentLanguageBundle!, value: "Settings", comment: "Settings"))
         self.viewControllers?[2].tabBarItem.image = UIImage(named: NSLocalizedString("Dictionary", bundle: currentLanguageBundle!, value: "Dictionary", comment: "Dictionary"))
         self.viewControllers?[3].tabBarItem.image = UIImage(named: NSLocalizedString("About", bundle: currentLanguageBundle!, value: "About", comment: "About"))
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(16)]
     }
 
 }

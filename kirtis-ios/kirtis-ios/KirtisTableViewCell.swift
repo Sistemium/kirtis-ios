@@ -88,7 +88,7 @@ class KirtisTableViewCell: UITableViewCell {
                     becomeFirstResponder()
                     let menu = UIMenuController.sharedMenuController()
                     var title = "Unknown"
-                    for t in appDelegate.dictionary!{
+                    for t in appDelegate.dictionary{
                         //print("\((state as! UILabel).text) \((state as! UILabel).text == t.key ? "" : "" ) \(t.key)");
                         if (state as! UILabel).text == t.key{
                             title = t.group!.name! + ": " + t.value!
@@ -105,7 +105,7 @@ class KirtisTableViewCell: UITableViewCell {
                 becomeFirstResponder()
                 let menu = UIMenuController.sharedMenuController()
                 var title = "Unknown"
-                for t in appDelegate.dictionary!{
+                for t in appDelegate.dictionary{
                     if part.text!.substringWithRange(part.text!.startIndex.advancedBy(2)...part.text!.endIndex.advancedBy(-2)) == t.key{
                         title = t.group!.name! + ": " + t.value!
                         break
