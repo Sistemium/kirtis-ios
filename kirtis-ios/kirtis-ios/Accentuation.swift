@@ -14,7 +14,7 @@ class Accentuation{
     var states:[String]?
     var message:String? //for errors or warnings
     
-    required init(part: String, word:String, states:[String]){
+    required init(part: String?, word:String?, states:[String]?){
         self.part = part
         self.word = word
         self.states = states

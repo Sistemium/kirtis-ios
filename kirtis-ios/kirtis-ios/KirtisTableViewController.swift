@@ -98,7 +98,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     }
     
     func reachabilityChanged(note: NSNotification?){
-        print("!!!!!!!!!")
         if hasConnectivity(){
             if !appDelegate.dictionaryInitiated{
                 appDelegate.loadDictionary()
@@ -148,27 +147,30 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         if textToSearch! == ""{
             statusCode = 400
         }
+        let searching = textToSearch
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             var accent : [Accentuation] = []
             if self.statusCode == 0{
                 accent = self.getAccentuations(self.textToSearch!)
             }
             dispatch_async(dispatch_get_main_queue()){
-                let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-                switch(self.statusCode){
-                case 200:
-                    self.accentuations = accent
-                    self.appendHistory(self.textToSearch!)
-                case 400:
-                    let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
-                    self.accentuations = [Accentuation(message: message)]
-                case 404:
-                    let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
-                    self.accentuations = [Accentuation(message: message)]
-                default:
-                    let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
-                    self.accentuations = [Accentuation(message: message)]
-                    break
+                if searching == self.textToSearch{
+                    let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
+                    switch(self.statusCode){
+                    case 200:
+                        self.accentuations = accent
+                        self.appendHistory(self.textToSearch!)
+                    case 400:
+                        let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
+                        self.accentuations = [Accentuation(message: message)]
+                    case 404:
+                        let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
+                        self.accentuations = [Accentuation(message: message)]
+                    default:
+                        let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
+                        self.accentuations = [Accentuation(message: message)]
+                        break
+                    }
                 }
             }
         }
@@ -181,7 +183,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             return defaults.objectForKey("RecentSearches") as? [String] ?? []
         }
         // I need update history immediately, best way to do it here,
-        //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. Landscape mode)
+        //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. on Ipad)
         set{
             defaults.setObject(newValue, forKey: "RecentSearches")
             ((self.splitViewController?.viewControllers[0] as! UINavigationController).visibleViewController as! UITableViewController).tableView.reloadData()
@@ -206,12 +208,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         statusCode = answer.statusCode
         if let json = answer.json  {
             let data = appDelegate.parseJSON(json)
-                if data == nil {
-                    return rez
-                }
-                for value in data! {
+            if data == nil {
+                return rez
+            }
+            for value in data! {
                 let element = value as! NSDictionary
-                let accentuation = Accentuation(part:element["class"] as! String, word:element["word"] as! String,states:element["state"] as! [String]) //what if any casting fails?
+                let accentuation = Accentuation(part:element["class"] as? String, word:element["word"] as? String,states:element["state"] as? [String])
                 rez.append(accentuation)
             }
         }
@@ -249,7 +251,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }else{
             cell.word.text = accentuations![indexPath.item].word!
             cell.part.text = " (" + accentuations![indexPath.item].part! + ")"
-            cell.statesData = accentuations![indexPath.item].states!
+            cell.statesData = accentuations![indexPath.item].states ?? []
         }
         return cell
     }
