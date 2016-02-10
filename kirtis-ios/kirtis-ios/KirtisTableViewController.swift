@@ -53,7 +53,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
         textFieldForWord.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: appDelegate.reachability)
     }
     
