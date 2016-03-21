@@ -10,20 +10,42 @@ import UIKit
 
 class AboutViewController: UIViewController {
     
+    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    @IBOutlet weak var Version: UILabel!
+    
+    @IBOutlet weak var CCL: UIButton!{
+        didSet{
+            CCL.setTitle("CCL".localized(appDelegate.userLanguage), forState: .Normal)
+        }
+    }
+    
+    @IBOutlet weak var aboutText: UILabel!{
+        didSet{
+            aboutText.text = "ABOUT_TEXT".localized(appDelegate.userLanguage)
+        }
+    }
+    
+    @IBOutlet weak var Version: UILabel!{
+        didSet{
+            let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+            let version = nsObject as! String
+            Version.text! = "VERSION".localized(appDelegate.userLanguage) + version
+        }
+    }
+    
+    @IBOutlet weak var sourceCode: UIButton!{
+        didSet{
+            sourceCode.setTitle("CODE".localized(appDelegate.userLanguage), forState: .Normal)
+        }
+    }
     
     override func viewDidLoad() {
-        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
-        let version = nsObject as! String
-        Version.text! += version
+        self.title = "ABOUT".localized(appDelegate.userLanguage)
     }
 
     @IBAction func linkToSistemium() {
         UIApplication.sharedApplication().openURL(NSURL(string : Url.sistemium)!)
     }
-    
-
     
     @IBAction func linkToCCL() {
         UIApplication.sharedApplication().openURL(NSURL(string : Url.CCl)!)

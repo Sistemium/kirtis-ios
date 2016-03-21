@@ -1,29 +1,26 @@
 //
 //  RecentSearchesTableViewController.swift
-//  Smashtag
-//
 //  Created by Edgar Jan Vuicik on 01/11/15.
-//  Copyright © 2015 Stanford University. All rights reserved.
-//
 
 import UIKit
 import CoreData
 
 class RecentSearchesTableViewController: UITableViewController {
     
-    @IBOutlet var close: UIBarButtonItem!
+    @IBOutlet var close: UIBarButtonItem!{
+        didSet{
+            close.title = "CLOSE".localized(appDelegate.userLanguage)
+        }
+    }
     var textToSearch:String? //I dont want to lose current search (opening history destroys KirtisTableView)
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "HISTORY".localized(appDelegate.userLanguage)
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     @IBAction func close(sender: UIBarButtonItem) {
@@ -98,11 +95,9 @@ class RecentSearchesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  cell = UITableViewCell()
-        
         if recentSearches.count == 0 {
             cell.textLabel?.textAlignment = .Center
-            let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-            let message = NSLocalizedString("History is empty", bundle: currentLanguageBundle!, value: "History is empty", comment: "History is empty")
+            let message = "HISTORY_EMPTY".localized(appDelegate.userLanguage)
             cell.textLabel?.text = message
             
         }

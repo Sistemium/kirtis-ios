@@ -13,9 +13,17 @@ import ReachabilitySwift
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
-    @IBOutlet weak var history: UIBarButtonItem!
+    @IBOutlet weak var history: UIBarButtonItem!{
+        didSet{
+            history.title = "HISTORY".localized(appDelegate.userLanguage)
+        }
+    }
     @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
-    @IBOutlet weak var textFieldForWord: UITextField!
+    @IBOutlet weak var textFieldForWord: UITextField!{
+        didSet{
+            textFieldForWord.placeholder = "ENTER".localized(appDelegate.userLanguage)
+        }
+    }
     private var statusCode = 0
     private unowned var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var textToSearch:String?{
@@ -32,7 +40,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
                 )
             }
             textToSearch = text
-            //Crashlytics.sharedInstance().setObjectValue(textToSearch, forKey: "textToSearch")
         }
     }
     private var accentuations: [Accentuation]?{
@@ -41,9 +48,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     
-    
     @IBOutlet weak var accentuate: UIButton!{
         didSet{
+            accentuate.setTitle("ACCENTUATE".localized(appDelegate.userLanguage), forState: .Normal)
             accentuate.layer.cornerRadius = 3
             accentuate.clipsToBounds = true
         }
@@ -58,6 +65,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         reachabilityChanged(nil)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.navigationItem.title = "PROGRAM".localized(appDelegate.userLanguage)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated:false);
@@ -66,8 +78,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             search()
         }
         if (!hasConnectivity()){
-            let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-            internetAccessIcon.image = UIImage(named: NSLocalizedString("NoInternet", bundle: currentLanguageBundle!, value: "NoInternet", comment: "NoInternet"))
             internetAccessIcon.image = UIImage(named: "NoInternet")
             internetAccessIcon.tintColor = UIColor.redColor()
         }
@@ -86,31 +96,29 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     @IBAction func reachabilityClick(sender: AnyObject) {
-        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
-        let alert = UIAlertController(title: NSLocalizedString("Internet connection is required", bundle: currentLanguageBundle!, value: "Internet connection is required", comment: "Internet connection is required"), message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        let message = NSMutableAttributedString(string: NSLocalizedString("Status: ", bundle: currentLanguageBundle!, value: "Status: ", comment: "Status: "))
+        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized(appDelegate.userLanguage), message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let message = NSMutableAttributedString(string: "STATUS".localized(appDelegate.userLanguage))
         if hasConnectivity(){
-            message.appendAttributedString(NSMutableAttributedString(string: NSLocalizedString("Connected", bundle: currentLanguageBundle!, value: "Connected", comment: "Connected"), attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
+            message.appendAttributedString(NSMutableAttributedString(string: "CONNECTED".localized(appDelegate.userLanguage), attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
         }
         else{
-            message.appendAttributedString(NSMutableAttributedString(string: NSLocalizedString("Disconnected", bundle: currentLanguageBundle!, value: "Disconnected", comment: "Disconnected"), attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
+            message.appendAttributedString(NSMutableAttributedString(string: "DISCONNECTED".localized(appDelegate.userLanguage), attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
         }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", bundle: currentLanguageBundle!, value: "Ok", comment: "Ok"), style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".localized(appDelegate.userLanguage), style: UIAlertActionStyle.Default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func reachabilityChanged(note: NSNotification?){
-        let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
         if hasConnectivity(){
             if !appDelegate.dictionaryInitiated{
                 appDelegate.loadDictionary()
             }
             internetAccessIcon.tintColor = nil
-            internetAccessIcon.image = UIImage(named: NSLocalizedString("Internet", bundle: currentLanguageBundle!, value: "Internet", comment: "Internet"))
+            internetAccessIcon.image = UIImage(named: "Internet")
         }
         else{
-            internetAccessIcon.image = UIImage(named: NSLocalizedString("NoInternet", bundle: currentLanguageBundle!, value: "NoInternet", comment: "NoInternet"))
+            internetAccessIcon.image = UIImage(named: "NoInternet")
             internetAccessIcon.tintColor = UIColor.redColor()
         }
     }
@@ -159,19 +167,18 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             }
             dispatch_async(dispatch_get_main_queue()){
                 if searching == self.textToSearch{
-                    let currentLanguageBundle = NSBundle(path:NSBundle.mainBundle().pathForResource(self.appDelegate.userLanguage , ofType:"lproj")!)
                     switch(self.statusCode){
                     case 200:
                         self.accentuations = accent
                         self.appendHistory(self.textToSearch!)
                     case 400:
-                        let message = NSLocalizedString("Nothing was typed", bundle: currentLanguageBundle!, value: "Nothing was typed", comment: "Nothing was typed")
+                        let message = "NOTHING_TYPED".localized(self.appDelegate.userLanguage)
                         self.accentuations = [Accentuation(message: message)]
                     case 404:
-                        let message = NSLocalizedString("Word is not found", bundle: currentLanguageBundle!, value: "Word is not found", comment: "Word is not found")
+                        let message = "WORD_NOT_FOUND".localized(self.appDelegate.userLanguage)
                         self.accentuations = [Accentuation(message: message)]
                     default:
-                        let message = NSLocalizedString("No internet access", bundle: currentLanguageBundle!, value: "No internet access", comment: "No internet access")
+                        let message = "NO_INTERNET".localized(self.appDelegate.userLanguage)
                         self.accentuations = [Accentuation(message: message)]
                         break
                     }

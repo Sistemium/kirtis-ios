@@ -36,14 +36,16 @@ class DictionaryTableViewController: UITableViewController {
         return groups[section].name
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier("dictionary", forIndexPath: indexPath) 
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCellWithIdentifier("dictionary", forIndexPath: indexPath)
         cell.textLabel?.text = groups[indexPath.section].dictionary?.allObjects[indexPath.row].key
         cell.detailTextLabel?.text = groups[indexPath.section].dictionary?.allObjects[indexPath.row].value
-        
         return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "DICTIONARY".localized(appDelegate.userLanguage)
     }
     
 }
