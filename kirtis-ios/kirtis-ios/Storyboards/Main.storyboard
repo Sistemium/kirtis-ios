@@ -430,10 +430,10 @@ We express appreciation to the Centre of Computational Linguistics, the material
                     </view>
                     <navigationItem key="navigationItem" title="About" id="jzo-Kp-KeY"/>
                     <connections>
-                        <outlet property="CCL" destination="yjN-xC-xf3" id="5aB-6H-wJ6"/>
-                        <outlet property="Version" destination="Yfd-Oo-rX2" id="QMm-Bc-oGH"/>
                         <outlet property="aboutText" destination="wFE-Ue-dsh" id="vsU-yH-XVU"/>
+                        <outlet property="ccl" destination="yjN-xC-xf3" id="w0x-gP-SEu"/>
                         <outlet property="sourceCode" destination="Ycv-fM-ecT" id="S6p-tN-k2Z"/>
+                        <outlet property="version" destination="Yfd-Oo-rX2" id="UK3-BB-aZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHQ-xg-RVV" userLabel="First Responder" sceneMemberID="firstResponder"/>

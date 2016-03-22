@@ -13,9 +13,9 @@ class AboutViewController: UIViewController {
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
-    @IBOutlet weak var CCL: UIButton!{
+    @IBOutlet weak var ccl: UIButton!{
         didSet{
-            CCL.setTitle("CCL".localized(appDelegate.userLanguage), forState: .Normal)
+            ccl.setTitle("CCL".localized(appDelegate.userLanguage), forState: .Normal)
         }
     }
     
@@ -25,11 +25,11 @@ class AboutViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var Version: UILabel!{
+    @IBOutlet weak var version: UILabel!{
         didSet{
             let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
             let version = nsObject as! String
-            Version.text! = "VERSION".localized(appDelegate.userLanguage) + version
+            self.version.text! = "VERSION".localized(appDelegate.userLanguage) + version
         }
     }
     
