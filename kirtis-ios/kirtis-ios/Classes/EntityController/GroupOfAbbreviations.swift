@@ -1,5 +1,5 @@
 //
-//  Dictionary.swift
+//  GroupOfAbbreviations.swift
 //  kirtis-ios
 //
 //  Created by Edgar Jan Vuicik on 09/12/15.
@@ -10,8 +10,5 @@ import Foundation
 import CoreData
 
 
-class Dictionary: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+class GroupOfAbbreviations: NSManagedObject {
 }

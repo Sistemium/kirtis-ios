@@ -16,8 +16,8 @@ import ReachabilitySwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var reachability :Reachability?
     var window: UIWindow?
-    var groups : [Group] = []
-    var dictionary : [Dictionary] = []
+    var groups : [GroupOfAbbreviations] = []
+    var dictionary : [Abbreviation] = []
     var dictionaryInitiated = false
     private let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(15)]
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(16)]
         Fabric.with([Crashlytics.self()])
         do{
             reachability = try Reachability.reachabilityForInternetConnection()
@@ -58,9 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             if let json = rez.json  {
                 let data = parseJSONDictionary(json)
-                let entity =  NSEntityDescription.entityForName("Group",
+                let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
                     inManagedObjectContext:managedObjectContext)
-                let mainGroup = Group(entity: entity!,
+                let mainGroup = GroupOfAbbreviations(entity: entity!,
                     insertIntoManagedObjectContext: managedObjectContext)
                 mainGroup.name = "Dictionary"
                 pushData(data!,parentGroup: mainGroup)
@@ -73,35 +73,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func fetch() throws{
-        let groupFetchRequest = NSFetchRequest(entityName: "Group")
-        let dictionaryFetchRequest = NSFetchRequest(entityName: "Dictionary")
+        let groupFetchRequest = NSFetchRequest(entityName: "GroupOfAbbreviations")
+        let dictionaryFetchRequest = NSFetchRequest(entityName: "Abbreviation")
         let results1 =
         try managedObjectContext.executeFetchRequest(groupFetchRequest)
         let results2 =
         try managedObjectContext.executeFetchRequest(dictionaryFetchRequest)
-        let groups = results1 as! [Group]
-        let dictionary = results2 as! [Dictionary]
+        let groups = results1 as! [GroupOfAbbreviations]
+        let dictionary = results2 as! [Abbreviation]
         self.groups = groups
         self.dictionary = dictionary
     }
     
-    private func pushData(data:NSDictionary,parentGroup:Group){
+    private func pushData(data:NSDictionary,parentGroup:GroupOfAbbreviations){
         for d in data {
             if let value = d.value as? NSDictionary {
-                let entity =  NSEntityDescription.entityForName("Group",
+                let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
                     inManagedObjectContext:managedObjectContext)
-                let group = Group(entity: entity!,
+                let group = GroupOfAbbreviations(entity: entity!,
                     insertIntoManagedObjectContext: managedObjectContext)
                 group.setValue(d.key, forKey: "name")
                 parentGroup.subgroup.setValue(group, forKey: group.name!)
                 pushData(value,parentGroup: group)
             }else{
-                let entity =  NSEntityDescription.entityForName("Dictionary",
+                let entity =  NSEntityDescription.entityForName("Abbreviation",
                     inManagedObjectContext:managedObjectContext)
                 let dictionary = NSManagedObject(entity: entity!,
                     insertIntoManagedObjectContext: managedObjectContext)
-                dictionary.setValue(d.key, forKey: "key")
-                dictionary.setValue(d.value, forKey: "value")
+                dictionary.setValue(d.key, forKey: "shortForm")
+                dictionary.setValue(d.value, forKey: "longForm")
                 dictionary.setValue(parentGroup, forKey: "group")
             }
         }

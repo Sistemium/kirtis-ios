@@ -1,5 +1,5 @@
 //
-//  Group+CoreDataProperties.swift
+//  GroupOfAbbreviations+CoreDataProperties.swift
 //  kirtis-ios
 //
 //  Created by Edgar Jan Vuicik on 09/12/15.
@@ -12,7 +12,7 @@
 import Foundation
 import CoreData
 
-extension Group {
+extension GroupOfAbbreviations {
 
     @NSManaged var name: String?
     @NSManaged var subgroup: NSSet

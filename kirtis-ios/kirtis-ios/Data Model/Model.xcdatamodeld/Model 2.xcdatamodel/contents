@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Abbreviation" representedClassName=".Abbreviation" syncable="YES">
+        <attribute name="longForm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortForm" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupOfAbbreviations" inverseName="dictionary" inverseEntity="GroupOfAbbreviations" syncable="YES"/>
+    </entity>
+    <entity name="GroupOfAbbreviations" representedClassName=".GroupOfAbbreviations" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Abbreviation" inverseName="group" inverseEntity="Abbreviation" syncable="YES"/>
+        <relationship name="subgroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupOfAbbreviations" inverseName="subgroup" inverseEntity="GroupOfAbbreviations" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Abbreviation" positionX="106" positionY="-279" width="128" height="90"/>
+        <element name="GroupOfAbbreviations" positionX="-72" positionY="2" width="128" height="90"/>
+    </elements>
+</model>

@@ -1,5 +1,5 @@
 //
-//  Group.swift
+//  Abbreviation.swift
 //  kirtis-ios
 //
 //  Created by Edgar Jan Vuicik on 09/12/15.
@@ -10,5 +10,8 @@ import Foundation
 import CoreData
 
 
-class Group: NSManagedObject {
+class Abbreviation: NSManagedObject {
+
+// Insert code here to add functionality to your managed object subclass
+
 }

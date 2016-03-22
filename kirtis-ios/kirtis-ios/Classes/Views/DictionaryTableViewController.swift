@@ -12,10 +12,11 @@ class DictionaryTableViewController: UITableViewController {
     
     private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    private var groups : [Group] = []
+    private var groups : [GroupOfAbbreviations] = []
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        groups = []
         for group in appDelegate.groups{
             if group.dictionary?.count > 0 {
                 groups.append(group)
@@ -38,8 +39,8 @@ class DictionaryTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("dictionary", forIndexPath: indexPath)
-        cell.textLabel?.text = groups[indexPath.section].dictionary?.allObjects[indexPath.row].key
-        cell.detailTextLabel?.text = groups[indexPath.section].dictionary?.allObjects[indexPath.row].value
+        cell.textLabel?.text = (groups[indexPath.section].dictionary?.allObjects[indexPath.row] as! Abbreviation).shortForm
+        cell.detailTextLabel?.text = (groups[indexPath.section].dictionary?.allObjects[indexPath.row] as! Abbreviation).longForm
         return cell
     }
     

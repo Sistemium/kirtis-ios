@@ -90,8 +90,8 @@ class KirtisTableViewCell: UITableViewCell {
                     var title = "Unknown"
                     for t in appDelegate.dictionary{
                         //print("\((state as! UILabel).text) \((state as! UILabel).text == t.key ? "" : "" ) \(t.key)");
-                        if (state as! UILabel).text == t.key{
-                            title = t.group!.name! + ": " + t.value!
+                        if (state as! UILabel).text == t.shortForm{
+                            title = t.group!.name! + ": " + t.longForm!
                             break
                         }
                     }
@@ -115,8 +115,8 @@ class KirtisTableViewCell: UITableViewCell {
                 let menu = UIMenuController.sharedMenuController()
                 var title = "Unknown"
                 for t in appDelegate.dictionary{
-                    if part.text!.substringWithRange(part.text!.startIndex.advancedBy(2)...part.text!.endIndex.advancedBy(-2)) == t.key{
-                        title = t.group!.name! + ": " + t.value!
+                    if part.text!.substringWithRange(part.text!.startIndex.advancedBy(2)...part.text!.endIndex.advancedBy(-2)) == t.shortForm{
+                        title = t.group!.name! + ": " + t.longForm!
                         break
                     }
                 }

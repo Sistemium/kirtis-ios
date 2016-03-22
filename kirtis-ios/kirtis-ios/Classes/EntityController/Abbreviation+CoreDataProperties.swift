@@ -1,5 +1,5 @@
 //
-//  Dictionary+CoreDataProperties.swift
+//  Abbreviation+CoreDataProperties.swift
 //  kirtis-ios
 //
 //  Created by Edgar Jan Vuicik on 09/12/15.
@@ -12,10 +12,10 @@
 import Foundation
 import CoreData
 
-extension Dictionary {
+extension Abbreviation {
 
-    @NSManaged var key: String?
-    @NSManaged var value: String?
-    @NSManaged var group: Group?
+    @NSManaged var shortForm: String?
+    @NSManaged var longForm: String?
+    @NSManaged var group: GroupOfAbbreviations?
 
 }
