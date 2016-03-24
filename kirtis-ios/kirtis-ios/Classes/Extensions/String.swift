@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    func localized(language:String) -> String {
-        return NSLocalizedString(self, bundle: NSBundle(path:NSBundle.mainBundle().pathForResource(language , ofType:"lproj")!)!, value: "", comment: "")
+    var localized : String {
+        return LocalizationService.sharedInstance.localize(self)
     }
 }

@@ -9,19 +9,10 @@ class RecentSearchesTableViewController: UITableViewController {
     
     @IBOutlet var close: UIBarButtonItem!{
         didSet{
-            close.title = "CLOSE".localized(appDelegate.userLanguage)
+            close.title = "CLOSE".localized
         }
     }
     var textToSearch:String? //I dont want to lose current search (opening history destroys KirtisTableView)
-    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "HISTORY".localized(appDelegate.userLanguage)
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
-    }
     
     @IBAction func close(sender: UIBarButtonItem) {
         performSegueWithIdentifier("search", sender: textToSearch)
@@ -38,28 +29,6 @@ class RecentSearchesTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSearches.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        
-        cell.textLabel?.text = recentSearches[indexPath.row]
-        return cell
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        shouldButtonAppear()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     func shouldButtonAppear(){
         if splitViewController?.collapsed ?? false{
             navigationItem.rightBarButtonItems = [close]
@@ -68,16 +37,20 @@ class RecentSearchesTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("search", sender: recentSearches[indexPath.item])
+    //MARK: Table view controller
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentSearches.count
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
-        destination.navigationItem.setHidesBackButton(true, animated: false)
-        if sender != nil{
-            destination.textToSearch = (sender as! String)
-        }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = recentSearches[indexPath.row]
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("search", sender: recentSearches[indexPath.item])
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -97,7 +70,7 @@ class RecentSearchesTableViewController: UITableViewController {
         let  cell = UITableViewCell()
         if recentSearches.count == 0 {
             cell.textLabel?.textAlignment = .Center
-            let message = "HISTORY_EMPTY".localized(appDelegate.userLanguage)
+            let message = "HISTORY_EMPTY".localized
             cell.textLabel?.text = message
             
         }
@@ -110,6 +83,30 @@ class RecentSearchesTableViewController: UITableViewController {
             return 0
         }
         return 50
+    }
+    
+    //MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "HISTORY".localized
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        shouldButtonAppear()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
+        destination.navigationItem.setHidesBackButton(true, animated: false)
+        if sender != nil{
+            destination.textToSearch = (sender as! String)
+        }
     }
     
     @IBAction func goToHistory(segue:UIStoryboardSegue){

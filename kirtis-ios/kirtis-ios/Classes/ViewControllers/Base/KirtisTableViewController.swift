@@ -15,17 +15,16 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     @IBOutlet weak var history: UIBarButtonItem!{
         didSet{
-            history.title = "HISTORY".localized(appDelegate.userLanguage)
+            history.title = "HISTORY".localized
         }
     }
     @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
     @IBOutlet weak var textFieldForWord: UITextField!{
         didSet{
-            textFieldForWord.placeholder = "ENTER".localized(appDelegate.userLanguage)
+            textFieldForWord.placeholder = "ENTER".localized
         }
     }
-    private var statusCode = 0
-    private unowned var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    private var statusCode: HTTPStatusCode?
     var textToSearch:String?{
         didSet{
             var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
@@ -50,42 +49,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     @IBOutlet weak var accentuate: UIButton!{
         didSet{
-            accentuate.setTitle("ACCENTUATE".localized(appDelegate.userLanguage), forState: .Normal)
+            accentuate.setTitle("ACCENTUATE".localized, forState: .Normal)
             accentuate.layer.cornerRadius = 3
             accentuate.clipsToBounds = true
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.estimatedRowHeight = tableView.rowHeight
-        textFieldForWord.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear:", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: appDelegate.reachability)
-        reachabilityChanged(nil)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.navigationItem.title = "PROGRAM".localized(appDelegate.userLanguage)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated:false);
-        if let text = textToSearch{
-            textFieldForWord.text = text
-            search()
-        }
-        if (!hasConnectivity()){
-            internetAccessIcon.image = UIImage(named: "NoInternet")
-            internetAccessIcon.tintColor = UIColor.redColor()
-        }
-        shouldButtonAppear(nil)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func shouldButtonAppear(note: NSNotification?){
@@ -96,24 +63,21 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     @IBAction func reachabilityClick(sender: AnyObject) {
-        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized(appDelegate.userLanguage), message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        let message = NSMutableAttributedString(string: "STATUS".localized(appDelegate.userLanguage))
-        if hasConnectivity(){
-            message.appendAttributedString(NSMutableAttributedString(string: "CONNECTED".localized(appDelegate.userLanguage), attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
+        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let message = NSMutableAttributedString(string: "STATUS".localized)
+        if ReachabilityService.sharedInstance.hasConnectivity(){
+            message.appendAttributedString(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
         }
         else{
-            message.appendAttributedString(NSMutableAttributedString(string: "DISCONNECTED".localized(appDelegate.userLanguage), attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
+            message.appendAttributedString(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
         }
-        alert.addAction(UIAlertAction(title: "OK".localized(appDelegate.userLanguage), style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.Default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func reachabilityChanged(note: NSNotification?){
-        if hasConnectivity(){
-            if !appDelegate.dictionaryInitiated{
-                appDelegate.loadDictionary()
-            }
+        if ReachabilityService.sharedInstance.hasConnectivity(){
             internetAccessIcon.tintColor = nil
             internetAccessIcon.image = UIImage(named: "Internet")
         }
@@ -135,11 +99,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         search()
     }
     
-    private func hasConnectivity() -> Bool {
-        let networkStatus: Int = appDelegate.reachability!.currentReachabilityStatus.hashValue
-        return networkStatus != 0
-    }
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         textToSearch = textFieldForWord.text
@@ -152,33 +111,33 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         if textToSearch == nil {
             textToSearch = ""
         }
-        self.statusCode = 0
-        if !self.hasConnectivity(){
-            self.statusCode = -1
+        self.statusCode = nil
+        if !ReachabilityService.sharedInstance.hasConnectivity(){
+            self.statusCode = .ServiceUnavailable
         }
         if textToSearch! == ""{
-            statusCode = 400
+            statusCode = .BadRequest
         }
         let searching = textToSearch
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
             var accent : [Accentuation] = []
-            if self.statusCode == 0{
+            if self.statusCode == nil{
                 accent = self.getAccentuations(self.textToSearch!)
             }
             dispatch_async(dispatch_get_main_queue()){
                 if searching == self.textToSearch{
                     switch(self.statusCode){
-                    case 200:
+                    case .OK?:
                         self.accentuations = accent
                         self.appendHistory(self.textToSearch!)
-                    case 400:
-                        let message = "NOTHING_TYPED".localized(self.appDelegate.userLanguage)
+                    case .BadRequest?:
+                        let message = "NOTHING_TYPED".localized
                         self.accentuations = [Accentuation(message: message)]
-                    case 404:
-                        let message = "WORD_NOT_FOUND".localized(self.appDelegate.userLanguage)
+                    case .NotFound?:
+                        let message = "WORD_NOT_FOUND".localized
                         self.accentuations = [Accentuation(message: message)]
                     default:
-                        let message = "NO_INTERNET".localized(self.appDelegate.userLanguage)
+                        let message = "NO_INTERNET".localized
                         self.accentuations = [Accentuation(message: message)]
                         break
                     }
@@ -214,11 +173,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     private func getAccentuations(word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-        let api:String = Constants.url+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let answer =  appDelegate.getJSON(api)
+        let api:String = Constants.kirtisAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let answer =  RestService.sharedInstance.getJSON(api)
         statusCode = answer.statusCode
         if let json = answer.json  {
-            let data = appDelegate.parseJSON(json)
+            let data = RestService.sharedInstance.parseJSON(json)
             if data == nil {
                 return rez
             }
@@ -232,6 +191,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         return rez
     }
     
+    //Mark: Table data
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let number = accentuations?.count{
             return number
@@ -240,20 +201,14 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             return 0
         }
     }
-    
-    private struct Constants {
-        static let AccentationCellReuseIdentifier = "accentuation"
-        static let SpinnerCellReuseIdentifier = "spinner"
-        static let url = "http://kirtis.info/api/krc/"
-    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.AccentationCellReuseIdentifier, forIndexPath: indexPath) as! KirtisTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("accentuation", forIndexPath: indexPath) as! KirtisTableViewCell
         if let message = accentuations?[indexPath.item].message{
             switch message{
                 case "loading":
-                    return tableView.dequeueReusableCellWithIdentifier(Constants.SpinnerCellReuseIdentifier, forIndexPath: indexPath) as! SpinnerTableViewCell
+                    return tableView.dequeueReusableCellWithIdentifier("spinner", forIndexPath: indexPath) as! SpinnerTableViewCell
                 default:
                     cell.word.text = ""
                     cell.part.text = ""
@@ -265,6 +220,36 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
             cell.statesData = accentuations![indexPath.item].states ?? []
         }
         return cell
+    }
+    
+    //MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.estimatedRowHeight = tableView.rowHeight
+        textFieldForWord.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: ReachabilityService.sharedInstance.reachability)
+        reachabilityChanged(nil)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.navigationItem.title = "PROGRAM".localized
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated:false);
+        if let text = textToSearch{
+            textFieldForWord.text = text
+            search()
+        }
+        if (!ReachabilityService.sharedInstance.hasConnectivity()){
+            internetAccessIcon.image = UIImage(named: "NoInternet")
+            internetAccessIcon.tintColor = UIColor.redColor()
+        }
+        shouldButtonAppear(nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

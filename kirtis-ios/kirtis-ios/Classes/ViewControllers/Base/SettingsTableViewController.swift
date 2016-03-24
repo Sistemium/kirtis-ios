@@ -9,13 +9,11 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
-    private var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var staticCell: UITableViewCell!{
         didSet{
-            staticCell.textLabel?.text = "LANGUAGE".localized(appDelegate.userLanguage)
-            switch appDelegate.userLanguage{
+            staticCell.textLabel?.text = "LANGUAGE".localized
+            switch LocalizationService.sharedInstance.userLanguage{
             case "en":
                 staticCell.detailTextLabel?.text = "English"
             case "ru":
@@ -25,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
             default:
                 break
             }
-            self.title = "SETTINGS".localized(appDelegate.userLanguage)
+            self.title = "SETTINGS".localized
         }
     }
 }

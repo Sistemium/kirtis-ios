@@ -9,21 +9,7 @@
 import UIKit
 
 class DictionaryTableViewController: UITableViewController {
-    
-    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
     private var groups : [GroupOfAbbreviations] = []
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        groups = []
-        for group in appDelegate.groups{
-            if group.dictionary?.count > 0 {
-                groups.append(group)
-            }
-        }
-        tableView.reloadData()
-    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return groups.count
@@ -46,7 +32,18 @@ class DictionaryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "DICTIONARY".localized(appDelegate.userLanguage)
+        self.title = "DICTIONARY".localized
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        groups = []
+        for group in StartupDataSyncService.sharedInstance.groups{
+            if group.dictionary?.count > 0 {
+                groups.append(group)
+            }
+        }
+        tableView.reloadData()
     }
     
 }
