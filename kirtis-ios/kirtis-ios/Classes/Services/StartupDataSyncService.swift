@@ -53,10 +53,8 @@ class StartupDataSyncService {
         try CoreDataService.sharedInstance.managedObjectContext.executeFetchRequest(groupFetchRequest)
         let results2 =
         try CoreDataService.sharedInstance.managedObjectContext.executeFetchRequest(dictionaryFetchRequest)
-        let groups = results1 as! [GroupOfAbbreviations]
-        let dictionary = results2 as! [Abbreviation]
-        self.groups = groups
-        self.dictionary = dictionary
+        groups = results1 as! [GroupOfAbbreviations]
+        dictionary = results2 as! [Abbreviation]
     }
     
     private func pushData(data:NSDictionary,parentGroup:GroupOfAbbreviations){

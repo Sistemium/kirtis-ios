@@ -25,11 +25,14 @@ class RestService{
         do{
             if let url = NSURL(string: urlToRequest){
                 let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0)
+                request.addValue(UIDevice.currentDevice().identifierForVendor!.UUIDString, forHTTPHeaderField: "deviceUUID")
                 if cashed{
                     request.addValue(eTag ?? "", forHTTPHeaderField: "If-None-Match")
                 }
                 let rez = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-                eTag = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
+                if cashed{
+                    eTag = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
+                }
                 return (rez,HTTPStatusCode(HTTPResponse: response as? NSHTTPURLResponse))
             }
         }
