@@ -184,7 +184,7 @@
 			children = (
 				6D3274591CA3644400869EC1 /* HTTPStatusCode.swift */,
 			);
-			name = Enums;
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		6D46510E1C9C453500D1A23E /* Interfaces */ = {
@@ -226,11 +226,11 @@
 		6D570FED1CA2C641002C5B90 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				6D570FEE1CA2C688002C5B90 /* RestService.swift */,
-				6D3274501CA2CEA100869EC1 /* LocalizationService.swift */,
-				6D3274521CA2D37700869EC1 /* StartupDataSyncService.swift */,
 				6D3274541CA2D73400869EC1 /* CoreDataService.swift */,
+				6D3274501CA2CEA100869EC1 /* LocalizationService.swift */,
 				6D3274561CA2D95C00869EC1 /* ReachabilityService.swift */,
+				6D570FEE1CA2C688002C5B90 /* RestService.swift */,
+				6D3274521CA2D37700869EC1 /* StartupDataSyncService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 		6DB31E481C9B0B2600AE15BE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6D3274581CA3642300869EC1 /* Enums */,
 				6DB31E491C9B0B5100AE15BE /* Entities */,
+				6D3274581CA3642300869EC1 /* Enums */,
 				6D46510F1C9C453D00D1A23E /* Extensions */,
 				6D46510E1C9C453500D1A23E /* Interfaces */,
 				6D570FED1CA2C641002C5B90 /* Services */,
