@@ -119,18 +119,13 @@ class KirtisTableViewCell: UITableViewCell {
                 menu.setMenuVisible(true, animated: true)
                 return
             }
+            UIMenuController.sharedMenuController().setMenuVisible(false, animated: true)
         default:
             break
         }
     }
     
-    func handlePan(){
-        resignFirstResponder()
-    }
-    
     @objc private func doNothing(){
-        resignFirstResponder()
-        UIMenuController.sharedMenuController().setMenuVisible(false, animated: true)
     }
     
     @objc private func copyText() {
