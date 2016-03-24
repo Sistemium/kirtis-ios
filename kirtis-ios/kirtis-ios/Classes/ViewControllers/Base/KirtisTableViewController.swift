@@ -267,6 +267,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     
+    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        UIMenuController.sharedMenuController().setMenuVisible(false, animated: true)
+    }
+    
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
