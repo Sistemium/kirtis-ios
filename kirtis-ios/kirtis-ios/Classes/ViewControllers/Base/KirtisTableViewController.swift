@@ -57,9 +57,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     
     func shouldButtonAppear(note: NSNotification?){
         if splitViewController?.collapsed ?? false{
-            navigationItem.rightBarButtonItems = [history]
+            history.enabled = true
+            history.title = "HISTORY".localized
         }else{
-            navigationItem.rightBarButtonItems = []
+            history.enabled = true
+            history.title = ""
         }
     }
     @IBAction func reachabilityClick(sender: AnyObject) {

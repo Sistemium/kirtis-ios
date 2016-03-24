@@ -31,9 +31,11 @@ class RecentSearchesTableViewController: UITableViewController {
     
     func shouldButtonAppear(){
         if splitViewController?.collapsed ?? false{
-            navigationItem.rightBarButtonItems = [close]
+            close.enabled = true
+            close.title = "CLOSE".localized
         }else{
-            navigationItem.rightBarButtonItems = []
+            close.enabled = false
+            close.title = ""
         }
     }
     
