@@ -11,29 +11,65 @@ import Crashlytics
 
 class KirtisTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var statesView: UIView!
     @IBOutlet weak var word: UILabel!
     @IBOutlet weak var part: UILabel!
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var states: UIView!
-    @IBOutlet weak var additionalSizeForStates: UIView!
-    private let maxFirstLineStates = 3
+    let maxStatesInLine = 4
     var statesData : [String] = [] {
         didSet{
-            var primaryStates = statesData
-            var secondaryStates: Array<String> = []
-            if primaryStates.count>maxFirstLineStates{
-                primaryStates = Array(statesData[0...maxFirstLineStates-1])
-                secondaryStates = Array(statesData.suffixFrom(maxFirstLineStates))
-            }
-            setStates(primaryStates, view: states)
-            if secondaryStates.count>0{
-                setStates(secondaryStates,view: additionalSizeForStates)
-            }
+            setStates(statesData)
         }
     }
     
-    private func setStates(states:Array<String>,view:UIView){
+    private func setStates(states:[String]){
+        var remainingStates = states.count
+        if remainingStates > 8 {
+            Answers.logContentViewWithName("Interesting words",
+                contentType: "Events",
+                contentId: "int-words",
+                customAttributes: [
+                    "intText": word.text!
+                ]
+            )
+        }
+        var lineNumber:CGFloat = 0
+        let space:CGFloat = 5
+        while remainingStates > 0{
+            let line = UIView()
+            line.translatesAutoresizingMaskIntoConstraints = false
+            statesView.addSubview(line)
+            let height: CGFloat = 34
+            statesView.addConstraint(NSLayoutConstraint(item: line, attribute: .Top, relatedBy: .Equal, toItem: statesView, attribute: .Top, multiplier: 1, constant: lineNumber * (height + space)))
+            let center = NSLayoutConstraint(item: line, attribute: .CenterX , relatedBy: .Equal, toItem: statesView, attribute: .CenterX, multiplier: 1, constant: 0)
+            statesView.addConstraint(center)
+            statesView.addConstraint(NSLayoutConstraint(item: line, attribute: .Height , relatedBy: .Equal, toItem:
+                nil, attribute: .NotAnAttribute, multiplier: 1, constant: height ))
+            statesView.addConstraint(NSLayoutConstraint(item: line, attribute: .Width , relatedBy: .Equal, toItem:
+                nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0 ))
+            statesView.layoutSubviews()
+            let rez = setStates(Array(states[states.count -  remainingStates ... states.count - 1]), view: statesView)
+            if rez.width > Int(UIScreen.mainScreen().bounds.width) {
+                Answers.logContentViewWithName("Interesting words",
+                    contentType: "Events",
+                    contentId: "int-words",
+                    customAttributes: [
+                        "intText": word.text!
+                    ]
+                )
+            }
+            center.constant -= CGFloat(rez.width / 2)
+            statesView.layoutSubviews()
+            remainingStates -= rez.usedStates
+            lineNumber++
+        }
+        let filterResults = statesView.constraints.filter { $0.identifier == "height" }
+        filterResults[0].constant = lineNumber * (34 + space)
+    }
+    
+    private func setStates(states:[String],view:UIView) -> (usedStates:Int,width:Int){
         var width = 0
+        var usedStates = 0
         for state in states{
             let label = UILabel()
             let previousElement = view.subviews.last
@@ -49,6 +85,7 @@ class KirtisTableViewCell: UITableViewCell {
             label.translatesAutoresizingMaskIntoConstraints = false
             let text = label.text! as NSString
             let size = text.sizeWithAttributes([NSFontAttributeName:label.font])
+            width += Int(size.width) + space + padding
             view.addSubview(label)
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: previousElement, attribute: .Trailing, multiplier: 1, constant: CGFloat(space)))
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY , relatedBy: .Equal, toItem:
@@ -57,9 +94,12 @@ class KirtisTableViewCell: UITableViewCell {
                 previousElement, attribute: .Height, multiplier: 1, constant: 0 ))
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .Width , relatedBy: .Equal, toItem:
                 nil , attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
-            width += Int(size.width) + space + padding
+            usedStates++
+            if usedStates == maxStatesInLine {
+                return (usedStates,width)
+            }
         }
-        view.constraints[0].constant = CGFloat(width)
+        return (usedStates,width)
     }
     
     //MARK: Gesture recognizer
@@ -76,7 +116,7 @@ class KirtisTableViewCell: UITableViewCell {
                 menu.setMenuVisible(true, animated: true)
                 return
             }
-            for state in states.subviews + additionalSizeForStates.subviews {
+            for state in statesView.subviews {
                 if state.frame.contains(gestureReconizer.locationInView(state.superview)){
                     becomeFirstResponder()
                     let menu = UIMenuController.sharedMenuController()
@@ -92,7 +132,7 @@ class KirtisTableViewCell: UITableViewCell {
                             contentType: "Events",
                             contentId: "unk-atrib",
                             customAttributes: [
-                                "Text": title
+                                "unknownText": title
                             ]
                         )
                     }
@@ -154,15 +194,6 @@ class KirtisTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        if states.subviews.count > 1{
-            for sub in states.subviews[1...states.subviews.count-1]{
-                sub.removeFromSuperview()
-            }
-        }
-        if additionalSizeForStates.subviews.count > 1{
-            for sub in additionalSizeForStates.subviews[1...additionalSizeForStates.subviews.count-1]{
-                sub.removeFromSuperview()
-            }
-        }
+        statesView.subviews.forEach { $0.removeFromSuperview() }
     }
 }
