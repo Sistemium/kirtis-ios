@@ -94,7 +94,7 @@ class RecentSearchesTableViewController: UITableViewController {
         self.title = "HISTORY".localized
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldButtonAppear", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RecentSearchesTableViewController.shouldButtonAppear), name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

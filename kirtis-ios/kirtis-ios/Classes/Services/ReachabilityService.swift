@@ -15,7 +15,7 @@ class ReachabilityService{
         do{
             reachability = try Reachability.reachabilityForInternetConnection()
             try reachability?.startNotifier();
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reachability)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
         }catch let error as NSError {
             print("\(error), \(error.userInfo)")
         }

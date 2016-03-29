@@ -94,7 +94,7 @@ class KirtisTableViewCell: UITableViewCell {
                 previousElement, attribute: .Height, multiplier: 1, constant: 0 ))
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .Width , relatedBy: .Equal, toItem:
                 nil , attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
-            usedStates++
+            usedStates += 1
             if usedStates == maxStatesInLine {
                 return (usedStates,width)
             }
@@ -110,7 +110,7 @@ class KirtisTableViewCell: UITableViewCell {
             if word.frame.contains(gestureReconizer.locationInView(self)){
                 becomeFirstResponder()
                 let menu = UIMenuController.sharedMenuController()
-                let copyItem = UIMenuItem(title: "COPY".localized, action: "copyText")
+                let copyItem = UIMenuItem(title: "COPY".localized, action: #selector(KirtisTableViewCell.copyText))
                 menu.menuItems = [copyItem]
                 menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
                 menu.setMenuVisible(true, animated: true)
@@ -136,7 +136,7 @@ class KirtisTableViewCell: UITableViewCell {
                             ]
                         )
                     }
-                    let item = UIMenuItem(title: title, action: "doNothing")
+                    let item = UIMenuItem(title: title, action: #selector(KirtisTableViewCell.doNothing))
                     menu.menuItems = [item]
                     menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
                     menu.setMenuVisible(true, animated: true)
@@ -153,7 +153,7 @@ class KirtisTableViewCell: UITableViewCell {
                         break
                     }
                 }
-                let item = UIMenuItem(title: title, action: "doNothing")
+                let item = UIMenuItem(title: title, action: #selector(KirtisTableViewCell.doNothing))
                 menu.menuItems = [item]
                 menu.setTargetRect(CGRectMake(gestureReconizer.locationInView(self).x - 25, gestureReconizer.locationInView(self).y, 50, 50), inView: self)
                 menu.setMenuVisible(true, animated: true)
@@ -177,7 +177,7 @@ class KirtisTableViewCell: UITableViewCell {
     }
     
     override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
-        if action == "copyText" || action == "doNothing" {
+        if action == #selector(KirtisTableViewCell.copyText) || action == #selector(KirtisTableViewCell.doNothing) {
             return true
         }
         return false
@@ -187,7 +187,7 @@ class KirtisTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let press = UITapGestureRecognizer(target: self, action: "handlePress:")
+        let press = UITapGestureRecognizer(target: self, action: #selector(KirtisTableViewCell.handlePress(_:)))
         press.delegate = self
         self.addGestureRecognizer(press)
     }
