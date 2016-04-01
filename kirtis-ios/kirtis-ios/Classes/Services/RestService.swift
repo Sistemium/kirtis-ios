@@ -24,6 +24,7 @@ class RestService{
         var response: NSURLResponse?
         do{
             if let url = NSURL(string: urlToRequest){
+                //sleep(4) //for testing
                 let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 4.0)
                 request.addValue(UIDevice.currentDevice().identifierForVendor!.UUIDString, forHTTPHeaderField: "deviceUUID")
                 if cashed{

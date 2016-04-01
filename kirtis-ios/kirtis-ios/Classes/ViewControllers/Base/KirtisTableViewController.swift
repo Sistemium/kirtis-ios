@@ -121,7 +121,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
                 accent = self.getAccentuations(self.textToSearch!)
             }
             dispatch_async(dispatch_get_main_queue()){
-                if searching == self.textToSearch{
+                if searching == self.textToSearch && self.splitViewController != nil{
                     switch(self.statusCode){
                     case .OK?:
                         self.accentuations = accent

@@ -77,6 +77,10 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("seggestionCell")!
         cell.textLabel!.text = suggestions[indexPath.row]
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = bgColorView
+        cell.textLabel?.highlightedTextColor = UIColor.blueColor()
         return cell
     }
     
@@ -89,25 +93,45 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     //MARK: Selectors
     
     @objc private func editingStart(){
-        if textField.text != "" {
-            suggestions = dataSource?.getSuggestions(textField.text!) ?? []
-            self.height.constant = suggestions.count > 2 ? 140 : suggestions.count > 1 ? 95 : suggestions.count > 0 ? 50 : 16
-            delegate?.didShowSuggestions()
-        }else{
-            self.height.constant = 0
-            delegate?.didHideSuggestions()
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
+            if self.textField.text != "" {
+                self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
+                dispatch_async(dispatch_get_main_queue()){
+                    self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
+                    if self.height.constant > 0 {
+                        self.delegate?.didShowSuggestions()
+                    }else{
+                        self.delegate?.didHideSuggestions()
+                }
+                }
+            }else{
+                dispatch_async(dispatch_get_main_queue()){
+                    self.height.constant = 0
+                    self.delegate?.didHideSuggestions()
+                }
+            }
         }
     }
     
     @objc private func editingChange(){
-        if textField.text != "" {
-            suggestions = dataSource?.getSuggestions(textField.text!) ?? []
-            self.height.constant = suggestions.count > 2 ? 140 : suggestions.count > 1 ? 95 : suggestions.count > 0 ? 50 : 16
-            delegate?.didShowSuggestions()
-        }
-        else{
-            self.height.constant = 0
-            delegate?.didHideSuggestions()
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
+            if self.textField.text != "" {
+                self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
+                dispatch_async(dispatch_get_main_queue()){
+                    self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
+                    if self.height.constant > 0 {
+                        self.delegate?.didShowSuggestions()
+                    }else{
+                        self.delegate?.didHideSuggestions()
+                    }
+                }
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue()){
+                    self.height.constant = 0
+                    self.delegate?.didHideSuggestions()
+                }
+            }
         }
     }
     
