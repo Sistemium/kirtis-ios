@@ -64,7 +64,9 @@ class RecentSearchesTableViewController: UITableViewController {
             var recent = recentSearches
             recent.removeAtIndex(indexPath.row)
             recentSearches = recent
-            tableView.reloadData()
+            tableView.beginUpdates()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.endUpdates()
         }
     }
     

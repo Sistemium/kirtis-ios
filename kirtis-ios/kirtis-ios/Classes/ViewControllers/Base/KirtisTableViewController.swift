@@ -30,21 +30,23 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     private var statusCode: HTTPStatusCode?
     var textToSearch:String?{
         didSet{
-            var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
-            if text?.characters.count > 0{
-                text = text!.substringToIndex(text!.startIndex.advancedBy(1)).uppercaseString + text!.substringFromIndex(text!.startIndex.advancedBy(1)) //uppercase
-                Answers.logContentViewWithName("Accentuation",
-                    contentType: "Events",
-                    contentId: "acc-search",
-                    customAttributes: [
-                        "Text": text!
-                    ]
-                )
+            if textToSearch != nil{
+                var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
+                if text?.characters.count > 0{
+                    text = text!.substringToIndex(text!.startIndex.advancedBy(1)).uppercaseString + text!.substringFromIndex(text!.startIndex.advancedBy(1)) //uppercase
+                    Answers.logContentViewWithName("Accentuation",
+                                                   contentType: "Events",
+                                                   contentId: "acc-search",
+                                                   customAttributes: [
+                                                    "Text": text!
+                        ]
+                    )
+                }
+                textToSearch = text
+                self.tableView.tableHeaderView?.layoutSubviews()
+                autocomleteTextField.textField.text = text
+                search()
             }
-            textToSearch = text
-            self.tableView.tableHeaderView?.layoutSubviews()
-            autocomleteTextField.textField.text = text
-            search()
         }
     }
     private var accentuations: [Accentuation]?{
@@ -96,12 +98,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     }
     
     @IBAction func buttonClick() {
-    autocomleteTextField.textField.resignFirstResponder()
-        textToSearch = autocomleteTextField.textField.text
-        search()
+    textToSearch = autocomleteTextField.textField.text
     }
     
     private func search(){
+        autocomleteTextField.textField.resignFirstResponder()
         self.accentuations = [Accentuation(message: "loading")]
         if textToSearch == nil {
             textToSearch = ""
@@ -219,7 +220,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     //MARK: AutocompleteTextFielDelegate
     
-    func showSuggestions(){
+    func didShowSuggestions(){
         tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 0
         tableView.tableHeaderView?.frame.size.height = 300
         UIView.animateWithDuration(0.5){
@@ -228,7 +229,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         tableView.reloadData()
     }
     
-    func hideSuggestions(){
+    func didHideSuggestions(){
         tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 16
         tableView.tableHeaderView?.frame.size.height = 200
         UIView.animateWithDuration(0.5){
@@ -263,9 +264,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         textToSearch = autocomleteTextField.textField.text
-        search()
         return true
     }
     

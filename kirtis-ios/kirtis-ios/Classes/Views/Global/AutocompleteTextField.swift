@@ -83,7 +83,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         delegate?.didSelectWord(suggestions[indexPath.row])
         self.height.constant = 0
-        delegate?.hideSuggestions()
+        delegate?.didHideSuggestions()
     }
     
     //MARK: Selectors
@@ -91,29 +91,29 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     @objc private func editingStart(){
         if textField.text != "" {
             suggestions = dataSource?.getSuggestions(textField.text!) ?? []
-            self.height.constant = 100
-            delegate?.showSuggestions()
+            self.height.constant = suggestions.count > 2 ? 140 : suggestions.count > 1 ? 95 : suggestions.count > 0 ? 50 : 16
+            delegate?.didShowSuggestions()
         }else{
             self.height.constant = 0
-            delegate?.hideSuggestions()
+            delegate?.didHideSuggestions()
         }
     }
     
     @objc private func editingChange(){
         if textField.text != "" {
             suggestions = dataSource?.getSuggestions(textField.text!) ?? []
-            self.height.constant = 100
-            delegate?.showSuggestions()
+            self.height.constant = suggestions.count > 2 ? 140 : suggestions.count > 1 ? 95 : suggestions.count > 0 ? 50 : 16
+            delegate?.didShowSuggestions()
         }
         else{
             self.height.constant = 0
-            delegate?.hideSuggestions()
+            delegate?.didHideSuggestions()
         }
     }
     
     @objc private func editingEnd(){
         self.height.constant = 0
-        delegate?.hideSuggestions()
+        delegate?.didHideSuggestions()
     }
     
 }
