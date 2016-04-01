@@ -11,6 +11,7 @@ import UIKit
 class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
     var delegate : AutocompleteTextFieldDelegate?
+    var dataSource : AutocompleteTextFieldDataSource?
     private var suggestions = [String](){
         didSet{
             suggestionTableView.reloadData()
@@ -67,23 +68,6 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
         textField = UITextField()
     }
     
-    private func getSuggestions(word:String) -> [String]{
-        var rez = [String]()
-        let api:String = Constants.suggestionsAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let answer =  RestService.sharedInstance.getJSON(api)
-        if let json = answer.json  {
-            let data = RestService.sharedInstance.parseJSON(json)
-            if data == nil {
-                return rez
-            }
-            for value in data! {
-                let element = value as! String
-                rez.append(element)
-            }
-        }
-        return rez
-    }
-    
     //MARK: TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,7 +90,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
     @objc private func editingStart(){
         if textField.text != "" {
-            suggestions = getSuggestions(textField.text!)
+            suggestions = dataSource?.getSuggestions(textField.text!) ?? []
             self.height.constant = 100
             delegate?.showSuggestions()
         }else{
@@ -117,7 +101,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
     @objc private func editingChange(){
         if textField.text != "" {
-            suggestions = getSuggestions(textField.text!)
+            suggestions = dataSource?.getSuggestions(textField.text!) ?? []
             self.height.constant = 100
             delegate?.showSuggestions()
         }

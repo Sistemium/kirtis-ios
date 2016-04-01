@@ -11,7 +11,7 @@ import Crashlytics
 import CoreData
 import ReachabilitySwift
 
-class KirtisTableViewController: UITableViewController, UITextFieldDelegate, AutocompleteTextFieldDelegate{
+class KirtisTableViewController: UITableViewController, UITextFieldDelegate, AutocompleteTextFieldDelegate, AutocompleteTextFieldDataSource{
     
     @IBOutlet weak var history: UIBarButtonItem!{
         didSet{
@@ -24,6 +24,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             autocomleteTextField.layoutSubviews()
             autocomleteTextField.textField.placeholder = "ENTER".localized
             autocomleteTextField.delegate = self
+            autocomleteTextField.dataSource = self
         }
     }
     private var statusCode: HTTPStatusCode?
@@ -219,6 +220,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     //MARK: AutocompleteTextFielDelegate
     
     func showSuggestions(){
+        tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 0
         tableView.tableHeaderView?.frame.size.height = 300
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
@@ -227,6 +229,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     }
     
     func hideSuggestions(){
+        tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 16
         tableView.tableHeaderView?.frame.size.height = 200
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
@@ -236,6 +239,25 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     func didSelectWord(word:String){
         textToSearch = word
+    }
+    
+    //MARK: AutocompleteTextFielDataSource
+    
+    func getSuggestions(word:String) -> [String]{
+        var rez = [String]()
+        let api:String = Constants.suggestionsAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let answer =  RestService.sharedInstance.getJSON(api)
+        if let json = answer.json  {
+            let data = RestService.sharedInstance.parseJSON(json)
+            if data == nil {
+                return rez
+            }
+            for value in data! {
+                let element = value as! String
+                rez.append(element)
+            }
+        }
+        return rez
     }
     
     //MARK: UITextFieldDelegate
