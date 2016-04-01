@@ -17,7 +17,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
             suggestionTableView.reloadData()
         }
     }
-    private var height : NSLayoutConstraint!
+    private(set) var height : NSLayoutConstraint!
     
     var textField : UITextField!{
         didSet{
