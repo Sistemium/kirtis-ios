@@ -60,7 +60,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
         self.customInit()
         textField.addTarget(self, action: #selector(AutocompleteTextField.editingChange), forControlEvents: .EditingChanged)
         textField.addTarget(self, action: #selector(AutocompleteTextField.editingEnd), forControlEvents: .EditingDidEnd)
-        textField.addTarget(self, action: #selector(AutocompleteTextField.editingStart), forControlEvents: .EditingDidBegin)
+        textField.addTarget(self, action: #selector(AutocompleteTextField.editingChange), forControlEvents: .EditingDidBegin)
     }
     
     private func customInit(){
@@ -92,49 +92,24 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
     //MARK: Selectors
     
-    @objc private func editingStart(){
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
-            if self.textField.text != "" {
-                self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
-                dispatch_async(dispatch_get_main_queue()){
-                    self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
-                    if self.height.constant > 0 {
-                        self.delegate?.didShowSuggestions()
-                    }else{
-                        self.delegate?.didHideSuggestions()
-                }
-                }
-            }else{
-                dispatch_async(dispatch_get_main_queue()){
-                    self.height.constant = 0
-                    self.delegate?.didHideSuggestions()
-                }
-            }
-        }
-    }
-    
     @objc private func editingChange(){
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
-            if self.textField.text != "" {
-                self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
-                dispatch_async(dispatch_get_main_queue()){
-                    self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
-                    if self.height.constant > 0 {
-                        self.delegate?.didShowSuggestions()
-                    }else{
-                        self.delegate?.didHideSuggestions()
-                    }
-                }
-            }
-            else{
-                dispatch_async(dispatch_get_main_queue()){
-                    self.height.constant = 0
-                    self.delegate?.didHideSuggestions()
-                }
+        if self.textField.text != "" {
+            self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
+            self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
+            if self.height.constant > 0 {
+                self.delegate?.didShowSuggestions()
+                suggestionTableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: false)
+                suggestionTableView.setContentOffset(CGPointMake(-suggestionTableView.contentInset.left, 0), animated:false)
+            }else{
+                self.delegate?.didHideSuggestions()
             }
         }
+        else{
+            self.height.constant = 0
+            self.delegate?.didHideSuggestions()
+        }
     }
-    
+
     @objc private func editingEnd(){
         self.height.constant = 0
         delegate?.didHideSuggestions()

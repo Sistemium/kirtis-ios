@@ -247,7 +247,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     func getSuggestions(word:String) -> [String]{
         var rez = [String]()
         let api:String = Constants.suggestionsAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let answer =  RestService.sharedInstance.getJSON(api)
+        let answer =  RestService.sharedInstance.getJSON(api,timeoutInterval : 0.5)
         if let json = answer.json  {
             let data = RestService.sharedInstance.parseJSON(json)
             if data == nil {
