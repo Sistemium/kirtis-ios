@@ -11,7 +11,7 @@ import Crashlytics
 import CoreData
 import ReachabilitySwift
 
-class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
+class KirtisTableViewController: UITableViewController, UITextFieldDelegate, AutocompleteTextFieldDelegate{
     
     @IBOutlet weak var history: UIBarButtonItem!{
         didSet{
@@ -19,9 +19,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
-    @IBOutlet weak var textFieldForWord: UITextField!{
+    @IBOutlet weak var autocomleteTextField: AutocompleteTextField!{
         didSet{
-            textFieldForWord.placeholder = "ENTER".localized
+            autocomleteTextField.layoutSubviews()
+            autocomleteTextField.textField.placeholder = "ENTER".localized
+            autocomleteTextField.delegate = self
         }
     }
     private var statusCode: HTTPStatusCode?
@@ -39,6 +41,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
                 )
             }
             textToSearch = text
+            self.tableView.tableHeaderView?.layoutSubviews()
+            autocomleteTextField.textField.text = text
+            search()
         }
     }
     private var accentuations: [Accentuation]?{
@@ -89,23 +94,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         }
     }
     
-    func textFieldShouldClear(textField: UITextField) -> Bool {
-        accentuations = nil
-        textToSearch = nil
-        return true
-    }
-    
     @IBAction func buttonClick() {
-        textFieldForWord.resignFirstResponder()
-        textToSearch = textFieldForWord.text
+    autocomleteTextField.textField.resignFirstResponder()
+        textToSearch = autocomleteTextField.textField.text
         search()
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        textToSearch = textFieldForWord.text
-        search()
-        return true
     }
     
     private func search(){
@@ -224,13 +216,50 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
         return cell
     }
     
+    //MARK: AutocompleteTextFielDelegate
+    
+    func showSuggestions(){
+        tableView.tableHeaderView?.frame.size.height = 300
+        UIView.animateWithDuration(0.5){
+            self.tableView.tableHeaderView!.layoutIfNeeded()
+        }
+        tableView.reloadData()
+    }
+    
+    func hideSuggestions(){
+        tableView.tableHeaderView?.frame.size.height = 200
+        UIView.animateWithDuration(0.5){
+            self.tableView.tableHeaderView!.layoutIfNeeded()
+        }
+        tableView.reloadData()
+    }
+    
+    func didSelectWord(word:String){
+        textToSearch = word
+    }
+    
+    //MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textToSearch = autocomleteTextField.textField.text
+        search()
+        return true
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        accentuations = nil
+        textToSearch = nil
+        return true
+    }
+    
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
-        textFieldForWord.delegate = self
+        autocomleteTextField.textField.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: ReachabilityService.sharedInstance.reachability)
         reachabilityChanged(nil)
@@ -244,10 +273,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated:false);
-        if let text = textToSearch{
-            textFieldForWord.text = text
-            search()
-        }
         if (!ReachabilityService.sharedInstance.hasConnectivity()){
             internetAccessIcon.image = UIImage(named: "NoInternet")
             internetAccessIcon.tintColor = UIColor.redColor()

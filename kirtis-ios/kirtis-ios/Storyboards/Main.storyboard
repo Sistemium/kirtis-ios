@@ -22,6 +22,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-KE-wAR">
                                     <rect key="frame" x="64" y="123" width="472" height="36"/>
                                     <color key="backgroundColor" red="0.15187618136405945" green="0.19278660416603088" blue="0.58596301078796387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="Dv3-iD-60X"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -40,31 +43,38 @@
                                     <rect key="frame" x="545" y="123" width="47" height="36"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the word" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xod-Ct-IA5">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-xu-TY7" userLabel="AutocompleteTextField" customClass="AutocompleteTextField" customModule="Kirtis" customModuleProvider="target">
                                     <rect key="frame" x="64" y="71" width="472" height="36"/>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                </textField>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="OJI-kU-E8D"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="qm9-Ha-sfn" firstAttribute="height" secondItem="Yem-KE-wAR" secondAttribute="height" id="0Zn-Ve-8bL"/>
                                 <constraint firstItem="qm9-Ha-sfn" firstAttribute="leading" secondItem="y3n-wh-sHp" secondAttribute="leading" constant="8" id="4Jg-wX-brS"/>
                                 <constraint firstItem="9eD-n1-JPb" firstAttribute="width" secondItem="qm9-Ha-sfn" secondAttribute="width" id="61a-tN-V3e"/>
                                 <constraint firstItem="9eD-n1-JPb" firstAttribute="height" secondItem="Yem-KE-wAR" secondAttribute="height" id="Jpe-od-Q0C"/>
-                                <constraint firstItem="Yem-KE-wAR" firstAttribute="top" secondItem="xod-Ct-IA5" secondAttribute="bottom" constant="16" id="P1v-LT-2na"/>
                                 <constraint firstItem="qm9-Ha-sfn" firstAttribute="centerY" secondItem="Yem-KE-wAR" secondAttribute="centerY" id="PDA-TK-ZVC"/>
-                                <constraint firstItem="xod-Ct-IA5" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" id="QOo-xI-7Iu"/>
                                 <constraint firstItem="9eD-n1-JPb" firstAttribute="height" secondItem="qm9-Ha-sfn" secondAttribute="height" id="Qxt-lG-urg"/>
+                                <constraint firstItem="eK1-xu-TY7" firstAttribute="width" secondItem="Yem-KE-wAR" secondAttribute="width" id="Ttm-E5-2yh"/>
                                 <constraint firstItem="qm9-Ha-sfn" firstAttribute="width" secondItem="Yem-KE-wAR" secondAttribute="width" multiplier="0.1" id="Uqv-3O-YGX"/>
-                                <constraint firstItem="Yem-KE-wAR" firstAttribute="height" secondItem="xod-Ct-IA5" secondAttribute="height" id="c04-jD-f6Z"/>
                                 <constraint firstItem="9eD-n1-JPb" firstAttribute="leading" secondItem="Yem-KE-wAR" secondAttribute="trailing" constant="9" id="cG8-8b-rGi"/>
                                 <constraint firstAttribute="trailing" secondItem="9eD-n1-JPb" secondAttribute="trailing" constant="8" id="edC-ar-BpB"/>
+                                <constraint firstItem="eK1-xu-TY7" firstAttribute="height" secondItem="Yem-KE-wAR" secondAttribute="height" id="gdG-m1-SdH"/>
                                 <constraint firstItem="9eD-n1-JPb" firstAttribute="centerY" secondItem="qm9-Ha-sfn" secondAttribute="centerY" id="kup-yZ-aHC"/>
-                                <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="xod-Ct-IA5" secondAttribute="leading" id="q1v-sQ-oto"/>
-                                <constraint firstItem="Yem-KE-wAR" firstAttribute="width" secondItem="xod-Ct-IA5" secondAttribute="width" id="xTA-iz-UNk"/>
+                                <constraint firstItem="Yem-KE-wAR" firstAttribute="top" secondItem="eK1-xu-TY7" secondAttribute="bottom" constant="16" id="nMV-4E-Kdn"/>
+                                <constraint firstItem="eK1-xu-TY7" firstAttribute="top" secondItem="y3n-wh-sHp" secondAttribute="top" constant="71" identifier="topSpace" id="pDE-g5-Kef"/>
+                                <constraint firstItem="eK1-xu-TY7" firstAttribute="leading" secondItem="Yem-KE-wAR" secondAttribute="leading" id="rnf-QU-jRg"/>
                                 <constraint firstItem="Yem-KE-wAR" firstAttribute="leading" secondItem="qm9-Ha-sfn" secondAttribute="trailing" constant="9" id="yt5-zi-tBu"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="gdG-m1-SdH"/>
+                                    <exclude reference="Qxt-lG-urg"/>
+                                </mask>
+                            </variation>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ZxY-77-KSi">
                             <rect key="frame" x="0.0" y="554" width="600" height="44"/>
@@ -190,9 +200,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="accentuate" destination="Yem-KE-wAR" id="xNi-pz-6lM"/>
+                        <outlet property="autocomleteTextField" destination="eK1-xu-TY7" id="O4g-Ff-jq7"/>
                         <outlet property="history" destination="CFx-1t-MTx" id="rUR-Jg-gDW"/>
                         <outlet property="internetAccessIcon" destination="pX2-aG-o4y" id="0ei-jE-8A4"/>
-                        <outlet property="textFieldForWord" destination="xod-Ct-IA5" id="bul-Pt-Z2u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUO-uo-g0E" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@
 		6D065F961BF4C3C3005DB78D /* KirtisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */; };
 		6D065F981BF4CDF6005DB78D /* KirtisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */; };
 		6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */; };
+		6D073CF81CAAB180008F29E5 /* AutocompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D073CF71CAAB180008F29E5 /* AutocompleteTextField.swift */; };
 		6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
 		6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */; };
 		6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */; };
@@ -30,6 +31,7 @@
 		6D570FEA1CA2BFEF002C5B90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D570FE91CA2BFEF002C5B90 /* Constants.swift */; };
 		6D570FEF1CA2C688002C5B90 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D570FEE1CA2C688002C5B90 /* RestService.swift */; };
 		6D5BD3961C074E3400D70B60 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5BD3951C074E3400D70B60 /* TabBarController.swift */; };
+		6DA87CBF1CAE932E0072FCB1 /* AutocompleteTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA87CBE1CAE932E0072FCB1 /* AutocompleteTextFieldDelegate.swift */; };
 		6DB31E511C9B17C800AE15BE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DB31E4F1C9B17C800AE15BE /* Model.xcdatamodeld */; };
 		6DB31E531C9B182F00AE15BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DB31E521C9B182F00AE15BE /* Main.storyboard */; };
 		6DBFD33D1CA01E2000FD1160 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBFD33C1CA01E2000FD1160 /* SettingsTableViewController.swift */; };
@@ -68,6 +70,7 @@
 		6D065F951BF4C3C3005DB78D /* KirtisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewController.swift; sourceTree = "<group>"; };
 		6D065F971BF4CDF6005DB78D /* KirtisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirtisTableViewCell.swift; sourceTree = "<group>"; };
 		6D065F991BF4D8E6005DB78D /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
+		6D073CF71CAAB180008F29E5 /* AutocompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutocompleteTextField.swift; path = "kirtis-ios/Global/AutocompleteTextField.swift"; sourceTree = SOURCE_ROOT; };
 		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
 		6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		6D570FE91CA2BFEF002C5B90 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6D570FEE1CA2C688002C5B90 /* RestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		6D5BD3951C074E3400D70B60 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6DA87CBE1CAE932E0072FCB1 /* AutocompleteTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteTextFieldDelegate.swift; sourceTree = SOURCE_ROOT; };
 		6DB31E501C9B17C800AE15BE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6DB31E521C9B182F00AE15BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6DB31E541C9B191200AE15BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -179,6 +183,14 @@
 			path = "kirtis-iosTests";
 			sourceTree = "<group>";
 		};
+		6D073CF91CAAB18C008F29E5 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				6D073CF71CAAB180008F29E5 /* AutocompleteTextField.swift */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
 		6D3274581CA3642300869EC1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,10 +199,12 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		6D46510E1C9C453500D1A23E /* Interfaces */ = {
+		6D46510E1C9C453500D1A23E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				6DA87CBE1CAE932E0072FCB1 /* AutocompleteTextFieldDelegate.swift */,
 			);
+			name = Protocols;
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
@@ -218,6 +232,7 @@
 		6D570FEC1CA2C252002C5B90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6D073CF91CAAB18C008F29E5 /* Global */,
 				6DB31E4A1C9B0BAB00AE15BE /* CustomCells */,
 			);
 			path = Views;
@@ -268,7 +283,7 @@
 				6DB31E491C9B0B5100AE15BE /* Entities */,
 				6D3274581CA3642300869EC1 /* Enums */,
 				6D46510F1C9C453D00D1A23E /* Extensions */,
-				6D46510E1C9C453500D1A23E /* Interfaces */,
+				6D46510E1C9C453500D1A23E /* Protocols */,
 				6D570FED1CA2C641002C5B90 /* Services */,
 				6DB31E4E1C9B0DEF00AE15BE /* Structures */,
 				6DB31E4C1C9B0C5100AE15BE /* ViewControllers */,
@@ -497,6 +512,7 @@
 			files = (
 				6D32745A1CA3644400869EC1 /* HTTPStatusCode.swift in Sources */,
 				6D065F941BF4BA2E005DB78D /* SplitViewController.swift in Sources */,
+				6DA87CBF1CAE932E0072FCB1 /* AutocompleteTextFieldDelegate.swift in Sources */,
 				6D570FEA1CA2BFEF002C5B90 /* Constants.swift in Sources */,
 				6D4651121C9C458300D1A23E /* String.swift in Sources */,
 				6DCCC7D11C188138004F7EC7 /* Abbreviation.swift in Sources */,
@@ -514,6 +530,7 @@
 				6D065F901BF4AD22005DB78D /* Accentuation.swift in Sources */,
 				6D3274511CA2CEA100869EC1 /* LocalizationService.swift in Sources */,
 				6DB31E511C9B17C800AE15BE /* Model.xcdatamodeld in Sources */,
+				6D073CF81CAAB180008F29E5 /* AutocompleteTextField.swift in Sources */,
 				6D20E18A1C023FAA007163A0 /* LanguageTableViewController.swift in Sources */,
 				6D065F961BF4C3C3005DB78D /* KirtisTableViewController.swift in Sources */,
 				6D065F9A1BF4D8E6005DB78D /* RecentSearchesTableViewController.swift in Sources */,
