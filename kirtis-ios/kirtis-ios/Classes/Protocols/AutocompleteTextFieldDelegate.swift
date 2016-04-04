@@ -10,4 +10,5 @@ protocol AutocompleteTextFieldDelegate {
     func didShowSuggestions()
     func didHideSuggestions()
     func didSelectWord(word:String)
+    func isAutocompleteEnabled() -> Bool
 }

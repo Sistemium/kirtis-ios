@@ -93,7 +93,7 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     //MARK: Selectors
     
     @objc private func editingChange(){
-        if self.textField.text != "" {
+        if self.textField.text != "" && delegate?.isAutocompleteEnabled() ?? true{
             self.suggestions = self.dataSource?.getSuggestions(self.textField.text!) ?? []
             self.height.constant = self.suggestions.count > 2 ? 140 : self.suggestions.count > 1 ? 95 : self.suggestions.count > 0 ? 50 : 0
             if self.height.constant > 0 {
@@ -105,14 +105,18 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
             }
         }
         else{
+            if self.height.constant > 0{
+                self.height.constant = 0
+                self.delegate?.didHideSuggestions()
+            }
+        }
+    }
+    
+    @objc private func editingEnd(){
+        if self.height.constant > 0{
             self.height.constant = 0
             self.delegate?.didHideSuggestions()
         }
-    }
-
-    @objc private func editingEnd(){
-        self.height.constant = 0
-        delegate?.didHideSuggestions()
     }
     
 }

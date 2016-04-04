@@ -527,6 +527,34 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <segue destination="Ta7-Wb-MED" kind="presentation" modalPresentationStyle="formSheet" id="Hg5-Th-hy6"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zto-42-vEy">
+                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zto-42-vEy" id="rEI-de-9A7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autocomplete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53g-DF-7AX">
+                                                    <rect key="frame" x="15" y="11" width="107" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYf-hW-MCm">
+                                                    <rect key="frame" x="533" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="autocompleteSwitch:" destination="qgJ-Pb-P99" eventType="valueChanged" id="Jy9-2L-p8y"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="53g-DF-7AX" firstAttribute="centerY" secondItem="rEI-de-9A7" secondAttribute="centerY" id="1x6-JF-Nbo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KYf-hW-MCm" secondAttribute="trailing" constant="10" id="ILi-Na-nl3"/>
+                                                <constraint firstItem="KYf-hW-MCm" firstAttribute="centerY" secondItem="53g-DF-7AX" secondAttribute="centerY" id="gVw-Iv-9ds"/>
+                                                <constraint firstItem="53g-DF-7AX" firstAttribute="leading" secondItem="rEI-de-9A7" secondAttribute="leadingMargin" constant="7" id="pVT-jP-fcz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -537,7 +565,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="ajf-LR-Lk9"/>
                     <connections>
-                        <outlet property="staticCell" destination="df3-YY-lKQ" id="zEa-K6-Eu7"/>
+                        <outlet property="autocompleteLabel" destination="53g-DF-7AX" id="ipT-5a-VBP"/>
+                        <outlet property="autocompleteSwitcher" destination="KYf-hW-MCm" id="1Yl-ev-eJP"/>
+                        <outlet property="languageCell" destination="df3-YY-lKQ" id="VxX-jd-bPT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QE8-cR-hw6" userLabel="First Responder" sceneMemberID="firstResponder"/>

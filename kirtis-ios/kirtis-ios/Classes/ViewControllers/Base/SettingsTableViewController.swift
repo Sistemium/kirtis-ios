@@ -10,20 +10,39 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    @IBOutlet weak var staticCell: UITableViewCell!{
+    @IBOutlet weak var languageCell: UITableViewCell!{
         didSet{
-            staticCell.textLabel?.text = "LANGUAGE".localized
+            languageCell.textLabel?.text = "LANGUAGE".localized
             switch LocalizationService.sharedInstance.userLanguage{
             case "en":
-                staticCell.detailTextLabel?.text = "English"
+                languageCell.detailTextLabel?.text = "English"
             case "ru":
-                staticCell.detailTextLabel?.text = "Русский"
+                languageCell.detailTextLabel?.text = "Русский"
             case "lt":
-                staticCell.detailTextLabel?.text = "Lietuvių"
+                languageCell.detailTextLabel?.text = "Lietuvių"
             default:
                 break
             }
             self.title = "SETTINGS".localized
         }
     }
+    
+    @IBOutlet weak var autocompleteLabel: UILabel!{
+        didSet{
+            autocompleteLabel.text = "AUTOCOMPLETE".localized
+        }
+    }
+    
+    @IBOutlet weak var autocompleteSwitcher: UISwitch!{
+        didSet{
+            autocompleteSwitcher.on = NSUserDefaults.standardUserDefaults().objectForKey("autocomplete") as? Bool ?? true
+        }
+    }
+    
+    
+    @IBAction func autocompleteSwitch(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setObject(sender.on, forKey: "autocomplete")
+    }
+    
+    
 }

@@ -244,6 +244,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         textToSearch = word
     }
     
+    func isAutocompleteEnabled() -> Bool {
+        return defaults.objectForKey("autocomplete") as? Bool ?? true
+    }
+    
     //MARK: AutocompleteTextFielDataSource
     
     func getSuggestions(word:String) -> [String]{
