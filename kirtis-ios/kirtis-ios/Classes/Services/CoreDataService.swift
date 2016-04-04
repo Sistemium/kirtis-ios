@@ -43,8 +43,16 @@ class CoreDataService {
     }()
     
     private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        let oldUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios.sqlite")
+        if NSFileManager.defaultManager().fileExistsAtPath(oldUrl.path!){
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(oldUrl)
+                let appDomain = NSBundle.mainBundle().bundleIdentifier!
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
+            } catch {NSLog("Failed to delete old data at path: \(oldUrl)")}
+        }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios_v2.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
@@ -54,11 +62,10 @@ class CoreDataService {
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             
             dict[NSUnderlyingErrorKey] = error as NSError
-            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            let wrappedError = NSError(domain: "ERROR_DOMAIN", code: 9999, userInfo: dict)
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
         }
-        
         return coordinator
     }()
 }

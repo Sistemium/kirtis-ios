@@ -22,7 +22,7 @@ class StartupDataSyncService {
         do {
             try fetch()
             let api:String = Constants.dictionaryAPI
-            let rez = RestService.sharedInstance.getJSON(api, cashed: true)
+            let rez = RestService.sharedInstance.getJSON(api, cashingKey: "dictionary")
             if rez.statusCode == nil{
                 return
             }
