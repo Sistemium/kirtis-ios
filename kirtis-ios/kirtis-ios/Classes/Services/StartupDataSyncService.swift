@@ -30,6 +30,14 @@ class StartupDataSyncService {
             if rez.statusCode == HTTPStatusCode.NotModified{
                 return
             }
+            for group in groups{
+                CoreDataService.sharedInstance.managedObjectContext.deleteObject(group)
+            }
+            for dict in dictionary{
+                CoreDataService.sharedInstance.managedObjectContext.deleteObject(dict)
+            }
+            groups = []
+            dictionary = []
             if let json = rez.json  {
                 let data = RestService.sharedInstance.parseJSONDictionary(json)
                 let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
