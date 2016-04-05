@@ -18,7 +18,13 @@ class AboutViewController: UIViewController {
     
     @IBOutlet weak var aboutText: UILabel!{
         didSet{
-            aboutText.text = "ABOUT_TEXT".localized
+//            aboutText.text = "ABOUT_TEXT".localized
+            let paragraphStyles = NSMutableParagraphStyle()
+            paragraphStyles.alignment = .Justified
+            paragraphStyles.firstLineHeadIndent = 10.0
+            let attributes = [NSParagraphStyleAttributeName: paragraphStyles]
+            let attributedString = NSAttributedString(string: "ABOUT_TEXT".localized, attributes: attributes)
+            aboutText.attributedText = attributedString
         }
     }
     
