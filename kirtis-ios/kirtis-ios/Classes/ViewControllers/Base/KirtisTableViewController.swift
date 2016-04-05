@@ -226,6 +226,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
         }
+        self.tableView.scrollEnabled = false
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
 
@@ -237,6 +238,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
         }
+        self.tableView.scrollEnabled = true
         tableView.reloadData()
     }
     
