@@ -267,10 +267,10 @@
                                 <rect key="frame" x="3" y="64" width="600" height="487"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-RP-8RN">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="341.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="351.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Version: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfd-Oo-rX2">
-                                                <rect key="frame" x="267" y="288" width="66.5" height="33.5"/>
+                                                <rect key="frame" x="267" y="298" width="66.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -279,7 +279,7 @@
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-gy-Fm7">
-                                                <rect key="frame" x="233" y="82" width="133" height="33.5"/>
+                                                <rect key="frame" x="233" y="92" width="133" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="UAB &quot;Sistemium&quot;"/>
                                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
@@ -290,7 +290,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-xC-xf3">
-                                                <rect key="frame" x="163" y="165" width="274" height="33.5"/>
+                                                <rect key="frame" x="163" y="175" width="274" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Centre of Computational Linguistics"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -304,7 +304,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycv-fM-ecT">
-                                                <rect key="frame" x="251" y="205.5" width="97" height="33"/>
+                                                <rect key="frame" x="251" y="215.5" width="97" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Source code"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -318,7 +318,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzt-pl-SWW">
-                                                <rect key="frame" x="274" y="246.5" width="52" height="33.5"/>
+                                                <rect key="frame" x="274" y="256.5" width="52" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Icons8"/>
                                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
@@ -332,13 +332,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFE-Ue-dsh">
-                                                <rect key="frame" x="8" y="-50" width="584" height="82"/>
+                                                <rect key="frame" x="8" y="-40" width="584" height="82"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="143" id="8J6-NF-kvm"/>
                                                 </constraints>
-                                                <mutableString key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
+                                                <string key="text">This open source iOS application is a mobile version of program "Kirčiavimas internetu", developed and maintained by "UAB Sistemium" for educational purposes. 
 
-We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</mutableString>
+We express appreciation to the Centre of Computational Linguistics, the materials of which have been used in this project, as well as team "icons8" for providing the beautiful icons.</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -349,7 +349,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                 </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shF-UM-6jX">
-                                                <rect key="frame" x="220" y="123" width="160" height="33.5"/>
+                                                <rect key="frame" x="220" y="133" width="160" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Kirčiavimas internetu"/>
                                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="NO">
@@ -359,6 +359,20 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <action selector="linkToKirtis" destination="iGO-rx-m4v" eventType="touchUpInside" id="Xqm-9a-H9q"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-tc-K0f">
+                                                <rect key="frame" x="258" y="51" width="84" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="84" id="U1c-O0-AG9"/>
+                                                    <constraint firstAttribute="width" constant="84" id="heF-DE-wDx"/>
+                                                    <constraint firstAttribute="height" constant="33" id="jKQ-Aa-ihh"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="U1c-O0-AG9"/>
+                                                        <exclude reference="jKQ-Aa-ihh"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -366,15 +380,17 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <constraint firstItem="shF-UM-6jX" firstAttribute="centerX" secondItem="Leb-gy-Fm7" secondAttribute="centerX" id="1JG-zy-fcn"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="height" secondItem="Bzt-pl-SWW" secondAttribute="height" id="1Vi-l2-IYM"/>
                                             <constraint firstItem="wFE-Ue-dsh" firstAttribute="trailing" secondItem="fpq-RP-8RN" secondAttribute="trailingMargin" id="39N-Ee-7Yi"/>
-                                            <constraint firstItem="wFE-Ue-dsh" firstAttribute="top" secondItem="fpq-RP-8RN" secondAttribute="top" constant="-50" id="4ue-y2-g7O"/>
+                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="height" secondItem="Leb-gy-Fm7" secondAttribute="height" id="3J7-kB-Yl0"/>
+                                            <constraint firstItem="wFE-Ue-dsh" firstAttribute="top" secondItem="fpq-RP-8RN" secondAttribute="top" constant="-40" id="4ue-y2-g7O"/>
+                                            <constraint firstItem="Leb-gy-Fm7" firstAttribute="top" secondItem="BYx-tc-K0f" secondAttribute="bottom" constant="8" id="6mj-bN-0hy"/>
                                             <constraint firstItem="yjN-xC-xf3" firstAttribute="height" secondItem="shF-UM-6jX" secondAttribute="height" id="9zs-hc-236"/>
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="centerX" secondItem="yjN-xC-xf3" secondAttribute="centerX" id="DRF-ke-OyZ"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="centerX" secondItem="Bzt-pl-SWW" secondAttribute="centerX" id="G62-sC-n4X"/>
-                                            <constraint firstItem="Leb-gy-Fm7" firstAttribute="top" secondItem="wFE-Ue-dsh" secondAttribute="bottom" constant="50" id="IAR-i7-jHC"/>
                                             <constraint firstItem="yjN-xC-xf3" firstAttribute="top" secondItem="shF-UM-6jX" secondAttribute="bottom" constant="8" id="MSS-HT-j0r"/>
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="top" secondItem="Ycv-fM-ecT" secondAttribute="bottom" constant="8" id="QLx-ic-yGO"/>
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="height" secondItem="Ycv-fM-ecT" secondAttribute="height" id="RAw-Jm-MPe"/>
                                             <constraint firstAttribute="bottom" secondItem="Yfd-Oo-rX2" secondAttribute="bottom" constant="20" symbolic="YES" id="SFP-Qk-5VU"/>
+                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="top" secondItem="wFE-Ue-dsh" secondAttribute="bottom" constant="9" id="V4Y-vw-7Br"/>
                                             <constraint firstItem="Leb-gy-Fm7" firstAttribute="centerX" secondItem="wFE-Ue-dsh" secondAttribute="centerX" id="bc6-ch-QBg"/>
                                             <constraint firstItem="shF-UM-6jX" firstAttribute="top" secondItem="Leb-gy-Fm7" secondAttribute="bottom" constant="8" id="dr8-Pt-VR6"/>
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="centerX" secondItem="Ycv-fM-ecT" secondAttribute="centerX" id="fkg-ba-eCU"/>
@@ -383,6 +399,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="top" secondItem="yjN-xC-xf3" secondAttribute="bottom" constant="7.5" id="jzI-O1-XyR"/>
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="height" secondItem="yjN-xC-xf3" secondAttribute="height" id="t0v-hR-rvT"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="top" secondItem="Bzt-pl-SWW" secondAttribute="bottom" constant="8" id="ydH-Op-mHl"/>
+                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="centerX" secondItem="wFE-Ue-dsh" secondAttribute="centerX" id="yfM-fu-Dvi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -390,15 +407,9 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                     <constraint firstAttribute="bottom" secondItem="fpq-RP-8RN" secondAttribute="bottom" constant="-50" id="FRj-po-jS3"/>
                                     <constraint firstItem="fpq-RP-8RN" firstAttribute="centerX" secondItem="1aN-ve-5zK" secondAttribute="centerX" id="Fhp-SB-tqs"/>
                                     <constraint firstAttribute="trailing" secondItem="fpq-RP-8RN" secondAttribute="trailing" id="Me5-Te-7MZ"/>
-                                    <constraint firstItem="fpq-RP-8RN" firstAttribute="height" secondItem="1aN-ve-5zK" secondAttribute="height" id="Nuc-tf-lpF"/>
                                     <constraint firstItem="fpq-RP-8RN" firstAttribute="leading" secondItem="1aN-ve-5zK" secondAttribute="leading" id="ed0-2D-7zA"/>
                                     <constraint firstItem="fpq-RP-8RN" firstAttribute="top" secondItem="1aN-ve-5zK" secondAttribute="top" id="wF8-bU-UIb"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Nuc-tf-lpF"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,6 +424,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                     <connections>
                         <outlet property="aboutText" destination="wFE-Ue-dsh" id="vsU-yH-XVU"/>
                         <outlet property="ccl" destination="yjN-xC-xf3" id="w0x-gP-SEu"/>
+                        <outlet property="likeButton" destination="BYx-tc-K0f" id="Rz6-g0-rk6"/>
                         <outlet property="sourceCode" destination="Ycv-fM-ecT" id="S6p-tN-k2Z"/>
                         <outlet property="version" destination="Yfd-Oo-rX2" id="UK3-BB-aZd"/>
                     </connections>

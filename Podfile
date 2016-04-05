@@ -5,6 +5,9 @@ platform :ios, '8.0'
 
 use_frameworks!
 pod 'ReachabilitySwift', '~> 2.3.3'
+pod 'FBSDKCoreKit'
+pod 'FBSDKShareKit'
+pod 'FBSDKLoginKit'
 
 target 'kirtis-ios' do
 
