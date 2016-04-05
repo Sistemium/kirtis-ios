@@ -71,6 +71,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             history.enabled = true
             history.title = ""
         }
+        tableView.reloadData()
     }
     @IBAction func reachabilityClick(sender: AnyObject) {
         let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.Alert)

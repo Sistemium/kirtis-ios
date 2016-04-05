@@ -15,7 +15,6 @@ class KirtisTableViewCell: UITableViewCell {
     @IBOutlet weak var word: UILabel!
     @IBOutlet weak var part: UILabel!
     @IBOutlet weak var message: UILabel!
-    let maxStatesInLine = 4
     var statesData : [String] = [] {
         didSet{
             setStates(statesData)
@@ -24,15 +23,6 @@ class KirtisTableViewCell: UITableViewCell {
     
     private func setStates(states:[String]){
         var remainingStates = states.count
-        if remainingStates > 8 {
-            Answers.logContentViewWithName("Interesting words",
-                contentType: "Events",
-                contentId: "int-words",
-                customAttributes: [
-                    "intText": word.text!
-                ]
-            )
-        }
         var lineNumber:CGFloat = 0
         let space:CGFloat = 5
         while remainingStates > 0{
@@ -49,15 +39,6 @@ class KirtisTableViewCell: UITableViewCell {
                 nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0 ))
             statesView.layoutSubviews()
             let rez = setStates(Array(states[states.count -  remainingStates ... states.count - 1]), view: statesView)
-            if rez.width > Int(UIScreen.mainScreen().bounds.width) {
-                Answers.logContentViewWithName("Interesting words",
-                    contentType: "Events",
-                    contentId: "int-words",
-                    customAttributes: [
-                        "intText": word.text!
-                    ]
-                )
-            }
             center.constant -= CGFloat(rez.width / 2)
             statesView.layoutSubviews()
             remainingStates -= rez.usedStates
@@ -86,6 +67,9 @@ class KirtisTableViewCell: UITableViewCell {
             let text = label.text! as NSString
             let size = text.sizeWithAttributes([NSFontAttributeName:label.font])
             width += Int(size.width) + space + padding
+            if width > Int(UIScreen.mainScreen().bounds.width) && usedStates > 0 {
+                return (usedStates,width - (Int(size.width) + space + padding))
+            }
             view.addSubview(label)
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .Leading, relatedBy: .Equal, toItem: previousElement, attribute: .Trailing, multiplier: 1, constant: CGFloat(space)))
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY , relatedBy: .Equal, toItem:
@@ -95,9 +79,6 @@ class KirtisTableViewCell: UITableViewCell {
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .Width , relatedBy: .Equal, toItem:
                 nil , attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
             usedStates += 1
-            if usedStates == maxStatesInLine {
-                return (usedStates,width)
-            }
         }
         return (usedStates,width)
     }
