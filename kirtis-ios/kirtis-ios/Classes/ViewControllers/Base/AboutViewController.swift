@@ -56,6 +56,14 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "ABOUT".localized
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.tabBarController?.viewControllers![3].tabBarItem.badgeValue == "1"{
+            self.tabBarController?.viewControllers![3].tabBarItem.badgeValue = nil
+            FeedbackService.sharedInstance.rateAppFromViewController(self)
+        }
+    }
 
     @IBAction func linkToSistemium() {
         UIApplication.sharedApplication().openURL(NSURL(string : Constants.sistemiumUrl)!)

@@ -18,4 +18,5 @@ struct Constants {
     static let sourceUrl = "https://github.com/Sistemium/kirtis-ios"
     static let suggestionsAPI = "http://kirtis.info/api/zodynas/"
     static let facebookURL = "https://www.facebook.com/kirtis.info"
+    static let appStoreRateURL = "itms-apps://itunes.apple.com/app/1071057652"
 }

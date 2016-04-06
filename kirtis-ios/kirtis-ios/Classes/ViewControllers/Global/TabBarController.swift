@@ -17,6 +17,9 @@ class TabBarController: UITabBarController {
         self.viewControllers?[1].tabBarItem.title = "SETTINGS".localized
         self.viewControllers?[2].tabBarItem.title = "DICTIONARY".localized
         self.viewControllers?[3].tabBarItem.title = "ABOUT".localized
+        if FeedbackService.sharedInstance.needsRateApp(){
+            self.viewControllers?[3].tabBarItem.badgeValue = "1"
+        }
     }
 
 }
