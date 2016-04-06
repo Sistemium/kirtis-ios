@@ -49,6 +49,7 @@ class AboutViewController: UIViewController {
             like.objectID = Constants.facebookURL
             likeButton.addSubview(like)
             like.center = like.superview!.convertPoint(like.superview!.center, fromView: like.superview!.superview)
+            like.likeControlHorizontalAlignment = .Center
         }
     }
     
