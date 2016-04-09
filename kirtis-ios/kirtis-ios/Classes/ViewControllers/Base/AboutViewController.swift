@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FBSDKCoreKit
-import FBSDKShareKit
 
 class AboutViewController: UIViewController {
     
@@ -40,16 +38,6 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var sourceCode: UIButton!{
         didSet{
             sourceCode.setTitle("CODE".localized, forState: .Normal)
-        }
-    }
-    
-    @IBOutlet weak var likeButton: UIView!{
-        didSet{
-            let like = FBSDKLikeControl()
-            like.objectID = Constants.facebookURL
-            likeButton.addSubview(like)
-            like.center = like.superview!.convertPoint(like.superview!.center, fromView: like.superview!.superview)
-            like.likeControlHorizontalAlignment = .Center
         }
     }
     

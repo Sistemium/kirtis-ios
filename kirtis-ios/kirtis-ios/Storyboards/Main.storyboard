@@ -359,20 +359,6 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                                     <action selector="linkToKirtis" destination="iGO-rx-m4v" eventType="touchUpInside" id="Xqm-9a-H9q"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-tc-K0f">
-                                                <rect key="frame" x="258" y="51" width="84" height="33"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="84" id="U1c-O0-AG9"/>
-                                                    <constraint firstAttribute="width" constant="84" id="heF-DE-wDx"/>
-                                                    <constraint firstAttribute="height" constant="33" id="jKQ-Aa-ihh"/>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="U1c-O0-AG9"/>
-                                                        <exclude reference="jKQ-Aa-ihh"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -380,9 +366,7 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <constraint firstItem="shF-UM-6jX" firstAttribute="centerX" secondItem="Leb-gy-Fm7" secondAttribute="centerX" id="1JG-zy-fcn"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="height" secondItem="Bzt-pl-SWW" secondAttribute="height" id="1Vi-l2-IYM"/>
                                             <constraint firstItem="wFE-Ue-dsh" firstAttribute="trailing" secondItem="fpq-RP-8RN" secondAttribute="trailingMargin" id="39N-Ee-7Yi"/>
-                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="height" secondItem="Leb-gy-Fm7" secondAttribute="height" id="3J7-kB-Yl0"/>
                                             <constraint firstItem="wFE-Ue-dsh" firstAttribute="top" secondItem="fpq-RP-8RN" secondAttribute="top" constant="-40" id="4ue-y2-g7O"/>
-                                            <constraint firstItem="Leb-gy-Fm7" firstAttribute="top" secondItem="BYx-tc-K0f" secondAttribute="bottom" constant="8" id="6mj-bN-0hy"/>
                                             <constraint firstItem="yjN-xC-xf3" firstAttribute="height" secondItem="shF-UM-6jX" secondAttribute="height" id="9zs-hc-236"/>
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="centerX" secondItem="yjN-xC-xf3" secondAttribute="centerX" id="DRF-ke-OyZ"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="centerX" secondItem="Bzt-pl-SWW" secondAttribute="centerX" id="G62-sC-n4X"/>
@@ -390,8 +374,8 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="top" secondItem="Ycv-fM-ecT" secondAttribute="bottom" constant="8" id="QLx-ic-yGO"/>
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="height" secondItem="Ycv-fM-ecT" secondAttribute="height" id="RAw-Jm-MPe"/>
                                             <constraint firstAttribute="bottom" secondItem="Yfd-Oo-rX2" secondAttribute="bottom" constant="20" symbolic="YES" id="SFP-Qk-5VU"/>
-                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="top" secondItem="wFE-Ue-dsh" secondAttribute="bottom" constant="9" id="V4Y-vw-7Br"/>
                                             <constraint firstItem="Leb-gy-Fm7" firstAttribute="centerX" secondItem="wFE-Ue-dsh" secondAttribute="centerX" id="bc6-ch-QBg"/>
+                                            <constraint firstItem="Leb-gy-Fm7" firstAttribute="top" secondItem="wFE-Ue-dsh" secondAttribute="bottom" constant="50" id="dOH-uS-1Us"/>
                                             <constraint firstItem="shF-UM-6jX" firstAttribute="top" secondItem="Leb-gy-Fm7" secondAttribute="bottom" constant="8" id="dr8-Pt-VR6"/>
                                             <constraint firstItem="Bzt-pl-SWW" firstAttribute="centerX" secondItem="Ycv-fM-ecT" secondAttribute="centerX" id="fkg-ba-eCU"/>
                                             <constraint firstItem="yjN-xC-xf3" firstAttribute="centerX" secondItem="shF-UM-6jX" secondAttribute="centerX" id="jHN-9T-F4n"/>
@@ -399,7 +383,6 @@ We express appreciation to the Centre of Computational Linguistics, the material
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="top" secondItem="yjN-xC-xf3" secondAttribute="bottom" constant="7.5" id="jzI-O1-XyR"/>
                                             <constraint firstItem="Ycv-fM-ecT" firstAttribute="height" secondItem="yjN-xC-xf3" secondAttribute="height" id="t0v-hR-rvT"/>
                                             <constraint firstItem="Yfd-Oo-rX2" firstAttribute="top" secondItem="Bzt-pl-SWW" secondAttribute="bottom" constant="8" id="ydH-Op-mHl"/>
-                                            <constraint firstItem="BYx-tc-K0f" firstAttribute="centerX" secondItem="wFE-Ue-dsh" secondAttribute="centerX" id="yfM-fu-Dvi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -424,7 +407,6 @@ We express appreciation to the Centre of Computational Linguistics, the material
                     <connections>
                         <outlet property="aboutText" destination="wFE-Ue-dsh" id="vsU-yH-XVU"/>
                         <outlet property="ccl" destination="yjN-xC-xf3" id="w0x-gP-SEu"/>
-                        <outlet property="likeButton" destination="BYx-tc-K0f" id="Rz6-g0-rk6"/>
                         <outlet property="sourceCode" destination="Ycv-fM-ecT" id="S6p-tN-k2Z"/>
                         <outlet property="version" destination="Yfd-Oo-rX2" id="UK3-BB-aZd"/>
                     </connections>
