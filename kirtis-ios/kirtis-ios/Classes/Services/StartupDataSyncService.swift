@@ -39,14 +39,17 @@ class StartupDataSyncService {
             groups = []
             dictionary = []
             if let json = rez.json  {
-                let data = RestService.sharedInstance.parseJSONDictionary(json)
-                let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
-                    inManagedObjectContext:CoreDataService.sharedInstance.managedObjectContext)
-                let mainGroup = GroupOfAbbreviations(entity: entity!,
-                    insertIntoManagedObjectContext: CoreDataService.sharedInstance.managedObjectContext)
-                mainGroup.name = "Dictionary"
-                pushData(data!,parentGroup: mainGroup)
-                try CoreDataService.sharedInstance.managedObjectContext.save()
+                if let data = RestService.sharedInstance.parseJSONDictionary(json){
+                    let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
+                        inManagedObjectContext:CoreDataService.sharedInstance.managedObjectContext)
+                    let mainGroup = GroupOfAbbreviations(entity: entity!,
+                        insertIntoManagedObjectContext: CoreDataService.sharedInstance.managedObjectContext)
+                    mainGroup.name = "Dictionary"
+                    pushData(data,parentGroup: mainGroup)
+                    try CoreDataService.sharedInstance.managedObjectContext.save()
+                } else{
+                    dictionaryInitiated = false
+                }
             }
             try fetch()
         } catch let error as NSError {

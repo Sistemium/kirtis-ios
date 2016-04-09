@@ -222,20 +222,22 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     //MARK: AutocompleteTextFielDelegate
     
     func didShowSuggestions(){
-        tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 0
-        tableView.tableHeaderView?.frame.size.height = 180 + autocomleteTextField.height.constant - 16
+        tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 0
+        tableView.tableHeaderView?.frame.size.height = 139 + autocomleteTextField.height.constant - 16
+        tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 10
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
+            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
         }
         self.tableView.scrollEnabled = false
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
-
     }
     
     func didHideSuggestions(){
-        tableView.tableHeaderView?.constraints.filter{$0.identifier == "spaceUnderTextField"}.first?.constant = 16
-        tableView.tableHeaderView?.frame.size.height = 180
+        tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 16
+        tableView.tableHeaderView?.frame.size.height = 200
+        tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 71
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
         }
