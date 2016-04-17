@@ -47,8 +47,6 @@ class CoreDataService {
         if NSFileManager.defaultManager().fileExistsAtPath(oldUrl.path!){
             do {
                 try NSFileManager.defaultManager().removeItemAtURL(oldUrl)
-                let appDomain = NSBundle.mainBundle().bundleIdentifier!
-                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
             } catch {NSLog("Failed to delete old data at path: \(oldUrl)")}
         }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
