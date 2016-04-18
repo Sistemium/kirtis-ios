@@ -21,7 +21,9 @@ class LocalizationService{
         get{
             let defaults = NSUserDefaults.standardUserDefaults();
             if let lng = defaults.stringForKey("Language"){
-                return lng
+                if lng.hasPrefix("lt") || lng.hasPrefix("ru") || lng.hasPrefix("en"){
+                    return lng
+                }
             }
             for lng in NSLocale.preferredLanguages(){
                 if lng.hasPrefix("lt"){
