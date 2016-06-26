@@ -35,3 +35,14 @@ Crashlytics.framework
 Fabric.framework
 
 fabric.sh
+.idea/kirtis-ios.iml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
+
+.idea/xcode.xml
