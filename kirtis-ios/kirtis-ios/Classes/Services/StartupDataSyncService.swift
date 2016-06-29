@@ -12,49 +12,47 @@ import CoreData
 class StartupDataSyncService {
     static let sharedInstance = StartupDataSyncService()
     private init() {
-        loadDictionary()
+        dispatch_async(dispatch_get_main_queue(),{
+            self.loadDictionary()
+        })
     }
     var groups : [GroupOfAbbreviations] = []
     var dictionary : [Abbreviation] = []
     var dictionaryInitiated = false
     
     func loadDictionary(){
-        do {
-            try fetch()
-            let api:String = Constants.dictionaryAPI
-            let rez = RestService.sharedInstance.getJSON(api, cashingKey: "dictionary")
-            if rez.statusCode == nil{
-                return
-            }
-            dictionaryInitiated = true
-            if rez.statusCode == HTTPStatusCode.NotModified{
-                return
-            }
-            for group in groups{
-                CoreDataService.sharedInstance.managedObjectContext.deleteObject(group)
-            }
-            for dict in dictionary{
-                CoreDataService.sharedInstance.managedObjectContext.deleteObject(dict)
-            }
-            groups = []
-            dictionary = []
-            if let json = rez.json  {
-                if let data = RestService.sharedInstance.parseJSONDictionary(json){
-                    let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
-                        inManagedObjectContext:CoreDataService.sharedInstance.managedObjectContext)
-                    let mainGroup = GroupOfAbbreviations(entity: entity!,
-                        insertIntoManagedObjectContext: CoreDataService.sharedInstance.managedObjectContext)
-                    mainGroup.name = "Dictionary"
-                    pushData(data,parentGroup: mainGroup)
-                    try CoreDataService.sharedInstance.managedObjectContext.save()
-                } else{
-                    dictionaryInitiated = false
-                }
-            }
-            try fetch()
-        } catch let error as NSError {
-            print("\(error), \(error.userInfo)")
+        _ = try? fetch()
+        let api:String = Constants.dictionaryAPI
+        let rez = RestService.sharedInstance.getJSON(api, cashingKey: "dictionary")
+        if rez.statusCode == nil{
+            return
         }
+        dictionaryInitiated = true
+        if rez.statusCode == HTTPStatusCode.NotModified{
+            return
+        }
+        for group in groups{
+            CoreDataService.sharedInstance.managedObjectContext.deleteObject(group)
+        }
+        for dict in dictionary{
+            CoreDataService.sharedInstance.managedObjectContext.deleteObject(dict)
+        }
+        groups = []
+        dictionary = []
+        if let json = rez.json  {
+            if let data = RestService.sharedInstance.parseJSONDictionary(json){
+                let entity =  NSEntityDescription.entityForName("GroupOfAbbreviations",
+                    inManagedObjectContext:CoreDataService.sharedInstance.managedObjectContext)
+                let mainGroup = GroupOfAbbreviations(entity: entity!,
+                    insertIntoManagedObjectContext: CoreDataService.sharedInstance.managedObjectContext)
+                mainGroup.name = "Dictionary"
+                pushData(data,parentGroup: mainGroup)
+                _ = try? CoreDataService.sharedInstance.managedObjectContext.save()
+            } else{
+                dictionaryInitiated = false
+            }
+        }
+        _ = try? fetch()
     }
     
     private func fetch() throws{

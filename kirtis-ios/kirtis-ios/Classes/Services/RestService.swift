@@ -22,47 +22,30 @@ class RestService{
     
     func getJSON(urlToRequest: String, cashingKey : String? = nil, timeoutInterval : Double = 4.0) -> (json : NSData?,statusCode : HTTPStatusCode?){
         var response: NSURLResponse?
-        do{
-            if let url = NSURL(string: urlToRequest){
-                //sleep(4) //for testing
-                let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: timeoutInterval)
-                request.addValue(UIDevice.currentDevice().identifierForVendor!.UUIDString, forHTTPHeaderField: "deviceUUID")
-                if cashingKey != nil{
-                    request.addValue(eTag?[cashingKey!] ?? "", forHTTPHeaderField: "If-None-Match")
-                }
-                let rez = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-                if cashingKey != nil{
-                    var e = eTag ?? [:]
-                    e[cashingKey!] = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
-                    eTag = e
-                }
-                return (rez,HTTPStatusCode(HTTPResponse: response as? NSHTTPURLResponse))
+        if let url = NSURL(string: urlToRequest){
+            //sleep(4) //for testing
+            let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: timeoutInterval)
+            request.addValue(UIDevice.currentDevice().identifierForVendor!.UUIDString, forHTTPHeaderField: "deviceUUID")
+            if cashingKey != nil{
+                request.addValue(eTag?[cashingKey!] ?? "", forHTTPHeaderField: "If-None-Match")
             }
-        }
-        catch{
-            
+            let rez = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            if cashingKey != nil{
+                var e = eTag ?? [:]
+                e[cashingKey!] = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
+                eTag = e
+            }
+            return (rez,HTTPStatusCode(HTTPResponse: response as? NSHTTPURLResponse))
         }
         return (nil , nil)
     }
     
     func parseJSON(inputData: NSData) -> NSArray?{
-        do{
-            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray
-            return jsonDict
-        }catch let parseError {
-            print(parseError)
-        }
-        return nil
+        return try? NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray
     }
     
     func parseJSONDictionary(inputData: NSData) -> NSDictionary?{
-        do{
-            let jsonDict = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSDictionary
-            return jsonDict
-        }catch let parseError {
-            print(parseError)
-        }
-        return nil
+        return try? NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSDictionary
     }
 
 }

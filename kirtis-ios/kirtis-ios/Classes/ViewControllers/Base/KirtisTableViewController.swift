@@ -223,8 +223,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     func didShowSuggestions(){
         tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 0
-        tableView.tableHeaderView?.frame.size.height = 139 + autocomleteTextField.height.constant - 16
-        tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 10
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone || UIDevice.currentDevice().orientation == .LandscapeLeft || UIDevice.currentDevice().orientation == .LandscapeRight{
+            tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 10
+        }
+        tableView.tableHeaderView?.frame.size.height = 133 + autocomleteTextField.height.constant + tableView.tableHeaderView!.constraintWithIdentifier("topSpace")!.constant
         UIView.animateWithDuration(0.5){
             self.tableView.tableHeaderView!.layoutIfNeeded()
             self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)

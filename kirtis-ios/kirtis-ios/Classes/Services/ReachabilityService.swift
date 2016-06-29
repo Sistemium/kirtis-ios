@@ -12,20 +12,18 @@ import ReachabilitySwift
 class ReachabilityService{
     static let sharedInstance = ReachabilityService()
     private init() {
-        do{
-            reachability = try Reachability.reachabilityForInternetConnection()
-            try reachability?.startNotifier();
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
-        }catch let error as NSError {
-            print("\(error), \(error.userInfo)")
-        }
+        reachability = try? Reachability.reachabilityForInternetConnection()
+        _ = try? reachability?.startNotifier();
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
     }
     var reachability :Reachability?
     
     @objc private func reachabilityChanged(note: NSNotification?){
         if hasConnectivity(){
             if !StartupDataSyncService.sharedInstance.dictionaryInitiated{
-                StartupDataSyncService.sharedInstance.loadDictionary()
+                dispatch_async(dispatch_get_main_queue(),{
+                    StartupDataSyncService.sharedInstance.loadDictionary()
+                })
             }
         }
     }
