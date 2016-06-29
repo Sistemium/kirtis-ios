@@ -21,7 +21,9 @@ class ReachabilityService{
     @objc private func reachabilityChanged(note: NSNotification?){
         if hasConnectivity(){
             if !StartupDataSyncService.sharedInstance.dictionaryInitiated{
-                StartupDataSyncService.sharedInstance.loadDictionary()
+                dispatch_async(dispatch_get_main_queue(),{
+                    StartupDataSyncService.sharedInstance.loadDictionary()
+                })
             }
         }
     }
