@@ -64,14 +64,16 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     }
     
     func shouldButtonAppear(note: NSNotification?){
-        if splitViewController?.collapsed ?? false{
-            history.enabled = true
-            history.title = "HISTORY".localized
-        }else{
-            history.enabled = true
-            history.title = ""
+        dispatch_async(dispatch_get_main_queue()) {
+            if self.splitViewController?.collapsed ?? false{
+                self.history.enabled = true
+                self.history.title = "HISTORY".localized
+            }else{
+                self.history.enabled = true
+                self.history.title = ""
+            }
+            self.tableView.reloadData()
         }
-        tableView.reloadData()
     }
     @IBAction func reachabilityClick(sender: AnyObject) {
         let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -88,13 +90,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     }
     
     func reachabilityChanged(note: NSNotification?){
-        if ReachabilityService.sharedInstance.hasConnectivity(){
-            internetAccessIcon.tintColor = nil
-            internetAccessIcon.image = UIImage(named: "Internet")
-        }
-        else{
-            internetAccessIcon.image = UIImage(named: "NoInternet")
-            internetAccessIcon.tintColor = UIColor.redColor()
+        dispatch_async(dispatch_get_main_queue()) {
+            if ReachabilityService.sharedInstance.hasConnectivity(){
+                self.internetAccessIcon.tintColor = nil
+                self.internetAccessIcon.image = UIImage(named: "Internet")
+            }
+            else{
+                self.internetAccessIcon.image = UIImage(named: "NoInternet")
+                self.internetAccessIcon.tintColor = UIColor.redColor()
+            }
         }
     }
     
