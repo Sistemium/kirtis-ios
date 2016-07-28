@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46875682AB5BCD59ED0710EC /* Pods_kirtis_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */; };
 		6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F6D1BF38C94005DB78D /* AppDelegate.swift */; };
 		6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D065F741BF38C94005DB78D /* Assets.xcassets */; };
 		6D065F831BF38C94005DB78D /* kirtis_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F821BF38C94005DB78D /* kirtis_iosTests.swift */; };
@@ -20,8 +21,6 @@
 		6D0B52CB1CB67AE600CFB2DA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0B52CA1CB67AE600CFB2DA /* UIView.swift */; };
 		6D1B3C381BFB2C7D00EE65A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D1B3C3A1BFB2C7D00EE65A5 /* InfoPlist.strings */; };
 		6D1B3C461BFB45FE00EE65A5 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */; };
-		6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */; };
-		6D1B3C521BFDC44500EE65A5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */; };
 		6D20E18A1C023FAA007163A0 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D20E1891C023FAA007163A0 /* LanguageTableViewController.swift */; };
 		6D3274511CA2CEA100869EC1 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3274501CA2CEA100869EC1 /* LocalizationService.swift */; };
 		6D3274531CA2D37700869EC1 /* StartupDataSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3274521CA2D37700869EC1 /* StartupDataSyncService.swift */; };
@@ -44,7 +43,7 @@
 		6DCCC7D01C188138004F7EC7 /* Abbreviation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCCC7CC1C188138004F7EC7 /* Abbreviation+CoreDataProperties.swift */; };
 		6DCCC7D11C188138004F7EC7 /* Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCCC7CD1C188138004F7EC7 /* Abbreviation.swift */; };
 		6DF105951C9C673400666E44 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF105941C9C673400666E44 /* AboutViewController.swift */; };
-		F9FC4A738BDB0BBB92FA0CC3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E110D6DD915017356E061F8 /* Pods.framework */; };
+		75902C5E65C0AB8922732517 /* Pods_kirtis_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E110D6DD915017356E061F8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		572439EB62473CA7C9A788E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6C4B4D27E6EB8CA624DC419C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-ios.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios.release.xcconfig"; sourceTree = "<group>"; };
 		6D065F6A1BF38C94005DB78D /* Kirtis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kirtis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6D1BF38C94005DB78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D065F741BF38C94005DB78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,8 +75,6 @@
 		6D0B52CA1CB67AE600CFB2DA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		6D1B3C391BFB2C7D00EE65A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D1B3C451BFB45FE00EE65A5 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
-		6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		6D20E16A1BFF3C7F007163A0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D20E1891C023FAA007163A0 /* LanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
 		6D3274501CA2CEA100869EC1 /* LocalizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
@@ -106,6 +101,11 @@
 		6DCCC7CC1C188138004F7EC7 /* Abbreviation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Abbreviation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6DCCC7CD1C188138004F7EC7 /* Abbreviation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abbreviation.swift; sourceTree = "<group>"; };
 		6DF105941C9C673400666E44 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kirtis_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kirtis_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B376CF3B387B7E0B81E290B0 /* Pods-kirtis-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-iosTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		F76788C16250EDFC89A18E44 /* Pods-kirtis-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-iosTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FCFAF596D639DB3320682702 /* Pods-kirtis-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-ios.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D1B3C521BFDC44500EE65A5 /* Crashlytics.framework in Frameworks */,
-				6D1B3C511BFDC44500EE65A5 /* Fabric.framework in Frameworks */,
-				F9FC4A738BDB0BBB92FA0CC3 /* Pods.framework in Frameworks */,
+				46875682AB5BCD59ED0710EC /* Pods_kirtis_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75902C5E65C0AB8922732517 /* Pods_kirtis_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,30 +131,22 @@
 		22EE837469A6F639A93C154E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C4B4D27E6EB8CA624DC419C /* Pods.debug.xcconfig */,
-				572439EB62473CA7C9A788E8 /* Pods.release.xcconfig */,
+				FCFAF596D639DB3320682702 /* Pods-kirtis-ios.debug.xcconfig */,
+				229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */,
+				F76788C16250EDFC89A18E44 /* Pods-kirtis-iosTests.debug.xcconfig */,
+				B376CF3B387B7E0B81E290B0 /* Pods-kirtis-iosTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		6B0EB82F3BF1E81F98483FBB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3E110D6DD915017356E061F8 /* Pods.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6D065F611BF38C94005DB78D = {
 			isa = PBXGroup;
 			children = (
-				6B0EB82F3BF1E81F98483FBB /* Frameworks */,
 				22EE837469A6F639A93C154E /* Pods */,
 				6D065F6B1BF38C94005DB78D /* Products */,
 				6D065F6C1BF38C94005DB78D /* kirtis-ios */,
 				6D065F811BF38C94005DB78D /* kirtis-iosTests */,
-				6D1B3C501BFDC44500EE65A5 /* Crashlytics.framework */,
-				6D1B3C4F1BFDC44500EE65A5 /* Fabric.framework */,
+				8A250E9E1C87E1EE218CA5E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +338,15 @@
 			path = Structures;
 			sourceTree = "<group>";
 		};
+		8A250E9E1C87E1EE218CA5E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */,
+				98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,13 +354,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D065F871BF38C94005DB78D /* Build configuration list for PBXNativeTarget "kirtis-ios" */;
 			buildPhases = (
-				C7080AFF0122DE147B33BBE5 /* Check Pods Manifest.lock */,
+				C7080AFF0122DE147B33BBE5 /* [CP] Check Pods Manifest.lock */,
 				6D065F661BF38C94005DB78D /* Sources */,
 				6D065F671BF38C94005DB78D /* Frameworks */,
 				6D065F681BF38C94005DB78D /* Resources */,
 				6D1B3C4E1BFDC41500EE65A5 /* Run Script */,
-				1A3D3ED27A6CD53B4E2E0EFE /* Embed Pods Frameworks */,
-				E3D16D942825BFC8C821CC68 /* Copy Pods Resources */,
+				1A3D3ED27A6CD53B4E2E0EFE /* [CP] Embed Pods Frameworks */,
+				E3D16D942825BFC8C821CC68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -375,9 +375,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D065F8A1BF38C94005DB78D /* Build configuration list for PBXNativeTarget "kirtis-iosTests" */;
 			buildPhases = (
+				8CA543A06A960FE35057CD63 /* [CP] Check Pods Manifest.lock */,
 				6D065F7A1BF38C94005DB78D /* Sources */,
 				6D065F7B1BF38C94005DB78D /* Frameworks */,
 				6D065F7C1BF38C94005DB78D /* Resources */,
+				457912652AC3810F8B9511D3 /* [CP] Embed Pods Frameworks */,
+				AF41BE84F19D360017C121D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,19 +455,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A3D3ED27A6CD53B4E2E0EFE /* Embed Pods Frameworks */ = {
+		1A3D3ED27A6CD53B4E2E0EFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		457912652AC3810F8B9511D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D1B3C4E1BFDC41500EE65A5 /* Run Script */ = {
@@ -481,14 +499,14 @@
 			shellPath = /bin/sh;
 			shellScript = "source ./fabric.sh";
 		};
-		C7080AFF0122DE147B33BBE5 /* Check Pods Manifest.lock */ = {
+		8CA543A06A960FE35057CD63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,19 +514,49 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E3D16D942825BFC8C821CC68 /* Copy Pods Resources */ = {
+		AF41BE84F19D360017C121D0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7080AFF0122DE147B33BBE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E3D16D942825BFC8C821CC68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -679,7 +727,7 @@
 		};
 		6D065F881BF38C94005DB78D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4B4D27E6EB8CA624DC419C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FCFAF596D639DB3320682702 /* Pods-kirtis-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -704,7 +752,7 @@
 		};
 		6D065F891BF38C94005DB78D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 572439EB62473CA7C9A788E8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -728,6 +776,7 @@
 		};
 		6D065F8B1BF38C94005DB78D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F76788C16250EDFC89A18E44 /* Pods-kirtis-iosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "kirtis-iosTests/Info.plist";
@@ -740,6 +789,7 @@
 		};
 		6D065F8C1BF38C94005DB78D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B376CF3B387B7E0B81E290B0 /* Pods-kirtis-iosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "kirtis-iosTests/Info.plist";
