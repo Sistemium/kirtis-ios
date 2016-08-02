@@ -15,7 +15,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     @IBOutlet weak var history: UIBarButtonItem!{
         didSet{
-            history.title = "HISTORY".localized
+            history.title = ""
         }
     }
     @IBOutlet weak var internetAccessIcon: UIBarButtonItem!
@@ -66,10 +66,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     func shouldButtonAppear(note: NSNotification?){
         dispatch_async(dispatch_get_main_queue()) {
             if self.splitViewController?.collapsed ?? false{
-                self.history.enabled = true
                 self.history.title = "HISTORY".localized
             }else{
-                self.history.enabled = true
                 self.history.title = ""
             }
             self.tableView.reloadData()
