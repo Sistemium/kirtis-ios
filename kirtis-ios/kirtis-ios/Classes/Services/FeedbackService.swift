@@ -38,8 +38,7 @@ class FeedbackService{
         }
         alertController.addAction(no)
         let rate = UIAlertAction(title: "RATEIT".localized, style: .Default) { _ in
-            UIApplication.sharedApplication().openURL(NSURL(string : Constants.appStoreRateURL)!)
-            self.launches = 8
+            self.rateApp()
         }
         alertController.addAction(rate)
         let remind = UIAlertAction(title: "REMINDME".localized, style: .Default) { _ in
@@ -48,5 +47,10 @@ class FeedbackService{
         alertController.addAction(remind)
         viewController.presentViewController(alertController, animated: true) {
         }
+    }
+    
+    func rateApp(){
+        UIApplication.sharedApplication().openURL(NSURL(string : Constants.appStoreRateURL)!)
+        self.launches = 8
     }
 }

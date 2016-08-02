@@ -41,6 +41,13 @@ class AboutViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var rateUsButton: UIButton!{
+        didSet{
+            rateUsButton.setTitle("RATE US".localized, forState: .Normal)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         self.title = "ABOUT".localized
     }
@@ -72,5 +79,8 @@ class AboutViewController: UIViewController {
     
     @IBAction func linkToKirtis() {
         UIApplication.sharedApplication().openURL(NSURL(string : Constants.kirtisUrl)!)
+    }
+    @IBAction func rateUs() {
+        FeedbackService.sharedInstance.rateApp()
     }
 }

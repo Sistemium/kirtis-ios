@@ -26,6 +26,9 @@ class LocalizationService{
                 }
             }
             for lng in NSLocale.preferredLanguages(){
+                if lng.hasPrefix("en"){
+                    return "en"
+                }
                 if lng.hasPrefix("lt"){
                     return "lt"
                 }
