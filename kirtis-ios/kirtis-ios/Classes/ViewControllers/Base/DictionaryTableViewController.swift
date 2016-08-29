@@ -32,7 +32,7 @@ class DictionaryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "DICTIONARY".localized
+        title = "DICTIONARY".localized
     }
     
     override func viewWillAppear(animated: Bool) {

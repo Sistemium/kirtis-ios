@@ -13,12 +13,12 @@ class TabBarController: UITabBarController {
     override func awakeFromNib(){
         super.awakeFromNib()
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.boldSystemFontOfSize(16)]
-        self.viewControllers?[0].tabBarItem.title = "ACCENTUATION".localized
-        self.viewControllers?[1].tabBarItem.title = "SETTINGS".localized
-        self.viewControllers?[2].tabBarItem.title = "DICTIONARY".localized
-        self.viewControllers?[3].tabBarItem.title = "ABOUT".localized
+        viewControllers?[0].tabBarItem.title = "ACCENTUATION".localized
+        viewControllers?[1].tabBarItem.title = "SETTINGS".localized
+        viewControllers?[2].tabBarItem.title = "DICTIONARY".localized
+        viewControllers?[3].tabBarItem.title = "ABOUT".localized
         if FeedbackService.sharedInstance.needsRateApp(){
-            self.viewControllers?[3].tabBarItem.badgeValue = "1"
+            viewControllers?[3].tabBarItem.badgeValue = "1"
         }
     }
 

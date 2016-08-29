@@ -33,7 +33,7 @@ class FeedbackService{
     
     func rateAppFromViewController(viewController:UIViewController){
         let alertController = UIAlertController(title: "PLEASERATE".localized, message: "IFYOULIKE".localized, preferredStyle: .Alert)
-        let no = UIAlertAction(title: "NOTHX".localized, style: .Cancel) { _ in
+        let no = UIAlertAction(title: "NOTHX".localized, style: .Cancel) { _ in 
             self.launches = 8
         }
         alertController.addAction(no)
@@ -51,6 +51,6 @@ class FeedbackService{
     
     func rateApp(){
         UIApplication.sharedApplication().openURL(NSURL(string : Constants.appStoreRateURL)!)
-        self.launches = 8
+        launches = 8
     }
 }

@@ -1,7 +1,7 @@
 PODS:
-  - Crashlytics (3.7.2):
+  - Crashlytics (3.7.3):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
+  - Fabric (1.6.8)
   - ReachabilitySwift (2.3.3)
 
 DEPENDENCIES:
@@ -10,10 +10,8 @@ DEPENDENCIES:
   - ReachabilitySwift (~> 2.3.3)
 
 SPEC CHECKSUMS:
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
 
-PODFILE CHECKSUM: 4ab0c7ed9c63e473db6faeacf94c97f523eb52a4
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0
