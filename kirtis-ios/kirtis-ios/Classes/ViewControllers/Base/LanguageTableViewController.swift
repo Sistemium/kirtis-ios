@@ -101,6 +101,6 @@ class LanguageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "LANGUAGE".localized
+        title = "LANGUAGE".localized
     }
 }

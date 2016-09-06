@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
             default:
                 break
             }
-            self.title = "SETTINGS".localized
+            title = "SETTINGS".localized
         }
     }
     

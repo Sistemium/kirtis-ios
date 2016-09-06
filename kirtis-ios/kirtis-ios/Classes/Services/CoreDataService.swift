@@ -13,7 +13,7 @@ class CoreDataService {
     static let sharedInstance = CoreDataService()
     private init() {} 
     
-    lazy var managedObjectContext: NSManagedObjectContext = {
+    lazy var managedObjectContext: NSManagedObjectContext = {[unowned self] in
         let coordinator = self.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
@@ -36,7 +36,7 @@ class CoreDataService {
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
-    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {[unowned self] in
         let oldUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios.sqlite")
         if NSFileManager.defaultManager().fileExistsAtPath(oldUrl.path!){
                 _ = try? NSFileManager.defaultManager().removeItemAtURL(oldUrl)

@@ -30,7 +30,7 @@ class RestService{
                 request.addValue(eTag?[cashingKey!] ?? "", forHTTPHeaderField: "If-None-Match")
             }
             let rez = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-            if cashingKey != nil{
+            if response != nil && cashingKey != nil{
                 var e = eTag ?? [:]
                 e[cashingKey!] = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
                 eTag = e

@@ -12,9 +12,7 @@ import CoreData
 class StartupDataSyncService {
     static let sharedInstance = StartupDataSyncService()
     private init() {
-        dispatch_async(dispatch_get_main_queue(),{
-            self.loadDictionary()
-        })
+        loadDictionary()
     }
     var groups : [GroupOfAbbreviations] = []
     var dictionary : [Abbreviation] = []

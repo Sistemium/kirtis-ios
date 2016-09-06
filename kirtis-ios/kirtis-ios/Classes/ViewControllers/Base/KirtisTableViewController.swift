@@ -43,7 +43,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
                     )
                 }
                 textToSearch = text
-                self.tableView.tableHeaderView?.layoutSubviews()
+                tableView.tableHeaderView?.layoutSubviews()
                 autocomleteTextField.textField.text = text
                 search()
             }
@@ -64,7 +64,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     }
     
     func shouldButtonAppear(note: NSNotification?){
-        dispatch_async(dispatch_get_main_queue()) {
+        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
             if self.splitViewController?.collapsed ?? false{
                 self.history.title = "HISTORY".localized
             }else{
@@ -84,11 +84,11 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
         alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.Default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")
-        self.presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func reachabilityChanged(note: NSNotification?){
-        dispatch_async(dispatch_get_main_queue()) {
+        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
             if ReachabilityService.sharedInstance.hasConnectivity(){
                 self.internetAccessIcon.tintColor = nil
                 self.internetAccessIcon.image = UIImage(named: "Internet")
@@ -106,24 +106,24 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     private func search(){
         autocomleteTextField.textField.resignFirstResponder()
-        self.accentuations = [Accentuation(message: "loading")]
+        accentuations = [Accentuation(message: "loading")]
         if textToSearch == nil {
             textToSearch = ""
         }
-        self.statusCode = nil
+        statusCode = nil
         if !ReachabilityService.sharedInstance.hasConnectivity(){
-            self.statusCode = .ServiceUnavailable
+            statusCode = .ServiceUnavailable
         }
         if textToSearch! == ""{
             statusCode = .BadRequest
         }
         let searching = textToSearch
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){[unowned self] in
             var accent : [Accentuation] = []
             if self.statusCode == nil{
                 accent = self.getAccentuations(self.textToSearch!)
             }
-            dispatch_async(dispatch_get_main_queue()){
+            dispatch_async(dispatch_get_main_queue()){[unowned self] in
                 if searching == self.textToSearch && self.splitViewController != nil{
                     switch(self.statusCode){
                     case .OK?:
@@ -155,7 +155,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. on Ipad)
         set{
             defaults.setObject(newValue, forKey: "RecentSearches")
-            ((self.splitViewController?.viewControllers[0] as! UINavigationController).visibleViewController as! UITableViewController).tableView.reloadData()
+            ((splitViewController?.viewControllers[0] as! UINavigationController).viewControllers[0] as! UITableViewController).tableView.reloadData()
         }
     }
     
@@ -229,23 +229,23 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 10
         }
         tableView.tableHeaderView?.frame.size.height = 133 + autocomleteTextField.height.constant + tableView.tableHeaderView!.constraintWithIdentifier("topSpace")!.constant
-        UIView.animateWithDuration(0.5){
+        UIView.animateWithDuration(0.5){[unowned self] in
             self.tableView.tableHeaderView!.layoutIfNeeded()
             self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
         }
-        self.tableView.scrollEnabled = false
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
+        tableView.scrollEnabled = false
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     func didHideSuggestions(){
         tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 16
         tableView.tableHeaderView?.frame.size.height = 200
         tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 71
-        UIView.animateWithDuration(0.5){
+        UIView.animateWithDuration(0.5){[unowned self] in
             self.tableView.tableHeaderView!.layoutIfNeeded()
         }
-        self.tableView.scrollEnabled = true
+        tableView.scrollEnabled = true
         tableView.reloadData()
     }
     
@@ -303,12 +303,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.navigationItem.title = "PROGRAM".localized
+        navigationItem.title = "PROGRAM".localized
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated:false);
+        navigationItem.setHidesBackButton(true, animated:false);
         if (!ReachabilityService.sharedInstance.hasConnectivity()){
             internetAccessIcon.image = UIImage(named: "NoInternet")
             internetAccessIcon.tintColor = UIColor.redColor()

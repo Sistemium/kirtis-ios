@@ -170,7 +170,7 @@ class KirtisTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let press = UITapGestureRecognizer(target: self, action: #selector(KirtisTableViewCell.handlePress(_:)))
         press.delegate = self
-        self.addGestureRecognizer(press)
+        addGestureRecognizer(press)
     }
     
     override func prepareForReuse() {
