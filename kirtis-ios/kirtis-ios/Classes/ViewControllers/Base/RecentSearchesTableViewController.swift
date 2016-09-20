@@ -14,66 +14,66 @@ class RecentSearchesTableViewController: UITableViewController {
     }
     var textToSearch:String? //I dont want to lose current search (opening history destroys KirtisTableView)
     
-    @IBAction func close(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("search", sender: textToSearch)
+    @IBAction func close(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "search", sender: textToSearch)
     }
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults = UserDefaults.standard
     
     var recentSearches : [String] {
         get{
-            return defaults.objectForKey("RecentSearches") as? [String] ?? []
+            return defaults.object(forKey: "RecentSearches") as? [String] ?? []
         }
         set{
-            defaults.setObject(newValue, forKey: "RecentSearches")
+            defaults.set(newValue, forKey: "RecentSearches")
         }
     }
     
     func shouldButtonAppear(){
-        if splitViewController?.collapsed ?? false{
-            close.enabled = true
+        if splitViewController?.isCollapsed ?? false{
+            close.isEnabled = true
             close.title = "CLOSE".localized
         }else{
-            close.enabled = false
+            close.isEnabled = false
             close.title = ""
         }
     }
     
     //MARK: Table view controller
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentSearches.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = recentSearches[indexPath.row]
+        cell.textLabel?.text = recentSearches[(indexPath as NSIndexPath).row]
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("search", sender: recentSearches[indexPath.item])
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "search", sender: recentSearches[(indexPath as NSIndexPath).item])
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            if textToSearch == recentSearches[indexPath.row]{
+            if textToSearch == recentSearches[(indexPath as NSIndexPath).row]{
                 textToSearch = nil
             }
             var recent = recentSearches
-            recent.removeAtIndex(indexPath.row)
+            recent.remove(at: (indexPath as NSIndexPath).row)
             recentSearches = recent
             tableView.beginUpdates()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  cell = UITableViewCell()
         if recentSearches.count == 0 {
-            cell.textLabel?.textAlignment = .Center
+            cell.textLabel?.textAlignment = .center
             let message = "HISTORY_EMPTY".localized
             cell.textLabel?.text = message
             
@@ -82,7 +82,7 @@ class RecentSearchesTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if recentSearches.count>0 {
             return 0
         }
@@ -96,28 +96,28 @@ class RecentSearchesTableViewController: UITableViewController {
         title = "HISTORY".localized
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RecentSearchesTableViewController.shouldButtonAppear), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RecentSearchesTableViewController.shouldButtonAppear), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
         shouldButtonAppear()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = (segue.destinationViewController as! UINavigationController).visibleViewController as! KirtisTableViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = (segue.destination as! UINavigationController).visibleViewController as! KirtisTableViewController
         destination.navigationItem.setHidesBackButton(true, animated: false)
         if sender != nil{
             destination.textToSearch = (sender as! String)
         }
     }
     
-    @IBAction func goToHistory(segue:UIStoryboardSegue){
+    @IBAction func goToHistory(_ segue:UIStoryboardSegue){
     }
     
     deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
 }

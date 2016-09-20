@@ -10,6 +10,26 @@ import UIKit
 import Crashlytics
 import CoreData
 import ReachabilitySwift
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class KirtisTableViewController: UITableViewController, UITextFieldDelegate, AutocompleteTextFieldDelegate, AutocompleteTextFieldDataSource{
     
@@ -27,14 +47,14 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             autocomleteTextField.dataSource = self
         }
     }
-    private var statusCode: HTTPStatusCode?
+    fileprivate var statusCode: HTTPStatusCode?
     var textToSearch:String?{
         didSet{
             if textToSearch != nil{
-                var text = textToSearch?.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "")
+                var text = textToSearch?.lowercased().replacingOccurrences(of: " ", with: "")
                 if text?.characters.count > 0{
-                    text = text!.substringToIndex(text!.startIndex.advancedBy(1)).uppercaseString + text!.substringFromIndex(text!.startIndex.advancedBy(1)) //uppercase
-                    Answers.logContentViewWithName("Accentuation",
+                    text = text!.capitalizingFirstLetter()
+                    Answers.logContentView(withName: "Accentuation",
                                                    contentType: "Events",
                                                    contentId: "acc-search",
                                                    customAttributes: [
@@ -49,7 +69,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             }
         }
     }
-    private var accentuations: [Accentuation]?{
+    fileprivate var accentuations: [Accentuation]?{
         didSet{
             tableView.reloadData()
         }
@@ -57,15 +77,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     @IBOutlet weak var accentuate: UIButton!{
         didSet{
-            accentuate.setTitle("ACCENTUATE".localized, forState: .Normal)
+            accentuate.setTitle("ACCENTUATE".localized, for: UIControlState())
             accentuate.layer.cornerRadius = 3
             accentuate.clipsToBounds = true
         }
     }
     
-    func shouldButtonAppear(note: NSNotification?){
-        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
-            if self.splitViewController?.collapsed ?? false{
+    func shouldButtonAppear(_ note: Notification?){
+        DispatchQueue.main.async {[unowned self] in
+            if self.splitViewController?.isCollapsed ?? false{
                 self.history.title = "HISTORY".localized
             }else{
                 self.history.title = ""
@@ -73,29 +93,29 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
             self.tableView.reloadData()
         }
     }
-    @IBAction func reachabilityClick(sender: AnyObject) {
-        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    @IBAction func reachabilityClick(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.alert)
         let message = NSMutableAttributedString(string: "STATUS".localized)
         if ReachabilityService.sharedInstance.hasConnectivity(){
-            message.appendAttributedString(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.greenColor()]))
+            message.append(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.green]))
         }
         else{
-            message.appendAttributedString(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.redColor()]))
+            message.append(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.red]))
         }
-        alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func reachabilityChanged(note: NSNotification?){
-        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
+    func reachabilityChanged(_ note: Notification?){
+        DispatchQueue.main.async {[unowned self] in
             if ReachabilityService.sharedInstance.hasConnectivity(){
                 self.internetAccessIcon.tintColor = nil
                 self.internetAccessIcon.image = UIImage(named: "Internet")
             }
             else{
                 self.internetAccessIcon.image = UIImage(named: "NoInternet")
-                self.internetAccessIcon.tintColor = UIColor.redColor()
+                self.internetAccessIcon.tintColor = UIColor.red
             }
         }
     }
@@ -104,7 +124,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     textToSearch = autocomleteTextField.textField.text
     }
     
-    private func search(){
+    fileprivate func search(){
         autocomleteTextField.textField.resignFirstResponder()
         accentuations = [Accentuation(message: "loading")]
         if textToSearch == nil {
@@ -112,27 +132,27 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
         statusCode = nil
         if !ReachabilityService.sharedInstance.hasConnectivity(){
-            statusCode = .ServiceUnavailable
+            statusCode = .serviceUnavailable
         }
         if textToSearch! == ""{
-            statusCode = .BadRequest
+            statusCode = .badRequest
         }
         let searching = textToSearch
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)){[unowned self] in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {[unowned self] in
             var accent : [Accentuation] = []
             if self.statusCode == nil{
                 accent = self.getAccentuations(self.textToSearch!)
             }
-            dispatch_async(dispatch_get_main_queue()){[unowned self] in
+            DispatchQueue.main.async{[unowned self] in
                 if searching == self.textToSearch && self.splitViewController != nil{
                     switch(self.statusCode){
-                    case .OK?:
+                    case .ok?:
                         self.accentuations = accent
                         self.appendHistory(self.textToSearch!)
-                    case .BadRequest?:
+                    case .badRequest?:
                         let message = "NOTHING_TYPED".localized
                         self.accentuations = [Accentuation(message: message)]
-                    case .NotFound?:
+                    case .notFound?:
                         let message = "WORD_NOT_FOUND".localized
                         self.accentuations = [Accentuation(message: message)]
                     default:
@@ -145,34 +165,34 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
     }
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults = UserDefaults.standard
     
     var recentSearches : [String] {
         get{
-            return defaults.objectForKey("RecentSearches") as? [String] ?? []
+            return defaults.object(forKey: "RecentSearches") as? [String] ?? []
         }
         // I need update history immediately, best way to do it here,
         //because viewWillAppear is not called on recentSearches Controller if there was no segue (e.g. on Ipad)
         set{
-            defaults.setObject(newValue, forKey: "RecentSearches")
+            defaults.set(newValue, forKey: "RecentSearches")
             ((splitViewController?.viewControllers[0] as! UINavigationController).viewControllers[0] as! UITableViewController).tableView.reloadData()
         }
     }
     
-    private func appendHistory(text:String){
+    fileprivate func appendHistory(_ text:String){
         var recent = recentSearches
-        if let dublicate = recentSearches.indexOf(text){
-            recent.removeAtIndex(dublicate)
+        if let dublicate = recentSearches.index(of: text){
+            recent.remove(at: dublicate)
         }
         if recent.count == 100 {
-            recent.removeAtIndex(99)
+            recent.remove(at: 99)
         }
         recentSearches = [text] + recent
     }
     
-    private func getAccentuations(word:String) -> [Accentuation]{
+    fileprivate func getAccentuations(_ word:String) -> [Accentuation]{
         var rez = [Accentuation]()
-        let api:String = Constants.kirtisAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let api:String = Constants.kirtisAPI+word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let answer =  RestService.sharedInstance.getJSON(api)
         statusCode = answer.statusCode
         if let json = answer.json  {
@@ -192,7 +212,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     //Mark: Table data
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let number = accentuations?.count{
             return number
         }
@@ -201,22 +221,22 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("accentuation", forIndexPath: indexPath) as! KirtisTableViewCell
-        if let message = accentuations?[indexPath.item].message{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accentuation", for: indexPath) as! KirtisTableViewCell
+        if let message = accentuations?[(indexPath as NSIndexPath).item].message{
             switch message{
                 case "loading":
-                    return tableView.dequeueReusableCellWithIdentifier("spinner", forIndexPath: indexPath) as! SpinnerTableViewCell
+                    return tableView.dequeueReusableCell(withIdentifier: "spinner", for: indexPath) as! SpinnerTableViewCell
                 default:
                     cell.word.text = ""
                     cell.part.text = ""
                     cell.message.text = message
             }
         }else{
-            cell.word.text = accentuations![indexPath.item].word!
-            cell.part.text = " (" + accentuations![indexPath.item].part! + ")"
-            cell.statesData = accentuations![indexPath.item].states ?? []
+            cell.word.text = accentuations![(indexPath as NSIndexPath).item].word!
+            cell.part.text = " (" + accentuations![(indexPath as NSIndexPath).item].part! + ")"
+            cell.statesData = accentuations![(indexPath as NSIndexPath).item].states ?? []
         }
         return cell
     }
@@ -225,15 +245,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     func didShowSuggestions(){
         tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 0
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone || UIDevice.currentDevice().orientation == .LandscapeLeft || UIDevice.currentDevice().orientation == .LandscapeRight{
+        if UIDevice.current.userInterfaceIdiom == .phone || UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight{
             tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 10
         }
         tableView.tableHeaderView?.frame.size.height = 133 + autocomleteTextField.height.constant + tableView.tableHeaderView!.constraintWithIdentifier("topSpace")!.constant
-        UIView.animateWithDuration(0.5){[unowned self] in
+        UIView.animate(withDuration: 0.5, animations: {[unowned self] in
             self.tableView.tableHeaderView!.layoutIfNeeded()
-            self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
-        }
-        tableView.scrollEnabled = false
+            self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+        })
+        tableView.isScrollEnabled = false
         tableView.beginUpdates()
         tableView.endUpdates()
     }
@@ -242,26 +262,26 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         tableView.tableHeaderView?.constraintWithIdentifier("spaceUnderTextField")!.constant = 16
         tableView.tableHeaderView?.frame.size.height = 200
         tableView.tableHeaderView?.constraintWithIdentifier("topSpace")!.constant = 71
-        UIView.animateWithDuration(0.5){[unowned self] in
+        UIView.animate(withDuration: 0.5, animations: {[unowned self] in
             self.tableView.tableHeaderView!.layoutIfNeeded()
-        }
-        tableView.scrollEnabled = true
+        })
+        tableView.isScrollEnabled = true
         tableView.reloadData()
     }
     
-    func didSelectWord(word:String){
+    func didSelectWord(_ word:String){
         textToSearch = word
     }
     
     func isAutocompleteEnabled() -> Bool {
-        return defaults.objectForKey("autocomplete") as? Bool ?? true
+        return defaults.object(forKey: "autocomplete") as? Bool ?? true
     }
     
     //MARK: AutocompleteTextFielDataSource
     
-    func getSuggestions(word:String) -> [String]{
+    func getSuggestions(_ word:String) -> [String]{
         var rez = [String]()
-        let api:String = Constants.suggestionsAPI+word.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let api:String = Constants.suggestionsAPI+word.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let answer =  RestService.sharedInstance.getJSON(api,timeoutInterval : 0.5)
         if let json = answer.json  {
             let data = RestService.sharedInstance.parseJSON(json)
@@ -278,12 +298,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     //MARK: UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textToSearch = autocomleteTextField.textField.text
         return true
     }
     
-    func textFieldShouldClear(textField: UITextField) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         accentuations = nil
         textToSearch = nil
         return true
@@ -296,8 +316,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         autocomleteTextField.textField.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: ReachabilityService.sharedInstance.reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: ReachabilityService.sharedInstance.reachability)
         reachabilityChanged(nil)
     }
     
@@ -306,24 +326,24 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         navigationItem.title = "PROGRAM".localized
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.setHidesBackButton(true, animated:false);
         if (!ReachabilityService.sharedInstance.hasConnectivity()){
             internetAccessIcon.image = UIImage(named: "NoInternet")
-            internetAccessIcon.tintColor = UIColor.redColor()
+            internetAccessIcon.tintColor = UIColor.red
         }
         shouldButtonAppear(nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier!{
             case "goToHistory":
                 if textToSearch != nil || accentuations?.count>0{
-                    (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = textToSearch
+                    (segue.destination as! RecentSearchesTableViewController).textToSearch = textToSearch
                 }
                 else{
-                    (segue.destinationViewController as! RecentSearchesTableViewController).textToSearch = nil
+                    (segue.destination as! RecentSearchesTableViewController).textToSearch = nil
                 }
 
         default:
@@ -331,12 +351,12 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
     }
     
-    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        UIMenuController.sharedMenuController().setMenuVisible(false, animated: true)
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        UIMenuController.shared.setMenuVisible(false, animated: true)
     }
     
     deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

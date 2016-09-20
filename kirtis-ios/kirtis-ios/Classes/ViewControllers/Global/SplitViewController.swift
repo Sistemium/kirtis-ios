@@ -13,7 +13,7 @@ class SplitViewController: UISplitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .AllVisible
+        preferredDisplayMode = .allVisible
         //use this to config split size
         minimumPrimaryColumnWidth = CGFloat(0.25)
         preferredPrimaryColumnWidthFraction = CGFloat(0.25)

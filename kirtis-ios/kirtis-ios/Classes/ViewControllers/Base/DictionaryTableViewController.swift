@@ -7,26 +7,46 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class DictionaryTableViewController: UITableViewController {
-    private var groups : [GroupOfAbbreviations] = []
+    fileprivate var groups : [GroupOfAbbreviations] = []
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return groups.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups[section].dictionary!.count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return groups[section].name
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("dictionary", forIndexPath: indexPath)
-        cell.textLabel?.text = (groups[indexPath.section].dictionary?.allObjects[indexPath.row] as! Abbreviation).shortForm
-        cell.detailTextLabel?.text = (groups[indexPath.section].dictionary?.allObjects[indexPath.row] as! Abbreviation).longForm
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dictionary", for: indexPath)
+        cell.textLabel?.text = (groups[(indexPath as NSIndexPath).section].dictionary?.allObjects[(indexPath as NSIndexPath).row] as! Abbreviation).shortForm
+        cell.detailTextLabel?.text = (groups[(indexPath as NSIndexPath).section].dictionary?.allObjects[(indexPath as NSIndexPath).row] as! Abbreviation).longForm
         return cell
     }
     
@@ -35,7 +55,7 @@ class DictionaryTableViewController: UITableViewController {
         title = "DICTIONARY".localized
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if groups.count == 0{
             for group in StartupDataSyncService.sharedInstance.groups{

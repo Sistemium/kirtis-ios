@@ -11,11 +11,11 @@ import CoreData
 
 class CoreDataService {
     static let sharedInstance = CoreDataService()
-    private init() {} 
+    fileprivate init() {} 
     
     lazy var managedObjectContext: NSManagedObjectContext = {[unowned self] in
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
@@ -26,25 +26,25 @@ class CoreDataService {
         }
     }
     
-    private lazy var applicationDocumentsDirectory: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    fileprivate lazy var applicationDocumentsDirectory: URL = {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
     
-    private lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = NSBundle.mainBundle().URLForResource("Model", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+    fileprivate lazy var managedObjectModel: NSManagedObjectModel = {
+        let modelURL = Bundle.main.url(forResource: "Model", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
-    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {[unowned self] in
-        let oldUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios.sqlite")
-        if NSFileManager.defaultManager().fileExistsAtPath(oldUrl.path!){
-                _ = try? NSFileManager.defaultManager().removeItemAtURL(oldUrl)
+    fileprivate lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {[unowned self] in
+        let oldUrl = self.applicationDocumentsDirectory.appendingPathComponent("kirtis-ios.sqlite")
+        if FileManager.default.fileExists(atPath: oldUrl.path){
+                _ = try? FileManager.default.removeItem(at: oldUrl)
         }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("kirtis-ios_v2.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("kirtis-ios_v2.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
-        _ = try? coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        _ = try? coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         return coordinator
     }()
 }

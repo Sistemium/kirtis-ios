@@ -14,7 +14,7 @@ struct Accentuation{
     var states:[String]?
     var message:String? //for errors or warnings
     
-    private init(){
+    fileprivate init(){
     }
     
     init(part: String?, word:String?, states:[String]?){
