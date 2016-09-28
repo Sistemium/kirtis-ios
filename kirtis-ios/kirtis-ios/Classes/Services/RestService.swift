@@ -10,42 +10,42 @@ import UIKit
 
 class RestService{
     static let sharedInstance = RestService()
-    private init() {}
-    private var eTag:[String:String]?{
+    fileprivate init() {}
+    fileprivate var eTag:[String:String]?{
         get{
-            return NSUserDefaults.standardUserDefaults().objectForKey("eTag") as? [String:String] ?? nil
+            return UserDefaults.standard.object(forKey: "eTag") as? [String:String] ?? nil
         }
         set{
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "eTag")
+            UserDefaults.standard.set(newValue, forKey: "eTag")
         }
     }
     
-    func getJSON(urlToRequest: String, cashingKey : String? = nil, timeoutInterval : Double = 4.0) -> (json : NSData?,statusCode : HTTPStatusCode?){
-        var response: NSURLResponse?
-        if let url = NSURL(string: urlToRequest){
+    func getJSON(_ urlToRequest: String, cashingKey : String? = nil, timeoutInterval : Double = 4.0) -> (json : Data?,statusCode : HTTPStatusCode?){
+        var response: URLResponse?
+        if let url = URL(string: urlToRequest){
             //sleep(4) //for testing
-            let request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: timeoutInterval)
-            request.addValue(UIDevice.currentDevice().identifierForVendor!.UUIDString, forHTTPHeaderField: "deviceUUID")
+            let request = NSMutableURLRequest(url: url, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: timeoutInterval)
+            request.addValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "deviceUUID")
             if cashingKey != nil{
                 request.addValue(eTag?[cashingKey!] ?? "", forHTTPHeaderField: "If-None-Match")
             }
-            let rez = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            let rez = try? NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: &response)
             if response != nil && cashingKey != nil{
                 var e = eTag ?? [:]
-                e[cashingKey!] = (response as! NSHTTPURLResponse).allHeaderFields["eTag"] as? String
+                e[cashingKey!] = (response as! HTTPURLResponse).allHeaderFields["eTag"] as? String
                 eTag = e
             }
-            return (rez,HTTPStatusCode(HTTPResponse: response as? NSHTTPURLResponse))
+            return (rez,HTTPStatusCode(rawValue: (response as? HTTPURLResponse)!.statusCode))
         }
         return (nil , nil)
     }
     
-    func parseJSON(inputData: NSData) -> NSArray?{
-        return try? NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSArray
+    func parseJSON(_ inputData: Data) -> NSArray?{
+        return try? JSONSerialization.jsonObject(with: inputData, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! NSArray
     }
     
-    func parseJSONDictionary(inputData: NSData) -> NSDictionary?{
-        return try? NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions(rawValue: 0)) as! NSDictionary
+    func parseJSONDictionary(_ inputData: Data) -> NSDictionary?{
+        return try? JSONSerialization.jsonObject(with: inputData, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! NSDictionary
     }
 
 }

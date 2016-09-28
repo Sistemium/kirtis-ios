@@ -35,13 +35,13 @@ class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var autocompleteSwitcher: UISwitch!{
         didSet{
-            autocompleteSwitcher.on = NSUserDefaults.standardUserDefaults().objectForKey("autocomplete") as? Bool ?? true
+            autocompleteSwitcher.isOn = UserDefaults.standard.object(forKey: "autocomplete") as? Bool ?? true
         }
     }
     
     
-    @IBAction func autocompleteSwitch(sender: UISwitch) {
-        NSUserDefaults.standardUserDefaults().setObject(sender.on, forKey: "autocomplete")
+    @IBAction func autocompleteSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "autocomplete")
     }
     
     

@@ -10,22 +10,22 @@ import UIKit
 
 class LocalizationService{
     static let sharedInstance = LocalizationService()
-    private init() {}
+    fileprivate init() {}
     var userLanguage: String{
         set{
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(newValue, forKey: "Language")
-            let storyBoard = UIStoryboard(name:"Main", bundle: NSBundle.mainBundle())
-            (UIApplication.sharedApplication().delegate as! AppDelegate).window!.rootViewController = storyBoard.instantiateViewControllerWithIdentifier("root")
+            let defaults = UserDefaults.standard
+            defaults.set(newValue, forKey: "Language")
+            let storyBoard = UIStoryboard(name:"Main", bundle: Bundle.main)
+            (UIApplication.shared.delegate as! AppDelegate).window!.rootViewController = storyBoard.instantiateViewController(withIdentifier: "root")
         }
         get{
-            let defaults = NSUserDefaults.standardUserDefaults();
-            if let lng = defaults.stringForKey("Language"){
+            let defaults = UserDefaults.standard;
+            if let lng = defaults.string(forKey: "Language"){
                 if lng.hasPrefix("lt") || lng.hasPrefix("ru") || lng.hasPrefix("en"){
                     return lng
                 }
             }
-            for lng in NSLocale.preferredLanguages(){
+            for lng in Locale.preferredLanguages{
                 if lng.hasPrefix("en"){
                     return "en"
                 }
@@ -40,7 +40,7 @@ class LocalizationService{
         }
     }
     
-    func localize(key:String) -> String {
-        return NSLocalizedString(key, bundle: NSBundle(path:NSBundle.mainBundle().pathForResource(userLanguage , ofType:"lproj")!)!, value: "", comment: "")
+    func localize(_ key:String) -> String {
+        return NSLocalizedString(key, bundle: Bundle(path:Bundle.main.path(forResource: userLanguage , ofType:"lproj")!)!, value: "", comment: "")
     }
 }

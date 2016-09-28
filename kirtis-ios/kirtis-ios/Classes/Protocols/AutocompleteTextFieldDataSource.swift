@@ -7,5 +7,5 @@
 //
 
 protocol AutocompleteTextFieldDataSource {
-    func getSuggestions(word:String) -> [String]
+    func getSuggestions(_ word:String) -> [String]
 }

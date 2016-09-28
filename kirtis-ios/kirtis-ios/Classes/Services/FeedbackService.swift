@@ -10,15 +10,15 @@ import UIKit
 
 class FeedbackService{
     static let sharedInstance = FeedbackService()
-    private init() {
+    fileprivate init() {
     }
     
-    private var launches:Int{
+    fileprivate var launches:Int{
         get{
-            return NSUserDefaults.standardUserDefaults().valueForKey("FeedbackServiceLaunches") as? Int ?? 0
+            return UserDefaults.standard.value(forKey: "FeedbackServiceLaunches") as? Int ?? 0
         }
         set{
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "FeedbackServiceLaunches")
+            UserDefaults.standard.setValue(newValue, forKey: "FeedbackServiceLaunches")
         }
     }
     
@@ -31,26 +31,26 @@ class FeedbackService{
         return false
     }
     
-    func rateAppFromViewController(viewController:UIViewController){
-        let alertController = UIAlertController(title: "PLEASERATE".localized, message: "IFYOULIKE".localized, preferredStyle: .Alert)
-        let no = UIAlertAction(title: "NOTHX".localized, style: .Cancel) { _ in 
+    func rateAppFromViewController(_ viewController:UIViewController){
+        let alertController = UIAlertController(title: "PLEASERATE".localized, message: "IFYOULIKE".localized, preferredStyle: .alert)
+        let no = UIAlertAction(title: "NOTHX".localized, style: .cancel) { _ in 
             self.launches = 8
         }
         alertController.addAction(no)
-        let rate = UIAlertAction(title: "RATEIT".localized, style: .Default) { _ in
+        let rate = UIAlertAction(title: "RATEIT".localized, style: .default) { _ in
             self.rateApp()
         }
         alertController.addAction(rate)
-        let remind = UIAlertAction(title: "REMINDME".localized, style: .Default) { _ in
+        let remind = UIAlertAction(title: "REMINDME".localized, style: .default) { _ in
             self.launches = 0
         }
         alertController.addAction(remind)
-        viewController.presentViewController(alertController, animated: true) {
+        viewController.present(alertController, animated: true) {
         }
     }
     
     func rateApp(){
-        UIApplication.sharedApplication().openURL(NSURL(string : Constants.appStoreRateURL)!)
+        UIApplication.shared.openURL(URL(string : Constants.appStoreRateURL)!)
         launches = 8
     }
 }

@@ -11,17 +11,17 @@ import ReachabilitySwift
 
 class ReachabilityService{
     static let sharedInstance = ReachabilityService()
-    private init() {
-        reachability = try? Reachability.reachabilityForInternetConnection()
+    fileprivate init() {
+        reachability = Reachability()
         _ = try? reachability?.startNotifier();
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
     }
     var reachability :Reachability?
     
-    @objc private func reachabilityChanged(note: NSNotification?){
+    @objc fileprivate func reachabilityChanged(_ note: Notification?){
         if hasConnectivity(){
             if !StartupDataSyncService.sharedInstance.dictionaryInitiated{
-                dispatch_async(dispatch_get_main_queue(),{
+                DispatchQueue.main.async(execute: {
                     StartupDataSyncService.sharedInstance.loadDictionary()
                 })
             }
@@ -34,6 +34,6 @@ class ReachabilityService{
     }
     
     deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }

@@ -38,9 +38,9 @@ class LanguageTableViewController: UITableViewController {
         }
     }
 
-    private var suggestedLanguage : String?
+    fileprivate var suggestedLanguage : String?
     
-    @IBAction func done(sender: UIBarButtonItem) {
+    @IBAction func done(_ sender: UIBarButtonItem) {
         switch suggestedLanguage{
         case "English"?:
             LocalizationService.sharedInstance.userLanguage = "en"
@@ -53,19 +53,19 @@ class LanguageTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
-    private func clearCheckMarks(){
-        lithuanianCell.accessoryType = .None
-        russianCell.accessoryType = .None
-        englishCell.accessoryType = .None
+    fileprivate func clearCheckMarks(){
+        lithuanianCell.accessoryType = .none
+        russianCell.accessoryType = .none
+        englishCell.accessoryType = .none
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var cell = UITableViewCell()
-        switch indexPath.row{
+        switch (indexPath as NSIndexPath).row{
         case 0:
             cell = englishCell
         case 1:
@@ -76,7 +76,7 @@ class LanguageTableViewController: UITableViewController {
             break;
         }
         clearCheckMarks()
-        cell.accessoryType = .Checkmark
+        cell.accessoryType = .checkmark
         suggestedLanguage = cell.textLabel?.text
         navigationItem.rightBarButtonItems = [doneButton]
         tableView.reloadData()
@@ -84,18 +84,18 @@ class LanguageTableViewController: UITableViewController {
     
     //MARK: Lifecycle
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItems = []
         switch LocalizationService.sharedInstance.userLanguage{
         case "en":
-            englishCell.accessoryType = .Checkmark
+            englishCell.accessoryType = .checkmark
         case "ru":
-            russianCell.accessoryType = .Checkmark
+            russianCell.accessoryType = .checkmark
         case "lt":
-            lithuanianCell.accessoryType = .Checkmark
+            lithuanianCell.accessoryType = .checkmark
         default:
-            englishCell.accessoryType = .Checkmark
+            englishCell.accessoryType = .checkmark
         }
     }
     
