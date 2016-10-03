@@ -3,7 +3,6 @@
 //  Created by Edgar Jan Vuicik on 01/11/15.
 
 import UIKit
-import CoreData
 
 class RecentSearchesTableViewController: UITableViewController {
     
