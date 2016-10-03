@@ -35,7 +35,7 @@ class RestService{
                 e[cashingKey!] = (response as! HTTPURLResponse).allHeaderFields["eTag"] as? String
                 eTag = e
             }
-            return (rez,HTTPStatusCode(rawValue: (response as? HTTPURLResponse)!.statusCode))
+            return (rez,HTTPStatusCode(HTTPResponse: response as? HTTPURLResponse))
         }
         return (nil , nil)
     }
