@@ -20,11 +20,11 @@ class ReachabilityService{
     
     @objc fileprivate func reachabilityChanged(_ note: Notification?){
         if hasConnectivity(){
-            if !StartupDataSyncService.sharedInstance.dictionaryInitiated{
-                DispatchQueue.main.async(execute: {
+            DispatchQueue.main.async(execute: {
+                if !StartupDataSyncService.sharedInstance.dictionaryInitiated{
                     StartupDataSyncService.sharedInstance.loadDictionary()
-                })
-            }
+                }
+            })
         }
     }
     
