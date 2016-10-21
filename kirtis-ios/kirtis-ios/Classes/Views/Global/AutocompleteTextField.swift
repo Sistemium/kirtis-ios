@@ -10,8 +10,8 @@ import UIKit
 
 class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
-    var delegate : AutocompleteTextFieldDelegate?
-    var dataSource : AutocompleteTextFieldDataSource?
+    weak var delegate : AutocompleteTextFieldDelegate?
+    weak var dataSource : AutocompleteTextFieldDataSource?
     fileprivate var suggestions = [String](){
         didSet{
             suggestionTableView.reloadData()
