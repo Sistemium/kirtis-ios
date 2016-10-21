@@ -6,7 +6,7 @@
 //  Copyright © 2016 Sistemium. All rights reserved.
 //
 
-protocol AutocompleteTextFieldDelegate {
+protocol AutocompleteTextFieldDelegate : class {
     func didShowSuggestions()
     func didHideSuggestions()
     func didSelectWord(_ word:String)

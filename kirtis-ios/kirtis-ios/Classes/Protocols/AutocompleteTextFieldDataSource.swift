@@ -6,6 +6,6 @@
 //  Copyright © 2016 Sistemium. All rights reserved.
 //
 
-protocol AutocompleteTextFieldDataSource {
+protocol AutocompleteTextFieldDataSource : class {
     func getSuggestions(_ word:String) -> [String]
 }
