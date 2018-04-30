@@ -21,7 +21,7 @@ class AboutViewController: UIViewController {
             let paragraphStyles = NSMutableParagraphStyle()
             paragraphStyles.alignment = .justified
             paragraphStyles.firstLineHeadIndent = 10.0
-            let attributes = [NSParagraphStyleAttributeName: paragraphStyles]
+            let attributes = [NSAttributedStringKey.paragraphStyle: paragraphStyles]
             let attributedString = NSAttributedString(string: "ABOUT_TEXT".localized, attributes: attributes)
             aboutText.attributedText = attributedString
         }

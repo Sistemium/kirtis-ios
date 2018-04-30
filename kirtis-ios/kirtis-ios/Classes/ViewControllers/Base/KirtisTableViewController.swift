@@ -52,8 +52,8 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         didSet{
             if textToSearch != nil{
                 var text = textToSearch?.lowercased().replacingOccurrences(of: " ", with: "")
-                if text?.characters.count > 0{
-                    text = text!.capitalizingFirstLetter()
+                if text?.count > 0{
+                    text = text!.capitalized
                     Answers.logContentView(withName: "Accentuation",
                                                    contentType: "Events",
                                                    contentId: "acc-search",
@@ -83,7 +83,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
     }
     
-    func shouldButtonAppear(_ note: Notification?){
+    @objc func shouldButtonAppear(_ note: Notification?){
         DispatchQueue.main.async {[unowned self] in
             if self.splitViewController?.isCollapsed ?? false{
                 self.history.title = "HISTORY".localized
@@ -97,10 +97,10 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.alert)
         let message = NSMutableAttributedString(string: "STATUS".localized)
         if ReachabilityService.sharedInstance.hasConnectivity(){
-            message.append(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.green]))
+            message.append(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSAttributedStringKey.foregroundColor : UIColor.green]))
         }
         else{
-            message.append(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSForegroundColorAttributeName : UIColor.red]))
+            message.append(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSAttributedStringKey.foregroundColor : UIColor.red]))
         }
         alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")

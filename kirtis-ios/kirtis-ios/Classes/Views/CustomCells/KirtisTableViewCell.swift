@@ -65,7 +65,7 @@ class KirtisTableViewCell: UITableViewCell {
             label.textAlignment = NSTextAlignment.center
             label.translatesAutoresizingMaskIntoConstraints = false
             let text = label.text! as NSString
-            let size = text.size(attributes: [NSFontAttributeName:label.font])
+            let size = text.size(withAttributes: [NSAttributedStringKey.font:label.font])
             width += Int(size.width) + space + padding
             if width > Int(UIScreen.main.bounds.width) && usedStates > 0 {
                 return (usedStates,width - (Int(size.width) + space + padding))
@@ -85,7 +85,7 @@ class KirtisTableViewCell: UITableViewCell {
     
     //MARK: Gesture recognizer
     
-    func handlePress(_ gestureReconizer: UITapGestureRecognizer){
+    @objc func handlePress(_ gestureReconizer: UITapGestureRecognizer){
         switch gestureReconizer.state{
         case .ended:
             if word.frame.contains(gestureReconizer.location(in: self)){
@@ -129,7 +129,7 @@ class KirtisTableViewCell: UITableViewCell {
                 let menu = UIMenuController.shared
                 var title = "Unknown"
                 for t in StartupDataSyncService.sharedInstance.dictionary{
-                    if part.text![part.text!.index(part.text!.startIndex, offsetBy: 2)...part.text!.index(part.text!.endIndex, offsetBy: -2)] == t.shortForm{
+                    if String(part.text![part.text!.index(part.text!.startIndex, offsetBy: 2)...part.text!.index(part.text!.endIndex, offsetBy: -2)]) == t.shortForm{
                         title = t.group!.name! + ": " + t.longForm!
                         break
                     }

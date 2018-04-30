@@ -28,7 +28,7 @@ class RecentSearchesTableViewController: UITableViewController {
         }
     }
     
-    func shouldButtonAppear(){
+    @objc func shouldButtonAppear(){
         if splitViewController?.isCollapsed ?? false{
             close.isEnabled = true
             close.title = "CLOSE".localized

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46875682AB5BCD59ED0710EC /* Pods_kirtis_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */; };
+		51734FB201B6CC909B0D7096 /* Pods_kirtis_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */; };
 		6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F6D1BF38C94005DB78D /* AppDelegate.swift */; };
 		6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D065F741BF38C94005DB78D /* Assets.xcassets */; };
 		6D065F831BF38C94005DB78D /* kirtis_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F821BF38C94005DB78D /* kirtis_iosTests.swift */; };
@@ -43,8 +43,7 @@
 		6DCCC7D01C188138004F7EC7 /* Abbreviation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCCC7CC1C188138004F7EC7 /* Abbreviation+CoreDataProperties.swift */; };
 		6DCCC7D11C188138004F7EC7 /* Abbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCCC7CD1C188138004F7EC7 /* Abbreviation.swift */; };
 		6DF105951C9C673400666E44 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF105941C9C673400666E44 /* AboutViewController.swift */; };
-		75902C5E65C0AB8922732517 /* Pods_kirtis_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */; };
-		D520524B71CD96B9DE4445FF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799D07DDF750EEB59CD692BF /* Pods.framework */; };
+		EC30ED6915F931CA848A21FE /* libPods-kirtis-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B751D18979B1710DFC93291 /* libPods-kirtis-iosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-ios.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios.release.xcconfig"; sourceTree = "<group>"; };
+		4B751D18979B1710DFC93291 /* libPods-kirtis-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kirtis-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6A1BF38C94005DB78D /* Kirtis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kirtis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6D1BF38C94005DB78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D065F741BF38C94005DB78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 		6DCCC7CD1C188138004F7EC7 /* Abbreviation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abbreviation.swift; sourceTree = "<group>"; };
 		6DF105941C9C673400666E44 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		799D07DDF750EEB59CD692BF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kirtis_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kirtis_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B376CF3B387B7E0B81E290B0 /* Pods-kirtis-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-iosTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F76788C16250EDFC89A18E44 /* Pods-kirtis-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-iosTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,8 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46875682AB5BCD59ED0710EC /* Pods_kirtis_ios.framework in Frameworks */,
-				D520524B71CD96B9DE4445FF /* Pods.framework in Frameworks */,
+				51734FB201B6CC909B0D7096 /* Pods_kirtis_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75902C5E65C0AB8922732517 /* Pods_kirtis_iosTests.framework in Frameworks */,
+				EC30ED6915F931CA848A21FE /* libPods-kirtis-iosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */,
-				98FF3BF9BC0D652A2F457FF7 /* Pods_kirtis_iosTests.framework */,
 				799D07DDF750EEB59CD692BF /* Pods.framework */,
+				4B751D18979B1710DFC93291 /* libPods-kirtis-iosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -358,7 +356,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D065F871BF38C94005DB78D /* Build configuration list for PBXNativeTarget "kirtis-ios" */;
 			buildPhases = (
-				1A114467D5D8E976C7D61C7A /* Check Pods Manifest.lock */,
+				1A114467D5D8E976C7D61C7A /* [CP] Check Pods Manifest.lock */,
 				C7080AFF0122DE147B33BBE5 /* [CP] Check Pods Manifest.lock */,
 				6D065F661BF38C94005DB78D /* Sources */,
 				6D065F671BF38C94005DB78D /* Frameworks */,
@@ -406,17 +404,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Sistemium;
 				TargetAttributes = {
 					6D065F691BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = DP58H3X45C;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0930;
 					};
 					6D065F7D1BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0930;
 						TestTargetID = 6D065F691BF38C94005DB78D;
 					};
 				};
@@ -464,19 +462,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A114467D5D8E976C7D61C7A /* Check Pods Manifest.lock */ = {
+		1A114467D5D8E976C7D61C7A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kirtis-ios-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1A3D3ED27A6CD53B4E2E0EFE /* [CP] Embed Pods Frameworks */ = {
@@ -485,9 +486,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -521,7 +525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\n";
 			showEnvVarsInLog = 0;
 		};
 		6D1B3C4E1BFDC41500EE65A5 /* Run Script */ = {
@@ -544,13 +548,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kirtis-iosTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF41BE84F19D360017C121D0 /* [CP] Copy Pods Resources */ = {
@@ -595,7 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 		E3D16D942825BFC8C821CC68 /* [CP] Copy Pods Resources */ = {
@@ -705,14 +712,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -754,14 +769,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -792,7 +815,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCFAF596D639DB3320682702 /* Pods-kirtis-ios.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -811,7 +833,8 @@
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -820,7 +843,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -838,7 +860,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sistemium.kirtis;
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -853,7 +876,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kirtis-ios.app/kirtis-ios";
 			};
 			name = Debug;
@@ -868,7 +892,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kirtis-ios.app/kirtis-ios";
 			};
 			name = Release;
