@@ -525,7 +525,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		6D1B3C4E1BFDC41500EE65A5 /* Run Script */ = {
