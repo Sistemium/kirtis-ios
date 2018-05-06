@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import ReachabilitySwift
+import Reachability
 
 class ReachabilityService{
     static let sharedInstance = ReachabilityService()
     fileprivate init() {
         reachability = Reachability()
         _ = try? reachability?.startNotifier();
-        NotificationCenter.default.addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: reachability)
     }
     var reachability :Reachability?
     
@@ -29,7 +29,7 @@ class ReachabilityService{
     }
     
     func hasConnectivity() -> Bool {
-        let networkStatus: Int = ReachabilityService.sharedInstance.reachability!.currentReachabilityStatus.hashValue
+        let networkStatus: Int = ReachabilityService.sharedInstance.reachability!.connection.hashValue
         return networkStatus != 0
     }
     

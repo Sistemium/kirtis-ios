@@ -9,7 +9,7 @@
 import UIKit
 import Crashlytics
 
-import ReachabilitySwift
+import Reachability
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -107,7 +107,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         present(alert, animated: true, completion: nil)
     }
     
-    func reachabilityChanged(_ note: Notification?){
+    @objc func reachabilityChanged(_ note: Notification?){
         DispatchQueue.main.async {[unowned self] in
             if ReachabilityService.sharedInstance.hasConnectivity(){
                 self.internetAccessIcon.tintColor = nil
@@ -317,7 +317,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         tableView.rowHeight = UITableViewAutomaticDimension
         autocomleteTextField.textField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: ReachabilityService.sharedInstance.reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: ReachabilityService.sharedInstance.reachability)
         reachabilityChanged(nil)
     }
     
