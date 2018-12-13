@@ -5,9 +5,9 @@ platform :ios, '8.0'
 target 'kirtis-ios' do
 
 use_frameworks!
-pod 'ReachabilitySwift'
-pod 'Fabric'
-pod 'Crashlytics'
+pod 'ReachabilitySwift', '~> 4.3'
+pod 'Fabric', '~> 1.9'
+pod 'Crashlytics', '~> 3.12'
 
 end
 
