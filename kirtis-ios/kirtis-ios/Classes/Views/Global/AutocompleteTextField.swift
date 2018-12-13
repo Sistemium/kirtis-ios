@@ -36,11 +36,11 @@ class AutocompleteTextField: UIView,UITableViewDataSource,UITableViewDelegate {
     
     var suggestionTableView : UITableView!{
         didSet{
-            suggestionTableView.contentInset = UIEdgeInsetsMake(0, -15, 0, 0)
+            suggestionTableView.contentInset = UIEdgeInsets.init(top: 0, left: -15, bottom: 0, right: 0)
             suggestionTableView.delegate = self
             suggestionTableView.dataSource = self
             suggestionTableView.estimatedRowHeight = 20
-            suggestionTableView.rowHeight = UITableViewAutomaticDimension
+            suggestionTableView.rowHeight = UITableView.automaticDimension
             for constraint in constraints {
                 removeConstraint(constraint)
             }

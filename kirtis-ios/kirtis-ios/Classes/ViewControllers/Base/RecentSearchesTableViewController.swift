@@ -54,7 +54,7 @@ class RecentSearchesTableViewController: UITableViewController {
         performSegue(withIdentifier: "search", sender: recentSearches[(indexPath as NSIndexPath).item])
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             if textToSearch == recentSearches[(indexPath as NSIndexPath).row]{
@@ -94,8 +94,8 @@ class RecentSearchesTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "HISTORY".localized
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-        NotificationCenter.default.addObserver(self, selector: #selector(RecentSearchesTableViewController.shouldButtonAppear), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        tableView.rowHeight = UITableView.automaticDimension
+        NotificationCenter.default.addObserver(self, selector: #selector(RecentSearchesTableViewController.shouldButtonAppear), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

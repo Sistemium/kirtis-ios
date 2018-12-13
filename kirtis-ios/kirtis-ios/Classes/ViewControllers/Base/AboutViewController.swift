@@ -12,7 +12,7 @@ class AboutViewController: UIViewController {
     
     @IBOutlet weak var ccl: UIButton!{
         didSet{
-            ccl.setTitle("CCL".localized, for: UIControlState())
+            ccl.setTitle("CCL".localized, for: UIControl.State())
         }
     }
     
@@ -21,7 +21,7 @@ class AboutViewController: UIViewController {
             let paragraphStyles = NSMutableParagraphStyle()
             paragraphStyles.alignment = .justified
             paragraphStyles.firstLineHeadIndent = 10.0
-            let attributes = [NSAttributedStringKey.paragraphStyle: paragraphStyles]
+            let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyles]
             let attributedString = NSAttributedString(string: "ABOUT_TEXT".localized, attributes: attributes)
             aboutText.attributedText = attributedString
         }
@@ -37,13 +37,13 @@ class AboutViewController: UIViewController {
     
     @IBOutlet weak var sourceCode: UIButton!{
         didSet{
-            sourceCode.setTitle("CODE".localized, for: UIControlState())
+            sourceCode.setTitle("CODE".localized, for: UIControl.State())
         }
     }
     
     @IBOutlet weak var rateUsButton: UIButton!{
         didSet{
-            rateUsButton.setTitle("RATE US".localized, for: UIControlState())
+            rateUsButton.setTitle("RATE US".localized, for: UIControl.State())
         }
     }
     

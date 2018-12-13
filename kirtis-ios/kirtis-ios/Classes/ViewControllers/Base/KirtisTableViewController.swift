@@ -77,7 +77,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     @IBOutlet weak var accentuate: UIButton!{
         didSet{
-            accentuate.setTitle("ACCENTUATE".localized, for: UIControlState())
+            accentuate.setTitle("ACCENTUATE".localized, for: UIControl.State())
             accentuate.layer.cornerRadius = 3
             accentuate.clipsToBounds = true
         }
@@ -94,15 +94,15 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
         }
     }
     @IBAction func reachabilityClick(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "INTERNET_REQUIRED".localized, message: "", preferredStyle: UIAlertController.Style.alert)
         let message = NSMutableAttributedString(string: "STATUS".localized)
         if ReachabilityService.sharedInstance.hasConnectivity(){
-            message.append(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSAttributedStringKey.foregroundColor : UIColor.green]))
+            message.append(NSMutableAttributedString(string: "CONNECTED".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.green]))
         }
         else{
-            message.append(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSAttributedStringKey.foregroundColor : UIColor.red]))
+            message.append(NSMutableAttributedString(string: "DISCONNECTED".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.red]))
         }
-        alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: nil))
         alert.setValue(message, forKey: "attributedMessage")
         present(alert, animated: true, completion: nil)
     }
@@ -314,9 +314,9 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         autocomleteTextField.textField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.shouldButtonAppear(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(KirtisTableViewController.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: ReachabilityService.sharedInstance.reachability)
         reachabilityChanged(nil)
     }

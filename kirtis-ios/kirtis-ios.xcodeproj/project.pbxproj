@@ -363,9 +363,7 @@
 				6D065F681BF38C94005DB78D /* Resources */,
 				6D1B3C4E1BFDC41500EE65A5 /* Run Script */,
 				1A3D3ED27A6CD53B4E2E0EFE /* [CP] Embed Pods Frameworks */,
-				E3D16D942825BFC8C821CC68 /* [CP] Copy Pods Resources */,
 				493065B6277FE7F780CD86BC /* Embed Pods Frameworks */,
-				D46A254D9419F03CB378679C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,8 +382,6 @@
 				6D065F7A1BF38C94005DB78D /* Sources */,
 				6D065F7B1BF38C94005DB78D /* Frameworks */,
 				6D065F7C1BF38C94005DB78D /* Resources */,
-				457912652AC3810F8B9511D3 /* [CP] Embed Pods Frameworks */,
-				AF41BE84F19D360017C121D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,11 +406,12 @@
 					6D065F691BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = DP58H3X45C;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1010;
 					};
 					6D065F7D1BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
-						LastSwiftMigration = 0930;
+						DevelopmentTeam = DP58H3X45C;
+						LastSwiftMigration = 1010;
 						TestTargetID = 6D065F691BF38C94005DB78D;
 					};
 				};
@@ -498,21 +495,6 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		457912652AC3810F8B9511D3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		493065B6277FE7F780CD86BC /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -561,21 +543,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF41BE84F19D360017C121D0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-iosTests/Pods-kirtis-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C7080AFF0122DE147B33BBE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -589,36 +556,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D46A254D9419F03CB378679C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
-			showEnvVarsInLog = 0;
-		};
-		E3D16D942825BFC8C821CC68 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -834,8 +771,7 @@
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -861,8 +797,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sistemium.kirtis;
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -873,13 +808,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DP58H3X45C;
 				INFOPLIST_FILE = "kirtis-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kirtis-ios.app/kirtis-ios";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kirtis.app/Kirtis";
 			};
 			name = Debug;
 		};
@@ -889,13 +824,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DP58H3X45C;
 				INFOPLIST_FILE = "kirtis-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kirtis-ios.app/kirtis-ios";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kirtis.app/Kirtis";
 			};
 			name = Release;
 		};

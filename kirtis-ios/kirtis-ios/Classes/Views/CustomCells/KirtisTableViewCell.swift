@@ -65,7 +65,7 @@ class KirtisTableViewCell: UITableViewCell {
             label.textAlignment = NSTextAlignment.center
             label.translatesAutoresizingMaskIntoConstraints = false
             let text = label.text! as NSString
-            let size = text.size(withAttributes: [NSAttributedStringKey.font:label.font])
+            let size = text.size(withAttributes: [NSAttributedString.Key.font:label.font])
             width += Int(size.width) + space + padding
             if width > Int(UIScreen.main.bounds.width) && usedStates > 0 {
                 return (usedStates,width - (Int(size.width) + space + padding))
@@ -77,7 +77,7 @@ class KirtisTableViewCell: UITableViewCell {
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .height , relatedBy: .equal, toItem:
                 previousElement, attribute: .height, multiplier: 1, constant: 0 ))
             view.addConstraint(NSLayoutConstraint(item: label, attribute: .width , relatedBy: .equal, toItem:
-                nil , attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
+                nil , attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: size.width + CGFloat(padding)))
             usedStates += 1
         }
         return (usedStates,width)

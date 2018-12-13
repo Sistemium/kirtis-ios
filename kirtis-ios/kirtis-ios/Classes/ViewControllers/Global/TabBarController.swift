@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
     
     override func awakeFromNib(){
         super.awakeFromNib()
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
         viewControllers?[0].tabBarItem.title = "ACCENTUATION".localized
         viewControllers?[1].tabBarItem.title = "SETTINGS".localized
         viewControllers?[2].tabBarItem.title = "DICTIONARY".localized
