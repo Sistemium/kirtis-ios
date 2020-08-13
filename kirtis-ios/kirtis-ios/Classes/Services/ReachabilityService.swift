@@ -13,7 +13,7 @@ class ReachabilityService{
     static let sharedInstance = ReachabilityService()
     fileprivate init() {
         reachability = Reachability()
-        _ = try? reachability?.startNotifier();
+        _ = ((try? reachability?.startNotifier()) as ()??);
         NotificationCenter.default.addObserver(self, selector: #selector(ReachabilityService.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: reachability)
     }
     var reachability :Reachability?

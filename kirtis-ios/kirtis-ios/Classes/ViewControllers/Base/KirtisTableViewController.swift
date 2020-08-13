@@ -181,7 +181,7 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
     
     fileprivate func appendHistory(_ text:String){
         var recent = recentSearches
-        if let dublicate = recentSearches.index(of: text){
+        if let dublicate = recentSearches.firstIndex(of: text){
             recent.remove(at: dublicate)
         }
         if recent.count == 100 {

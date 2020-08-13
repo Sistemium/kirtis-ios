@@ -406,19 +406,19 @@
 					6D065F691BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = DP58H3X45C;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1140;
 					};
 					6D065F7D1BF38C94005DB78D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = DP58H3X45C;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1140;
 						TestTargetID = 6D065F691BF38C94005DB78D;
 					};
 				};
 			};
 			buildConfigurationList = 6D065F651BF38C94005DB78D /* Build configuration list for PBXProject "kirtis-ios" */;
 			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -757,6 +757,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DP58H3X45C;
 				ENABLE_BITCODE = YES;
@@ -771,7 +772,7 @@
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -784,6 +785,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DP58H3X45C;
 				ENABLE_BITCODE = YES;
@@ -797,7 +799,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sistemium.kirtis;
 				PRODUCT_NAME = Kirtis;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -813,7 +815,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kirtis.app/Kirtis";
 			};
 			name = Debug;
@@ -829,7 +831,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sistemium.kirtis-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kirtis.app/Kirtis";
 			};
 			name = Release;
