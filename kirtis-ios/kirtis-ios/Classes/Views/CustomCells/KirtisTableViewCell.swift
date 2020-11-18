@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Crashlytics
 
 class KirtisTableViewCell: UITableViewCell {
 
@@ -107,15 +106,6 @@ class KirtisTableViewCell: UITableViewCell {
                             title = t.group!.name! + ": " + t.longForm!
                             break
                         }
-                    }
-                    if title == "Unknown"{
-                        Answers.logContentView(withName: "Unknown word atribute",
-                            contentType: "Events",
-                            contentId: "unk-atrib",
-                            customAttributes: [
-                                "unknownText": title
-                            ]
-                        )
                     }
                     let item = UIMenuItem(title: title, action: #selector(KirtisTableViewCell.doNothing))
                     menu.menuItems = [item]

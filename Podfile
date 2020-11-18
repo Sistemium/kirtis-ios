@@ -1,13 +1,13 @@
 project 'kirtis-ios/kirtis-ios.xcodeproj'
 
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 target 'kirtis-ios' do
 
 use_frameworks!
 pod 'ReachabilitySwift', '~> 4.3'
-pod 'Fabric', '~> 1.9'
-pod 'Crashlytics', '~> 3.12'
+pod 'Firebase/Analytics', '~> 7.1.0'
+pod 'Firebase/Crashlytics', '~> 7.1.0'
 
 end
 

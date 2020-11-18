@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Crashlytics
 
 import Reachability
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -54,13 +53,6 @@ class KirtisTableViewController: UITableViewController, UITextFieldDelegate, Aut
                 var text = textToSearch?.lowercased().replacingOccurrences(of: " ", with: "")
                 if text?.count > 0{
                     text = text!.capitalized
-                    Answers.logContentView(withName: "Accentuation",
-                                                   contentType: "Events",
-                                                   contentId: "acc-search",
-                                                   customAttributes: [
-                                                    "Text": text!
-                        ]
-                    )
                 }
                 textToSearch = text
                 tableView.tableHeaderView?.layoutSubviews()
