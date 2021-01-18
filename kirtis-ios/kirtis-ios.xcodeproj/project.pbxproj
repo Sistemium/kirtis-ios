@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		358C314D2565792000B49BE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 358C314C2565792000B49BE0 /* GoogleService-Info.plist */; };
+		3505AAA825B5E1060016352D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3505AAA725B5E1060016352D /* GoogleService-Info.plist */; };
 		51734FB201B6CC909B0D7096 /* Pods_kirtis_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28DC57F0533E8A4FE08884D /* Pods_kirtis_ios.framework */; };
 		6D065F6E1BF38C94005DB78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D065F6D1BF38C94005DB78D /* AppDelegate.swift */; };
 		6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D065F741BF38C94005DB78D /* Assets.xcassets */; };
@@ -59,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		229FF70B00A677D646B11F70 /* Pods-kirtis-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kirtis-ios.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios.release.xcconfig"; sourceTree = "<group>"; };
-		358C314C2565792000B49BE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3505AAA725B5E1060016352D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B751D18979B1710DFC93291 /* libPods-kirtis-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kirtis-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6A1BF38C94005DB78D /* Kirtis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kirtis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D065F6D1BF38C94005DB78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		6DB31E441C9B0A5600AE15BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				358C314C2565792000B49BE0 /* GoogleService-Info.plist */,
+				3505AAA725B5E1060016352D /* GoogleService-Info.plist */,
 				6D065F6D1BF38C94005DB78D /* AppDelegate.swift */,
 				6D065F741BF38C94005DB78D /* Assets.xcassets */,
 				6D065F791BF38C94005DB78D /* Info.plist */,
@@ -364,9 +364,9 @@
 				6D065F661BF38C94005DB78D /* Sources */,
 				6D065F671BF38C94005DB78D /* Frameworks */,
 				6D065F681BF38C94005DB78D /* Resources */,
-				6D1B3C4E1BFDC41500EE65A5 /* Run Script */,
 				1A3D3ED27A6CD53B4E2E0EFE /* [CP] Embed Pods Frameworks */,
 				493065B6277FE7F780CD86BC /* Embed Pods Frameworks */,
+				35D7539625B5E61300300A91 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -446,7 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DB31E531C9B182F00AE15BE /* Main.storyboard in Resources */,
-				358C314D2565792000B49BE0 /* GoogleService-Info.plist in Resources */,
+				3505AAA825B5E1060016352D /* GoogleService-Info.plist in Resources */,
 				6D4617C31C04C3B70072C6DE /* Localizable.strings in Resources */,
 				6D065F751BF38C94005DB78D /* Assets.xcassets in Resources */,
 			);
@@ -515,6 +515,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kirtis-ios/Pods-kirtis-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		35D7539625B5E61300300A91 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		493065B6277FE7F780CD86BC /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,20 +547,6 @@
 			shellScript = "
 ";
 			showEnvVarsInLog = 0;
-		};
-		6D1B3C4E1BFDC41500EE65A5 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n";
 		};
 		8CA543A06A960FE35057CD63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
